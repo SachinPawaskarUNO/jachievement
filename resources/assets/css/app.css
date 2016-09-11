@@ -1,0 +1,47 @@
+body {
+  font-family: 'Lato'; }
+
+.fa-btn {
+  margin-right: 6px; }
+
+div.panel-heading {
+  text-align: center;
+  padding: 5px; }
+
+div.panel-body h4 {
+  text-align: center; }
+
+div.panel-heading > div.pull-left {
+  position: relative; }
+
+div.panel-heading > div.pull-right {
+  position: relative; }
+
+div.panel-heading h2 {
+  text-align: center !important;
+  margin: 5px; }
+
+div.panel-heading h3 {
+  text-align: center !important;
+  margin: 5px; }
+
+div.panel-heading h4 {
+  text-align: center !important;
+  margin: 5px; }
+
+div.pull-right button {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+  padding-right: 5px; }
+
+div.pull-left button {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+  padding-right: 5px; }
+
+div.se-highlights {
+  padding-top: 10px; }
+
+/*# sourceMappingURL=app.css.map */
