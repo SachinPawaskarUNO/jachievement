@@ -20,10 +20,9 @@
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            @if (Auth::check())
                     <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/home') }}">Home</a></li>
+                <!--<li><a href="{{ url('/home') }}">Home</a></li>-->
                 {{-- Menu for Users with Administration Role Only --}}
                 @role('admin')
                 <li class="dropdown">
@@ -38,7 +37,16 @@
                 </li>
                 @endrole
             </ul>
-            @endif
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "About Us" }} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/TODOprograms') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
+                            <li><a href="{{ url('/TODOfaqs') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
+                            <li><a href="{{ url('/TODOgoingon') }}"><i class="fa fa-btn fa-fw fa-calendar-minus-o"></i>What's going on?</a></li>
+                    </ul>
+                </li>
+            </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
@@ -49,12 +57,10 @@
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "Account" }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-fw fa-sign-out"></i>Logout</a></li>
                             <li><a href="{{ url('/change-password') }}"><i class="fa fa-btn fa-fw fa-lock"></i>Change Password</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ url('/help') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>Help</a></li>
                         </ul>
                     </li>
                 @endif
