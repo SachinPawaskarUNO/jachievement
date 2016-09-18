@@ -12,10 +12,12 @@
 
             <!-- Branding Image -->
             {{--<a class="navbar-brand" href="{{ url('/') }}">Laravel</a>--}}
-            <div class="pull-left"><img src="images/UNO-icon-color.png" style="height: 48px;"></div>
+            <div class="pull-left"><img src="images/ja_nav_logo.jpg" style="height: 48px;"></div>
+            <!--
             <a class="navbar-brand" href="{{ url('/') }}">
                 Basic Starter App
             </a>
+            -->
 
         </div>
 
@@ -41,11 +43,23 @@
                 <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "About Us" }} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/TODOprograms') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
-                            <li><a href="{{ url('/TODOfaqs') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
-                            <li><a href="{{ url('/TODOgoingon') }}"><i class="fa fa-btn fa-fw fa-calendar-minus-o"></i>What's going on?</a></li>
+                            <li><a href="{{ url('/programs') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
+                            <li><a href="{{ url('/faq') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
+                            <li><a href="{{ url('/goingon') }}"><i class="fa fa-btn fa-fw fa-calendar-minus-o"></i>What's going on?</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "Get Involved" }} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/educator') }}"><i class="fa fa-btn fa-fw fa-university"></i>Educator</a></li>
+                            <li><a href="{{ url('/volunteer') }}"><i class="fa fa-btn fa-fw fa-hand-paper-o"></i>Volunteer</a></li>
+                            <li><a href="{{ url('/contribute') }}"><i class="fa fa-btn fa-fw fa-money"></i>Contribute</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url('/contact') }}">Contact Us</a></li>
+                <li><a href="{{ url('/contribute') }}">Donate Now</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
