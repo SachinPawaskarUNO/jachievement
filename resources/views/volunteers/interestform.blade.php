@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -7,11 +8,13 @@
                     <div class="panel-heading"> {{ $heading }}</div>
 
                     <div class="panel-body">
-                        {!! Form::open(['action' => 'VolunteersController@store', 'method' => 'post', 'class' => 'form-horizontal']) !!}
+
+                        {!! Form::open(['url' => '/volunteers/interestform', 'class' => 'form-horizontal']) !!}
                         @include('common.errors')
                         @include('common.flash')
 
-                        @include ('volunteers.partial', ['CRUD_Action' => 'Create'])
+                        @include ('volunteers.partial')
+
                         {!! Form::close() !!}
                     </div>
                 </div>
