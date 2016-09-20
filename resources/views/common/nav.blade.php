@@ -11,13 +11,7 @@
             </button>
 
             <!-- Branding Image -->
-            {{--<a class="navbar-brand" href="{{ url('/') }}">Laravel</a>--}}
-            <div class="pull-left"><img src="images/ja_nav_logo.jpg" style="height: 48px;"></div>
-            <!--
-            <a class="navbar-brand" href="{{ url('/') }}">
-                Basic Starter App
-            </a>
-            -->
+            <div class="pull-left"><a href="{{ url('/') }}"><img src="images/ja_nav_logo.jpg" style="height: 48px;"></a></div>
 
         </div>
 

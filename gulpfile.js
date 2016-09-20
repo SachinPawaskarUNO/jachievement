@@ -20,7 +20,9 @@ elixir(function(mix) {
         //'libs/select2.min.css',
         //'libs/jquery.dataTables.min.css',
         //'libs/bipartite.css',
-        'app.css'
+        'app.css',
+        'ja-national.css',
+        'misc.css'
     ]);
 
     mix.scripts([

@@ -1,0 +1,81 @@
+#P_1 {
+    bottom: 0px;
+    box-sizing: border-box;
+    color: rgb(102, 102, 102);
+    height: 236px;
+    left: 0px;
+    position: relative;
+    right: 0px;
+    text-align: center;
+    text-size-adjust: 100%;
+    top: 0px;
+    width: 720px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 360px 118px;
+    transform-origin: 360px 118px;
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal normal normal 20px / 34.3px "Open Sans", sans-serif;
+    margin: 0px;
+    outline: rgb(102, 102, 102) none 0px;
+    padding: 50px 0px;
+}/*#P_1*/
+
+#P_1:after {
+    bottom: 0px;
+    box-sizing: border-box;
+    color: rgb(102, 102, 102);
+    content: '""';
+    display: block;
+    height: 2px;
+    left: 360px;
+    position: absolute;
+    right: 300px;
+    text-align: center;
+    text-size-adjust: 100%;
+    top: 234px;
+    width: 120px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 60px 1px;
+    transform-origin: 60px 1px;
+    background: rgba(0, 0, 0, 0.0980392) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal normal normal 20px / 34.3px "Open Sans", sans-serif;
+    margin: 0px 0px 0px -60px;
+    outline: rgb(102, 102, 102) none 0px;
+}/*#P_1:after*/
+
+#P_1:before {
+    bottom: 234px;
+    box-sizing: border-box;
+    color: rgb(102, 102, 102);
+    content: '""';
+    display: block;
+    height: 2px;
+    left: 360px;
+    position: absolute;
+    right: 300px;
+    text-align: center;
+    text-size-adjust: 100%;
+    top: 0px;
+    width: 120px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 60px 1px;
+    transform-origin: 60px 1px;
+    background: rgba(0, 0, 0, 0.0980392) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal normal normal 20px / 34.3px "Open Sans", sans-serif;
+    margin: 0px 0px 0px -60px;
+    outline: rgb(102, 102, 102) none 0px;
+}/*#P_1:before*/
+
+#STRONG_2, #STRONG_3 {
+    box-sizing: border-box;
+    color: rgb(102, 102, 102);
+    text-align: center;
+    text-size-adjust: 100%;
+    column-rule-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal bold normal 20px / 34.3px "Open Sans", sans-serif;
+    outline: rgb(102, 102, 102) none 0px;
+}/*#STRONG_2, #STRONG_3*/
+
