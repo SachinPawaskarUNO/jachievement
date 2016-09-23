@@ -21,7 +21,6 @@ elixir(function(mix) {
         //'libs/jquery.dataTables.min.css',
         //'libs/bipartite.css',
         'app.css',
-        'ja-national.css',
         'misc.css'
     ]);
 
