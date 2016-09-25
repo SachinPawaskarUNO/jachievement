@@ -68,11 +68,11 @@ Route::post('/volunteers/interestform', 'InterestformsController@store');
 Route::get('/campaign/teammember', 'CampaignController@teammember');
 Route::get('/campaign/team', 'CampaignController@team');
 
-<<<<<<< HEAD
+
 Route::get('/donation/donate', 'DonateController@donate');
-=======
+
 Route::get('/campaign/team/join', 'CampaignController@jointeam');
->>>>>>> aafda061c78f7c64e5be404cdc57fdbd0705854f
+
 
 Route::get('/educators/introduction', 'EducatorsController@index');
 
