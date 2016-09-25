@@ -61,6 +61,9 @@ Route::get('laravel-version', function()
 
 Route::get('/volunteers/interestform', 'InterestformsController@interestform');
 Route::post('/volunteers/interestform', 'InterestformsController@store');
+/*Route::post('/volunteers/interestform', function(){
+    return 'inside save';
+});*/
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');
