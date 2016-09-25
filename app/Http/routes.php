@@ -67,6 +67,8 @@ Route::post('/volunteers/interestform', 'InterestformsController@store');
 
 Route::get('/campaign/teammember', 'CampaignController@teammember');
 
+Route::get('/campaign/jointeam', 'CampaignController@jointeam');
+
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');
 //    Route::get('comments/{student}/addforstudent', ['as' => 'comments.addforstudent',
