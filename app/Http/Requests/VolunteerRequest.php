@@ -13,7 +13,7 @@ class VolunteerRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,21 +24,17 @@ class VolunteerRequest extends Request
     public function rules()
     {
         $rules = [
-            'name' => 'required|max:255',
-            'company' => 'max:255',
-            'email' => 'required|email|max:255|',
-            'address' => 'max:255',
-            'city' => 'max:255',
-            'state' => 'max:255',
-            'zip' => 'number|max:5',
-            'work_phone' => 'phone',
-            'home_phone' => 'phone',
-            'home_address' => 'max:255',
-            'home_city' => 'max:255',
-            'home_state' => 'max:255',
-            'home_zip' => 'max:255',
-            'email' => 'required|max:255|email'
-//            'role_id' => 'required',
+            'firstName' => 'required|max:255',
+            'lastName' => 'required|max:255',
+            'companyName' => 'max:255',
+            'companyAddress' => 'max:255',
+            'companyCity' => 'max:255',
+            'homeAddress' => 'max:255',
+            'homeCity' => 'max:255',
+            'homeZip' => 'max:255',
+            'email' => 'required|max:255|email',
+            'schoolPreference' => 'max:255',
+//
         ];
 
         return $rules;
