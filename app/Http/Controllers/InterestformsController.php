@@ -20,4 +20,10 @@ class InterestformsController extends Controller
     public function store() {
 
     }
+
+    public function index() {
+        Log::info('InterestformsController');
+        $this->viewData['heading'] = "Volunteer Introduction Page";
+        return view('volunteers.introduction', $this->viewData);
+    }
 }
