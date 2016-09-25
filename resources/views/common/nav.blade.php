@@ -45,8 +45,8 @@
                 <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "Get Involved" }} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/educator') }}"><i class="fa fa-btn fa-fw fa-university"></i>Educator</a></li>
-                            <li><a href="{{ url('/volunteer') }}"><i class="fa fa-btn fa-fw fa-hand-paper-o"></i>Volunteer</a></li>
+                            <li><a href="{{ url('/educators/introduction') }}"><i class="fa fa-btn fa-fw fa-university"></i>Educator</a></li>
+                            <li><a href="{{ url('/volunteers/introduction') }}"><i class="fa fa-btn fa-fw fa-hand-paper-o"></i>Volunteer</a></li>
                             <li><a href="{{ url('/contribute') }}"><i class="fa fa-btn fa-fw fa-money"></i>Contribute</a></li>
                     </ul>
                 </li>
