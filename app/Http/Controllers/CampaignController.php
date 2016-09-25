@@ -16,4 +16,11 @@ class CampaignController extends Controller
       return view('campaign.teammember', $this->viewData);
       
   }
+    public function team()
+    {
+        Log::info('CampaignController.team: ');
+        $this->viewData['heading'] = "Welcome to My Fundraising Page";
+        return view('campaign.team', $this->viewData);
+
+    }
 }
