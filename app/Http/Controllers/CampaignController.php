@@ -17,6 +17,7 @@ class CampaignController extends Controller
       
   }
 
+
   public function jointeam()
   {
       Log::info('CampaignController.jointeam: ');
@@ -24,4 +25,13 @@ class CampaignController extends Controller
       return view('campaign.jointeam', $this->viewData);
       
   }
+
+    public function team()
+    {
+        Log::info('CampaignController.team: ');
+        $this->viewData['heading'] = "Welcome to My Fundraising Page";
+        return view('campaign.team', $this->viewData);
+
+    }
+
 }

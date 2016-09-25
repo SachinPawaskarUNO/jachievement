@@ -66,6 +66,7 @@ Route::post('/volunteers/interestform', 'InterestformsController@store');
 });*/
 
 Route::get('/campaign/teammember', 'CampaignController@teammember');
+Route::get('/campaign/team', 'CampaignController@team');
 
 Route::get('/campaign/jointeam', 'CampaignController@jointeam');
 
