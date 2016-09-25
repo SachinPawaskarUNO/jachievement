@@ -70,6 +70,9 @@
         .dropdown-submenu.pull-left>.dropdown-menu { left: -100%; margin-left: 10px;
             -webkit-border-radius: 6px 0 6px 6px; -moz-border-radius: 6px 0 6px 6px; border-radius: 6px 0 6px 6px; }
 
+        /*a:link{color:green;}*/
+        /*div.panel-body{background-color:rgb(245,245,245);}*/
+        /*ul{list-style: }*/
     </style>
 
     <!-- Scripts -->
