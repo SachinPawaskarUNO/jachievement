@@ -9,13 +9,14 @@
 
                     <div class="panel-body">
 
-                        {!! Form::open(['url' => '/volunteers/interestform', 'class' => 'form-horizontal']) !!}
+                        {!! Form::open(['url' => '/volunteers/interestform', 'class' => 'form-horizontal', 'method' => 'POST']) !!}
                         @include('common.errors')
                         @include('common.flash')
 
                         @include ('volunteers.partial')
 
                         {!! Form::close() !!}
+
                     </div>
                 </div>
             </div>

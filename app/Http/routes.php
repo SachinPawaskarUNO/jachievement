@@ -61,7 +61,23 @@ Route::get('laravel-version', function()
 
 Route::get('/volunteers/interestform', 'InterestformsController@interestform');
 Route::post('/volunteers/interestform', 'InterestformsController@store');
+<<<<<<< HEAD
 Route::get('/volunteers/introduction', 'InterestformsController@index');
+=======
+/*Route::post('/volunteers/interestform', function(){
+    return 'inside save';
+});*/
+
+Route::get('/campaign/teammember', 'CampaignController@teammember');
+Route::get('/campaign/team', 'CampaignController@team');
+
+<<<<<<< HEAD
+Route::get('/donation/donate', 'DonateController@donate');
+=======
+Route::get('/campaign/team/join', 'CampaignController@jointeam');
+>>>>>>> aafda061c78f7c64e5be404cdc57fdbd0705854f
+
+>>>>>>> 11c1550306685a9a3c01c1b6490279a9bce80ab0
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');
 //    Route::get('comments/{student}/addforstudent', ['as' => 'comments.addforstudent',
