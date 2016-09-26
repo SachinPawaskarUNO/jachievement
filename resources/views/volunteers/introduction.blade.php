@@ -40,7 +40,7 @@
                 <p style="font-size: 16px"> For a time investment of only an hour each day in one week, you may be the difference between a young person in your community just making ends meet or getting a more fulfilling career and life.</p>
                 <br>
                 <h4 class="text-left" style="color: green"><span class="glyphicon glyphicon-star-empty"></span> JA PROVIDES AN AMAZING AND REWARDING VOLUNTEER EXPERIENCE</h4>
-                <p style="font-size: 16px"> JA gives you an opportunity through your employer's volunteer program (or on your own) to impact young people in your community in a positive way with simple to implement programs on financial literacy, work readiness, and entrepreneurship. This will empower young people to own their economic success.</p>
+                <p style="font-size: 16px margin-bottom:20px"> JA gives you an opportunity through your employer's volunteer program (or on your own) to impact young people in your community in a positive way with simple to implement programs on financial literacy, work readiness, and entrepreneurship. This will empower young people to own their economic success.</p>
                 </div>
             </div>
         </div>
