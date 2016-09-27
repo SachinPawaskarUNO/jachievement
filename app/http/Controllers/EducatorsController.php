@@ -47,5 +47,13 @@ class EducatorsController extends Controller
         Log::info('EducatorController.store - End: '.$object->id);
         return redirect()->back();
 
+
+    public function getInvolved()
+    {
+
+        Log::info('EducatorsController: ');
+        $this->viewData['heading'] = "Bring Junior Acheivement to Your Classroom!";
+        return view('get_Involved.getinvolved', $this->viewData);
+
     }
 }

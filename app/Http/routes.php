@@ -38,6 +38,8 @@ Route::get('laravel-version', function()
     return 'Your Laravel Version is '.$laravel::VERSION;
 });
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -59,10 +61,20 @@ Route::get('laravel-version', function()
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
 
+Route::get('/volunteers/introduction', 'InterestformsController@index');
 Route::get('/volunteers/interestform', 'InterestformsController@interestform');
 Route::post('/volunteers/interestform', 'InterestformsController@store');
+Route::get('/educators/introduction', 'EducatorsController@index');
 Route::get('/educators/interestform', 'EducatorsController@interestform');
 Route::post('/educators/interestform', 'EducatorsController@store');
+
+Route::get('/campaign/teammember', 'CampaignController@teammember');
+Route::get('/campaign/team', 'CampaignController@team');
+
+Route::get('/donation/donate', 'DonateController@donate');
+Route::get('/campaign/team/join', 'CampaignController@jointeam');
+
+Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');

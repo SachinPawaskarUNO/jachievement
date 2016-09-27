@@ -71,4 +71,10 @@ class InterestformsController extends Controller
         return redirect()->back();
 
     }
+
+    public function index() {
+        Log::info('InterestformsController');
+        $this->viewData['heading'] = "Volunteer Introduction Page";
+        return view('volunteers.introduction', $this->viewData);
+    }
 }
