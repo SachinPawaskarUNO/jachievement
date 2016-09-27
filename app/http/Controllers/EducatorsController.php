@@ -30,12 +30,13 @@ class EducatorsController extends Controller
         return view('educators.interestform', $this->viewData);
     }
 
-    public function store(EducatorRequest $request) {
+    public function store(EducatorRequest $request)
+    {
         Log::info('EducatorsController.store - Start: ');
         $input = $request->all();
         $user = Auth::user();
 
-        if($user) {
+        if ($user) {
             $input['user_id'] = $user;
         }
         $this->populateCreateFields($input);
@@ -44,8 +45,9 @@ class EducatorsController extends Controller
         $object = EducatorInterestForm::create($input);
 
         Session::flash('flash_message', 'Thank you for registering as Educator! We will contact you soon');
-        Log::info('EducatorController.store - End: '.$object->id);
+        Log::info('EducatorController.store - End: ' . $object->id);
         return redirect()->back();
+    }
 
 
     public function getInvolved()
