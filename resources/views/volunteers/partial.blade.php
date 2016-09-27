@@ -6,6 +6,23 @@
         </div>
     </div>
 
+    @foreach($grade1 as $grade_first)
+        <div id="checkboxes" class="form-group">
+            <div class="col-md-10">
+
+                {!! Form::checkbox($grade_first->grade_id, $grade_first->grade_id, false) !!}
+                {!! Form::label($grade_first->grade_name) !!}
+                <span><i>{{$grade_first->grade_description}}</i></span>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="col-md-6">
+                    {!! Form::checkbox($grade_first->program_id, $grade_first->program_id , false) !!}
+                    {!! Form::label($grade_first->program_name) !!}
+                </div>
+            </div>
+        </div>
+    @endforeach
+
     <div class="form-group">
         <div class="col-md-10">
             {!! Form::checkbox('elementarySchoolProgram', 1, false) !!}

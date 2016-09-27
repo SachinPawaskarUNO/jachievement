@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class VolunteerRequest extends Request
+class EducatorRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,9 +34,11 @@ class VolunteerRequest extends Request
             'grade' => 'max:255',
             'homeZip' => 'max:255',
             'email' => 'required|max:255|email',
-            'grade' => 'max:255',
-            'homeZip' => 'max:255',
-//
+            'programTheme' => 'max:255',
+            'planningTime' => 'max:255',
+            'commentsRequests' => 'max:255',
+            'noOfClasses' => 'max:255',
+            'noOfStudentsPerClass' => 'max:255',
         ];
 
         return $rules;
