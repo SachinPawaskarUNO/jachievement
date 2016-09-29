@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - homestead@localhost" uuid="8be8c570-6f06-4431-a203-f5fd90b12d07">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+    <data-source name="PostgreSQL - basic@localhost" uuid="fd6398b3-f9dd-4dbf-93fa-291afe5b9338">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+  </component>
+</project>
