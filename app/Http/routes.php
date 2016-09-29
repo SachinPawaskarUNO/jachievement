@@ -62,6 +62,9 @@ Route::get('laravel-version', function()
 Route::get('/volunteers/interestform', 'InterestformsController@interestform');
 Route::post('/volunteers/interestform', 'InterestformsController@store');
 
+Route::get('/contactus', 'ContactController@contactus');
+//Route::post('/contactus', 'ContactController@store');
+
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');
 //    Route::get('comments/{student}/addforstudent', ['as' => 'comments.addforstudent',
