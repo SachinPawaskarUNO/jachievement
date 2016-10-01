@@ -6,172 +6,61 @@
         </div>
     </div>
 
-    @foreach($grade1 as $grade_first)
-        <div id="checkboxes" class="form-group">
-            <div class="col-md-10">
 
-                {!! Form::checkbox($grade_first->grade_id, $grade_first->grade_id, false) !!}
-                {!! Form::label($grade_first->grade_name) !!}
-                <span><i>{{$grade_first->grade_description}}</i></span>
-            </div>
-            <div style="margin-left:20px;">
-                <div class="col-md-6">
-                    {!! Form::checkbox($grade_first->program_id, $grade_first->program_id , false) !!}
-                    {!! Form::label($grade_first->program_name) !!}
-                </div>
-            </div>
-        </div>
-    @endforeach
 
-    <div class="form-group">
+    <div class="contain form-group">
         <div class="col-md-10">
-            {!! Form::checkbox('elementarySchoolProgram', 1, false) !!}
+            {!! Form::checkbox('elementarySchoolProgram', 1, false, ['id'=> 'elementarySchoolProgram', 'class' => 'check1']) !!}
             {!! Form::label('Elementary School Program') !!}
             <span> <i>(Five sessions, 30-50 minutes each)</i></span>
         </div>
+        @foreach($grade_program1 as $program1)
         <div style="margin-left:20px;">
             <div>
                 <div class="col-md-6">
-                    {!! Form::checkbox('kindergarten', 1, false) !!}
-                    {!! Form::label('Kindergarten') !!}
-
-                </div>
-                <div class="col-md-6">
-
-                    {!! Form::checkbox('first', 1, false) !!}
-                    {!! Form::label('1st') !!}
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('second', 1, false) !!}
-                    {!! Form::label('2nd') !!}
-
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('third', 1, false) !!}
-                    {!! Form::label('3rd') !!}
-
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('fourth', 1, false) !!}
-                    {!! Form::label('4th') !!}
-
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('fifth', 1, false) !!}
-                    {!! Form::label('5th') !!}
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('sixth', 1, false) !!}
-                    {!! Form::label('6th') !!}
+                    {!! Form::checkbox('program_choice_'.$program1->program_id, $program1->program_id, false,['class' => 'check1']) !!}
+                    {!! Form::label($program1->program_name) !!}
                 </div>
             </div>
         </div>
-
-    </div>
-    <div class="form-group">
-
-        <div class="col-md-10">
-            {!! Form::checkbox('middleGradesProgram', 1, false) !!}
-            {!! Form::label('Middle Grades Program ') !!}
-            <span><i> (Six to eight sessions, 45 minutes each)</i></span>
-        </div>
-        <div style="margin-left:20px;">
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('economics', 1, false) !!}
-                    {!! Form::label('JA Economics for Success') !!}
-
-                </div>
-                <div class="col-md-6">
-
-                    {!! Form::checkbox('globalMarketplace', 1, false) !!}
-                    {!! Form::label('JA Global Marketplace') !!}
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('myBusiness', 1, false) !!}
-                    {!! Form::label('JA its My Business') !!}
-
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('myFuture', 1, false) !!}
-                    {!! Form::label('JA Its My Future') !!}
-
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 
+    <div class="form-group">
+        <div class="col-md-10">
+            {!! Form::checkbox('middleGradesProgram', 1, false, ['id'=> 'middleGradesProgram', 'class' => 'check2' ]) !!}
+            {!! Form::label('Middle Grade Program') !!}
+            <span> <i>(SIx to eight sessions, 45 minutes each)</i></span>
+        </div>
+        @foreach($grade_program2 as $program2)
+            <div style="margin-left:20px;">
+                <div>
+                    <div class="col-md-6">
+                        {!! Form::checkbox('program_choice_'.$program2->program_id, $program2->program_id, false, ['class' => 'check2']) !!}
+                        {!! Form::label($program2->program_name) !!}
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 
     <div class="form-group">
-
         <div class="col-md-10">
-            {!! Form::checkbox('highSchoolProgram', 1, false) !!}
-            {!! Form::label('High School Program ') !!}
+            {!! Form::checkbox('highSchoolProgram', 1, false, ['id'=> 'highSchoolProgram', 'class' => 'check3' ]) !!}
+            {!! Form::label('High School Program') !!}
             <span> <i>(Seven sessions, 45 minutes each)</i></span>
         </div>
-
-        <div style="margin-left:20px;">
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('entrepreneurial', 1, false) !!}
-                    {!! Form::label('JA Be Entrepreneurial') !!}
-                </div>
-                <div class="col-md-6">
-
-                    {!! Form::checkbox('careerSuccess', 1, false) !!}
-                    {!! Form::label('JA Career Success') !!}
+        @foreach($grade_program3 as $program3)
+            <div style="margin-left:20px;">
+                <div>
+                    <div class="col-md-6">
+                        {!! Form::checkbox('program_choice_'.$program3->program_id, $program3->program_id, false, ['class' => 'check3']) !!}
+                        {!! Form::label($program3->program_name) !!}
+                    </div>
                 </div>
             </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('companyProgram', 1, false) !!}
-                    {!! Form::label('JA Company Program') !!}
-
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('economicsSemester', 1, false) !!}
-                    {!! Form::label('JA Economics (semester program)') !!}
-
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('careerSuccess', 1, false) !!}
-                    {!! Form::label('JA Career Success') !!}
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('exploringEconomics', 1, false) !!}
-                    {!! Form::label('JA Exploring Economics') !!}
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('economicsSemester', 1, false) !!}
-                    {!! Form::label('JA Economics (semester program)') !!}
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('exploringEconomics', 1, false) !!}
-                    {!! Form::label('JA Exploring Economics') !!}
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('personalFinance', 1, false) !!}
-                    {!! Form::label('JA Personal Finance') !!}
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('titan', 1, false) !!}
-                    {!! Form::label('JA Titan') !!}
-                </div>
-            </div>
+        @endforeach
     </div>
-</div>
 
 <div class="form-group">
     <div class="col-md-12">
@@ -347,6 +236,17 @@
         @endif
     </div>
 </div>
+
+<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+    {!! Form::label('modeOfContact', 'Preferred mode of contact:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::select('modeOfContact', $modeOfContact, null,  ['class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('modeOfContact'))
+            <span class="help-block"><strong>{{ $errors->first('modeOfContact') }}</strong></span>
+        @endif
+    </div>
+</div>
+
 
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
