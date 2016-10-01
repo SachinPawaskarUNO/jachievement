@@ -27,7 +27,7 @@ class ProgramsTableSeeder extends Seeder
         Program::create([  'name' => 'Kindergarten','implementation' => 'test','enterpreneurship' => 'tesr',
             'financial_rediness' => 'test', 'work_rediness'=> 'test','image'=>'test','program_url' => 'test',
             'description' => 'test','grade_id' => '1', 'created_by' => 'System',
-            'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()])
+            'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
         Program::create([  'name' => '1st','implementation' => 'test','enterpreneurship' => 'tesr',
             'financial_rediness' => 'test', 'work_rediness'=> 'test','image'=>'test','program_url' => 'test',
             'description' => 'test', 'grade_id' => '1' ,
