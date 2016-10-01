@@ -35,8 +35,7 @@ class InterestformsController extends Controller
             ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
                 ->where('grade_id','=','3')
                 ->get();
-        $modeOfContact = array('email' => 'Email', 'phone' => 'Phone'
-                        );
+        $modeOfContact = array('none' => 'None', 'email' => 'Email', 'phone' => 'Phone');
         return view('volunteers.interestform', compact('grade_program1', 'grade_program2', 'grade_program3', 'modeOfContact'));
     }
 
