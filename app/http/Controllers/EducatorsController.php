@@ -55,7 +55,7 @@ class EducatorsController extends Controller
 
         Log::info('EducatorsController: ');
         $this->viewData['heading'] = "Bring Junior Acheivement to Your Classroom!";
-        return view('get_Involved.getinvolved', $this->viewData);
+        return view('getInvolved.getinvolved', $this->viewData);
 
     }
 }
