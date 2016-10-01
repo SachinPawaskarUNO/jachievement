@@ -14,9 +14,12 @@ class GradesTableSeeder extends Seeder
     public function run()
     {
         DB::table('grades')->delete();
-        Grade::create([  'name' => 'Elementary School Program']);
-        Grade::create([  'name' => 'Middle School Program']);
-        Grade::create([  'name' => 'High School Program']);
+        Grade::create([  'name' => 'Elementary School Program', 'description' => 'Elementary School',
+            'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+        Grade::create([  'name' => 'Middle School Program', 'description' => 'Middle School'
+        'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+        Grade::create([  'name' => 'High School Program', 'description' => 'High School'
+        'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
 
 
     }
