@@ -11,7 +11,7 @@
             </button>
 
             <!-- Branding Image -->
-            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="images/ja_nav_logo.jpg" style="height: 48px;"></a></div>
+            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('/images/ja_nav_logo.jpg') }}" style="height: 48px;"></a></div>
 
         </div>
 
