@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Requests\VolunteerRequest;
 use Log;
 use App\VolunteerInterestForm;
+use App\VolunteerProgram;
 use Session;
 use Auth;
 use DB;
@@ -18,39 +19,30 @@ class InterestformsController extends Controller
     {
 
         Log::info('InterestformsController.form: ');
-       // $this->viewData['heading'] = "Volunteer Interest Form";
+       //$this->viewData['heading'] = "Volunteer Interest Form";
 
-        $gradeProgramList = DB::table('programs')
-                            ->select(DB::raw('programs.id as program_id, programs.name as program_name,
-                             grades.id as grade_id, grades.name as grade_name, grades.description as grade_description'))
-                            ->join('grades','programs.grade_id','=', 'grades.id')
-                            ->get();
 
-        $grade1= DB::table('programs')
-                    ->select(DB::raw('programs.id as program_id, programs.name as program_name,
-                             grades.id as grade_id, grades.name as grade_name, grades.description as grade_description'))
-                    ->join('grades','programs.grade_id','=', 'grades.id')
+        $grade_program1= DB::table('programs')
+                    ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
                      ->where('grade_id','=','1')
                     ->get();
-        $grade2= DB::table('programs')
-            ->select(DB::raw('programs.id as program_id, programs.name as program_name,
-                             grades.id as grade_id, grades.name as grade_name, grades.description as grade_description'))
-            ->join('grades','programs.grade_id','=', 'grades.id')
-            ->where('grade_id','=','2')
-            ->get();
-        $grade3= DB::table('programs')
-            ->select(DB::raw('programs.id as program_id, programs.name as program_name,
-                             grades.id as grade_id, grades.name as grade_name, grades.description as grade_description'))
-            ->join('grades','programs.grade_id','=', 'grades.id')
-            ->where('grade_id','=','3')
-            ->get();
 
-        return view('volunteers.interestform', compact('grade1','grade2','grade3'));
+        $grade_program2= DB::table('programs')
+            ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+                ->where('grade_id','=','2')
+                ->get();
+        $grade_program3= DB::table('programs')
+            ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+                ->where('grade_id','=','3')
+                ->get();
+        $modeOfContact = array('none' => 'None', 'email' => 'Email', 'phone' => 'Phone');
+        return view('volunteers.interestform', compact('grade_program1', 'grade_program2', 'grade_program3', 'modeOfContact'));
     }
 
     public function store(VolunteerRequest $request) {
         Log::info('InterestformsController.store - Start: ');
         $input = $request->all();
+
         $user = Auth::user();
 
         if($user) {
@@ -58,13 +50,57 @@ class InterestformsController extends Controller
         }
         $this->populateCreateFields($input);
 
-
         $object = VolunteerInterestForm::create($input);
 
-        //$gradeProgramChoice = new GradeProgramChoice();
-        //$lastInsertedForm = VolunteerInterestForm::all()->last();
-        //$gradeProgramChoice->interest_form_id = $lastInsertedForm->id;
-        //$gradeProgramChoice->save();
+        $grade_programs1= DB::table('programs')
+            ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+            ->where('grade_id','=','1')
+            ->get();
+
+
+        foreach($grade_programs1 as $program1) {
+            $volunteerProgram = new VolunteerProgram();
+            $lastInsertedForm = VolunteerInterestForm::all()->last();
+            $volunteerProgram->volunteerform_id = $lastInsertedForm->id;
+            $choice = "program_choice_" .$program1->program_id;
+            $volunteerProgram->program_id = $request->$choice * 1;
+            if(($volunteerProgram->program_id)!=0) {
+                $volunteerProgram->save();
+            }
+        }
+
+
+        $grade_programs2= DB::table('programs')
+            ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+            ->where('grade_id','=','2')
+            ->get();
+
+        foreach($grade_programs2 as $program2) {
+            $volunteerProgram = new VolunteerProgram();
+            $lastInsertedForm = VolunteerInterestForm::all()->last();
+            $volunteerProgram->volunteerform_id = $lastInsertedForm->id;
+            $choice = "program_choice_" .$program2->program_id;
+            $volunteerProgram->program_id = $request->$choice * 1;
+            if(($volunteerProgram->program_id)!=0) {
+                $volunteerProgram->save();
+            }
+        }
+
+        $grade_programs3= DB::table('programs')
+            ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+            ->where('grade_id','=','3')
+            ->get();
+
+        foreach($grade_programs3 as $program3) {
+            $volunteerProgram = new VolunteerProgram();
+            $lastInsertedForm = VolunteerInterestForm::all()->last();
+            $volunteerProgram->volunteerform_id = $lastInsertedForm->id;
+            $choice = "program_choice_" .$program3->program_id;
+            $volunteerProgram->program_id = $request->$choice * 1;
+            if(($volunteerProgram->program_id)!=0) {
+                $volunteerProgram->save();
+            }
+        }
 
         Session::flash('flash_message', 'Thank you for registering as Volunteer! We will contact you soon');
         Log::info('InterestformsController.store - End: '.$object->id);

@@ -6,172 +6,61 @@
         </div>
     </div>
 
-    @foreach($grade1 as $grade_first)
-        <div id="checkboxes" class="form-group">
-            <div class="col-md-10">
 
-                {!! Form::checkbox($grade_first->grade_id, $grade_first->grade_id, false) !!}
-                {!! Form::label($grade_first->grade_name) !!}
-                <span><i>{{$grade_first->grade_description}}</i></span>
-            </div>
-            <div style="margin-left:20px;">
-                <div class="col-md-6">
-                    {!! Form::checkbox($grade_first->program_id, $grade_first->program_id , false) !!}
-                    {!! Form::label($grade_first->program_name) !!}
-                </div>
-            </div>
-        </div>
-    @endforeach
 
-    <div class="form-group">
+    <div class="contain form-group">
         <div class="col-md-10">
-            {!! Form::checkbox('elementarySchoolProgram', 1, false) !!}
+            {!! Form::checkbox('elementarySchoolProgram', 1, false, ['id'=> 'elementarySchoolProgram', 'class' => 'check1']) !!}
             {!! Form::label('Elementary School Program') !!}
             <span> <i>(Five sessions, 30-50 minutes each)</i></span>
         </div>
+        @foreach($grade_program1 as $program1)
         <div style="margin-left:20px;">
             <div>
                 <div class="col-md-6">
-                    {!! Form::checkbox('kindergarten', 1, false) !!}
-                    {!! Form::label('Kindergarten') !!}
-
-                </div>
-                <div class="col-md-6">
-
-                    {!! Form::checkbox('first', 1, false) !!}
-                    {!! Form::label('1st') !!}
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('second', 1, false) !!}
-                    {!! Form::label('2nd') !!}
-
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('third', 1, false) !!}
-                    {!! Form::label('3rd') !!}
-
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('fourth', 1, false) !!}
-                    {!! Form::label('4th') !!}
-
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('fifth', 1, false) !!}
-                    {!! Form::label('5th') !!}
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('sixth', 1, false) !!}
-                    {!! Form::label('6th') !!}
+                    {!! Form::checkbox('program_choice_'.$program1->program_id, $program1->program_id, false,['id' =>'program_choice_'.$program1->program_id,'class' => 'check1']) !!}
+                    {!! Form::label($program1->program_name) !!}
                 </div>
             </div>
         </div>
-
-    </div>
-    <div class="form-group">
-
-        <div class="col-md-10">
-            {!! Form::checkbox('middleGradesProgram', 1, false) !!}
-            {!! Form::label('Middle Grades Program ') !!}
-            <span><i> (Six to eight sessions, 45 minutes each)</i></span>
-        </div>
-        <div style="margin-left:20px;">
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('economics', 1, false) !!}
-                    {!! Form::label('JA Economics for Success') !!}
-
-                </div>
-                <div class="col-md-6">
-
-                    {!! Form::checkbox('globalMarketplace', 1, false) !!}
-                    {!! Form::label('JA Global Marketplace') !!}
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('myBusiness', 1, false) !!}
-                    {!! Form::label('JA its My Business') !!}
-
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('myFuture', 1, false) !!}
-                    {!! Form::label('JA Its My Future') !!}
-
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 
+    <div class="form-group">
+        <div class="col-md-10">
+            {!! Form::checkbox('middleGradesProgram', 1, false, ['id'=> 'middleGradesProgram', 'class' => 'check2' ]) !!}
+            {!! Form::label('Middle Grade Program') !!}
+            <span> <i>(SIx to eight sessions, 45 minutes each)</i></span>
+        </div>
+        @foreach($grade_program2 as $program2)
+            <div style="margin-left:20px;">
+                <div>
+                    <div class="col-md-6">
+                        {!! Form::checkbox('program_choice_'.$program2->program_id, $program2->program_id, false, ['id' => 'program_choice_'.$program2->program_id,'class' => 'check2']) !!}
+                        {!! Form::label($program2->program_name) !!}
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 
     <div class="form-group">
-
         <div class="col-md-10">
-            {!! Form::checkbox('highSchoolProgram', 1, false) !!}
-            {!! Form::label('High School Program ') !!}
+            {!! Form::checkbox('highSchoolProgram', 1, false, ['id'=> 'highSchoolProgram', 'class' => 'check3' ]) !!}
+            {!! Form::label('High School Program') !!}
             <span> <i>(Seven sessions, 45 minutes each)</i></span>
         </div>
-
-        <div style="margin-left:20px;">
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('entrepreneurial', 1, false) !!}
-                    {!! Form::label('JA Be Entrepreneurial') !!}
-                </div>
-                <div class="col-md-6">
-
-                    {!! Form::checkbox('careerSuccess', 1, false) !!}
-                    {!! Form::label('JA Career Success') !!}
+        @foreach($grade_program3 as $program3)
+            <div style="margin-left:20px;">
+                <div>
+                    <div class="col-md-6">
+                        {!! Form::checkbox('program_choice_'.$program3->program_id, $program3->program_id, false, ['id'=>'program_choice_'.$program3->program_id,'class' => 'check3']) !!}
+                        {!! Form::label($program3->program_name) !!}
+                    </div>
                 </div>
             </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('companyProgram', 1, false) !!}
-                    {!! Form::label('JA Company Program') !!}
-
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('economicsSemester', 1, false) !!}
-                    {!! Form::label('JA Economics (semester program)') !!}
-
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('careerSuccess', 1, false) !!}
-                    {!! Form::label('JA Career Success') !!}
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('exploringEconomics', 1, false) !!}
-                    {!! Form::label('JA Exploring Economics') !!}
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('economicsSemester', 1, false) !!}
-                    {!! Form::label('JA Economics (semester program)') !!}
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('exploringEconomics', 1, false) !!}
-                    {!! Form::label('JA Exploring Economics') !!}
-                </div>
-            </div>
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('personalFinance', 1, false) !!}
-                    {!! Form::label('JA Personal Finance') !!}
-                </div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('titan', 1, false) !!}
-                    {!! Form::label('JA Titan') !!}
-                </div>
-            </div>
+        @endforeach
     </div>
-</div>
 
 <div class="form-group">
     <div class="col-md-12">
@@ -183,7 +72,7 @@
 <div class="form-group{{ $errors->has('schoolPreference') ? ' has-error' : '' }}">
     {!! Form::label('schoolPreference', 'If possible, I would like to teach at the following school', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('schoolPreference', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('schoolPreference', null, ['id'=>'schoolPreference','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('schoolPreference'))
             <span class="help-block">
                 <strong>{{ $errors->first('schoolPreference') }}</strong>
@@ -194,7 +83,7 @@
 <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
     {!! Form::label('firstName', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('firstName', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('firstName', null, ['id'=>'firstName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('firstName'))
             <span class="help-block">
                 <strong>{{ $errors->first('firstName') }}</strong>
@@ -204,9 +93,9 @@
 </div>
 
 <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
-    {!! Form::label('lastName', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('lastName', 'Last Name:', ['id'=>'lastName','class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('lastName', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('lastName', null, ['id'=>'lastName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('lastName'))
             <span class="help-block">
                 <strong>{{ $errors->first('lastName') }}</strong>
@@ -216,9 +105,9 @@
 </div>
 
 <div class="form-group{{ $errors->has('companyName') ? ' has-error' : '' }}">
-    {!! Form::label('companyName', 'Company:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('companyName', 'Company:', ['id'=> 'companyName','class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('companyName', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('companyName', null, ['id'=> 'companyName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('companyName'))
             <span class="help-block">
                 <strong>{{ $errors->first('companyName') }}</strong>
@@ -230,7 +119,7 @@
 <div class="form-group{{ $errors->has('companyAddress') ? ' has-error' : '' }}">
     {!! Form::label('companyAddress', 'Address:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('companyAddress', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('companyAddress', null, ['id'=> 'companyAddress','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('companyAddress'))
             <span class="help-block"><strong>{{ $errors->first('companyAddress') }}</strong></span>
         @endif
@@ -240,9 +129,9 @@
 <div class="form-group{{ $errors->has('companyCity') ? ' has-error' : '' }}">
     {!! Form::label('companyCity', 'City:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('comapnyCity', null, ['class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('comapnyCity'))
-            <span class="help-block"><strong>{{ $errors->first('comapnyCity') }}</strong></span>
+        {!! Form::text('companyCity', null, ['id'=> 'companyCity','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('companyCity'))
+            <span class="help-block"><strong>{{ $errors->first('companyCity') }}</strong></span>
         @endif
     </div>
 </div>
@@ -250,7 +139,7 @@
 <div class="form-group{{ $errors->has('companyState') ? ' has-error' : '' }}">
     {!! Form::label('companyState', 'State:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('companyState', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('companyState', null, ['id'=>'companyState','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('companyState'))
             <span class="help-block"><strong>{{ $errors->first('companyState') }}</strong></span>
         @endif
@@ -266,7 +155,7 @@
 <div class="form-group{{ $errors->has('companyZip') ? ' has-error' : '' }}">
     {!! Form::label('companyZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('companyZip', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('companyZip', null, ['id'=>'companyZip','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('companyZip'))
             <span class="help-block"><strong>{{ $errors->first('companyZip') }}</strong></span>
         @endif
@@ -276,7 +165,7 @@
 <div class="form-group{{ $errors->has('companyPhone') ? ' has-error' : '' }}">
     {!! Form::label('companyPhone', 'Cell/Work Phone', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('companyPhone', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('companyPhone', null, ['id'=>'companyPhone','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('companyPhone'))
             <span class="help-block"><strong>{{ $errors->first('comapnyPhone') }}</strong></span>
         @endif
@@ -286,7 +175,7 @@
 <div class="form-group{{ $errors->has('homePhone') ? ' has-error' : '' }}">
     {!! Form::label('homePhone', 'Home Phone', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('home_phone', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('home_phone', null, ['id'=>'home_phone','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('home_phone'))
             <span class="help-block"><strong>{{ $errors->first('home_phone') }}</strong></span>
         @endif
@@ -296,7 +185,7 @@
 <div class="form-group{{ $errors->has('homeAddress') ? ' has-error' : '' }}">
     {!! Form::label('homeAddress', 'Home Address', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('homeAddress', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('homeAddress', null, ['id'=>'homeAddress','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('homeAddress'))
             <span class="help-block"><strong>{{ $errors->first('homeAddress') }}</strong></span>
         @endif
@@ -306,7 +195,7 @@
 <div class="form-group{{ $errors->has('homeCity') ? ' has-error' : '' }}">
     {!! Form::label('homeCity', 'City:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('homeCity', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('homeCity', null, ['id'=>'homeCity','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('homeCity'))
             <span class="help-block"><strong>{{ $errors->first('homeCity') }}</strong></span>
         @endif
@@ -321,7 +210,7 @@
 <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
     {!! Form::label('homeState', 'State:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('homeState', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('homeState', null, ['id'=> 'homeState','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('homeState'))
             <span class="help-block"><strong>{{ $errors->first('homeState') }}</strong></span>
         @endif
@@ -331,7 +220,7 @@
 <div class="form-group{{ $errors->has('homeZip') ? ' has-error' : '' }}">
     {!! Form::label('homeZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('homeZip', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('homeZip', null, ['id'=> 'homeZip','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('homezip'))
             <span class="help-block"><strong>{{ $errors->first('homeZip') }}</strong></span>
         @endif
@@ -341,15 +230,26 @@
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
     {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('email', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('email', null, ['id'=> 'email',class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('email'))
             <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
         @endif
     </div>
 </div>
 
+<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+    {!! Form::label('modeOfContact', 'Preferred mode of contact:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::select('modeOfContact', $modeOfContact, null,  ['id'=> 'modeOfContact','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('modeOfContact'))
+            <span class="help-block"><strong>{{ $errors->first('modeOfContact') }}</strong></span>
+        @endif
+    </div>
+</div>
+
+
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
-        {!! Form::button('<i class="fa fa-btn fa-save"></i>Save', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
+        {!! Form::button('<i class="fa fa-btn fa-save"></i>Save', ['type' => 'submit','id'=>'save', 'class' => 'btn btn-primary']) !!}
     </div>
 </div>
