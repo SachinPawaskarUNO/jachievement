@@ -23,7 +23,8 @@ class VolunteerInterestForm extends Model
      */
     protected $fillable = [
         'schoolPreference', 'firstName', 'lastName', 'companyName', 'companyAddress', 'companyCity', 'companyState',
-        'companyZip', 'companyPhone', 'homePhone', 'homeAddress', 'homeCity', 'homeState', 'homeZip', 'email', 'user_id'
+        'companyZip', 'companyPhone', 'homePhone', 'homeAddress', 'homeCity', 'homeState', 'homeZip', 'email', 'user_id',
+        'modeOfContact'
     ];
 
 }

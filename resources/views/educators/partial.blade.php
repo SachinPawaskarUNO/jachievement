@@ -107,7 +107,7 @@
 <div class="form-group{{ $errors->has('programTheme') ? ' has-error' : '' }}">
     {!! Form::label('programTheme', 'Program Theme:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-      <span><b>Our</b></span>  {!! Form::text('programTheme', null, ['class' => 'col-md-6 form-control']) !!}
+      {!! Form::text('programTheme', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('programTheme'))
             <span class="help-block"><strong>{{ $errors->first('programTheme') }}</strong></span>
         @endif
@@ -125,7 +125,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('noOfStudentsPerClass') ? ' has-error' : '' }}">
-    {!! Form::label('noOfStudentsPerClass', 'Email:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('noOfStudentsPerClass', 'No of Students/Class:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('noOfStudentsPerClass', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('noOfStudentsPerClass'))
