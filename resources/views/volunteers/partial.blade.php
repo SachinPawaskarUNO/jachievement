@@ -18,7 +18,7 @@
         <div style="margin-left:20px;">
             <div>
                 <div class="col-md-6">
-                    {!! Form::checkbox('program_choice_'.$program1->program_id, $program1->program_id, false,['class' => 'check1']) !!}
+                    {!! Form::checkbox('program_choice_'.$program1->program_id, $program1->program_id, false,['id' =>'program_choice_'.$program1->program_id,'class' => 'check1']) !!}
                     {!! Form::label($program1->program_name) !!}
                 </div>
             </div>
@@ -36,7 +36,7 @@
             <div style="margin-left:20px;">
                 <div>
                     <div class="col-md-6">
-                        {!! Form::checkbox('program_choice_'.$program2->program_id, $program2->program_id, false, ['class' => 'check2']) !!}
+                        {!! Form::checkbox('program_choice_'.$program2->program_id, $program2->program_id, false, ['id' => 'program_choice_'.$program2->program_id,'class' => 'check2']) !!}
                         {!! Form::label($program2->program_name) !!}
                     </div>
                 </div>
@@ -54,7 +54,7 @@
             <div style="margin-left:20px;">
                 <div>
                     <div class="col-md-6">
-                        {!! Form::checkbox('program_choice_'.$program3->program_id, $program3->program_id, false, ['class' => 'check3']) !!}
+                        {!! Form::checkbox('program_choice_'.$program3->program_id, $program3->program_id, false, ['id'=>'program_choice_'.$program3->program_id,'class' => 'check3']) !!}
                         {!! Form::label($program3->program_name) !!}
                     </div>
                 </div>
@@ -72,7 +72,7 @@
 <div class="form-group{{ $errors->has('schoolPreference') ? ' has-error' : '' }}">
     {!! Form::label('schoolPreference', 'If possible, I would like to teach at the following school', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('schoolPreference', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('schoolPreference', null, ['id'=>'schoolPreference','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('schoolPreference'))
             <span class="help-block">
                 <strong>{{ $errors->first('schoolPreference') }}</strong>
@@ -83,7 +83,7 @@
 <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
     {!! Form::label('firstName', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('firstName', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('firstName', null, ['id'=>'firstName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('firstName'))
             <span class="help-block">
                 <strong>{{ $errors->first('firstName') }}</strong>
@@ -93,9 +93,9 @@
 </div>
 
 <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
-    {!! Form::label('lastName', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('lastName', 'Last Name:', ['id'=>'lastName','class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('lastName', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('lastName', null, ['id'=>'lastName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('lastName'))
             <span class="help-block">
                 <strong>{{ $errors->first('lastName') }}</strong>
@@ -105,9 +105,9 @@
 </div>
 
 <div class="form-group{{ $errors->has('companyName') ? ' has-error' : '' }}">
-    {!! Form::label('companyName', 'Company:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('companyName', 'Company:', ['id'=> 'companyName','class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('companyName', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('companyName', null, ['id'=> 'companyName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('companyName'))
             <span class="help-block">
                 <strong>{{ $errors->first('companyName') }}</strong>
@@ -119,7 +119,7 @@
 <div class="form-group{{ $errors->has('companyAddress') ? ' has-error' : '' }}">
     {!! Form::label('companyAddress', 'Address:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('companyAddress', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('companyAddress', null, ['id'=> 'companyAddress','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('companyAddress'))
             <span class="help-block"><strong>{{ $errors->first('companyAddress') }}</strong></span>
         @endif
@@ -129,9 +129,9 @@
 <div class="form-group{{ $errors->has('companyCity') ? ' has-error' : '' }}">
     {!! Form::label('companyCity', 'City:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('comapnyCity', null, ['class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('comapnyCity'))
-            <span class="help-block"><strong>{{ $errors->first('comapnyCity') }}</strong></span>
+        {!! Form::text('companyCity', null, ['id'=> 'companyCity','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('companyCity'))
+            <span class="help-block"><strong>{{ $errors->first('companyCity') }}</strong></span>
         @endif
     </div>
 </div>
@@ -139,7 +139,7 @@
 <div class="form-group{{ $errors->has('companyState') ? ' has-error' : '' }}">
     {!! Form::label('companyState', 'State:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('companyState', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('companyState', null, ['id'=>'companyState','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('companyState'))
             <span class="help-block"><strong>{{ $errors->first('companyState') }}</strong></span>
         @endif
@@ -155,7 +155,7 @@
 <div class="form-group{{ $errors->has('companyZip') ? ' has-error' : '' }}">
     {!! Form::label('companyZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('companyZip', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('companyZip', null, ['id'=>'companyZip','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('companyZip'))
             <span class="help-block"><strong>{{ $errors->first('companyZip') }}</strong></span>
         @endif
@@ -165,7 +165,7 @@
 <div class="form-group{{ $errors->has('companyPhone') ? ' has-error' : '' }}">
     {!! Form::label('companyPhone', 'Cell/Work Phone', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('companyPhone', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('companyPhone', null, ['id'=>'companyPhone','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('companyPhone'))
             <span class="help-block"><strong>{{ $errors->first('comapnyPhone') }}</strong></span>
         @endif
@@ -175,7 +175,7 @@
 <div class="form-group{{ $errors->has('homePhone') ? ' has-error' : '' }}">
     {!! Form::label('homePhone', 'Home Phone', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('home_phone', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('home_phone', null, ['id'=>'home_phone','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('home_phone'))
             <span class="help-block"><strong>{{ $errors->first('home_phone') }}</strong></span>
         @endif
@@ -185,7 +185,7 @@
 <div class="form-group{{ $errors->has('homeAddress') ? ' has-error' : '' }}">
     {!! Form::label('homeAddress', 'Home Address', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('homeAddress', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('homeAddress', null, ['id'=>'homeAddress','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('homeAddress'))
             <span class="help-block"><strong>{{ $errors->first('homeAddress') }}</strong></span>
         @endif
@@ -195,7 +195,7 @@
 <div class="form-group{{ $errors->has('homeCity') ? ' has-error' : '' }}">
     {!! Form::label('homeCity', 'City:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('homeCity', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('homeCity', null, ['id'=>'homeCity','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('homeCity'))
             <span class="help-block"><strong>{{ $errors->first('homeCity') }}</strong></span>
         @endif
@@ -210,7 +210,7 @@
 <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
     {!! Form::label('homeState', 'State:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('homeState', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('homeState', null, ['id'=> 'homeState','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('homeState'))
             <span class="help-block"><strong>{{ $errors->first('homeState') }}</strong></span>
         @endif
@@ -220,7 +220,7 @@
 <div class="form-group{{ $errors->has('homeZip') ? ' has-error' : '' }}">
     {!! Form::label('homeZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('homeZip', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('homeZip', null, ['id'=> 'homeZip','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('homezip'))
             <span class="help-block"><strong>{{ $errors->first('homeZip') }}</strong></span>
         @endif
@@ -230,7 +230,7 @@
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
     {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('email', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('email', null, ['id'=> 'email',class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('email'))
             <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
         @endif
@@ -240,7 +240,7 @@
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
     {!! Form::label('modeOfContact', 'Preferred mode of contact:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::select('modeOfContact', $modeOfContact, null,  ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::select('modeOfContact', $modeOfContact, null,  ['id'=> 'modeOfContact','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('modeOfContact'))
             <span class="help-block"><strong>{{ $errors->first('modeOfContact') }}</strong></span>
         @endif
@@ -250,6 +250,6 @@
 
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
-        {!! Form::button('<i class="fa fa-btn fa-save"></i>Save', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
+        {!! Form::button('<i class="fa fa-btn fa-save"></i>Save', ['type' => 'submit','id'=>'save', 'class' => 'btn btn-primary']) !!}
     </div>
 </div>
