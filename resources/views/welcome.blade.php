@@ -14,6 +14,8 @@
                 </div>
             </div>
         </div>
+    <div>
+    <div class="container">
 
 <div class="row">
   <div class="col-md-4 box"></div>
@@ -21,7 +23,9 @@
     <a href="{{ url('/get_Involved/getinvolved') }}" id="A_1">Get Involved</a></div>
   <div class="col-md-4 box"></div>
 </div>
+</div>
 
+<div class="container">
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-6">
@@ -31,7 +35,9 @@
                     "560"></iframe></div>
   <div class="col-md-3"></div>
 </div>
+</div>
 
+<div class="container">
 <div class="row" id="WHY_1">
   <div class="col-sm-6">
                     <h2 id="H2_6">
@@ -58,18 +64,17 @@
   </div>
   <div class="col-sm-6"><img alt='' id="IMG_1" src="images/two-cols-classroom.jpg"></div>
 </div>
-<!--
-<div class="row">
-  <div class="col-md-4 box"></div>
-  <div class="col-md-4 box">
-    <a href="https://www.youtube.com/channel/UCgMAAachC-yG8p8r06S938A"><i class="fa fa-youtube fa-6"></i></a>
-  </div>
-  <div class="col-md-4 box">
-    <a href="https://www.facebook.com/JuniorAchievementUSA/"><i class="fa fa-facebook fa-6"></a>
-  </div>
-  <div class="col-md-4 box"></div>
 </div>
--->
+<div class="container">
+<div class="row">
+  <div class="col-md-4 box">
+    <a href="{{ url('/') }}"><img src="images/ja_nav_logo.jpg" style="height: 48px;"></a>
+  </div>
+  <div class="col-md-4 box">
+    <a href="{{ url('/') }}"><img src="images/ja_nav_logo.jpg" style="height: 48px;"></a>
+  </div>
+</div>
+
 </div>
 
 

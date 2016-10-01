@@ -7,7 +7,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading"> {{ $heading }}</div>
-                Hello
+                DONE WITH SOW
 
             </div>
 
