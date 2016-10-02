@@ -156,11 +156,11 @@
         @endif
     </div>
 </div>
-<div class="form-group{{ $errors->has('cellPhone') ? ' has-error' : '' }}">
-    {!! Form::label('cellPhone', 'Cell Phone:', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group{{ $errors->has('cellphone') ? ' has-error' : '' }}">
+    {!! Form::label('cellphone', 'Cell Phone:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('cellPhone', null, ['id'=> 'cellPhone','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('cellPhone'))
+        {!! Form::text('cellphone', null, ['id'=> 'cellPhone','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('cellphone'))
             <span class="help-block"><strong>{{ $errors->first('cellPhone') }}</strong></span>
         @endif
     </div>
