@@ -32,7 +32,7 @@ class VolunteerRequest extends Request
             'schoolState' => 'max:100|alpha',
             'schoolZip' => 'numeric',
             'companyPhone' => 'numeric',
-            'homePhone' => 'required|numeric',
+            'homePhone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'homeZip' => 'numeric',
             'email' => 'required|max:100|email'
 
