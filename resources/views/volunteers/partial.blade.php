@@ -1,4 +1,6 @@
-
+<div style="margin: 5px;">
+    <span style="color:red;">*</span> fields are mandatory
+</div>
     <div class="form-group">
         <div class=" col-md-12">
             {!! Form::label('Choose your grade or program preference') !!}
@@ -81,6 +83,7 @@
         </div>
     </div>
     <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
+        <span style="color:red;">*</span>
         {!! Form::label('firstName', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
             {!! Form::text('firstName', null, ['id'=> 'firstName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
@@ -93,6 +96,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
+        <span style="color:red;">*</span>
         {!! Form::label('lastName', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
             {!! Form::text('lastName', null, ['id'=> 'lastName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
@@ -117,7 +121,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('companyAddress') ? ' has-error' : '' }}">
-        {!! Form::label('companyAddress', 'Address:', ['class' => 'col-md-4 control-label']) !!}
+        {!! Form::label('companyAddress', 'Comapany Address:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
             {!! Form::text('companyAddress', null, ['id'=> 'companyAddress','class' => 'col-md-6 form-control']) !!}
             @if ($errors->has('companyAddress'))
@@ -163,7 +167,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('companyPhone') ? ' has-error' : '' }}">
-        {!! Form::label('companyPhone', 'Cell/Work Phone:', ['class' => 'col-md-4 control-label']) !!}
+        {!! Form::label('companyPhone', 'Work Phone:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
             {!! Form::text('companyPhone', null, ['id'=> 'companyPhone','class' => 'col-md-6 form-control']) !!}
             @if ($errors->has('companyPhone'))
@@ -183,6 +187,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('homeAddress') ? ' has-error' : '' }}">
+        <span style="color:red;">*</span>
         {!! Form::label('homeAddress', 'Home Address:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
             {!! Form::text('homeAddress', null, ['id'=> 'homeAddress','class' => 'col-md-6 form-control']) !!}
@@ -193,6 +198,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('homeCity') ? ' has-error' : '' }}">
+        <span style="color:red;">*</span>
         {!! Form::label('homeCity', 'City:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
             {!! Form::text('homeCity', null, ['id'=> 'homeCity','class' => 'col-md-6 form-control']) !!}
@@ -208,6 +214,7 @@
             </div>-->
 
     <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+        <span style="color:red;">*</span>
         {!! Form::label('homeState', 'State:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
             {!! Form::text('homeState', null, ['id'=> 'homeState','class' => 'col-md-6 form-control']) !!}
@@ -218,6 +225,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('homeZip') ? ' has-error' : '' }}">
+        <span style="color:red;">*</span>
         {!! Form::label('homeZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
             {!! Form::text('homeZip', null, ['id'=> 'homeZip','class' => 'col-md-6 form-control']) !!}
@@ -228,6 +236,7 @@
     </div>
 
     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+        <span style="color:red;">*</span>
         {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
             {!! Form::text('email', null, ['id'=> 'email','class' => 'col-md-6 form-control','required' => 'required']) !!}
