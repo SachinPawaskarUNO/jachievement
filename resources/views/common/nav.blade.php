@@ -11,7 +11,7 @@
             </button>
 
             <!-- Branding Image -->
-            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('/images/ja_nav_logo.jpg') }}" style="height: 48px;"></a></div>
+            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('images/ja_nav_logo.jpg') }}" style="height: 48px;"></a></div>
 
         </div>
 
@@ -37,9 +37,9 @@
                 <li class="dropdown">
                         <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "About Us" }} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                            <li><a id="ja_nav_programs" href="{{ url('/programs') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
-                            <li><a id="ja_nav_faq" href="{{ url('/faq') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
-                            <li><a id="ja_nav_goingon" href="{{ url('/goingon') }}"><i class="fa fa-btn fa-fw fa-calendar-minus-o"></i>What's going on?</a></li>
+                            <li><a id="ja_nav_programs" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
+                            <li><a id="ja_nav_faq" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
+                            <li><a id="ja_nav_goingon" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-calendar-minus-o"></i>What's going on?</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -47,13 +47,13 @@
                     <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_nav_educator" href="{{ url('/educators/introduction') }}"><i class="fa fa-btn fa-fw fa-university"></i>Educator</a></li>
                             <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/introduction') }}"><i class="fa fa-btn fa-fw fa-hand-paper-o"></i>Volunteer</a></li>
-                            <li><a id="ja_nav_contribute" href="{{ url('/contribute') }}"><i class="fa fa-btn fa-fw fa-money"></i>Contribute</a></li>
+                            <li><a id="ja_nav_contribute" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-money"></i>Contribute</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a id="ja_nav_contact" href="{{ url('/contact') }}">Contact Us</a></li>
-                <li><a id="ja_nav_contribute" href="{{ url('/contribute') }}">Donate Now</a></li>
+                <li><a id="ja_nav_contact" href="{{ url('/') }}">Contact Us</a></li>
+                <li><a id="ja_nav_contribute" href="{{ url('/') }}">Donate Now</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

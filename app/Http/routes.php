@@ -74,7 +74,7 @@ Route::get('/campaign/team', 'CampaignController@team');
 Route::get('/donation/donate', 'DonateController@donate');
 Route::get('/campaign/team/join', 'CampaignController@jointeam');
 
-Route::get('/getInvolved/getinvolved', 'EducatorsController@getInvolved');
+Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');

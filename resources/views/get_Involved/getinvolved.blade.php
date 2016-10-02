@@ -2,7 +2,7 @@
 @section('content')
 
     <style>
-
+/*Styles for  buttons, grid views and the icons */
            .fa_custom {
             color: #9ACD40;
                    }

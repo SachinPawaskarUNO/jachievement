@@ -24,21 +24,21 @@ class EducatorRequest extends Request
     public function rules()
     {
         $rules = [
-            'firstName' => 'required|max:255',
-            'lastName' => 'required|max:255',
-            'schoolName' => 'max:255',
-            'schoolAddress' => 'max:255',
-            'schoolCity' => 'max:255',
-            'schoolState' => 'max:255',
-            'schoolZip' => 'max:255',
-            'grade' => 'max:255',
-            'homeZip' => 'max:255',
-            'email' => 'required|max:255|email',
-            'programTheme' => 'max:255',
-            'planningTime' => 'max:255',
+            'firstName' => 'required|alpha|max:100',
+            'lastName' => 'required|max:100',
+            'schoolName' => 'required|max:100',
+            'schoolAddress' => 'required|max:100',
+            'schoolCity' => 'required|max:50',
+            'schoolState' => 'required|max:50',
+            'schoolZip' => 'required|numeric',
+            'grade' => 'numeric',
+            'homeZip' => 'numeric',
+            'email' => 'required|max:50|email',
+            'programTheme' => 'max:50',
+            'noOfClasses' => 'numeric',
+            'noOfStudentsPerClass' => 'numeric',
             'commentsRequests' => 'max:255',
-            'noOfClasses' => 'max:255',
-            'noOfStudentsPerClass' => 'max:255',
+
         ];
 
         return $rules;

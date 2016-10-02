@@ -21,6 +21,5 @@ class GradesTableSeeder extends Seeder
         Grade::create([  'name' => 'High School Program', 'description' => 'High School',
         'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
 
-
     }
 }
