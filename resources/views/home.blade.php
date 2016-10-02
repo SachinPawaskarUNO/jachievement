@@ -18,7 +18,7 @@
 <div class="row">
   <div class="col-md-4 box"></div>
   <div class="col-md-4 box">
-    <a href="{{ url('/get_Involved/getinvolved') }}" id="A_1">Get Involved</a></div>
+    <a href="{{ url('get_Involved') }}" id="A_1">Get Involved</a></div>
   <div class="col-md-4 box"></div>
 </div>
 

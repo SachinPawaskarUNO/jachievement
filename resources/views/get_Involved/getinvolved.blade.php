@@ -2,7 +2,7 @@
 @section('content')
 
     <style>
-
+/*Styles for  buttons, grid views and the icons */
            .fa_custom {
             color: #9ACD40;
                    }
@@ -83,8 +83,8 @@
                         <p class="program-description"> Not affiliated with a corporation partnered with JA? You can make a donation directly to a JA in your community!</p>
                         <br>
                         <br>
-                        <div class="closing-buttons" align="center">
-                            <a class="btn btn-lg btn-primary" href="/jachievement/public/donation/donate">Learn More</a>
+                        <div class="closing-buttons" align="center" id="button-donate">
+                            <a class="btn btn-lg btn-primary" href="/donation/donate">Learn More</a>
                         </div>
                         <div class="hidden-sm clear"> &nbsp;
                         </div>
@@ -116,8 +116,8 @@
                             <p class="program-description"> Not affiliated with a corporation partnered with JA? You can volunteer directly with a JA in your community!</p>
                             <br>
                             <br>
-                            <div class="closing-buttons" align="center">
-                                <a class="btn btn-lg btn-primary" href="/jachievement/public/volunteers/introduction">Learn More</a>
+                            <div class="closing-buttons" align="center" id="button-volunteer">
+                                <a class="btn btn-lg btn-primary" href="/volunteers/introduction">Learn More</a>
                             </div>
                             <div class="hidden-sm clear"> &nbsp;
                             </div>
@@ -148,8 +148,8 @@
                         <p class="program-description"> Not an Educator? Find out how you can get JA programs into your local community!</p>
                         <br>
                         <br>
-                        <div class="closing-buttons" align="center">
-                            <a class="btn btn-lg btn-primary" href="/jachievement/public/educators/introduction">Learn More</a>
+                        <div class="closing-buttons" align="center" id="button-educator">
+                            <a class="btn btn-lg btn-primary" href="/educators/introduction">Learn More</a>
                         </div>
                         <div class="hidden-sm clear"> &nbsp;</div>
                         <div class="hidden-sm clear"> &nbsp;</div>
