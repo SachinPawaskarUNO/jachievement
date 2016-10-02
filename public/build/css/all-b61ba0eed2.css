@@ -53,20 +53,6 @@ div.se-highlights {
     padding: 50px 0px;
 }/*#P_1*/
 
-#P_2 {
-    text-align: center;
-    text-size-adjust: 100%;
-    font: normal normal normal normal 20px / 34.3px "Open Sans", sans-serif;
-    padding: 50px 0px;
-}/*#P_1*/
-
-.p_foot {
-    text-align: center;
-    text-size-adjust: 100%;
-    font: normal normal normal normal 20px / 34.3px "Open Sans", sans-serif;
-    padding: 50px 0px;
-}/*#P_1*/
-
 #STRONG_2, #STRONG_3 {
     box-sizing: border-box;
     color: rgb(102, 102, 102);
@@ -109,21 +95,12 @@ div.se-highlights {
 #get_involved {
     width: 168.891px;
     margin: 0 auto; 
-    text-align: center;}
-
+    text-align: center;
+}
 
 #WHY_1 {
     background: rgba(140, 198, 62, 0.85098) none repeat scroll 0% 0% / auto padding-box border-box;
-}
-
-#WHY_2 {
-    padding-right: 3px;
-    padding-left: 3px;
-}
-
-#WHY_3 {
-    padding-right: 0px;
-    padding-left: 0px;
+    border: 1px solid rgb(140, 198, 62);
 }
 
 .W_1 {
@@ -139,7 +116,7 @@ div.se-highlights {
     text-size-adjust: 100%;
     vertical-align: middle;
     align: middle;
-    width: 100%;
+    width: 667px;
     column-rule-color: rgb(51, 51, 51);
     perspective-origin: 500px 375px;
     transform-origin: 500px 375px;
