@@ -58,9 +58,59 @@
         <div class="video-embed" style="text-align:center">
           <iframe allowfullscreen="" frameborder="0" height="100" src="https://www.youtube.com/embed/4L49IjKV6po" width="300"></iframe>
         </div>
+<<<<<<< HEAD
+    <div>
+    <div class="container">
+
+<div class="row">
+  <div class="col-md-4 box"></div>
+  <div class="col-md-4 box">
+    <a href="{{ url('get_Involved') }}" id="A_1">Get Involved</a></div>
+  <div class="col-md-4 box"></div>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+    <iframe allowfullscreen=""
+                    frameborder="0" height="315" id="VID_1" name="VID_1" src=
+                    "https://www.youtube.com/embed/4L49IjKV6po" width=
+                    "560"></iframe></div>
+  <div class="col-md-3"></div>
+</div>
+</div>
+
+<div class="container">
+<div class="row" id="WHY_1">
+  <div class="col-sm-6">
+                    <h2 id="H2_6">
+                        Why Junior Achievement?
+                    </h2>
+                    <p id="P_7">
+                        JA helps students realize that the education they are getting today will help them to have a bright future tomorrow. JA's unique, volunteer delivered programs, show them all of the possibilities that lay before them. They realize they can choose different paths; College? A specific trade? Start their own business? Through your participation as an organization or as an individual, these statistics below can begin to change in your community:
+                    </p>
+                    <ul id="UL_8">
+                        <li id="LI_9">
+                            20% of U.S. students will not complete high school on time and earn a diploma.
+                        </li>
+                        <li id="LI_10">
+                            49% of U.S. employers recognize that talent shortages impact their ability to serve clients and customers.
+                        </li>
+                        <li id="LI_11">
+                            36% of Americans say that they have at some point in their lives felt their financial situation was out of control.
+                        </li>
+                        <li id="LI_12">
+                            91% of millennials wish they had greater access to entrepreneurial education programs.
+                        </li>
+                    </ul>
+
+=======
       </div>
     </div>
     <div class="col-md-3 style="></div>
+>>>>>>> 3e6ae776106793f804e6c38cb33bd21c71c27140
   </div>
   <div class="container">
     <br>

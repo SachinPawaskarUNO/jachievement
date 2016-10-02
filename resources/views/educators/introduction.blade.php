@@ -67,7 +67,7 @@
 <div class="col-md-4"  ID="20">
  <h4 class="text-center" ID="21"><strong> Interesting, right? Would you like to have Junior Achievement in your classroom? Just reach out to your local Junior Achievement by signing-up at the below link.</strong></h4>
  <br>
- <h3 class="text-center" ID="22"> <a href="/educators/interestform">Please sign-up here! </a> </h3>
+ <h3 class="text-center" ID="22"> <a href="{{ url('/educators/interestform') }}">Please sign-up here! </a> </h3>
 </div>
 <div class="col-md-4" ID="24"></div>
 </div>
