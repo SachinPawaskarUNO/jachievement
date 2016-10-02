@@ -37,9 +37,14 @@
                 <li class="dropdown">
                         <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "About Us" }} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
+                    <!--
                             <li><a id="ja_nav_programs" href="{{ url('/programs') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
                             <li><a id="ja_nav_faq" href="{{ url('/faq') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
                             <li><a id="ja_nav_goingon" href="{{ url('/goingon') }}"><i class="fa fa-btn fa-fw fa-calendar-minus-o"></i>What's going on?</a></li>
+                    -->
+                    <li><a id="ja_nav_programs"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
+                            <li><a id="ja_nav_faq"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
+                            <li><a id="ja_nav_goingon><i class="fa fa-btn fa-fw fa-calendar-minus-o"></i>What's going on?</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

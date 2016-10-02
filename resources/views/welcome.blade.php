@@ -43,7 +43,7 @@
         </ul>
       </div>
       <div class="col-md-6" id="WHY_3">
-        <img alt='' id="IMG_1" src="images/two-cols-classroom_sm.jpg">
+        <img alt='' id="IMG_1" src="images/two-cols-classroom.jpg">
       </div>
       </div>
   </div>
