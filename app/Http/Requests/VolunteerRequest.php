@@ -24,8 +24,8 @@ class VolunteerRequest extends Request
     public function rules()
     {
         $rules = [
-            'firstName' => 'required|max:100',
-            'lastName' => 'required|max:100',
+            'firstName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
+            'lastName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
             'schoolName' => 'max:100',
             'schoolAddress' => 'max:100',
             'schoolCity' => 'max:100|alpha',
