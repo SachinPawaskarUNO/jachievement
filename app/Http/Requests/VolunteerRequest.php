@@ -24,18 +24,18 @@ class VolunteerRequest extends Request
     public function rules()
     {
         $rules = [
-            'firstName' => 'required|max:255',
-            'lastName' => 'required|max:255',
-            'schoolName' => 'max:255',
-            'schoolAddress' => 'max:255',
-            'schoolCity' => 'max:255',
-            'schoolState' => 'max:255',
-            'schoolZip' => 'max:255',
-            'grade' => 'max:255',
-            'homeZip' => 'max:255',
-            'email' => 'required|max:255|email',
-            'grade' => 'max:255',
-            'homeZip' => 'max:255',
+            'firstName' => 'required|max:100',
+            'lastName' => 'required|max:100',
+            'schoolName' => 'max:100',
+            'schoolAddress' => 'max:100',
+            'schoolCity' => 'max:100|alpha',
+            'schoolState' => 'max:100|alpha',
+            'schoolZip' => 'numeric',
+            'companyPhone' => 'numeric|max:11',
+            'homePhone' => 'required|numeric|max:11',
+            'homeZip' => 'numeric',
+            'email' => 'required|max:100|email'
+
 //
         ];
 

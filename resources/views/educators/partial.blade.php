@@ -47,7 +47,7 @@
 <div class="form-group{{ $errors->has('schoolAddress') ? ' has-error' : '' }}">
     {!! Form::label('schoolAddress', 'School Address:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('schoolAddress', null, ['id'=> 'schoolAddress','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('schoolAddress', null, ['id'=> 'schoolAddress','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('schoolAddress'))
             <span class="help-block"><strong>{{ $errors->first('schoolAddress') }}</strong></span>
         @endif
@@ -57,7 +57,7 @@
 <div class="form-group{{ $errors->has('schoolCity') ? ' has-error' : '' }}">
     {!! Form::label('schoolCity', 'City:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('schoolCity', null, ['id'=> 'schoolCity','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('schoolCity', null, ['id'=> 'schoolCity','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('schoolCity'))
             <span class="help-block"><strong>{{ $errors->first('schoolCity') }}</strong></span>
         @endif
@@ -67,7 +67,7 @@
 <div class="form-group{{ $errors->has('schoolState') ? ' has-error' : '' }}">
     {!! Form::label('companyState', 'State:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('schoolState', null, ['id'=> 'schoolState','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('schoolState', null, ['id'=> 'schoolState','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('schoolState'))
             <span class="help-block"><strong>{{ $errors->first('schoolState') }}</strong></span>
         @endif
@@ -87,7 +87,7 @@
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
     {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('email', null, ['id'=> 'email','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('email', null, ['id'=> 'email','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('email'))
             <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
         @endif
