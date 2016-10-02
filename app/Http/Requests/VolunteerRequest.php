@@ -31,8 +31,8 @@ class VolunteerRequest extends Request
             'schoolCity' => 'max:100|alpha',
             'schoolState' => 'max:100|alpha',
             'schoolZip' => 'numeric',
-            'companyPhone' => 'numeric|max:11',
-            'homePhone' => 'required|numeric|max:11',
+            'companyPhone' => 'numeric',
+            'homePhone' => 'required|numeric',
             'homeZip' => 'numeric',
             'email' => 'required|max:100|email'
 
