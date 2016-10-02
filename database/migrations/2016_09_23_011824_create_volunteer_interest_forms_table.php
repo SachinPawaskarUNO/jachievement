@@ -14,15 +14,15 @@ class CreateVolunteerInterestFormsTable extends Migration
     {
         Schema::create('volunteer_interest_forms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('schoolPreference');
+            $table->string('schoolPreference')->nullable();
             $table->string('firstName');
             $table->string('lastName');
-            $table->string('companyName');
-            $table->string('companyAddress');
-            $table->string('companyCity');
-            $table->string('companyState');
-            $table->string('companyZip');
-            $table->string('companyPhone');
+            $table->string('companyName')->nullable();
+            $table->string('companyAddress')->nullable();
+            $table->string('companyCity')->nullable();
+            $table->string('companyState')->nullable();
+            $table->string('companyZip')->nullable();
+            $table->string('companyPhone')->nullable();
             $table->string('homePhone');
             $table->string('homeAddress');
             $table->string('homeCity');
