@@ -3,7 +3,7 @@
       <br>
       <br>
       <div class="text-center">
-        <a href="https://www.youtube.com/watch?v=4L49IjKV6po"><i class="fa fa-youtube fa-5x" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/channel/UCgMAAachC-yG8p8r06S938A"><i class="fa fa-youtube fa-5x" aria-hidden="true"></i></a>
       <a href="https://www.facebook.com/pages/Junior-Achievement-of-The-Midlands/100873483290685"><i class="fa fa-facebook fa-5x" aria-hidden="true"></i></a>
     </div>
   </div>
