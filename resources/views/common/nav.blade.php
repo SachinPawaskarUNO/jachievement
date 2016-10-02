@@ -47,7 +47,7 @@
                     <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_nav_educator" href="{{ url('/educators/introduction') }}"><i class="fa fa-btn fa-fw fa-university"></i>Educator</a></li>
                             <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/introduction') }}"><i class="fa fa-btn fa-fw fa-hand-paper-o"></i>Volunteer</a></li>
-                            <li><a id="ja_nav_contribute" href="{{ url('/contribute') }}"><i class="fa fa-btn fa-fw fa-money"></i>Contribute</a></li>
+                            <li><a id="ja_nav_contribute" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-money"></i>Contribute</a></li>
                     </ul>
                 </li>
             </ul>
