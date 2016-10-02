@@ -31,11 +31,11 @@ class EducatorRequest extends Request
             'schoolCity' => 'required|max:50',
             'schoolState' => 'required|max:50',
             'schoolZip' => 'required|numeric',
-            'grade' => 'numeric',
+            'grade' => 'alpha_dash',
             'homeZip' => 'numeric',
             'email' => 'required|max:50|email',
             'programTheme' => 'max:50',
-            'noOfClasses' => 'numeric',
+            'noOfClasses' => 'alpha_num',
             'noOfStudentsPerClass' => 'numeric',
             'commentsRequests' => 'max:255',
 
