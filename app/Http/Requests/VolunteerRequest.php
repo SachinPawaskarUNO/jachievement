@@ -31,7 +31,7 @@ class VolunteerRequest extends Request
             'schoolCity' => 'max:100|alpha',
             'schoolState' => 'max:100|alpha',
             'schoolZip' => 'numeric',
-            'companyPhone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
+            'companyPhone' => 'numeric',
             'homePhone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'homeZip' => 'numeric',
             'email' => 'required|max:100|email'
