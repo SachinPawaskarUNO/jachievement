@@ -230,7 +230,7 @@
         <span style="color:red;">*</span>
         <div class="col-md-6">
             {!! Form::text('homeZip', null, ['id'=> 'homeZip','class' => 'col-md-6 form-control']) !!}
-            @if ($errors->has('homezip'))
+            @if ($errors->has('homeZip'))
                 <span class="help-block"><strong>{{ $errors->first('homeZip') }}</strong></span>
             @endif
         </div>
