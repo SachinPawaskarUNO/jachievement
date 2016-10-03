@@ -27,16 +27,16 @@ class EducatorRequest extends Request
             'firstName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
             'lastName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
             'schoolName' => 'required|max:100',
+            'schoolPhone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/'
             'schoolAddress' => 'required|max:100',
             'schoolCity' => 'required|max:50',
             'schoolState' => 'required|max:50',
             'schoolZip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
-            'grade' => 'alpha_dash',
-            'homeZip' => 'numeric',
             'email' => 'required|max:50|email',
-            'programTheme' => 'max:50',
+            'grade' => 'alpha_dash',
+            'programTheme' => 'max:50|alpha_dash',
             'noOfClasses' => 'alpha_num',
-            'noOfStudentsPerClass' => 'numeric',
+            'noOfStudentsPerClass' => 'alpha_num',
             'commentsRequests' => 'max:255',
             'cellphone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/'
         ];

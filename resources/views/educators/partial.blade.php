@@ -3,10 +3,11 @@
 </div>
 
 <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
-    <span style="color:red;">*</span>
+
     {!! Form::label('firstName', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('firstName', null, ['id'=> 'firstName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('firstName', null, ['id'=> 'firstName','class' => 'col-md-6 form-control']) !!}
 
         @if ($errors->has('firstName'))
             <span class="help-block">
@@ -17,10 +18,11 @@
 </div>
 
 <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
-    <span style="color:red;">*</span>
+
     {!! Form::label('lastName', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('lastName', null, ['id'=> 'lastName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('lastName', null, ['id'=> 'lastName','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('lastName'))
             <span class="help-block">
                 <strong>{{ $errors->first('lastName') }}</strong>
@@ -30,10 +32,11 @@
 </div>
 
 <div class="form-group{{ $errors->has('schoolName') ? ' has-error' : '' }}">
-    <span style="color:red;">*</span>
+
     {!! Form::label('schoolName', 'School Name:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolName', null, ['id'=>'schoolName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('schoolName', null, ['id'=>'schoolName','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('schoolName'))
             <span class="help-block">
                 <strong>{{ $errors->first('schoolName') }}</strong>
@@ -43,10 +46,11 @@
 </div>
 
 <div class="form-group{{ $errors->has('schoolPhone') ? ' has-error' : '' }}">
-    <span style="color:red;">*</span>
+
     {!! Form::label('schoolPhone', 'School Phone:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolPhone', null, ['id'=> 'schoolPhone','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('schoolPhone', null, ['id'=> 'schoolPhone','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('schoolPhone'))
             <span class="help-block"><strong>{{ $errors->first('schoolPhone') }}</strong></span>
         @endif
@@ -54,10 +58,11 @@
 </div>
 
 <div class="form-group{{ $errors->has('schoolAddress') ? ' has-error' : '' }}">
-    <span style="color:red;">*</span>
+
     {!! Form::label('schoolAddress', 'School Address:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolAddress', null, ['id'=> 'schoolAddress','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('schoolAddress', null, ['id'=> 'schoolAddress','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('schoolAddress'))
             <span class="help-block"><strong>{{ $errors->first('schoolAddress') }}</strong></span>
         @endif
@@ -65,10 +70,11 @@
 </div>
 
 <div class="form-group{{ $errors->has('schoolCity') ? ' has-error' : '' }}">
-    <span style="color:red;">*</span>
+
     {!! Form::label('schoolCity', 'City:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolCity', null, ['id'=> 'schoolCity','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('schoolCity', null, ['id'=> 'schoolCity','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('schoolCity'))
             <span class="help-block"><strong>{{ $errors->first('schoolCity') }}</strong></span>
         @endif
@@ -76,10 +82,11 @@
 </div>
 
 <div class="form-group{{ $errors->has('schoolState') ? ' has-error' : '' }}">
-    <span style="color:red;">*</span>
+
     {!! Form::label('companyState', 'State:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolState', null, ['id'=> 'schoolState','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('schoolState', null, ['id'=> 'schoolState','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('schoolState'))
             <span class="help-block"><strong>{{ $errors->first('schoolState') }}</strong></span>
         @endif
@@ -87,10 +94,11 @@
 </div>
 
 <div class="form-group{{ $errors->has('schoolZip') ? ' has-error' : '' }}">
-    <span style="color:red;">*</span>
+
     {!! Form::label('companyZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolZip', null, ['id'=> 'schoolZip','class' => 'col-md-6 form-control','required' => 'required']) !!}
+        {!! Form::text('schoolZip', null, ['id'=> 'schoolZip','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('schoolZip'))
             <span class="help-block"><strong>{{ $errors->first('schoolZip') }}</strong></span>
         @endif
@@ -98,10 +106,11 @@
 </div>
 
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-    <span style="color:red;">*</span>
+
     {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('email', null, ['id'=> 'email','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        {!! Form::text('email', null, ['id'=> 'email','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('email'))
             <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
         @endif

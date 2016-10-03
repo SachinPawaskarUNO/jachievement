@@ -24,15 +24,19 @@ class VolunteerRequest extends Request
     public function rules()
     {
         $rules = [
+            'schoolPreference' => 'max:100|alpha_dash',
             'firstName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
             'lastName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
-            'schoolName' => 'max:100',
-            'schoolAddress' => 'max:100',
-            'schoolCity' => 'max:100|alpha',
-            'schoolState' => 'max:100|alpha',
-            'schoolZip' => 'regex:/^\d{5}(?:[-\s]\d{4})?$/',
+            'companyName' => 'max:100',
+            'companyAddress' => 'max:100',
+            'companyCity' => 'max:100|alpha',
+            'companyState' => 'max:100|alpha',
+            'companyZip' => 'regex:/^\d{5}(?:[-\s]\d{4})?$/',
             'companyPhone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'homePhone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
+            'homeAddress' => 'required|max:100',
+            'homeCity' => 'required|max:100|alpha',
+            'companyState' => 'required|max:100|alpha',
             'homeZip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
             'email' => 'required|max:100|email'
 //

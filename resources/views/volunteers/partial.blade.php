@@ -83,10 +83,11 @@
         </div>
     </div>
     <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
-        <span style="color:red;">*</span>
+
         {!! Form::label('firstName', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
+        <span style="color:red;">*</span>
         <div class="col-md-6">
-            {!! Form::text('firstName', null, ['id'=> 'firstName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+            {!! Form::text('firstName', null, ['id'=> 'firstName','class' => 'col-md-6 form-control']) !!}
             @if ($errors->has('firstName'))
                 <span class="help-block">
                     <strong>{{ $errors->first('firstName') }}</strong>
@@ -96,10 +97,11 @@
     </div>
 
     <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
-        <span style="color:red;">*</span>
+
         {!! Form::label('lastName', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
+        <span style="color:red;">*</span>
         <div class="col-md-6">
-            {!! Form::text('lastName', null, ['id'=> 'lastName','class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+            {!! Form::text('lastName', null, ['id'=> 'lastName','class' => 'col-md-6 form-control']) !!}
             @if ($errors->has('lastName'))
                 <span class="help-block">
                     <strong>{{ $errors->first('lastName') }}</strong>
@@ -178,8 +180,9 @@
 
     <div class="form-group{{ $errors->has('homePhone') ? ' has-error' : '' }}">
         {!! Form::label('homePhone', 'Home Phone:', ['class' => 'col-md-4 control-label']) !!}
+        <span style="color:red;">*</span>
         <div class="col-md-6">
-            {!! Form::text('homePhone', null, ['id'=> 'homePhone','class' => 'col-md-6 form-control','required' => 'required']) !!}
+            {!! Form::text('homePhone', null, ['id'=> 'homePhone','class' => 'col-md-6 form-control']) !!}
             @if ($errors->has('homePhone'))
                 <span class="help-block"><strong>{{ $errors->first('homePhone') }}</strong></span>
             @endif
@@ -187,8 +190,8 @@
     </div>
 
     <div class="form-group{{ $errors->has('homeAddress') ? ' has-error' : '' }}">
-        <span style="color:red;">*</span>
         {!! Form::label('homeAddress', 'Home Address:', ['class' => 'col-md-4 control-label']) !!}
+        <span style="color:red;">*</span>
         <div class="col-md-6">
             {!! Form::text('homeAddress', null, ['id'=> 'homeAddress','class' => 'col-md-6 form-control']) !!}
             @if ($errors->has('homeAddress'))
@@ -198,8 +201,9 @@
     </div>
 
     <div class="form-group{{ $errors->has('homeCity') ? ' has-error' : '' }}">
-        <span style="color:red;">*</span>
+
         {!! Form::label('homeCity', 'City:', ['class' => 'col-md-4 control-label']) !!}
+        <span style="color:red;">*</span>
         <div class="col-md-6">
             {!! Form::text('homeCity', null, ['id'=> 'homeCity','class' => 'col-md-6 form-control']) !!}
             @if ($errors->has('homeCity'))
@@ -214,8 +218,9 @@
             </div>-->
 
     <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
-        <span style="color:red;">*</span>
+
         {!! Form::label('homeState', 'State:', ['class' => 'col-md-4 control-label']) !!}
+        <span style="color:red;">*</span>
         <div class="col-md-6">
             {!! Form::text('homeState', null, ['id'=> 'homeState','class' => 'col-md-6 form-control']) !!}
             @if ($errors->has('homeState'))
@@ -225,8 +230,9 @@
     </div>
 
     <div class="form-group{{ $errors->has('homeZip') ? ' has-error' : '' }}">
-        <span style="color:red;">*</span>
+
         {!! Form::label('homeZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
+        <span style="color:red;">*</span>
         <div class="col-md-6">
             {!! Form::text('homeZip', null, ['id'=> 'homeZip','class' => 'col-md-6 form-control']) !!}
             @if ($errors->has('homezip'))
@@ -236,10 +242,11 @@
     </div>
 
     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-        <span style="color:red;">*</span>
+
         {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
+        <span style="color:red;">*</span>
         <div class="col-md-6">
-            {!! Form::text('email', null, ['id'=> 'email','class' => 'col-md-6 form-control','required' => 'required']) !!}
+            {!! Form::text('email', null, ['id'=> 'email','class' => 'col-md-6 form-control']) !!}
             @if ($errors->has('email'))
                 <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
             @endif
