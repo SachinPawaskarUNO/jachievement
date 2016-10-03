@@ -27,7 +27,7 @@ class EducatorRequest extends Request
             'firstName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
             'lastName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
             'schoolName' => 'required|max:100',
-            'schoolPhone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/'
+            'schoolPhone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'schoolAddress' => 'required|max:100',
             'schoolCity' => 'required|max:50',
             'schoolState' => 'required|max:50',
