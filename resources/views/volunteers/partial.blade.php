@@ -212,13 +212,8 @@
         </div>
     </div>
 
-    <!--<div class="form-group col-md-8">
-        //Form::label('states', 'State:', ['class' => 'col-md-4 control-label'])
-     //Form::select('states', $states, null, ['class' => 'form-control'])
-            </div>-->
 
-    <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
-
+    <div class="form-group{{ $errors->has('homeState') ? ' has-error' : '' }}">
         {!! Form::label('homeState', 'State:', ['class' => 'col-md-4 control-label']) !!}
         <span style="color:red;">*</span>
         <div class="col-md-6">
