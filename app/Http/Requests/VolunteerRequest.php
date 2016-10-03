@@ -36,7 +36,7 @@ class VolunteerRequest extends Request
             'homePhone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'homeAddress' => 'required|max:100',
             'homeCity' => 'required|max:100|alpha',
-            'companyState' => 'required|max:100|alpha',
+            'homeState' => 'required|max:100|alpha',
             'homeZip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
             'email' => 'required|max:100|email'
 //
