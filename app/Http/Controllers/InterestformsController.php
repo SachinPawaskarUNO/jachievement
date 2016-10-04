@@ -58,7 +58,7 @@ class InterestformsController extends Controller
             ->get();
 
 
-        foreach($grade_programs1 as $program1) {
+        /*foreach($grade_programs1 as $program1) {
             $volunteerProgram = new VolunteerProgram();
             $lastInsertedForm = VolunteerInterestForm::all()->last();
             $volunteerProgram->volunteerform_id = $lastInsertedForm->id;
@@ -69,7 +69,6 @@ class InterestformsController extends Controller
                 $volunteerProgram->save();
             }
         }
-        return $volunteerProgram;
 
         $grade_programs2= DB::table('programs')
             ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
@@ -102,7 +101,7 @@ class InterestformsController extends Controller
             if(($volunteerProgram->program_id)!=0) {
                 $volunteerProgram->save();
             }
-        }
+        }*/
 
         Session::flash('flash_message', 'Thank you for registering as Volunteer! We will contact you soon');
        // Log::info('InterestformsController.store - End: '.$object->id);
