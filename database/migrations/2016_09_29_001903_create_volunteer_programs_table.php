@@ -16,11 +16,10 @@ class CreateVolunteerProgramsTable extends Migration
             $table->increments('id');
             $table->integer('volunteerform_id')->unsigned();
             $table->integer('program_id')->unsigned();
-
+            $table->timestamps();
             $table->foreign('volunteerform_id')->references('id')->on('volunteer_interest_forms');
             $table->foreign('program_id')->references('id')->on('programs');
             //$table->primary(['volunteerform_id', 'program_id']);
-            $table->timestamps();
             $table->softDeletes();
         });
     }
