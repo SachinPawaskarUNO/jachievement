@@ -23,7 +23,7 @@ class CreateProgramsTable extends Migration
             $table->string('program_url');
             $table->string('description');
             $table->integer('grade_id')->unsigned();
-            $table->foreign('grade_id')->references('id')->on('grades');
+            $table->foreign('grade_id')->references('id')->on('grades')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('created_by')->default('System');
             $table->string('updated_by')->default('System');
