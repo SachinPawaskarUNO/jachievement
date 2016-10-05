@@ -76,6 +76,9 @@ Route::get('/campaign/team/join', 'CampaignController@jointeam');
 
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 
+Route::get('/contactus', 'ContactController@contactus');
+//Route::post('/contactus', 'ContactController@store');
+
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');
 //    Route::get('comments/{student}/addforstudent', ['as' => 'comments.addforstudent',
