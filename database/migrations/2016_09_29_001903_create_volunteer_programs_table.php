@@ -21,7 +21,8 @@ class CreateVolunteerProgramsTable extends Migration
             $table->foreign('volunteerform_id')->references('id')->on('volunteer_interest_forms');
             $table->foreign('program_id')->references('id')->on('programs');
             //$table->primary(['volunteerform_id', 'program_id']);
-
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
