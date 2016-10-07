@@ -52,7 +52,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a id="ja_nav_contact" href="{{ url('/') }}">Contact Us</a></li>
+                <li><a id="ja_nav_contact" href="{{ url('/contactus') }}">Contact Us</a></li>
                 <li><a id="ja_nav_contribute" href="{{ url('/') }}">Donate Now</a></li>
             </ul>
 
