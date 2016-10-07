@@ -30,7 +30,7 @@
         <br>
             <div class="row"  ID="4">
                 <div class="col-md-6"  ID="5">
-                <img class="img-responsive" alt="Educator with Junior Achievement" src="https://www.juniorachievement.org/documents/20009/1817412/about-ja.jpg" width="100%" height="auto"  ID="6"/>
+                <img class="img-responsive" src="../images/EducatorsPage.jpg" alt="Educator" width="100%" height="auto"  ID="6"/>
                 </div>
                 <div class="col-md-6"  ID="7">
                 
