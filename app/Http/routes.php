@@ -61,6 +61,8 @@ Route::get('laravel-version', function()
 
 Route::get('/volunteers/interestform', 'InterestformsController@interestform');
 Route::post('/volunteers/interestform', 'InterestformsController@store');
+Route::get('/programs/index', 'ProgramController@program');
+Route::get('/aboutus/index', 'AboutUsController@aboutus');
 /*Route::post('/volunteers/interestform', function(){
     return 'inside save';
 });*/
