@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    <link rel="stylesheet" href="css/all.css">
-    <!--<link href="{{ elixir('css/all.css') }}" rel="stylesheet">-->
+    <link rel="stylesheet" href="{{ url('css/all.css') }}">
+    <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
 
     <!-- Styles -->
@@ -96,5 +96,7 @@
 
     <!-- Footer -->
     @yield('footer');
+    <br><br>
+    @include('common.footer');
 </body>
 </html>
