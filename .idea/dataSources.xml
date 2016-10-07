@@ -14,12 +14,14 @@
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
       </driver-properties>
+      <libraries />
     </data-source>
     <data-source source="LOCAL" name="PostgreSQL - basic@localhost" uuid="fd6398b3-f9dd-4dbf-93fa-291afe5b9338">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:54320/basic</jdbc-url>
+      <libraries />
     </data-source>
   </component>
 </project>
