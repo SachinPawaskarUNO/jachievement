@@ -24,21 +24,21 @@ class EducatorRequest extends Request
     public function rules()
     {
         $rules = [
-            'firstName' => 'required|alpha|max:100',
-            'lastName' => 'required|max:100',
+            'firstName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
+            'lastName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
             'schoolName' => 'required|max:100',
+            'schoolPhone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'schoolAddress' => 'required|max:100',
             'schoolCity' => 'required|max:50',
             'schoolState' => 'required|max:50',
-            'schoolZip' => 'required|numeric',
-            'grade' => 'numeric',
-            'homeZip' => 'numeric',
+            'schoolZip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
             'email' => 'required|max:50|email',
+            'grade' => 'max:50',
             'programTheme' => 'max:50',
-            'noOfClasses' => 'numeric',
-            'noOfStudentsPerClass' => 'numeric',
+            'noOfClasses' => 'alpha_num',
+            'noOfStudentsPerClass' => 'alpha_num',
             'commentsRequests' => 'max:255',
-
+            'cellphone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/'
         ];
 
         return $rules;

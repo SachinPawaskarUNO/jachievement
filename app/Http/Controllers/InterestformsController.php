@@ -65,10 +65,10 @@ class InterestformsController extends Controller
             $choice = "program_choice_" .$program1->program_id;
             $volunteerProgram->program_id = $request->$choice * 1;
             if(($volunteerProgram->program_id)!=0) {
+
                 $volunteerProgram->save();
             }
         }
-
 
         $grade_programs2= DB::table('programs')
             ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
@@ -82,6 +82,7 @@ class InterestformsController extends Controller
             $choice = "program_choice_" .$program2->program_id;
             $volunteerProgram->program_id = $request->$choice * 1;
             if(($volunteerProgram->program_id)!=0) {
+
                 $volunteerProgram->save();
             }
         }
@@ -102,8 +103,8 @@ class InterestformsController extends Controller
             }
         }
 
-        Session::flash('flash_message', 'Thank you for registering as Volunteer! We will contact you soon');
-        Log::info('InterestformsController.store - End: '.$object->id);
+        Session::flash('flash_message', 'Thank you for registering as a Volunteer! We will contact you soon');
+       // Log::info('InterestformsController.store - End: '.$object->id);
         return redirect()->back();
 
     }

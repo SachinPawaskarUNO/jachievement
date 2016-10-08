@@ -50,10 +50,18 @@
                             <li><a id="ja_nav_contribute" href="{{ url('/contributors') }}"><i class="fa fa-btn fa-fw fa-money"></i>Contribute</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a id="ja_nav_getinv" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "Campaign" }} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a id="ja_nav_team" href="{{ url('/campaign/team') }}"></i>Team</a></li>
+                        <li><a id="ja_nav_teammember" href="{{ url('/campaign/teammember') }}"></i>Team Member</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a id="ja_nav_contact" href="{{ url('/') }}">Contact Us</a></li>
+                <li><a id="ja_nav_contact" href="{{ url('/contactus') }}">Contact Us</a></li>
                 <li><a id="ja_nav_contribute" href="{{ url('/') }}">Donate Now</a></li>
+
             </ul>
 
             <!-- Right Side Of Navbar -->

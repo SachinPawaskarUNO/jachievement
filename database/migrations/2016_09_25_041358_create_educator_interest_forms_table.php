@@ -23,13 +23,13 @@ class CreateEducatorInterestFormsTable extends Migration
             $table->string('schoolState');
             $table->string('schoolZip');
             $table->string('email');
-            $table->string('grade');
-            $table->string('programTheme');
-            $table->string('planningTime');
-            $table->string('cellphone');
-            $table->string('commentsRequests');
-            $table->string('noOfClasses');
-            $table->string('noOfStudentsPerClass');
+            $table->string('grade')->nullable();
+            $table->string('programTheme')->nullable();
+            $table->string('planningTime')->nullable();
+            $table->string('cellphone')->nullable();
+            $table->string('commentsRequests')->nullable();
+            $table->string('noOfClasses')->nullable();
+            $table->string('noOfStudentsPerClass')->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
 
