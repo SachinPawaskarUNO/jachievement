@@ -51,7 +51,7 @@ class InterestformsController extends Controller
         $this->populateCreateFields($input);
 
         $object = VolunteerInterestForm::create($input);
-/*
+
         $grade_programs1= DB::table('programs')
             ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
             ->where('grade_id','=','1')
@@ -102,8 +102,8 @@ class InterestformsController extends Controller
                 $volunteerProgram->save();
             }
         }
-*/
-        Session::flash('flash_message', 'Thank you for registering as Volunteer! We will contact you soon');
+
+        Session::flash('flash_message', 'Thank you for registering as a Volunteer! We will contact you soon');
        // Log::info('InterestformsController.store - End: '.$object->id);
         return redirect()->back();
 

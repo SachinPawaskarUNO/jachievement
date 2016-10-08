@@ -224,6 +224,17 @@
         </div>
     </div>
 
+<div class="form-group{{ $errors->has('homeState') ? ' has-error' : '' }}">
+    {!! Form::label('homeState', 'Test State:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::select('homeState',['class' => 'col-md-6 form-control bfh-states', 'data-country'=> 'US','data-state' => 'CA']) !!}
+        @if ($errors->has('homeState'))
+            <span class="help-block"><strong>{{ $errors->first('homeState') }}</strong></span>
+        @endif
+    </div>
+</div>
+
+
     <div class="form-group{{ $errors->has('homeZip') ? ' has-error' : '' }}">
 
         {!! Form::label('homeZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
