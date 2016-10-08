@@ -15,7 +15,7 @@
            .program-description {
             font-family: "Calibri Light";
             font-size: 18px;
-            font-weight: 500;
+            font-weight: 500;6
             color: #6d6d6d;
             text-align: center;
             margin-left: 3%;

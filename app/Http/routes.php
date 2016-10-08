@@ -67,6 +67,9 @@ Route::post('/volunteers/interestform', 'InterestformsController@store');
 Route::get('/educators/introduction', 'EducatorsController@index');
 Route::get('/educators/interestform', 'EducatorsController@interestform');
 Route::post('/educators/interestform', 'EducatorsController@store');
+Route::get('/contributors', 'ContributorController@index');
+
+
 
 Route::get('/campaign/teammember', 'CampaignController@teammember');
 Route::get('/campaign/team', 'CampaignController@team');
