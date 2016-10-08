@@ -161,7 +161,7 @@
     <div class="form-group{{ $errors->has('companyZip') ? ' has-error' : '' }}">
         {!! Form::label('companyZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
-            {!! Form::text('companyZip', null, ['id'=> 'companyZip','class' => 'col-md-6 form-control']) !!}
+            {!! Form::text('companyZip', null, ['id'=> 'companyZip','class' => 'col-md-6 form-control','maxLength' => '10']) !!}
             @if ($errors->has('companyZip'))
                 <span class="help-block"><strong>{{ $errors->first('companyZip') }}</strong></span>
             @endif
@@ -240,7 +240,7 @@
         {!! Form::label('homeZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
         <span style="color:red;">*</span>
         <div class="col-md-6">
-            {!! Form::text('homeZip', null, ['id'=> 'homeZip','class' => 'col-md-6 form-control']) !!}
+            {!! Form::text('homeZip', null, ['id'=> 'homeZip','class' => 'col-md-6 form-control','maxLength' => '10']) !!}
             @if ($errors->has('homeZip'))
                 <span class="help-block"><strong>{{ $errors->first('homeZip') }}</strong></span>
             @endif
