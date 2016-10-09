@@ -18,4 +18,11 @@ class DonateController extends Controller
     }
 
 
+	public function notification()
+    {
+        Log::info('DonateController.form: ');
+        $this->viewData['heading'] = "";
+        return view('donation.notification', $this->viewData);
+
+    }
 }
