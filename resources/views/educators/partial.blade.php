@@ -98,7 +98,7 @@
     {!! Form::label('companyZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolZip', null, ['id'=> 'schoolZip','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('schoolZip', null, ['id'=> 'schoolZip','class' => 'col-md-6 form-control','maxLength' => '10']) !!}
         @if ($errors->has('schoolZip'))
             <span class="help-block"><strong>{{ $errors->first('schoolZip') }}</strong></span>
         @endif
