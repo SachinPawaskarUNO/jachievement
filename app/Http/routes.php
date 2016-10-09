@@ -67,6 +67,9 @@ Route::post('/volunteers/interestform', 'InterestformsController@store');
 Route::get('/educators/introduction', 'EducatorsController@index');
 Route::get('/educators/interestform', 'EducatorsController@interestform');
 Route::post('/educators/interestform', 'EducatorsController@store');
+Route::get('/contributors', 'ContributorController@index');
+
+
 
 Route::get('/campaign/teammember', 'CampaignController@teammember');
 Route::get('/campaign/team', 'CampaignController@team');
@@ -78,6 +81,10 @@ Route::get('/campaign/team/join', 'CampaignController@jointeam');
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 
 Route::get('/contactus', 'ContactController@contactus');
+
+Route::get('/aboutus/index', 'AboutUsController@aboutus');
+Route::get('/programs/index', 'ProgramController@program');
+
 //Route::post('/contactus', 'ContactController@store');
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
