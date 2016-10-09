@@ -30,7 +30,8 @@ elixir(function(mix) {
         //'libs/select2.min/js',
         //'libs/jquery.dataTables.min.js',
         //'libs/dataTables.bootstrap.min.js',
-        //'libs/bipartite.js'
+        'angular-chart.min.js',
+        'Chart.min.js',
         'app.js'
     ]);
 

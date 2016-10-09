@@ -10,6 +10,7 @@
     "bootstrap-sass": "^3.0.0"
   },
   "dependencies": {
+    "angular-chart.js": "^1.0.3",
     "chart.js": "^2.3.0"
   }
 }
