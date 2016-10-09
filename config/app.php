@@ -165,6 +165,7 @@ return [
          * LaravelCollective Html Form & Html
          */
         Collective\Html\HtmlServiceProvider::class,
+        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
 
     ],
 
