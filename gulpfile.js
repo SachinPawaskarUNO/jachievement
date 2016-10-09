@@ -32,6 +32,7 @@ elixir(function(mix) {
         //'libs/dataTables.bootstrap.min.js',
         'angular-chart.min.js',
         'Chart.min.js',
+        'Chart.js',
         'app.js'
     ]);
 
