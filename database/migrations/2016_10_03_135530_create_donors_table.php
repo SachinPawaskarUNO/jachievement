@@ -14,6 +14,7 @@ class CreateDonorsTable extends Migration
     {
         Schema::create('donors', function (Blueprint $table) {
             $table->increments('id');
+            $table->timestamp();
             $table->string('firstName');
             $table->string('lastName');
             $table->string('email');
