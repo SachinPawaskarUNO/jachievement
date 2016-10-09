@@ -14,7 +14,8 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp();
+            $table->timestamps();
+            $table->softDeletes();
             $table->float('amount');
             $table->date('date');
             $table->string('created_by')->default('System');
