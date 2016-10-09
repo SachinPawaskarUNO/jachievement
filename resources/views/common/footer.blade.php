@@ -7,7 +7,7 @@
   </div>
     <div class="container">
       <div class="text-center">
-        <p class="p_foot" style="margin: 10px 0;">© Junior Achievement USA<sup>®</sup>&nbsp;/&nbsp;13506 West Maple Road,&nbsp;Omaha&nbsp;NE&nbsp;68164&nbsp;/&nbsp;Phone:&nbsp;402-333-6410&nbsp;/&nbsp;Fax:&nbsp;402-333-6797</p>
+        <p class="p_foot" style="margin: 10px 0;">© Junior Achievement of Midlands, Inc.<sup>®</sup>&nbsp;/&nbsp;13506 West Maple Road,&nbsp;Suite 101, Omaha, NE&nbsp;68164&nbsp;/&nbsp;Phone:&nbsp;402-333-6410&nbsp;/&nbsp;Fax:&nbsp;402-333-6797</p>
     </div>
   </div>
 </div>
