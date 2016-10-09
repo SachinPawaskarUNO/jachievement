@@ -33,7 +33,8 @@
 </div>
 
 <div class="row" id="WHY_1">
-  <div class="col-sm-6 col-xs-push-6">
+    <div class="col-xs-6 col-sm-push-6"><img alt='' id="IMG_1" src="images/two-cols-classroom.jpg"></div>
+    <div class="col-xs-6 col-sm-pull-6">
                     <h2 id="H2_6">
                         Why Junior Achievement?
                     </h2>
@@ -55,8 +56,8 @@
                         </li>
                     </ul>
 
-  </div>
-  <div class="col-sm-6 col-xs-pull-6"><img alt='' id="IMG_1" src="images/two-cols-classroom.jpg"></div>
+    </div>
+
 </div>
 <!--
 <div class="row">
