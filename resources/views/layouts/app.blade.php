@@ -49,7 +49,7 @@
     <script src="{{ elixir('js/all.js') }}"></script>
 
     <script type="text/javascript">    
-      angular.module('ja', ['ngMaterial']);
+      angular.module('ja', ['ngMaterial','chart.js']);
     </script>
 
     <!-- Navigation Bar -->
