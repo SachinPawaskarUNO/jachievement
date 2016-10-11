@@ -98,7 +98,7 @@
     {!! Form::label('companyZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolZip', null, ['id'=> 'schoolZip','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('schoolZip', null, ['id'=> 'schoolZip','class' => 'col-md-6 form-control','maxLength' => '10']) !!}
         @if ($errors->has('schoolZip'))
             <span class="help-block"><strong>{{ $errors->first('schoolZip') }}</strong></span>
         @endif
@@ -138,7 +138,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('noOfClasses') ? ' has-error' : '' }}">
-    {!! Form::label('noOfClasses', 'No of Classes:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('noOfClasses', '# of Classes:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('noOfClasses', null, ['id'=> 'noOfClasses','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('noOfClasses'))
@@ -148,7 +148,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('noOfStudentsPerClass') ? ' has-error' : '' }}">
-    {!! Form::label('noOfStudentsPerClass', 'No of Students/Class:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('noOfStudentsPerClass', '# of Students/Class:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('noOfStudentsPerClass', null, ['id'=> 'noOfStudentsPerClass','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('noOfStudentsPerClass'))

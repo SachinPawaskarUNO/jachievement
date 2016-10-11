@@ -2,6 +2,21 @@
 @section('content')
 <div class="container-fluid">
   <div class="container">
+    <br>
+    <br>
+    <div class="text-center">
+      <img alt='' id="IMG_1" src="images/rochester2016.jpg">
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <br>
+    <div class="text-center">
+      <a href="{{url('/get_Involved/getinvolved')}}" id="A_1">Get Involved</a>
+    </div>
+  </div>
+  <br>
+  <div class="container">
     <div class="text-center">
       <div class="panel panel-default">
         <p id="P_1">JA's volunteer-delivered, kindergarten-12th
@@ -11,13 +26,6 @@
                     experiential learning to inspire students to dream big and
                     reach their potential.</p>
       </div>
-    </div>
-  </div>
-  <div class="container">
-    <br>
-    <br>
-    <div class="text-center">
-      <a href="{{url('/get_Involved/getinvolved')}}" id="A_1">Get Involved</a>
     </div>
   </div>
   <div class="container">
