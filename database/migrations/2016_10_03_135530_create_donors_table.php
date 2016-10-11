@@ -18,6 +18,11 @@ class CreateDonorsTable extends Migration
             $table->softDeletes();
             $table->string('firstName');
             $table->string('lastName');
+            $table->string('address');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip');
+            $table->string('phone');
             $table->string('email');
             $table->string('created_by')->default('System');
             $table->string('updated_by')->default('System');
