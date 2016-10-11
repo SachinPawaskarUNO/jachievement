@@ -15,11 +15,11 @@ class ContributorController extends Controller
 
     public function index() {
         Log::info('ContributorController');
-        $this->viewData['heading'] = "Contributor Introduction Page";
+        //$this->viewData['heading'] = "Contributor Introduction Page";
 
-        $donors = \Lava::DataTable();
+        /*$donors = \Lava::DataTable();
 
-       /* $donations= DB::table('donations')
+       $donations= DB::table('donations')
             ->select(DB::raw('donations.amount as amount, donations.donor_id as donor'))
             ->orderBy('amount', 'desc')
             ->get();
@@ -33,7 +33,7 @@ class ContributorController extends Controller
             $donationArrayContainer["name"] = $value->$donations->organization_name;
              $donationArrayContainer["percent"] = $value/$totalDonation * 100;
             array_push($donationArray, $categoryArrayContainer);
-        }*/
+        }
 
 
         $donors->addStringColumn('Donors')
@@ -46,7 +46,7 @@ class ContributorController extends Controller
         /*foreach($donationArray as singleDonation) {
 
         $donors->addRow(['Donor 1', singleDonation]);
-        }*/
+        }
 
         \Lava::PieChart('IMDB', $donors, [
             'title'  => 'Top 5 donors',
@@ -56,9 +56,13 @@ class ContributorController extends Controller
                 ['offset' => 0.25],
                 ['offset' => 0.3]
             ]
-        ]);
+        ]);*/
 
+        $donations= DB::table('donations')
+            ->select(DB::raw('donations.amount as amount, donations.donor_id as donor'))
+            ->orderBy('amount', 'desc')
+            ->get();
 
-        return view('contributors.contributor', $this->viewData);
+        return view('contributors.contributor',  compact('donations'));
     }
 }
