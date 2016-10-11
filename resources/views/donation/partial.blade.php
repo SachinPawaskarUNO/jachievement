@@ -1,93 +1,15 @@
-<div style="margin: 5px;">
-    <span style="color:red;">*</span> fields are mandatory
-</div>
-<div class="form-group">
-    <div class=" col-md-12">
-        {!! Form::label('Choose your grade or program preference') !!}
-        <span><i> (You may choose more than one grade level or program)</i></span>
-    </div>
-</div>
-
-
-
-<div class="form-group">
-    <div class="col-md-10">
-        {!! Form::checkbox('elementarySchoolProgram', 1, false, ['id'=> 'elementarySchoolProgram', 'class' => 'check1']) !!}
-        {!! Form::label('Elementary School Program') !!}
-        <span> <i>(Five sessions, 30-50 minutes each)</i></span>
-    </div>
-    @foreach($grade_program1 as $program1)
-        <div style="margin-left:20px;">
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('program_choice_'.$program1->program_id, $program1->program_id, false,['class' => 'check1']) !!}
-                    {!! Form::label($program1->program_name) !!}
-                </div>
-            </div>
-        </div>
-    @endforeach
-</div>
-
-<div class="form-group">
-    <div class="col-md-10">
-        {!! Form::checkbox('middleGradesProgram', 1, false, ['id'=> 'middleGradesProgram', 'class' => 'check2' ]) !!}
-        {!! Form::label('Middle Grade Program') !!}
-        <span> <i>(Six to eight sessions, 45 minutes each)</i></span>
-    </div>
-    @foreach($grade_program2 as $program2)
-        <div style="margin-left:20px;">
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('program_choice_'.$program2->program_id, $program2->program_id, false, ['class' => 'check2']) !!}
-                    {!! Form::label($program2->program_name) !!}
-                </div>
-            </div>
-        </div>
-    @endforeach
-</div>
-
-<div class="form-group">
-    <div class="col-md-10">
-        {!! Form::checkbox('highSchoolProgram', 1, false, ['id'=> 'highSchoolProgram', 'class' => 'check3' ]) !!}
-        {!! Form::label('High School Program') !!}
-        <span> <i>(Seven sessions, 45 minutes each)</i></span>
-    </div>
-    @foreach($grade_program3 as $program3)
-        <div style="margin-left:20px;">
-            <div>
-                <div class="col-md-6">
-                    {!! Form::checkbox('program_choice_'.$program3->program_id, $program3->program_id, false, ['class' => 'check3']) !!}
-                    {!! Form::label($program3->program_name) !!}
-                </div>
-            </div>
-        </div>
-    @endforeach
-</div>
 
 <div class="form-group">
     <div class="col-md-12">
-        <p><i>Each classroom is visited once-a-week with the teacher and the volunteer deciding a mutually convinient day and time.
-                The Junior Achievement staff will work with you in matching you to a school and grade level of your choice.</i></p>
+        <p>
+            <i>
+                By donating to Junior Achievement Omaha, you are helping in development and revisions of student ciriculum,
+                recruitment of volunteers, special events,and many other student-related initiatives. Questions?
+                Please contact us thorugh our Contact Us form
+            </i>
+        </p>
     </div>
 </div>
-
-<div class="form-group{{ $errors->has('schoolPreference') ? ' has-error' : '' }}">
-    {!! Form::label('schoolPreference', 'If possible, I would like to teach at the following school:', ['class' => 'col-md-4 control-label']) !!}
-    <div class="col-md-6">
-        {!! Form::text('schoolPreference', null, ['class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('schoolPreference'))
-            <span class="help-block">
-                    <strong>{{ $errors->first('schoolPreference') }}</strong>
-                </span>
-        @endif
-    </div>
-</div>
-
-
-
-
-
-
 
 <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
 
@@ -175,7 +97,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-    {!! Form::label('phone', 'phone:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('phone', 'Phone:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('phone', null, ['id'=> 'companyPhone','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('phone'))
@@ -200,6 +122,6 @@
 
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
-        {!! Form::button('<i class="fa fa-btn fa-save"></i>Save', ['type' => 'submit','id' => 'save', 'class' => 'btn btn-success']) !!}
+        {!! Form::button('<i class="fa fa-btn fa-save"></i>Donate', ['type' => 'submit','id' => 'save', 'class' => 'btn btn-success']) !!}
     </div>
 </div>
