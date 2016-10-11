@@ -2,6 +2,10 @@
 
 return [
 
+
+
+    'GoogleMaps\ServiceProvider\GoogleMapsServiceProvider',
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -181,6 +185,7 @@ return [
 
     'aliases' => [
 
+        'GoogleMaps' => 'GoogleMaps\Facade\GoogleMapsFacade',
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

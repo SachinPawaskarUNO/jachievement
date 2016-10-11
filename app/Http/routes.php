@@ -78,6 +78,11 @@ Route::get('/campaign/team/join', 'CampaignController@jointeam');
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 
 Route::get('/contactus', 'ContactController@contactus');
+
+Route::get('/aboutus/index', 'AboutUsController@aboutus');
+
+Route::get('/programs/index', 'ProgramController@program');
+
 //Route::post('/contactus', 'ContactController@store');
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
