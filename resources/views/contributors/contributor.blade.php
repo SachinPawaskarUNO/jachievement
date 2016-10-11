@@ -13,27 +13,52 @@
             margin-right: 20px;
             color:green;
         }
+        .fa_custom {
+            color: #9ACD40;
+        }
+
+
+        .fa-4x     {
+            font-size: 3.5em;
+        }
+
+        .program-description {
+            font-family: "Calibri Light";
+            font-size: 18px;
+            font-weight: 500;
+            color: #6d6d6d;
+            text-align: center;
+            margin-left: 3%;
+            margin-right: 3%;
+            line-height:1.5;
+        }
+
+
+        .program-title {
+            font-family: Helvetica;
+            font-size:14px;
+            font-weight: 500;
+        }
+        .btn {
+            padding: 18px 18px;
+            border: 0 none;
+            font-weight: 300;
+            font-size: 11pt;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: #9ACD50;
+            color: #ffffff;
+            border-radius: 0%;
+        }
+        .btn-primary:hover,.btn-primary:focus, .btn-primary:active:focus {
+            background: #4CBB17 !important;
+        }
 
     </style>
 
-
-    <div id="container"></div>
-    <div id="sliders">
-        <table>
-            <tr>
-                <td>Alpha Angle</td>
-                <td><input id="alpha" type="range" min="0" max="45" value="15"/> <span id="alpha-value" class="value"></span></td>
-            </tr>
-            <tr>
-                <td>Beta Angle</td>
-                <td><input id="beta" type="range" min="-45" max="45" value="15"/> <span id="beta-value" class="value"></span></td>
-            </tr>
-            <tr>
-                <td>Depth</td>
-                <td><input id="depth" type="range" min="20" max="100" value="50"/> <span id="depth-value" class="value"></span></td>
-            </tr>
-        </table>
-    </div>
     <div class="container-fluid" ID="1" style="background-color:rgb(245,245,245)">
         <div class="container"  ID="2">
             <br>
@@ -72,81 +97,124 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <br>
-
-
-    <canvas id="line" class="chart chart-line" chart-data="data"
-            chart-labels="labels" chart-series="series" chart-options="options"
-            chart-dataset-override="datasetOverride" chart-click="onClick"
-    </canvas>
-
-    <div class="container-fluid" ID="25" style="background-color:rgb(245,245,245)">
-        <div class="container" ID="26">
             <br>
-            <br/>
-            <div align="center"  class=col-md-3 style="align: center" ID="28"></div>
-        <div align="center"  class="col-md-6 style="align= center" ID="29" >
-        <div class="embed-responsive embed-responsive-16by9 text-center" ID="30" >
-            <div class="video-embed" style="text-align:center" ID="31">
-                <iframe allowfullscreen="" frameborder="0" height="100" src="https://www.youtube.com/embed/nTmryDIQq6s" width="300" ID="32"></iframe>
+
+            <br>
+            <div class="row">
+
+                <!-- Program 1 Donor.  -->
+                <h2 class="text-center"  ID="3">Ways to Donate</h2>
+                <br>
+                <br>
+                <div class="col-sm-6">
+                    <div class="col-sm-12" style="background-color:rgb(255,255,255)">
+                        <div class="program">
+                            <br>
+                            <br>
+                            <p align="center">
+                                <span class="fa fa-lightbulb-o fa_custom fa-4x" data-animation="bounceIn"></span>
+                            </p>
+                            <div class="hidden-sm clear"> &nbsp;
+                            </div>
+                            <h4 class="program-title" align="center"> Donate Directly</h4>
+                            <br>
+                            <p class="program-description"> Every single dollar makes a difference. Donating to JA Omaha will help to continually evolve JA's enriching programs, or
+                                donating directly to a JA Omaha will help JA reach more students.</p>
+                            <br>
+                            <br>
+                            <div class="closing-buttons" align="center" id="button-donate">
+                                <a class="btn btn-lg btn-primary" href="{{ url('/contributors') }}">Learn More</a>
+                            </div>
+                            <div class="hidden-sm clear"> &nbsp;
+                            </div>
+                            <div class="hidden-sm clear"> &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 2 Volunteer. -->
+
+                <div class="col-sm-6">
+                    <div class="col-sm-12" style="background-color:rgb(255,255,255)">
+                        <div class="program">
+                            <br>
+                            <br>
+                            <p align="center">
+                                <span class="fa fa-heart-o fa_custom fa-4x" data-animation="bounceIn"></span>
+                            </p>
+                            <br>
+                            <h4 class="program-title" align="center"> Donate through Campaigns</h4>
+                            <br>
+                            <p class="program-description"> For larger donations, you can be a part of the JA campaigns. Any person can create campaign and add team member</p>
+
+                            <br>
+                            <br>
+                            <div class="closing-buttons" align="center" id="button-volunteer">
+                                <a class="btn btn-lg btn-primary" href="/volunteers/introduction">Learn More</a>
+                            </div>
+                            <div class="hidden-sm clear"> &nbsp;
+                            </div>
+                            <div class="hidden-sm clear"> &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programs end here --> <div class="entry-links"> </div>
+
+            </div>
+            <br>
+
+        <div class="container" ID="26">
+
+            <h2 class="text-center" ID="27"> Watch the Video</h2>
+
+            <div align:"center"  class="col-md-3 style="align: center" ID="28"></div>
+            <div align:"center"  class="col-md-6 style="align: center" ID="29" >
+                <br>
+                <div class="embed-responsive embed-responsive-16by9 text-center" ID="30" >
+                    <div class="video-embed" style="text-align:center" ID="31">
+                    <iframe allowfullscreen="" frameborder="0" height="100" src="https://www.youtube.com/embed/nTmryDIQq6s" width="300" ID="32"></iframe>
+                    </div>
+                </div>
+                <div align:"center"  class="col-md-3 style="align: center" ID="33"></div>
             </div>
         </div>
-        <div align="center"  class="col-md-3 style="align= center" ID="33"></div>
+    <br>
     </div>
+
+
     </div>
-    </div>
+
 
 @endsection
 @section('footer')
     <script>
         $(function () {
-            // Set up the chart
-            var chart = new Highcharts.Chart({
+            $('#container').highcharts({
+                data: {
+                    table: 'datatable'
+                },
                 chart: {
-                    renderTo: 'container',
-                    type: 'column',
-                    options3d: {
-                        enabled: true,
-                        alpha: 15,
-                        beta: 15,
-                        depth: 50,
-                        viewDistance: 25
-                    }
+                    type: 'column'
                 },
                 title: {
-                    text: 'Chart rotation demo'
+                    text: 'Data extracted from a HTML table in the page'
                 },
-                subtitle: {
-                    text: 'Test options by dragging the sliders below'
-                },
-                plotOptions: {
-                    column: {
-                        depth: 25
+                yAxis: {
+                    allowDecimals: false,
+                    title: {
+                        text: 'Units'
                     }
                 },
-                series: [{
-                    data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-                }]
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' +
+                                this.point.y + ' ' + this.point.name.toLowerCase();
+                    }
+                }
             });
-
-            function showValues() {
-                $('#alpha-value').html(chart.options.chart.options3d.alpha);
-                $('#beta-value').html(chart.options.chart.options3d.beta);
-                $('#depth-value').html(chart.options.chart.options3d.depth);
-            }
-
-            // Activate the sliders
-            $('#sliders input').on('input change', function () {
-                chart.options.chart.options3d[this.id] = this.value;
-                showValues();
-                chart.redraw(false);
-            });
-
-            showValues();
         });
     </script>
 @endsection
