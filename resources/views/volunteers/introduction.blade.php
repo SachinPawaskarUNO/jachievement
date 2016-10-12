@@ -3,28 +3,16 @@
 @section('content')
 
     <style>
-
         .glyphicon{font-size:35px;
             float:left;
-
             margin-right:20px;
-
             color:green;}
-
-
         h4{
-
-
-
             margin-right: 20px;
             color:green;
         }
 
     </style>
-
-
-
-
 
     <div class="container-fluid" ID="1" style="background-color:rgb(245,245,245)">
         <div class="container" ID="2">
@@ -89,27 +77,7 @@
 
 
 
-    <div class="container-fluid" ID="25" style="background-color:rgb(245,245,245)">
-        <br>
-        <div class="container" ID="26">
-            <br>
-            <br>
-            <br>
-            <h2 class="text-center" ID="27"> Watch the Video</h2>
-            <br/>
 
-            <div align:"center"  class="col-md-3 style="align: center" ID="28"></div>
-        <div align:"center"  class="col-md-6 style="align: center" ID="29" >
-
-        <div class="embed-responsive embed-responsive-16by9 text-center" ID="30" >
-            <div class="video-embed" style="text-align:center" ID="31">
-                <iframe allowfullscreen="" frameborder="0" height="100" src="https://www.youtube.com/embed/HNUpbr7NeL0" width="300" ID="32"></iframe>
-            </div>
-        </div>
-        <div align:"center"  class="col-md-3 style="align: center" ID="33"></div>
-    </div>
-    </div>
-    </div>
 
 
 

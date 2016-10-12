@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDonorsTable extends Migration
+class CreateTeamMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,22 +12,17 @@ class CreateDonorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('donors', function (Blueprint $table) {
+        Schema::create('team_members', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
-            $table->softDeletes();
-            $table->string('firstName');
-            $table->string('lastName');
-            $table->string('address');
-            $table->string('city');
-            $table->string('state');
-            $table->string('zip');
-            $table->string('phone');
-            $table->string('email');
+            $table->string('goal');
             $table->string('created_by')->default('System');
             $table->string('updated_by')->default('System');
+            $table->timestamps();
+            $table->softDeletes();
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('team_id')->unsigned();
+            $table->foreign('team_id')->references('id')->on('teams');
         });
     }
 
@@ -38,6 +33,6 @@ class CreateDonorsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('donors');
+        Schema::drop('team_members');
     }
 }

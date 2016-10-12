@@ -2,31 +2,57 @@
 @section('content')
         <!DOCTYPE html>
 <html lang="en">
+<style>
+    html, body {
+        height: 50%;
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        height: 50%;
+    }
+</style>
 <title>Junior achievement Programs</title>
 <meta charset="utf-8">
-<div class="container" style="background-color:#A9DFBF;">
-            <div class="text-center">
-                <h2>JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h2>
-            </div>
-                <img src="C:\wamp64\www\jachievement\public\images\students.png" alt="Student"width="50%" height="80%" class="text-left" align="left" style="clear: left;">
-        <br>
-        <h3 style="font-family:'Eras Medium ITC'">Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</h3>
-        <br>
-        <p style="font-size:16px">The envisioned future - what we aspire to become. Junior Achievement maintains an active vision, front and center, on how we can have a positive impact on the lives of more students - guided by our core values:</p>
-        <div class="text-center" style="color:#2E4053";>
+<body>
+<div class="container-fluid" style="background-color:#A9DFBF">
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center">JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h2>
             <br>
-            <p style="font-size:16px">BELIEF IN THE BOUNDLESS POTENTIAL OF YOUNG PEOPLE</p>
-            <p style="font-size:16px">COMMITMENT TO THE PRINCIPLES OF MARKET-BASED ECONOMICS AND ENTREPRENEURSHIP</p>
-            <p style="font-size:16px">PASSION FOR WHAT WE DO AND HONESTY, INTEGRITY, AND EXCELLENCE IN HOW WE DO IT</p>
-            <p style="font-size:16px">RESPECT FOR THE TALENTS, CREATIVITY, PERSPECTIVES, AND BACKGROUNDS OF ALL INDIVIDUALS</p>
-            <p style="font-size:16px">BELIEF IN THE POWER OF PARTNERSHIP AND COLLABORATION</p>
-            <p style="font-size:16px">CONVICTION IN THE EDUCATIONAL AND MOTIVATIONAL IMPACT OF RELEVANT, HANDS-ON LEARNING</p>
+            <div class="col-md-6">
+            <img class="img-responsive" alt="JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES" src="http://lyderis.eu/wp-content/uploads/2011/05/junior-achievement.jpg" width="100%" height="180px"/>
+            </div>
+            <div class="col-md-6">
+            <br>
+            <h1 style="font-family:'Eras Medium ITC'">Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</h1>
+            <br>
+            <p style="font-size:25px">The envisioned future - what we aspire to become. Junior Achievement maintains an active vision, front and center, on how we can have a positive impact on the lives of more students - guided by our core values:</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="background-color:#A9DFBF">
+        <br>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> BELIEF IN THE BOUNDLESS POTENTIAL OF YOUNG PEOPLE <span class="glyphicon glyphicon-star"></span></p>
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> COMMITMENT TO THE PRINCIPLES OF MARKET-BASED ECONOMICS AND ENTREPRENEURSHIP <span class="glyphicon glyphicon-star"></span></p>
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> PASSION FOR WHAT WE DO AND HONESTY, INTEGRITY, AND EXCELLENCE IN HOW WE DO IT <span class="glyphicon glyphicon-star"></span></p>
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> RESPECT FOR THE TALENTS, CREATIVITY, PERSPECTIVES, AND BACKGROUNDS OF ALL INDIVIDUALS <span class="glyphicon glyphicon-star"></span></p>
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> BELIEF IN THE POWER OF PARTNERSHIP AND COLLABORATION <span class="glyphicon glyphicon-star"></span></p>
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> CONVICTION IN THE EDUCATIONAL AND MOTIVATIONAL IMPACT OF RELEVANT, HANDS-ON LEARNING <span class="glyphicon glyphicon-star"></span></p>
+            <br>
+            </div>
+            <div class="col-md-2"></div>
         </div>
 </div>
 
-<div class="text-center">
-    <h3>Junior Achievement facts</h3>
-</div>
+
+<div class="container-fluid">
+    <h3 class="text-center">Junior Achievement facts</h3>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
@@ -80,4 +106,59 @@
         </div>
     </div>
 </div>
+</div>
+
+<div id="map"></div>
+<script>
+    var map;
+    function initMap() {
+
+        var PineCreek= {
+            info: '<strong>Pine Creek Elementary</strong><br>\
+					7801 N HWS Cleveland Blvd<br>Bennington, NE 68007<br>',
+            lat: 41.330086,
+            long:-96.167939
+        };
+
+        var PineCreek= {
+            info: '<strong>Pine Creek Elementary</strong><br>\
+					7801 N HWS Cleveland Blvd<br>Bennington, NE 68007<br>',
+            lat: 41.330086,
+            long:-96.167939
+        };
+
+        var locations = [
+            [PineCreek.info, PineCreek.lat, PineCreek.long, 0],
+        ];
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: new google.maps.LatLng(41.2523634, -95.9979883),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow({});
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqOmmqwN3ZKjnKRqO68H3OnCPHohK2okM&callback=initMap"
+        async defer></script>
+</body>
+</html>
 @endsection
+

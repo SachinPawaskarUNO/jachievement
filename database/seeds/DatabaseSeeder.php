@@ -1,8 +1,6 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use App\Tag;
-
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -19,21 +17,15 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleUserTableSeeder::class);
         $this->call(UsersRolesPermissions::class);
         $this->command->info('User, Role and Permission tables seeded!');
-
         // Seed the Tags table
         $this->call(TagsTableSeeder::class);
         $this->command->info('Tags tables seeded!');
-
-
         $this->call(GradesTableSeeder::class);
         $this->call(ProgramsTableSeeder::class);
         $this->command->info('Grades Programs tables seeded!');
-
     }
 }
-
 class TagsTableSeeder extends Seeder {
-
     public function run()
     {
         DB::table('tags')->delete();
@@ -47,4 +39,3 @@ class TagsTableSeeder extends Seeder {
         Tag::create([ 'name' => 'Undergraduate']);
     }
 }
-

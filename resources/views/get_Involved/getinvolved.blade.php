@@ -84,7 +84,7 @@
                         <br>
                         <br>
                         <div class="closing-buttons" align="center" id="button-donate">
-                            <a class="btn btn-lg btn-primary" href="/donation/donate">Learn More</a>
+                            <a class="btn btn-lg btn-primary" href="{{ url('/contributors') }}">Learn More</a>
                         </div>
                         <div class="hidden-sm clear"> &nbsp;
                         </div>
