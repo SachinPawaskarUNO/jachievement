@@ -28,7 +28,7 @@
                     </ol>
                 </div>
                 <div class="row">
-                    <img class="img-responsive" id="IMG" alt="Image" src="images/rochester2016.jpg">
+                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/ja_nav_logo.jpg') }}">
                 </div>
             </div>
         </div>
