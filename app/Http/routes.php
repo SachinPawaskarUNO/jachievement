@@ -81,8 +81,12 @@ Route::get('/contactus', 'ContactController@contactus');
 
 Route::get('/aboutus/index', 'AboutUsController@aboutus');
 
+Route::get('/aboutus/map', 'MapController@map');
+
 Route::get('/programs/index', 'ProgramController@program');
 Route::get('/contributors', 'ContributorController@index');
+
+
 
 
 //Route::post('/contactus', 'ContactController@store');
