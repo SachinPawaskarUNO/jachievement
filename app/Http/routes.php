@@ -54,7 +54,7 @@ Route::get('laravel-version', function()
 //Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::post('change-password', 'Auth\AuthController@updatePassword');
-    Route::get( 'change-password', 'Auth\AuthController@updatePassword');
+    Route::get( 'change-password', 'Auth\AuthController@viewPage');
 
     Route::get('/home', 'HomeController@index');
 
