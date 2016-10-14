@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Donor;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 use Log;
+use Session;
 
 class DonationController extends Controller
 {
@@ -34,6 +36,17 @@ class DonationController extends Controller
 
     public function store(Request $request)
     {
+        Log::info('DonationController.store - Start: ');
+        $input = $request->all();
+
+        $this->populateCreateFields($input);
+
+
+        $object = Donation::create($input);
+
+        Session::flash('flash_message', 'Thank you for your donation');
+        Log::info('DonationController.store - End: ' . $object->id);
+        return redirect()->back();
 
     }
 
