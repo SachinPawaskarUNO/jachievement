@@ -10,6 +10,7 @@ use App\Http\Requests;
 
 use Log;
 use Session;
+use Illuminate\Support\Facades\Input;
 
 class DonationController extends Controller
 {
@@ -45,6 +46,7 @@ class DonationController extends Controller
         $donation = new Donation();
         $lastInsertedForm = Donor::all()->last();
         $donation->donor_id = $lastInsertedForm->id;
+        $donation->amount = Input::get('amount');
         $donation->save();
 
         Session::flash('flash_message', 'Thank you for your donation');
