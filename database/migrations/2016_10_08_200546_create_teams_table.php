@@ -21,7 +21,7 @@ class CreateTeamsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->integer('organization_id')->unsigned();
-            $table->foreign('organization-id')->references('id')->on('organizations');
+            $table->foreign('organization_id')->references('id')->on('organizations');
             $table->integer('campaign_id')->unsigned();
             $table->foreign('campaign_id')->references('id')->on('campaigns');
     });

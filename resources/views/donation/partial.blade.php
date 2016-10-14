@@ -1,11 +1,10 @@
-
 <div class="form-group">
     <div class="col-md-12">
         <p>
             <i>
-                By donating to Junior Achievement Omaha, you are helping in development and revisions of student ciriculum,
-                recruitment of volunteers, special events,and many other student-related initiatives. Questions?
-                Please contact us thorugh our Contact Us form
+                By donating to Junior Achievement Omaha, you are helping in development and revisions of student curriculum,
+                recruitment of volunteers, special events, and many other student-related initiatives. Questions?
+                Please contact us through our Contact Us form
             </i>
         </p>
     </div>
@@ -13,10 +12,38 @@
 
 <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
 
-    {!! Form::label('amount', 'Please choose donation amount:', ['class' => 'col-md-4 control-label']) !!}
-    <span style="color:red;">*</span>
+    {!! Form::label('amount', 'Donation Amount:', ['class' => 'col-md-4 control-label']) !!}
+
     <div class="col-md-6">
-        {!! Form::text('amount', null, ['id'=> 'amount','class' => 'col-md-6 form-control']) !!}
+        <div class="col-md-6">
+            <div class="form-group">
+                {!! Form::radio('amount', null, ['id'=> 'amount1','class' => 'col-md-6 form-control','value' => 5000]) !!}
+                {!! Form::label('lb_1','$5000',['class' => 'btn']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::radio('amount', null, ['id'=> 'amount2','class' => 'col-md-6 form-control','value' => 2500]) !!}
+                {!! Form::label('lb_1','$2500',['class' => 'btn']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::radio('amount', null, ['id'=> 'amount3','class' => 'col-md-6 form-control','value' => 2000]) !!}
+                {!! Form::label('lb_1','$2000',['class' => 'btn']) !!}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {!! Form::radio('amount', null, ['id'=> 'amount4','class' => 'col-md-6 form-control','value' => 1000]) !!}
+                {!! Form::label('lb_1','$1000',['class' => 'btn']) !!}
+            </div>
+            <div class="form-group">
+            {!! Form::radio('amount', null, ['id'=> 'amount5','class' => 'col-md-6 form-control','value' => 200]) !!}
+            {!! Form::label('lb_1','$200',['class' => 'btn']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::radio('amount', null, ['id'=> 'amount_other','class' => 'col-md-6 form-control','value' => 5000]) !!}
+                {!! Form::label('lb_1','Other:',['class' => 'btn']) !!}
+                {!! Form::text('amount', null, ['id'=> 'amount_actual','class' => 'form-control']) !!}
+            </div>
+        </div>
         @if ($errors->has('amount'))
             <span class="help-block">
                     <strong>{{ $errors->first('amount') }}</strong>
