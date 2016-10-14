@@ -22,7 +22,7 @@ class Donation extends Model
      * @var array
      */
     protected $fillable = [
-        'amount', 'date', 'donor_id'
+        'amount', 'donor_id'
     ];
 /*    public function donor()
     {
