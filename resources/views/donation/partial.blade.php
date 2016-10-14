@@ -17,29 +17,29 @@
     <div class="col-md-6">
         <div class="col-md-6">
             <div class="form-group">
-                {!! Form::radio('amount', null, ['id'=> 'amount1','class' => 'col-md-6 form-control','value' => 5000]) !!}
+                {!! Form::radio('amount', 5000, ['id'=> 'amount1','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$5000',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', null, ['id'=> 'amount2','class' => 'col-md-6 form-control','value' => 2500]) !!}
+                {!! Form::radio('amount', 2500, ['id'=> 'amount2','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$2500',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', null, ['id'=> 'amount3','class' => 'col-md-6 form-control','value' => 2000]) !!}
+                {!! Form::radio('amount', 2000, ['id'=> 'amount3','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$2000',['class' => 'btn']) !!}
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                {!! Form::radio('amount', null, ['id'=> 'amount4','class' => 'col-md-6 form-control','value' => 1000]) !!}
+                {!! Form::radio('amount', 1000, ['id'=> 'amount4','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$1000',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-            {!! Form::radio('amount', null, ['id'=> 'amount5','class' => 'col-md-6 form-control','value' => 200]) !!}
+            {!! Form::radio('amount', 200, ['id'=> 'amount5','class' => 'col-md-6 form-control']) !!}
             {!! Form::label('lb_1','$200',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', null, ['id'=> 'amount_other','class' => 'col-md-6 form-control','value' => 5000]) !!}
+                {!! Form::radio('amount', null, ['id'=> 'amount_other','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','Other:',['class' => 'btn']) !!}
                 {!! Form::text('amount', null, ['id'=> 'amount_actual','class' => 'form-control']) !!}
             </div>
