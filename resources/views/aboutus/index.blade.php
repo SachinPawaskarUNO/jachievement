@@ -2,37 +2,50 @@
 @section('content')
         <!DOCTYPE html>
 <html lang="en">
+<meta charset="utf-8">
+<title>Junior achievement Programs</title>
+<div style="background-color:rgb(245,245,245)">
 <style>
-    html, body {
-        height: 50%;
-        margin: 0;
-        padding: 0;
-    }
-    #map {
-        height: 50%;
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
     }
 </style>
-<title>Junior achievement Programs</title>
-<meta charset="utf-8">
+<div align="right"><a href= "{{ url('/aboutus/map') }}" class="button">Click here->Know about local Schools with JA</a></div>
+</div>
 <body>
-<div class="container-fluid" style="background-color:#A9DFBF">
+
+<div class="container-fluid" style="background-color:rgb(245,245,245)">
     <div class="container">
         <div class="row">
-            <h2 class="text-center">JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h2>
+            <br>
+            <h3 class="text-center" style="font-family:'Arial Black'">JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h3>
             <br>
             <div class="col-md-6">
-            <img class="img-responsive" alt="JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES" src="http://lyderis.eu/wp-content/uploads/2011/05/junior-achievement.jpg" width="100%" height="180px"/>
+            <img class="img-responsive" alt="JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES" src="http://lyderis.eu/wp-content/uploads/2011/05/junior-achievement.jpg" width="100%" height="auto">
             </div>
             <div class="col-md-6">
-            <br>
-            <h1 style="font-family:'Eras Medium ITC'">Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</h1>
-            <br>
-            <p style="font-size:25px">The envisioned future - what we aspire to become. Junior Achievement maintains an active vision, front and center, on how we can have a positive impact on the lives of more students - guided by our core values:</p>
+                <br>
+                <font size="+1"><b style="font-family:'Eras Medium ITC'">Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</b></font>
+                <br>
+                <br>
+                <font size="+1"><b style="font-family:'Eras Medium ITC'">Diversity Statement: Junior Achievement is the recognized leader in "empowering young people to own their economic success®" through volunteer-led, experiential learning. We are dedicated to providing a positive, enriching learning experience free of bias. Junior Achievement welcomes K-12 students, volunteers and potential staff regardless of race, religion, age, gender, national origin, disability, sexual orientation or any other legally protected characteristic.</b></font>
+                <br>
+                <br>
+                <font size="+1"><b style="font-family:'Eras Medium ITC'">The envisioned future - what we aspire to become. Junior Achievement maintains an active vision, front and center, on how we can have a positive impact on the lives of more students - guided by our core values:</b></font>
             </div>
         </div>
     </div>
 </div>
-<div class="container-fluid" style="background-color:#A9DFBF">
+<div class="container-fluid" style="background-color:white">
         <br>
         <div class="row">
             <div class="col-md-2"></div>
@@ -50,12 +63,12 @@
 </div>
 
 
-<div class="container-fluid">
+<div class="container-fluid" style="background-color:#A9DFBF">
     <h3 class="text-center">Junior Achievement facts</h3>
-
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
+
             <h4 class="text-center">What Is Junior Achievement USA®?</h4>
             <p class="text-left">We are the nation's largest organization dedicated to giving young people the knowledge and skills they need to own their economic success, plan for their futures, and make smart academic and economic choices. Junior Achievement's programs—in the core content areas of work readiness, entrepreneurship and financial literacy—ignite the spark in young people to experience and realize the opportunities and realities of work and life in the 21st century.</p>
 
@@ -107,57 +120,7 @@
     </div>
 </div>
 </div>
-
-<div id="map"></div>
-<script>
-    var map;
-    function initMap() {
-
-        var PineCreek= {
-            info: '<strong>Pine Creek Elementary</strong><br>\
-					7801 N HWS Cleveland Blvd<br>Bennington, NE 68007<br>',
-            lat: 41.330086,
-            long:-96.167939
-        };
-
-        var PineCreek= {
-            info: '<strong>Pine Creek Elementary</strong><br>\
-					7801 N HWS Cleveland Blvd<br>Bennington, NE 68007<br>',
-            lat: 41.330086,
-            long:-96.167939
-        };
-
-        var locations = [
-            [PineCreek.info, PineCreek.lat, PineCreek.long, 0],
-        ];
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 10,
-            center: new google.maps.LatLng(41.2523634, -95.9979883),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-
-        var infowindow = new google.maps.InfoWindow({});
-
-        var marker, i;
-
-        for (i = 0; i < locations.length; i++) {
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                map: map
-            });
-
-            google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                return function () {
-                    infowindow.setContent(locations[i][0]);
-                    infowindow.open(map, marker);
-                }
-            })(marker, i));
-        }
-    }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqOmmqwN3ZKjnKRqO68H3OnCPHohK2okM&callback=initMap"
-        async defer></script>
+</div>
 </body>
 </html>
 @endsection
