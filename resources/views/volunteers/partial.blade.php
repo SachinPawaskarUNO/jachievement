@@ -212,6 +212,7 @@
 
     <div class="form-group{{ $errors->has('homeStateId') ? ' has-error' : '' }}">
         {!! Form::label('homeStateId', 'State:', ['class' => 'col-md-4 control-label']) !!}
+        <span style="color:red;">*</span>
         <div class="col-md-6">
             {!! Form::select('homeStateId', $states,null,  ['id'=> 'homeStateId','class' => 'col-md-6 form-control']) !!}
             @if ($errors->has('homeStateId'))
@@ -222,7 +223,6 @@
 
 
     <div class="form-group{{ $errors->has('homeZip') ? ' has-error' : '' }}">
-
         {!! Form::label('homeZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
         <span style="color:red;">*</span>
         <div class="col-md-6">

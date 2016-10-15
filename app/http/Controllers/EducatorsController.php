@@ -28,8 +28,12 @@ class EducatorsController extends Controller
 
         Log::info('EducatorsController.form: ');
 
+        $defaultSelection = [''=>'Please Select'];
+
         $states = State::lists('name', 'id')->toArray();
-        return view('educators.interestform', compact('states');
+        $states =  $defaultSelection + $states;
+
+        return view('educators.interestform', compact('states'));
     }
 
     public function store(EducatorRequest $request)
