@@ -10,7 +10,7 @@
         <br>
         <br>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="panel panel-default">
 				    <!-- <div class="panel-heading"></div> 
 					Embed the google map with the Junior Achievement of Omaha Address
@@ -29,12 +29,12 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-6">
                	<div class="panel panel-default">
-					
+					<div class="panel-heading" style="background-color:#5cb85c !important;"><span style="font-size:1.8em;"><b> Contact Us </b></span></div>
 					<div class="panel-body" style="background-color:rgb(245,245,245)">
                         
-						<h1 class='text-center'>Contact Us</h1>
+						<!-- <h1 class='text-center'>Contact Us</h1> -->
 						
 					
 							{!! Form::open(['url' => '/contactus', 'class' => 'form-horizontal']) !!}
