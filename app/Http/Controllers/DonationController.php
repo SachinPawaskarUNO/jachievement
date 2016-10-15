@@ -38,7 +38,7 @@ class DonationController extends Controller
         // $this->viewData['heading'] = "";
 
                $donors= DB::table('donors')
-                    ->select(DB::raw('donors.lastname as lastname, donors.firstname as firstname'))
+                    ->select(DB::raw('donors.lastName as lastname, donors.firstName as firstname'))
                     ->get();
       
         return view('donation.donate', compact('donors'));
