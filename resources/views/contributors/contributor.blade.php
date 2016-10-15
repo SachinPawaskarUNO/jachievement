@@ -64,6 +64,7 @@
             <br>
             <br>
             <br>
+            <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
             <h2 class="text-center"  ID="3">PARTNERING WITH JUNIOR ACHIEVEMENT</h2>
             <br>
             <br>
@@ -191,30 +192,10 @@
 @endsection
 @section('footer')
     <script>
-        $(function () {
-            $('#container').highcharts({
-                data: {
-                    table: 'datatable'
-                },
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Data extracted from a HTML table in the page'
-                },
-                yAxis: {
-                    allowDecimals: false,
-                    title: {
-                        text: 'Units'
-                    }
-                },
-                tooltip: {
-                    formatter: function () {
-                        return '<b>' + this.series.name + '</b><br/>' +
-                                this.point.y + ' ' + this.point.name.toLowerCase();
-                    }
-                }
-            });
+        jQuery(function() {
+            jQuery('#container').highcharts(
+                    {!! json_encode($chartArray)!!}
+            )
         });
     </script>
 @endsection

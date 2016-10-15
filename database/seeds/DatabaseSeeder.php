@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(GradesTableSeeder::class);
         $this->call(ProgramsTableSeeder::class);
         $this->command->info('Grades Programs tables seeded!');
+        $this->call(StatesTableSeeder::class);
+        $this->command->info('States tables seeded!');
     }
 }
 class TagsTableSeeder extends Seeder {
