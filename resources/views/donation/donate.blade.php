@@ -3,7 +3,6 @@
 @section('content')
     <div class="container">
         <div class="row">
-
             <div class="col-md-7 col-sm-6-pull">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;"><span style="font-size:1.2em;"><b> {{ $heading }}</b></span></div>
