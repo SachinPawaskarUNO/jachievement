@@ -30,25 +30,52 @@
 				</div>
 			</div>
 			<div class="col-md-8">
-                <div class="panel panel-default">
+               	<div class="panel panel-default">
 					
 					<div class="panel-body" style="background-color:rgb(245,245,245)">
                         
 						<h1 class='text-center'>Contact Us</h1>
 						
 					
-						{!! Form::open(['url' => '/contactus', 'class' => 'form-horizontal']) !!}
-                        @include('common.errors')
-                        @include('common.flash')
+							{!! Form::open(['url' => '/contactus', 'class' => 'form-horizontal']) !!}
+							@include('common.errors')
+							@include('common.flash')
 
-                        @include ('contactus.partial')
+							@include ('contactus.partial')
 
-                        {!! Form::close() !!}
+							{!! Form::close() !!}
 
-
-			        </div>
+					  
+					</div>
 				</div>
-            </div>
-        </div>
-	</div>
+			</div>
+		</div>
+		<div class="row">				
+            <div class="col-md-2"> </div>
+			<div class="col-md-8">        
+				<h3 class='text-center'>Prefer to Call?</h3>
+				<br>
+				<div class ="table-responsive">
+					<table class="table">
+						<tr>
+							<th> John Healey </th> 
+							<th> President </th>
+							<th> 402-333-6410 x 203 </th>
+						</tr>
+						<tr>	
+							<th> Roxanne Mulvey </th> 
+							<th> Elementary School Programs </th>
+							<th> 402-333-6410 x 202 </th>
+						</tr>
+						<tr>
+							<th> Jamie Hermanson </th> 
+							<th> Middle/High School Programs </th>
+							<th> 402-333-6410 x 201 </th>
+						</tr>
+					</table>
+				</div>			
+			</div>
+			<div class="col-md-2"> </div>
+		</div>
+    </div>
 @endsection

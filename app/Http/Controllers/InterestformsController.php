@@ -41,7 +41,7 @@ class InterestformsController extends Controller
         $defaultSelection = [''=>'Please Select'];
 
         $states = State::lists('name', 'id')->toArray();
-        $states =  $states + $defaultSelection;
+        $states =  $defaultSelection + $states;
 
         return view('volunteers.interestform', compact('grade_program1', 'grade_program2', 'grade_program3', 'modeOfContact', 'states'));
     }
