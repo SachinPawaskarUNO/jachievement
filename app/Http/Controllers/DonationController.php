@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Donor;
-use App\Donation;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\DonorRequest;
+use App\Http\Requests\DonationRequest;
+use App\Donor;
+use App\Donation;
 
+use Auth;
 use Log;
 use Session;
 use Illuminate\Support\Facades\Input;
