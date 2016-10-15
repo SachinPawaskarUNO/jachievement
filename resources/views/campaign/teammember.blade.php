@@ -165,7 +165,7 @@
 
                 <!-- Create buttons  -->  
                 <div class="closing-buttons" align="center" id="button-donate"> 
-                    <a class="btn btn-lg btn-primary" href="/donation/donate" id = "member_join">Become a supporter</a> 
+                    <a class="btn btn-lg btn-primary" href="/donation/donate" id = "member_join">Join Our Team</a> 
                     <a class="btn btn-lg btn-primary" href="/donation/donate" id = "member_donate">Donate to my goal</a>  
                 </div><!-- end of  buttons class--> 
 

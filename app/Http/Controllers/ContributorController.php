@@ -15,8 +15,6 @@ class ContributorController extends Controller
 
     public function index() {
         Log::info('ContributorController');
-        //$this->viewData['heading'] = "Contributor Introduction Page";
-
 
        /*$donations= DB::table('donations')
            ->join('donors', 'donors.id', '=')
