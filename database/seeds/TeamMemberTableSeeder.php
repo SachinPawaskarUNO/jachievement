@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\TeamMember;
 
-use App\Teammember;
-
-class TeammembersTableSeeder extends Seeder
+class TeamMemberTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,13 +12,12 @@ class TeammembersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('teammembers')->delete();
-        Teammember::create([ 'goal' => '$250', 
+        DB::table('team_members')->delete();
+        TeamMember::create([ 'goal' => '$250', 
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create(),'user_id'=>'31','team_id'=>'1']);
-        Teammember::create([ 'goal' => '$300', 
+        TeamMember::create([ 'goal' => '$300', 
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create(),'user_id'=>'32','team_id'=>'2']);
-        Teammember::create([ 'goal' => '$450', 
+        TeamMember::create([ 'goal' => '$450', 
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create(),'user_id'=>'33','team_id'=>'3']);
-
     }
 }
