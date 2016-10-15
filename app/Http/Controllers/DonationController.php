@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Donor;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\DonorRequest;
+use App\Http\Requests\DonationRequest;
+use App\Donor;
+use App\Donation;
 
+use Auth;
 use Log;
 use Session;
+use Illuminate\Support\Facades\Input;
 
 class DonationController extends Controller
 {
@@ -38,11 +43,15 @@ class DonationController extends Controller
     {
         Log::info('DonationController.store - Start: ');
         $input = $request->all();
-
         $this->populateCreateFields($input);
+        $object = Donor::create($input);
 
-
-        $object = Donation::create($input);
+        $donation = new Donation();
+        $lastInsertedForm = Donor::all()->last();
+        $donation->donor_id = $lastInsertedForm->id;
+        $donation->amount = Input::get('amount');
+        $donation->date = date('Y-m-d');
+        $donation->save();
 
         Session::flash('flash_message', 'Thank you for your donation');
         Log::info('DonationController.store - End: ' . $object->id);

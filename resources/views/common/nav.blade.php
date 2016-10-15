@@ -35,7 +35,7 @@
             </ul>
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                        <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "About Us" }} <span class="caret"></span></a>
+                        <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Us<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_nav_programs" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
                             <li><a id="ja_nav_faq" href="{{6}}"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
@@ -43,11 +43,18 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                        <a id="ja_nav_getinv" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "Get Involved" }} <span class="caret"></span></a>
+                        <a id="ja_nav_getinv" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Get Involved<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_nav_educator" href="{{ url('/educators/introduction') }}"><i class="fa fa-btn fa-fw fa-university"></i>Educator</a></li>
                             <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/introduction') }}"><i class="fa fa-btn fa-fw fa-hand-paper-o"></i>Volunteer</a></li>
                             <li><a id="ja_nav_contribute" href="{{ url('/contributors') }}"><i class="fa fa-btn fa-fw fa-money"></i>Contribute</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                        <a id="ja_nav_getinv" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign Up<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                            <li><a id="ja_nav_educator" href="{{ url('/educators/interestform') }}"><i class="fa fa-btn fa-fw fa-university"></i>As An Educator</a></li>
+                            <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/interestform') }}"><i class="fa fa-btn fa-fw fa-hand-paper-o"></i>As A Volunteer</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -60,7 +67,7 @@
             </ul>
             <ul class="nav navbar-nav">
                 <li><a id="ja_nav_contact" href="{{ url('/contactus') }}">Contact Us</a></li>
-                <li><a id="ja_nav_contribute" href="{{ url('/donation/donate') }}">Donate Now</a></li>
+                <li><a id="ja_nav_contribute" href="{{ url('/') }}">Donate Now</a></li>
 
             </ul>
 
