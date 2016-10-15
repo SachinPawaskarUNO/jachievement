@@ -50,6 +50,7 @@ class DonationController extends Controller
         $lastInsertedForm = Donor::all()->last();
         $donation->donor_id = $lastInsertedForm->id;
         $donation->amount = Input::get('amount');
+        $donation->date = date('Y-m-d');
         $donation->save();
 
         Session::flash('flash_message', 'Thank you for your donation');
