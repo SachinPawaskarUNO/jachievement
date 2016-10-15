@@ -31,8 +31,8 @@
             <div>
                @foreach($donors as $donor)
                 <div class="col-md-6">
-                    {{$donor->firstName}}
-                    {{$donor->lastName}}
+                    {{$donor->firstname}}
+                    {{$donor->lastname}}
 
                 </div>
                   @endforeach
