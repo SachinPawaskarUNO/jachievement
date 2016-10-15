@@ -9,7 +9,7 @@ use App\Http\Requests\DonorRequest;
 use App\Http\Requests\DonationRequest;
 use App\Donor;
 use App\Donation;
-
+use DB;
 use Auth;
 use Log;
 use Session;
@@ -35,8 +35,15 @@ class DonationController extends Controller
     public function donate()
     {
         Log::info('DonationController.form: ');
-        $this->viewData['heading'] = "Donation to Junior Achievement Omaha";
-        return view('donation.donate', $this->viewData);
+        // $this->viewData['heading'] = "";
+
+               $donors= DB::table('donors')
+                    ->select(DB::raw('donors.lastName as lastName, donors.firstName as firstName'))
+                    ->get();
+      
+        return view('donation.donate', compact('donors'));
+
+        // return view('donation.donate', $this->viewData);
     }
 
     public function store(Request $request)
