@@ -13,14 +13,11 @@ class DonateController extends Controller
 {
     public function donate()
     {
+        return "hello";
         Log::info('DonateController.form: ');
         // $this->viewData['heading'] = "Donation to Junior Achievement Omaha";
 
-        $donors= DB::table('donors')
-                    ->select(DB::raw('lastName as lastName, firstName as firstName'))
-                    ->get();
-
-        return view('donation.donate', compact('donors'));
+ 
  
 
     }
