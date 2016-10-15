@@ -5,24 +5,102 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\DonorRequest;
+use App\Http\Requests\DonationRequest;
+use App\Donor;
+use App\Donation;
+
+use Auth;
 use Log;
+use Session;
+use Illuminate\Support\Facades\Input;
 
 class DonationController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function donate()
     {
-        Log::info('DonateController.form: ');
+        Log::info('DonationController.form: ');
         $this->viewData['heading'] = "Donation to Junior Achievement Omaha";
         return view('donation.donate', $this->viewData);
+    }
+
+    public function store(Request $request)
+    {
+        Log::info('DonationController.store - Start: ');
+        $input = $request->all();
+        $this->populateCreateFields($input);
+        $object = Donor::create($input);
+
+        $donation = new Donation();
+        $lastInsertedForm = Donor::all()->last();
+        $donation->donor_id = $lastInsertedForm->id;
+        $donation->amount = Input::get('amount');
+        $donation->date = date('Y-m-d');
+        $donation->save();
+
+        Session::flash('flash_message', 'Thank you for your donation');
+        Log::info('DonationController.store - End: ' . $object->id);
+        return redirect()->back();
 
     }
 
-
-	public function notification()
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        Log::info('DonateController.form: ');
-        $this->viewData['heading'] = "";
-        return view('donation.notification', $this->viewData);
+        //
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

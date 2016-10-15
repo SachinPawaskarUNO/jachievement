@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTeamsTable extends Migration
+class CreateStatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -11,22 +11,17 @@ class CreateTeamsTable extends Migration
      * @return void
      */
     public function up()
-    {
-       Schema::create('teams', function (Blueprint $table) {
+     {
+        Schema::create('states', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('goal');
+            $table->string('abbrevation');
             $table->string('created_by')->default('System');
             $table->string('updated_by')->default('System');
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('organization_id')->unsigned();
-            $table->foreign('organization_id')->references('id')->on('organizations');
-            $table->integer('campaign_id')->unsigned();
-            $table->foreign('campaign_id')->references('id')->on('campaigns');
-    });
+        });
     }
-
 
     /**
      * Reverse the migrations.
@@ -35,6 +30,6 @@ class CreateTeamsTable extends Migration
      */
     public function down()
     {
-         Schema::drop('teams');
+        Schema::drop('states');
     }
 }

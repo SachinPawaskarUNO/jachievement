@@ -2,34 +2,73 @@
 @section('content')
         <!DOCTYPE html>
 <html lang="en">
-<title>Junior achievement Programs</title>
 <meta charset="utf-8">
-<div class="container" style="background-color:#A9DFBF;">
-            <div class="text-center">
-                <h2>JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h2>
-            </div>
-                <img src="C:\wamp64\www\jachievement\public\images\students.png" alt="Student"width="50%" height="80%" class="text-left" align="left" style="clear: left;">
-        <br>
-        <h3 style="font-family:'Eras Medium ITC'">Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</h3>
-        <br>
-        <p style="font-size:16px">The envisioned future - what we aspire to become. Junior Achievement maintains an active vision, front and center, on how we can have a positive impact on the lives of more students - guided by our core values:</p>
-        <div class="text-center" style="color:#2E4053";>
+<title>Junior achievement Programs</title>
+<div style="background-color:rgb(245,245,245)">
+<style>
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+<div align="right"><a href= "{{ url('/aboutus/map') }}" class="button">Click here->Know about local Schools with JA</a></div>
+</div>
+<body>
+
+<div class="container-fluid" style="background-color:rgb(245,245,245)">
+    <div class="container">
+        <div class="row">
             <br>
-            <p style="font-size:16px">BELIEF IN THE BOUNDLESS POTENTIAL OF YOUNG PEOPLE</p>
-            <p style="font-size:16px">COMMITMENT TO THE PRINCIPLES OF MARKET-BASED ECONOMICS AND ENTREPRENEURSHIP</p>
-            <p style="font-size:16px">PASSION FOR WHAT WE DO AND HONESTY, INTEGRITY, AND EXCELLENCE IN HOW WE DO IT</p>
-            <p style="font-size:16px">RESPECT FOR THE TALENTS, CREATIVITY, PERSPECTIVES, AND BACKGROUNDS OF ALL INDIVIDUALS</p>
-            <p style="font-size:16px">BELIEF IN THE POWER OF PARTNERSHIP AND COLLABORATION</p>
-            <p style="font-size:16px">CONVICTION IN THE EDUCATIONAL AND MOTIVATIONAL IMPACT OF RELEVANT, HANDS-ON LEARNING</p>
+            <h3 class="text-center" style="font-family:'Arial Black'">JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h3>
+            <br>
+            <div class="col-md-6">
+            <img class="img-responsive" alt="JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES" src="http://lyderis.eu/wp-content/uploads/2011/05/junior-achievement.jpg" width="100%" height="auto">
+            </div>
+            <div class="col-md-6">
+                <br>
+                <font size="+1"><b style="font-family:'Eras Medium ITC'">Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</b></font>
+                <br>
+                <br>
+                <font size="+1"><b style="font-family:'Eras Medium ITC'">Diversity Statement: Junior Achievement is the recognized leader in "empowering young people to own their economic success®" through volunteer-led, experiential learning. We are dedicated to providing a positive, enriching learning experience free of bias. Junior Achievement welcomes K-12 students, volunteers and potential staff regardless of race, religion, age, gender, national origin, disability, sexual orientation or any other legally protected characteristic.</b></font>
+                <br>
+                <br>
+                <font size="+1"><b style="font-family:'Eras Medium ITC'">The envisioned future - what we aspire to become. Junior Achievement maintains an active vision, front and center, on how we can have a positive impact on the lives of more students - guided by our core values:</b></font>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="background-color:white">
+        <br>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> BELIEF IN THE BOUNDLESS POTENTIAL OF YOUNG PEOPLE <span class="glyphicon glyphicon-star"></span></p>
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> COMMITMENT TO THE PRINCIPLES OF MARKET-BASED ECONOMICS AND ENTREPRENEURSHIP <span class="glyphicon glyphicon-star"></span></p>
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> PASSION FOR WHAT WE DO AND HONESTY, INTEGRITY, AND EXCELLENCE IN HOW WE DO IT <span class="glyphicon glyphicon-star"></span></p>
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> RESPECT FOR THE TALENTS, CREATIVITY, PERSPECTIVES, AND BACKGROUNDS OF ALL INDIVIDUALS <span class="glyphicon glyphicon-star"></span></p>
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> BELIEF IN THE POWER OF PARTNERSHIP AND COLLABORATION <span class="glyphicon glyphicon-star"></span></p>
+            <p style="font-size:18px; text-align: center"><span class="glyphicon glyphicon-star"></span> CONVICTION IN THE EDUCATIONAL AND MOTIVATIONAL IMPACT OF RELEVANT, HANDS-ON LEARNING <span class="glyphicon glyphicon-star"></span></p>
+            <br>
+            </div>
+            <div class="col-md-2"></div>
         </div>
 </div>
 
-<div class="text-center">
-    <h3>Junior Achievement facts</h3>
-</div>
+
+<div class="container-fluid" style="background-color:#A9DFBF">
+    <h3 class="text-center">Junior Achievement facts</h3>
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
+
             <h4 class="text-center">What Is Junior Achievement USA®?</h4>
             <p class="text-left">We are the nation's largest organization dedicated to giving young people the knowledge and skills they need to own their economic success, plan for their futures, and make smart academic and economic choices. Junior Achievement's programs—in the core content areas of work readiness, entrepreneurship and financial literacy—ignite the spark in young people to experience and realize the opportunities and realities of work and life in the 21st century.</p>
 
@@ -80,4 +119,9 @@
         </div>
     </div>
 </div>
+</div>
+</div>
+</body>
+</html>
 @endsection
+

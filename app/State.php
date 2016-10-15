@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Donor extends Model
+class State extends Model
 {
     use SoftDeletes;
 
@@ -22,10 +22,6 @@ class Donor extends Model
      * @var array
      */
     protected $fillable = [
-        'firstName', 'lastName', 'address','city','state','zip','phone','email','user_id'
+        'name', 'abbrevation', 'created_by', 'updated_by'
     ];
-/*    public function donations()
-    {
-        return $this->hasMany('App\Donation');
-    }*/
 }
