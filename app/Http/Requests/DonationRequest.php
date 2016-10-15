@@ -1,22 +1,10 @@
 <?php
 
-/**
- * Comment Request
- *
- * @category   Comment
- * @package    Basic-Requests
- * @author     Sachin Pawaskar<spawaskar@unomaha.edu>
- * @copyright  2016-2017
- * @license    The MIT License (MIT)
- * @version    GIT: $Id$
- * @since      File available since Release 1.0.0
- */
-
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class DonorRequest extends Request
+class DonationRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +13,7 @@ class DonorRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -35,9 +23,8 @@ class DonorRequest extends Request
      */
     public function rules()
     {
-/*        $rules = [
+        return [
+            //
         ];
-
-        return $rules;*/
     }
 }
