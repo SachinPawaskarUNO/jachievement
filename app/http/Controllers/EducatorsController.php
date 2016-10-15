@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Requests\EducatorRequest;
 use Log;
 use App\EducatorInterestForm;
+use App\State;
 use Session;
 use Auth;
 
@@ -26,8 +27,9 @@ class EducatorsController extends Controller
     {
 
         Log::info('EducatorsController.form: ');
-        $this->viewData['heading'] = "Educator Interest Form";
-        return view('educators.interestform', $this->viewData);
+
+        $states = State::lists('name', 'id')->toArray();
+        return view('educators.interestform', compact('states');
     }
 
     public function store(EducatorRequest $request)
