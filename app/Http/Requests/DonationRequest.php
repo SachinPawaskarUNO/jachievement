@@ -30,7 +30,7 @@ class DonationRequest extends Request
             'city' => 'max:100|alpha',
             'state' => 'max:100|alpha',
             'zip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
-            'phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
+            'phone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'email' => 'required|max:100|email'
         ];
 
