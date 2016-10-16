@@ -142,20 +142,17 @@
         </div>
     </div>
 
-    <div class="form-group{{ $errors->has('companyState') ? ' has-error' : '' }}">
-        {!! Form::label('companyState', 'State:', ['class' => 'col-md-4 control-label']) !!}
+
+    <div class="form-group{{ $errors->has('companyStateId') ? ' has-error' : '' }}">
+        {!! Form::label('companyStateId', 'State:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
-            {!! Form::text('companyState', null, ['id'=> 'companyState','class' => 'col-md-6 form-control']) !!}
-            @if ($errors->has('companyState'))
-                <span class="help-block"><strong>{{ $errors->first('companyState') }}</strong></span>
+            {!! Form::select('companyStateId', $states, null,  ['id'=> 'companyStateId','class' => 'col-md-6 form-control']) !!}
+            @if ($errors->has('companyStateId'))
+                <span class="help-block"><strong>{{ $errors->first('companyStateId') }}</strong></span>
             @endif
         </div>
     </div>
 
-    <!--<div class="form-group col-md-8">
-         //Form::label('states', 'State:', ['class' => 'col-md-4 control-label'])
-         //Form::select('states', $states, null, ['class' => 'form-control'])
-    </div>-->
 
 
     <div class="form-group{{ $errors->has('companyZip') ? ' has-error' : '' }}">
@@ -213,30 +210,19 @@
     </div>
 
 
-    <div class="form-group{{ $errors->has('homeState') ? ' has-error' : '' }}">
-        {!! Form::label('homeState', 'State:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="form-group{{ $errors->has('homeStateId') ? ' has-error' : '' }}">
+        {!! Form::label('homeStateId', 'State:', ['class' => 'col-md-4 control-label']) !!}
         <span style="color:red;">*</span>
         <div class="col-md-6">
-            {!! Form::text('homeState', null, ['id'=> 'homeState','class' => 'col-md-6 form-control']) !!}
-            @if ($errors->has('homeState'))
-                <span class="help-block"><strong>{{ $errors->first('homeState') }}</strong></span>
+            {!! Form::select('homeStateId', $states,null,  ['id'=> 'homeStateId','class' => 'col-md-6 form-control']) !!}
+            @if ($errors->has('homeStateId'))
+                <span class="help-block"><strong>{{ $errors->first('homeStateId') }}</strong></span>
             @endif
         </div>
     </div>
 
-<div class="form-group{{ $errors->has('homeState') ? ' has-error' : '' }}">
-    {!! Form::label('homeState', 'Test State:', ['class' => 'col-md-4 control-label']) !!}
-    <div class="col-md-6">
-        {!! Form::select('homeState',['class' => 'col-md-6 form-control bfh-states', 'data-country'=> 'US','data-state' => 'CA']) !!}
-        @if ($errors->has('homeState'))
-            <span class="help-block"><strong>{{ $errors->first('homeState') }}</strong></span>
-        @endif
-    </div>
-</div>
-
 
     <div class="form-group{{ $errors->has('homeZip') ? ' has-error' : '' }}">
-
         {!! Form::label('homeZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
         <span style="color:red;">*</span>
         <div class="col-md-6">

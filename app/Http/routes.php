@@ -54,7 +54,7 @@ Route::get('laravel-version', function()
 //Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::post('change-password', 'Auth\AuthController@updatePassword');
-    Route::get( 'change-password', 'Auth\AuthController@updatePassword');
+    Route::get( 'change-password', 'Auth\AuthController@viewPage');
 
     Route::get('/home', 'HomeController@index');
 
@@ -71,13 +71,15 @@ Route::post('/educators/interestform', 'EducatorsController@store');
 Route::get('/campaign/teammember', 'CampaignController@teammember');
 Route::get('/campaign/team', 'CampaignController@team');
 
-Route::get('/donation/donate', 'DonateController@donate');
+Route::get('/donation/donate', 'DonationController@donate');
+Route::post('/donation/donate', 'DonationController@store');
 Route::get('/donation/notification', 'DonateController@notification');
 Route::get('/campaign/team/join', 'CampaignController@jointeam');
 
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 
 Route::get('/contactus', 'ContactController@contactus');
+Route::post('/contactus', 'ContactController@sendmail');
 
 Route::get('/aboutus/index', 'AboutUsController@aboutus');
 
@@ -86,10 +88,6 @@ Route::get('/aboutus/map', 'MapController@map');
 Route::get('/programs/index', 'ProgramController@program');
 Route::get('/contributors', 'ContributorController@index');
 
-
-
-
-//Route::post('/contactus', 'ContactController@store');
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');

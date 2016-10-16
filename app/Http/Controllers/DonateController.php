@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Log;
+use DB;
+
 
 class DonateController extends Controller
 {
     public function donate()
     {
+        return "hello";
         Log::info('DonateController.form: ');
-        $this->viewData['heading'] = "Donation to Junior Achievement Omaha";
-        return view('donation.donate', $this->viewData);
+        // $this->viewData['heading'] = "Donation to Junior Achievement Omaha";
+
+ 
+ 
 
     }
 
@@ -25,4 +30,12 @@ class DonateController extends Controller
         return view('donation.notification', $this->viewData);
 
     }
+
+    // public function ticker()
+    // {
+    //     Log::info('DonateController.donate: ');
+              
+
+    // return view('donation.donate', compact('donors'));
+    // }
 }

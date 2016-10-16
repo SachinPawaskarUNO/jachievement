@@ -9,6 +9,7 @@ use App\Http\Requests\VolunteerRequest;
 use Log;
 use App\VolunteerInterestForm;
 use App\VolunteerProgram;
+use App\State;
 use Session;
 use Auth;
 use DB;
@@ -36,7 +37,13 @@ class InterestformsController extends Controller
                 ->where('grade_id','=','3')
                 ->get();
         $modeOfContact = array('none' => 'None', 'email' => 'Email', 'phone' => 'Phone');
-        return view('volunteers.interestform', compact('grade_program1', 'grade_program2', 'grade_program3', 'modeOfContact'));
+
+        $defaultSelection = [''=>'Please Select'];
+
+        $states = State::lists('name', 'id')->toArray();
+        $states =  $defaultSelection + $states;
+
+        return view('volunteers.interestform', compact('grade_program1', 'grade_program2', 'grade_program3', 'modeOfContact', 'states'));
     }
 
     public function store(VolunteerRequest $request) {
@@ -44,7 +51,6 @@ class InterestformsController extends Controller
         $input = $request->all();
 
         $user = Auth::user();
-
         if($user) {
             $input['user_id'] = $user;
         }

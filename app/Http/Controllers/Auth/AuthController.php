@@ -42,10 +42,10 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    /*public function __construct()
     {
         $this->middleware($this->guestMiddleware(), ['except' => ['logout', 'updatePassword']]);
-    }
+    }*/
 
     /**
      * Get a validator for an incoming registration request.
@@ -77,6 +77,16 @@ class AuthController extends Controller
         ]);
     }
 
+
+
+    public function viewPage()
+    {
+        if (Auth::check())
+        {
+            return view('auth.passwords.change');
+        }
+    }
+
     // Todo: should probably implemeent a trait ChangePassword
     /**
      * Updates the password for the current user.
@@ -84,31 +94,39 @@ class AuthController extends Controller
      * @param  void
      * @return void
      */
+
     public function updatePassword()
     {
         if (Auth::check())
         {
             $user = Auth::user();
             $rules = array(
-                'old_password' => 'required',
-                'password' => 'required|confirmed|min:6',
-//                'password' => 'required|alphaNum|between:6,16|confirmed'
+                'current_password' => 'required',
+                'new_password' => 'required|min:6',
+                'password_confirmation' => 'required|min:6|same:new_password'
             );
 
             $validator = Validator::make(Input::all(), $rules);
-            //dd($validator);
-            if ($validator->fails()) {
-                return view('auth.passwords.change')->withErrors($validator);
-//                return view('auth.passwords.change');
-            } else {
-                if (!Hash::check(Input::get('old_password'), $user->password)) {
-                    return view('auth.passwords.change')->withErrors('Your old password does not match');
-                } else {
-                    $user->password = bcrypt(Input::get('password'));
-                    $user->save();
-                    return view('auth.passwords.change')->withErrors('Password has been changed');
+                if ($validator->fails())
+                {
+                    return view('auth.passwords.change')->withErrors($validator);
+                    //return view('auth.passwords.change');
                 }
-            }
+                else
+                {
+                     if (!Hash::check(Input::get('current_password'), $user->password))
+                     {
+                       \Session::flash('current_password','Your current password does not match');
+                        return view('auth.passwords.change')->with('message','Your current password is incorrect');
+                     }
+                     else
+                     {
+                         $user->password = bcrypt(Input::get('new_password'));
+                         $user->save();
+                         \Session::flash('flash_message','Your password has been successfully changed');
+                         return view('auth.passwords.change');
+                     }
+                }
         }
     }
 

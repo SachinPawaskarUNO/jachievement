@@ -15,54 +15,53 @@ class ContributorController extends Controller
 
     public function index() {
         Log::info('ContributorController');
-        //$this->viewData['heading'] = "Contributor Introduction Page";
 
-        /*$donors = \Lava::DataTable();
-
-       $donations= DB::table('donations')
+       /*$donations= DB::table('donations')
+           ->join('donors', 'donors.id', '=')
             ->select(DB::raw('donations.amount as amount, donations.donor_id as donor'))
             ->orderBy('amount', 'desc')
             ->get();
 
+        return $donations;
+        $chartArray["chart"] = array("type" => 'pie','plotBackgroundColor' => NULL,'plotBorderWidth'=> NULL,'plotShadow'=> false );
+        $chartArray["title"] = array("text" => 'Donation Chart Report');
+        $chartArray["tooltip"] = array("pointFormat" => '{series.name}: {point.percentage:.1f}%');
+        $chartArray["credits"] = array("enabled" => false);
+        $chartArray["plotOptions"] = array(
+            'pie' =>array(
+                'allowPointSelect'=> true,
+                'cursor'=>'pointer',
+                'dataLabels'=>array(
+                    'enabled'=>true,
+                    'format'=> '{point.name}: {point.percentage:.1f} %',
+                    'style'=>array(
+                        'color'=>"(Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black' "
+                    )
+                ),
+                'showInLegend'=> true
+            )
+        );
 
-        $totalDonation = 1300;
-        $donationArrayContainer=[];
-        $donationArray=[];
-        foreach($donations as $key->$value) {
+        $donorName = $donations->get();
+        $totalDonation = $donations->sum('amount');
+        $donorArrayContainer=[];
+        $donorArray=[];
+        foreach($donorName as $key->$value) {
 
-            $donationArrayContainer["name"] = $value->$donations->organization_name;
-             $donationArrayContainer["percent"] = $value/$totalDonation * 100;
-            array_push($donationArray, $categoryArrayContainer);
+            $donorArrayContainer["name"] = $value->donorName->name;
+            $donorArrayContainer["percent"] = $value->amount/$totalDonation * 100;
+            array_push($donorArray, $donorArrayContainer);
         }
 
+        $chartArray["series"] = array(
+            array(
+                "name" => 'Donation Report',
+                "colorByPoint" => true,
+                "data" => $donorArray
+            )
+        );*/
 
-        $donors->addStringColumn('Donors')
-            ->addNumberColumn('Percent')
-            ->addRow(['Donor 2', 4])
-             ->addRow(['Donor 3', 5])
-            ->addRow(['Donor 4', 2])
-             ->addRow(['Donor 5', 9])
-        ->addRow(['Donor 1', 80]);
-        /*foreach($donationArray as singleDonation) {
-
-        $donors->addRow(['Donor 1', singleDonation]);
-        }
-
-        \Lava::PieChart('IMDB', $donors, [
-            'title'  => 'Top 5 donors',
-            'is3D'   => true,
-            'slices' => [
-                ['offset' => 0.2],
-                ['offset' => 0.25],
-                ['offset' => 0.3]
-            ]
-        ]);*/
-
-        $donations= DB::table('donations')
-            ->select(DB::raw('donations.amount as amount, donations.donor_id as donor'))
-            ->orderBy('amount', 'desc')
-            ->get();
-
-        return view('contributors.contributor',  compact('donations'));
+        //return view('contributors.contributor')->with('chartArray', $chartArray);
+        return view('contributors.contributor');
     }
 }

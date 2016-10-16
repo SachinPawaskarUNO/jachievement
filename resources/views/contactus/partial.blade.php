@@ -1,5 +1,6 @@
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     {!! Form::label('name', 'Name:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('name', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('name'))
@@ -12,6 +13,7 @@
 
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
     {!! Form::label('email', 'E-Mail:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('email', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('email'))
@@ -23,7 +25,8 @@
 </div>
 
 <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
-    {!! Form::label('phone_number', 'Phone Number:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('phoneNumber', 'Phone:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('phone_number', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('phone_number'))
@@ -34,13 +37,14 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('user_message') ? ' has-error' : '' }}">
     {!! Form::label('message', 'Message:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::textarea('message', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
-        @if ($errors->has('message'))
+        {!! Form::textarea('user_message', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+        @if ($errors->has('user_message'))
             <span class="help-block">
-                <strong>{{ $errors->first('message') }}</strong>
+                <strong>{{ $errors->first('user_message') }}</strong>
             </span>
         @endif
     </div>
@@ -48,7 +52,7 @@
 
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
-        {!! Form::button('<i class="fa fa-btn fa-save"></i>Contact Us', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
+        {!! Form::button('<i class="fa fa-btn fa-save"></i>Submit!', ['type' => 'submit', 'class' => 'btn btn-success']) !!}
     </div>
 </div>
 

@@ -16,8 +16,8 @@ class CreateDonorsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->softDeletes();
-            $table->string('firstName');
-            $table->string('lastName');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('address');
             $table->string('city');
             $table->string('state');
