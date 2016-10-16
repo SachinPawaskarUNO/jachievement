@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Requests\DonorRequest;
 use App\Http\Requests\DonationRequest;
 use App\Donor;
 use App\Donation;
@@ -49,8 +48,9 @@ class DonationController extends Controller
         // return view('donation.donate', $this->viewData);
     }
 
-    public function store(Request $request)
+    public function store(DonationRequest $request)
     {
+        return "hello";
         Log::info('DonationController.store - Start: ');
         $input = $request->all();
         $this->populateCreateFields($input);
