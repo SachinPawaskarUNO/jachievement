@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Requests\DonationRequest;
 use App\Donor;
 use App\Donation;
+use App\State;
 use DB;
 use Auth;
 use Log;
@@ -47,7 +48,18 @@ class DonationController extends Controller
 
         // return view('donation.donate', $this->viewData);
     }
+    public function donationform()
+    {
 
+        Log::info('DonationController.form: ');
+
+        $defaultSelection = [''=>'Please Select'];
+
+        $states = State::lists('name', 'id')->toArray();
+        $states =  $defaultSelection + $states;
+
+        return view('donation.donate', compact('states'));
+    }
     public function store(DonationRequest $request)
     {
         Log::info('DonationController.store - Start: ');
