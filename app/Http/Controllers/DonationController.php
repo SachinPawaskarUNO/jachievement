@@ -37,10 +37,11 @@ class DonationController extends Controller
         Log::info('DonationController.form: ');
         // $this->viewData['heading'] = "";
 
-               $donors= DB::table('donations')
-                    ->select(DB::raw('donors.first_name as firstname, donors.last_name as lastname, sum(donations.amount) as amount'))
-                    ->join('donors','donor_id','=','donations.donor_id')
+               $donors= DB::table('donors')->take(5)
+                    ->join('donations','donor_id','=','donations.donor_id')
+                    ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, sum(donations.amount) as amount'))
                     ->groupBy('donors.first_name','donors.last_name')
+                    ->orderBy('amount','desc')
                     ->get();
 
         return view('donation.donate', compact('donors'));
