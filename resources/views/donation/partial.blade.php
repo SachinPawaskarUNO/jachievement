@@ -52,13 +52,13 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 
-    {!! Form::label('firstName', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('first_name', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('firstName', null, ['id'=> 'firstName','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('firstName'))
+        {!! Form::text('first_name', null, ['id'=> 'firstName','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('first_name'))
             <span class="help-block">
                     <strong>{{ $errors->first('firstName') }}</strong>
                 </span>
@@ -66,13 +66,13 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
 
-    {!! Form::label('lastName', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('last_name', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('lastName', null, ['id'=> 'lastName','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('lastName'))
+        {!! Form::text('last_name', null, ['id'=> 'lastName','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('last_name'))
             <span class="help-block">
                     <strong>{{ $errors->first('lastName') }}</strong>
                 </span>
