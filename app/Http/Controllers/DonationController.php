@@ -38,9 +38,9 @@ class DonationController extends Controller
         // $this->viewData['heading'] = "";
 
                $donors= DB::table('donors')->take(5)
-                    ->join('donations','donor_id','=','donations.donor_id')
+                    ->join('donations','donors.id','=','donations.donor_id')
                     ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, sum(donations.amount) as amount'))
-                    ->groupBy('donors.first_name','donors.last_name')
+                    ->groupBy('firstname','lastname')
                     ->orderBy('amount','desc')
                     ->get();
 
