@@ -20,7 +20,6 @@ class CreateDonorsTable extends Migration
             $table->string('last_name');
             $table->string('address');
             $table->string('city');
-            $table->string('state');
             $table->string('zip');
             $table->string('phone');
             $table->string('email');
@@ -28,6 +27,7 @@ class CreateDonorsTable extends Migration
             $table->string('updated_by')->default('System');
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 
