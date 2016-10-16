@@ -23,6 +23,9 @@ class AddForeignKeysForDonationsTable extends Migration
             $table->integer('teammember_id')->unsigned();
             $table->foreign('teammember_id')->references('team_members')->on('id');
             
+            $table->integer('state_id')->unsigned();
+            $table->foreign('state_id')->references('states')->on('id');
+            
         });
     }
 
@@ -33,8 +36,9 @@ class AddForeignKeysForDonationsTable extends Migration
      */
     public function down()
     {
-         Schema::dropForeign(['team_id']);
-          Schema::dropForeign(['campaign_id']);
-           Schema::dropForeign(['teammember_id']);
+        Schema::table('donations', function (Blueprint $table) {
+            $table->dropForeign(['team_id','campaign_id','teammember_id', 'state_id']);
+        });
+        
     }
 }
