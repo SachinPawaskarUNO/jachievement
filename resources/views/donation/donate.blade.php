@@ -18,14 +18,6 @@
             <div class="col-md-5 col-sm-6-push">
                 <div class="row">
                     <h3 class="text-center">Top 5 Contributors</h3>
-                    <ol class="list-group">
-
-                        <!-- <li class="list-group-item">John Wick: $500</li>
-                        <li class="list-group-item">Steve Trevor: $250</li>
-                        <li class="list-group-item">Felicity Smoak: $200</li>
-                        <li class="list-group-item">Steve Bob: $100</li>
-                        <li class="list-group-item">Thea Quinn: $50</li>
- -->
       
         <div style="margin-left:20px;">
             <div>
@@ -33,23 +25,11 @@
                 <div class="col-md-6">
                     {{$donor->firstname}}
                     {{$donor->lastname}}
-
+                    ${{$donor->amount}}
                 </div>
                   @endforeach
             </div>
-        </div>
-      
 
-
-            <!--             <li class="list-group-item">1. John Smith: $500</li>
-                        <li class="list-group-item">2. Steve Trevor: $250</li>
-                        <li class="list-group-item">3. Felicity Smoak: $200</li>
-                        <li class="list-group-item">4. Steve Bob: $100</li>
-                        <li class="list-group-item">5. Thea Quinn: $50</li> -->
-
-                    </ol>
-
-                </div>
                 <div class="row">
                     <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/ja_nav_logo.jpg') }}">
                 </div>
