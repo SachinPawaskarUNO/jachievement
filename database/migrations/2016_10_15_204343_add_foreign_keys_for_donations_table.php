@@ -33,6 +33,8 @@ class AddForeignKeysForDonationsTable extends Migration
      */
     public function down()
     {
-         Schema::dropForeign(['team_id','campaign_id','teammember_id']);
+         Schema::dropForeign(['team_id']);
+          Schema::dropForeign(['campaign_id']);
+           Schema::dropForeign(['teammember_id']);
     }
 }
