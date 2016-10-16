@@ -104,6 +104,7 @@
 
 <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
     {!! Form::label('state', 'State:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('state', null, ['id'=> 'state','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('state'))
