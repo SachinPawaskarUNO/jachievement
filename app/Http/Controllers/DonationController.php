@@ -50,7 +50,6 @@ class DonationController extends Controller
 
     public function store(DonationRequest $request)
     {
-        return "hello";
         Log::info('DonationController.store - Start: ');
         $input = $request->all();
         $this->populateCreateFields($input);
