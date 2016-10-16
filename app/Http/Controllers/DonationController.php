@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Requests\DonorRequest;
 use App\Http\Requests\DonationRequest;
 use App\Donor;
 use App\Donation;
@@ -37,17 +36,21 @@ class DonationController extends Controller
         Log::info('DonationController.form: ');
         // $this->viewData['heading'] = "";
 
-               $donors= DB::table('donors')
-                    ->select(DB::raw('lastName as lastName, firstName as firstName'))
+               $donors= DB::table('donors')->take(5)
+                    ->join('donations','donors.id','=','donations.donor_id')
+                    ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, sum(donations.amount) as amount'))
+                    ->groupBy('firstname','lastname')
+                    ->orderBy('amount','desc')
                     ->get();
-      
+
         return view('donation.donate', compact('donors'));
 
         // return view('donation.donate', $this->viewData);
     }
 
-    public function store(Request $request)
+    public function store(DonationRequest $request)
     {
+        return "hello";
         Log::info('DonationController.store - Start: ');
         $input = $request->all();
         $this->populateCreateFields($input);

@@ -25,7 +25,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
-    {!! Form::label('phoneNumber', 'Phone Number:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('phoneNumber', 'Phone:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('phone_number', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
@@ -52,7 +52,7 @@
 
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
-        {!! Form::button('<i class="fa fa-btn fa-save"></i>Submit!', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
+        {!! Form::button('<i class="fa fa-btn fa-save"></i>Submit!', ['type' => 'submit', 'class' => 'btn btn-success']) !!}
     </div>
 </div>
 

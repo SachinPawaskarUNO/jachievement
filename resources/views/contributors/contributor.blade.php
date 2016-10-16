@@ -63,8 +63,6 @@
         <div class="container"  ID="2">
             <br>
             <br>
-            <br>
-            <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
             <h2 class="text-center"  ID="3">PARTNERING WITH JUNIOR ACHIEVEMENT</h2>
             <br>
             <br>
@@ -189,13 +187,4 @@
     </div>
 
 
-@endsection
-@section('footer')
-    <script>
-        jQuery(function() {
-            jQuery('#container').highcharts(
-                    {!! json_encode($chartArray)!!}
-            )
-        });
-    </script>
 @endsection
