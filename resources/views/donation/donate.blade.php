@@ -1,6 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    table{
+        width:100%;
+    }
+    td, th {
+        text-align:left;
+        padding:8px;
+    }
+    th{
+        background-color: #5cb85c;
+    }
+    tr:nth-child(even) {
+        background-color:#f2f2f2;
+    }
+
+</style>
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-sm-6-pull">
@@ -18,40 +34,33 @@
             <div class="col-md-5 col-sm-6-push">
                 <div class="row">
                     <h3 class="text-center">Top 5 Contributors</h3>
-                    <ol class="list-group">
-
-                        <!-- <li class="list-group-item">John Wick: $500</li>
-                        <li class="list-group-item">Steve Trevor: $250</li>
-                        <li class="list-group-item">Felicity Smoak: $200</li>
-                        <li class="list-group-item">Steve Bob: $100</li>
-                        <li class="list-group-item">Thea Quinn: $50</li>
- -->
       
         <div style="margin-left:20px;">
             <div>
-               @foreach($donors as $donor)
-                <div class="col-md-6">
-                    {{$donor->firstname}}
-                    {{$donor->lastname}}
+            <div class="col-md-12">
+                <table>
+                    <th>Donor</th>
+                    <th>Amount</th>
 
-                </div>
+               @foreach($donors as $donor)
+                    <tr>
+                      <td>
+                          {{$donor->firstname}} {{$donor->lastname}}.
+                      </td>
+                      <td>
+                          ${{$donor->amount}}
+                      </td>
+                    </tr>
+
                   @endforeach
+                </table>
+            </div>
             </div>
         </div>
-      
 
 
-            <!--             <li class="list-group-item">1. John Smith: $500</li>
-                        <li class="list-group-item">2. Steve Trevor: $250</li>
-                        <li class="list-group-item">3. Felicity Smoak: $200</li>
-                        <li class="list-group-item">4. Steve Bob: $100</li>
-                        <li class="list-group-item">5. Thea Quinn: $50</li> -->
-
-                    </ol>
-
-                </div>
                 <div class="row">
-                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/ja_nav_logo.jpg') }}">
+                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/DonationNotification.png') }}">
                 </div>
             </div>
         </div>

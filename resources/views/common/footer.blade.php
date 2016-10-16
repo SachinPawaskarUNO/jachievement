@@ -1,6 +1,7 @@
 <div class="container-fluid">
     <div class="container">
       <div class="text-center">
+        <br>
         <a href="https://www.youtube.com/channel/UCgMAAachC-yG8p8r06S938A"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a>
       <a href="https://www.facebook.com/JuniorAchievementUSA"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
     </div>
