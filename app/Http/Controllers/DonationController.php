@@ -45,6 +45,7 @@ class DonationController extends Controller
         $donors= DB::table('donors')->take(5)
             ->join('donations','donors.id','=','donations.donor_id')
             ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, sum(donations.amount) as amount'))
+            ->where('donations.anonymous','no')
             ->groupBy('firstname','lastname')
             ->orderBy('amount','desc')
             ->get();
@@ -65,6 +66,12 @@ class DonationController extends Controller
         }
         else {
             $donation->amount = Input::get('amount');
+        }
+        if (Input::get('anonymous') == 1) {
+            $donation->anonymous = 'yes';
+        }
+        else {
+            $donation->anonymous = 'no';
         }
 
         $donation->date = date('Y-m-d');
