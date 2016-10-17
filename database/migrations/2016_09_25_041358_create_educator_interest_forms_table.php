@@ -20,7 +20,6 @@ class CreateEducatorInterestFormsTable extends Migration
             $table->string('schoolPhone');
             $table->string('schoolAddress');
             $table->string('schoolCity');
-            $table->string('schoolState');
             $table->string('schoolZip');
             $table->string('email');
             $table->string('grade')->nullable();
