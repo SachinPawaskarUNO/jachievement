@@ -146,6 +146,15 @@
     </div>
 </div>
 
+<div class="form-inline">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="form-group">
+            {!! Form::checkbox('anonymous', 1, false, ['id'=> 'anonymous', 'class' => 'check_box' ]) !!}
+            {!! Form::label('I would like to have my donation anonymous') !!}
+        </div>
+    </div>
+</div>
+
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
         {!! Form::button('<i class="fa fa-btn fa-save"></i>Donate', ['type' => 'submit','id' => 'save', 'class' => 'btn btn-success']) !!}
