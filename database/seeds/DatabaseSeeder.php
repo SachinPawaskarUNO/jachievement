@@ -25,9 +25,15 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Grades Programs tables seeded!');
         $this->call(StatesTableSeeder::class);
         $this->command->info('States tables seeded!');
-        $this->call(TeamMemberTableSeeder::class);
-        $this->command->info('Team Member tables seeded!');
-        
+        $this->call(OrganizationsTableSeeder::class);
+        $this->command->info('Organizations tables seeded!');
+        $this->call(CampaignsTableSeeder::class);
+        $this->command->info('Campaign tables seeded!');
+        $this->call(TeamsTableSeeder::class);
+        $this->command->info('Team tables seeded!');
+        $this->call(TeamMembersTableSeeder::class);
+        $this->command->info('Team Members tables seeded!');
+
     }
 }
 class TagsTableSeeder extends Seeder {
