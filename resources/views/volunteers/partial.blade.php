@@ -143,12 +143,12 @@
     </div>
 
 
-    <div class="form-group{{ $errors->has('companyStateId') ? ' has-error' : '' }}">
-        {!! Form::label('companyStateId', 'State:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="form-group{{ $errors->has('company_state_id') ? ' has-error' : '' }}">
+        {!! Form::label('company_state_id', 'State:', ['class' => 'col-md-4 control-label']) !!}
         <div class="col-md-6">
-            {!! Form::select('companyStateId', $states, null,  ['id'=> 'companyStateId','class' => 'col-md-6 form-control']) !!}
-            @if ($errors->has('companyStateId'))
-                <span class="help-block"><strong>{{ $errors->first('companyStateId') }}</strong></span>
+            {!! Form::select('company_state_id', $states, null,  ['id'=> 'company_state_id','class' => 'col-md-6 form-control']) !!}
+            @if ($errors->has('company_state_id'))
+                <span class="help-block"><strong>{{ $errors->first('company_state_id') }}</strong></span>
             @endif
         </div>
     </div>
@@ -210,13 +210,13 @@
     </div>
 
 
-    <div class="form-group{{ $errors->has('homeStateId') ? ' has-error' : '' }}">
-        {!! Form::label('homeStateId', 'State:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="form-group{{ $errors->has('home_state_id') ? ' has-error' : '' }}">
+        {!! Form::label('home_state_id', 'State:', ['class' => 'col-md-4 control-label']) !!}
         <span style="color:red;">*</span>
         <div class="col-md-6">
-            {!! Form::select('homeStateId', $states,null,  ['id'=> 'homeStateId','class' => 'col-md-6 form-control']) !!}
-            @if ($errors->has('homeStateId'))
-                <span class="help-block"><strong>{{ $errors->first('homeStateId') }}</strong></span>
+            {!! Form::select('home_state_id', $states,null,  ['id'=> 'home_state_id','class' => 'col-md-6 form-control']) !!}
+            @if ($errors->has('home_state_id'))
+                <span class="help-block"><strong>{{ $errors->first('home_state_id') }}</strong></span>
             @endif
         </div>
     </div>
