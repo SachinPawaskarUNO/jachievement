@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Requests\ContactFormRequest;
+use App\Http\Requests\ContactRequest;
 use Session;
 use Mail;
 
@@ -17,7 +17,7 @@ class ContactController extends Controller
         $this->viewData['heading'] = "Contact Us";
         return view('contactus.contactus', $this->viewData);
     }
-	public function sendmail(ContactFormRequest $request)
+	public function sendmail(ContactRequest $request)
     {
         
        $data = array(
