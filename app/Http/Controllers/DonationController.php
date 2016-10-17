@@ -60,7 +60,13 @@ class DonationController extends Controller
         $donation = new Donation();
         $lastInsertedForm = Donor::all()->last();
         $donation->donor_id = $lastInsertedForm->id;
-        $donation->amount = Input::get('amount');
+        if (Input::get('amount_actual') != null) {
+            $donation->amount = Input::get('amount_actual');
+        }
+        else {
+            $donation->amount = Input::get('amount');
+        }
+
         $donation->date = date('Y-m-d');
         $donation->save();
 
