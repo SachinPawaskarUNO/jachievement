@@ -20,13 +20,11 @@ class CreateVolunteerInterestFormsTable extends Migration
             $table->string('companyName')->nullable();
             $table->string('companyAddress')->nullable();
             $table->string('companyCity')->nullable();
-            $table->string('companyState')->nullable();
             $table->string('companyZip')->nullable();
             $table->string('companyPhone')->nullable();
             $table->string('homePhone');
             $table->string('homeAddress');
             $table->string('homeCity');
-            $table->string('homeState');
             $table->string('homeZip');
             $table->string('email');
             $table->integer('user_id')->unsigned()->nullable();
