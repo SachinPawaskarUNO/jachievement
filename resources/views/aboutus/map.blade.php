@@ -9,7 +9,7 @@
         padding: auto;
     }
     #map {
-        border: 8px solid #196F3D;
+        border: 8px solid #4CAF50 ;
         height: 75%;
         width: 80%;
         margin: auto;
@@ -19,12 +19,13 @@
 </style>
 <title>Schools Map</title>
 <meta charset="utf-8">
-<body background="http://wallpapercave.com/wp/t9LM0aa.png">
+<body style="background-color: rgba(140,198,62,0.85)">
 <div class="container">
     <h1 style="color:white">Get Involved with Junior Achievement!</h1>
     <p style="color:white">If you would like to volunteer, request a program, or volunteer with JA,
-        please reach out to a schools near you!</p>
+        please reach out to a school near you!</p>
 </div>
+
 <div id="map"></div>
 <script>
     var map;

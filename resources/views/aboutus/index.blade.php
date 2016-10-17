@@ -7,7 +7,7 @@
 <div style="background-color:rgb(245,245,245)">
 <style>
     .button {
-        background-color: #4CAF50;
+        background-color: rgba(140,198,62,0.85);
         border: none;
         color: white;
         padding: 10px 30px;
@@ -19,7 +19,7 @@
         cursor: pointer;
     }
 </style>
-<div align="right"><a href= "{{ url('/aboutus/map') }}" class="button">Click here->Know about local Schools with JA</a></div>
+<div align="right"><a href= "{{ url('/aboutus/map') }}" class="button">Local Schools with JA</a></div>
 </div>
 <body>
 
@@ -48,13 +48,13 @@
         <br>
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8" style="align-content: center">
-                <p style="font-size:18px; text-align: center;color: green;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the boundless potential of young people</p>
-                <p style="font-size:18px; text-align: center;color: green;"><span class="glyphicon glyphicon-star-empty"></span> Commitment to the principles of market-based economics and entrepreneurship</p>
-                <p style="font-size:18px; text-align: center;color: green;"><span class="glyphicon glyphicon-star-empty"></span> Passion for what we do and honesty, integrity, and excellence in how we do it</p>
-                <p style="font-size:18px; text-align: center;color: green;"><span class="glyphicon glyphicon-star-empty"></span> Respect for the talents, creativity, perspectives, and backgrounds of all individuals</p>
-                <p style="font-size:18px; text-align: center;color: green;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the power of partnership and collaboration</p>
-                <p style="font-size:18px; text-align: center;color: green;"><span class="glyphicon glyphicon-star-empty"></span> Conviction in the educational and motivational impact of relevant, hands-on learning</p>
+            <div class="col-md-8" style="align-content: center; color:green">
+                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the boundless potential of young people</p>
+                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Commitment to the principles of market-based economics and entrepreneurship</p>
+                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Passion for what we do and honesty, integrity, and excellence in how we do it</p>
+                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Respect for the talents, creativity, perspectives, and backgrounds of all individuals</p>
+                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the power of partnership and collaboration</p>
+                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Conviction in the educational and motivational impact of relevant, hands-on learning</p>
                 <br>
             </div>
             <div class="col-md-2"></div>
@@ -63,8 +63,8 @@
 
 
 <div class="container-fluid" style="background-color: rgb(245,245,245)">
-    <div class="row" style="background-color: #4CAF50">
-        <h3 class="text-center">Junior Achievement Facts</h3>
+    <div class="row" style="background-color: rgba(140,198,62,0.85)">
+        <h3 class="text-center" style="color: white">Junior Achievement Facts</h3>
     </div>
 
     <div class="container">
