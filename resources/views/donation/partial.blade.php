@@ -113,6 +113,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('zip') ? ' has-error' : '' }}">
+    <span style="color:red;">*</span>
     {!! Form::label('zip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('zip', null, ['id'=> 'zip','class' => 'col-md-6 form-control','maxLength' => '10']) !!}
