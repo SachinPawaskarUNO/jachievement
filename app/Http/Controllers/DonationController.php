@@ -32,22 +32,7 @@ class DonationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function donate()
-    {
-        Log::info('DonationController.form: ');
-        // $this->viewData['heading'] = "";
 
-               $donors= DB::table('donors')->take(5)
-                    ->join('donations','donors.id','=','donations.donor_id')
-                    ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, sum(donations.amount) as amount'))
-                    ->groupBy('firstname','lastname')
-                    ->orderBy('amount','desc')
-                    ->get();
-
-        return view('donation.donate', compact('donors'));
-
-        // return view('donation.donate', $this->viewData);
-    }
     public function donationform()
     {
 
@@ -57,8 +42,14 @@ class DonationController extends Controller
 
         $states = State::lists('name', 'id')->toArray();
         $states =  $defaultSelection + $states;
-
-        return view('donation.donate', compact('states'));
+        $donors= DB::table('donors')->take(5)
+            ->join('donations','donors.id','=','donations.donor_id')
+            ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, sum(donations.amount) as amount'))
+            ->where('donations.anonymous','no')
+            ->groupBy('firstname','lastname')
+            ->orderBy('amount','desc')
+            ->get();
+        return view('donation.donate', compact('states','donors'));
     }
     public function store(DonationRequest $request)
     {
@@ -70,7 +61,19 @@ class DonationController extends Controller
         $donation = new Donation();
         $lastInsertedForm = Donor::all()->last();
         $donation->donor_id = $lastInsertedForm->id;
-        $donation->amount = Input::get('amount');
+        if (Input::get('amount_actual') != null) {
+            $donation->amount = Input::get('amount_actual');
+        }
+        else {
+            $donation->amount = Input::get('amount');
+        }
+        if (Input::get('anonymous') == 1) {
+            $donation->anonymous = 'yes';
+        }
+        else {
+            $donation->anonymous = 'no';
+        }
+
         $donation->date = date('Y-m-d');
         $donation->save();
 

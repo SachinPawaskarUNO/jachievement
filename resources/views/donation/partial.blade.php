@@ -39,9 +39,9 @@
             {!! Form::label('lb_1','$200',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', 'other', ['id'=> 'amount_other','class' => 'col-md-6 form-control']) !!}
+                {!! Form::radio('amount', null, ['id'=> 'amount6','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','Other:',['class' => 'btn']) !!}
-                {!! Form::text('otherAmount', null, ['id'=> 'amount_actual','class' => 'form-control']) !!}
+                {!! Form::text('amount_actual', null, ['id'=> 'amount_actual','class' => 'form-control']) !!}
             </div>
         </div>
         @if ($errors->has('amount'))
@@ -143,6 +143,15 @@
             <span class="help-block">
                 <strong>{{ $errors->first('email') }}</strong></span>
         @endif
+    </div>
+</div>
+
+<div class="form-inline">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="form-group">
+            {!! Form::checkbox('anonymous', 1, false, ['id'=> 'anonymous', 'class' => 'check_box' ]) !!}
+            {!! Form::label('I would like to have my donation anonymous') !!}
+        </div>
     </div>
 </div>
 

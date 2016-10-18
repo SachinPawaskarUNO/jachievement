@@ -82,13 +82,13 @@
 </div>
 
 
-<div class="form-group{{ $errors->has('schoolStateId') ? ' has-error' : '' }}">
-    {!! Form::label('schoolStateId', 'State:', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group{{ $errors->has('school_state_id') ? ' has-error' : '' }}">
+    {!! Form::label('school_state_id', 'State:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::select('schoolStateId', $states, null,  ['id'=> 'schoolStateId','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('schoolStateId'))
-            <span class="help-block"><strong>{{ $errors->first('schoolStateId') }}</strong></span>
+        {!! Form::select('school_state_id', $states, null,  ['id'=> 'school_state_id','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('school_state_id'))
+            <span class="help-block"><strong>{{ $errors->first('school_state_id') }}</strong></span>
         @endif
     </div>
 </div>

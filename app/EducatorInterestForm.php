@@ -22,7 +22,7 @@ class EducatorInterestForm extends Model
      * @var array
      */
     protected $fillable = [
-         'firstName', 'lastName', 'schoolName', 'schoolPhone','schoolAddress', 'schoolCity', 'schoolStateId',
+         'firstName', 'lastName', 'schoolName', 'schoolPhone','schoolAddress', 'schoolCity', 'school_state_id',
         'schoolZip', 'email', 'grade', 'programTheme', 'planningTime', 'cellphone', 'commentsRequests',
         'noOfClaases', 'noOfStudentsPerClass', 'user_id'
     ];

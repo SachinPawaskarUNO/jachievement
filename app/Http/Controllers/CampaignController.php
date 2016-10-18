@@ -12,9 +12,9 @@ class CampaignController extends Controller
 {
   public function teammember()
   {
-      Log::info('CampaignController.teammember: ');
+      Log::info('CampaignController.team_member: ');
         $teamMembers= DB::table('team_members')
-                    ->join('donations', 'team_members.id', '=', 'donations.teammember_id')
+                    ->join('donations', 'team_members.id', '=', 'donations.team_member_id')
                     ->join('users', 'team_members.user_id', '=', 'users.id')
                     ->select(DB::raw('team_members.id as id, team_members.goal as goal,donations.amount as amount,users.name as name'))
                     ->get();

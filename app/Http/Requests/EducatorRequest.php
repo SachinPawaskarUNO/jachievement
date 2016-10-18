@@ -30,7 +30,7 @@ class EducatorRequest extends Request
             'schoolPhone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'schoolAddress' => 'required|max:100',
             'schoolCity' => 'required|max:50',
-            'schoolStateId' => 'required',
+            'school_state_id' => 'required',
             'schoolZip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
             'email' => 'required|max:50|email',
             'grade' => 'max:50',

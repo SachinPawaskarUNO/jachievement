@@ -48,7 +48,7 @@
                                 <a class="button" onclick="$('#target3').toggle();">
                                     <i class="fa fa-book"></i>
                                 </a>
-                                <p target3>The middle grades programs build on concepts the students learned in Junior Achievement’s elementary school program and help teens make difficult decisions about how to best prepare for their educational and professional future. The programs supplement standard social studies curricula and develop communication skills that are essential to success in the business world..</p>
+                                <p id="target3">The middle grades programs build on concepts the students learned in Junior Achievement’s elementary school program and help teens make difficult decisions about how to best prepare for their educational and professional future. The programs supplement standard social studies curricula and develop communication skills that are essential to success in the business world..</p>
                             </md-content>
                         </md-tab>
                         <md-tab label="High School">
@@ -56,7 +56,7 @@
                                 <h3>High School</h3><a class="button" onclick="$('#target4').toggle();">
                                     <i class="fa fa-book"></i>
                                 </a>
-                               <p target4>As high school students begin to position themselves for their future, there are many unanswered questions about what lies ahead. Junior Achievement’s high school programs help students make informed, intelligent decisions about their future, and foster skills that will be highly useful in the business world.</p>
+                               <p id="target4">As high school students begin to position themselves for their future, there are many unanswered questions about what lies ahead. Junior Achievement’s high school programs help students make informed, intelligent decisions about their future, and foster skills that will be highly useful in the business world.</p>
                             </md-content>
                         </md-tab>
                     </md-tabs>
