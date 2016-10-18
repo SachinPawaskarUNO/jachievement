@@ -17,25 +17,25 @@
     <div class="col-md-6">
         <div class="col-md-6">
             <div class="form-group">
-                {!! Form::radio('amount', 5000, ['id'=> 'amount1','class' => 'col-md-6 form-control']) !!}
+                {!! Form::radio('amount', 5000.00, ['id'=> 'amount1','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$5000',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', 2500, ['id'=> 'amount2','class' => 'col-md-6 form-control']) !!}
+                {!! Form::radio('amount', 2500.00, ['id'=> 'amount2','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$2500',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', 2000, ['id'=> 'amount3','class' => 'col-md-6 form-control']) !!}
+                {!! Form::radio('amount', 2000.00, ['id'=> 'amount3','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$2000',['class' => 'btn']) !!}
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                {!! Form::radio('amount', 1000, ['id'=> 'amount4','class' => 'col-md-6 form-control']) !!}
+                {!! Form::radio('amount', 1000.00, ['id'=> 'amount4','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$1000',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-            {!! Form::radio('amount', 200, ['id'=> 'amount5','class' => 'col-md-6 form-control']) !!}
+            {!! Form::radio('amount', 200.00, ['id'=> 'amount5','class' => 'col-md-6 form-control']) !!}
             {!! Form::label('lb_1','$200',['class' => 'btn']) !!}
             </div>
             <div class="form-group">

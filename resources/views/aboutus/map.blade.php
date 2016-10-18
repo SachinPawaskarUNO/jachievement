@@ -27,6 +27,7 @@
 </div>
 
 <div id="map"></div>
+<br><br>
 <script>
     var map;
     function initMap() {

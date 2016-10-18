@@ -17,11 +17,14 @@
     }
 
 </style>
+
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-sm-6-pull">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#5cb85c !important;"><span style="font-size:1.2em;"><b> "Donation to Junior Achievement Omaha"</b></span></div>
+                    <div class="panel-heading" style="background-color:#5cb85c !important;"><span style="font-size:1.2em;"><b> Donation to Junior Achievement Omaha</b></span></div>
                     <div class="panel-body">
                         {!! Form::open(['url' => '/donation/donate', 'class' => 'form-horizontal', 'method' => 'POST']) !!}
                         @include('common.errors')

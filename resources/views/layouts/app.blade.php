@@ -99,7 +99,7 @@
     @yield('scripts')
 
     <!-- Footer -->
-    @yield('footer');
+    @yield('footer')
     <br><br>
     @include('common.footer');
 </body>

@@ -14,6 +14,7 @@ use Auth;
 use Log;
 use Session;
 use Illuminate\Support\Facades\Input;
+use Omnipay\Omnipay; 
 
 class DonationController extends Controller
 {
@@ -49,6 +50,12 @@ class DonationController extends Controller
             ->groupBy('firstname','lastname')
             ->orderBy('amount','desc')
             ->get();
+
+
+        if (isset($_GET["token"]) && isset($_GET["PayerID"])) {
+          Session::flash('flash_message', 'Thank you for your donation');
+        }
+
         return view('donation.donate', compact('states','donors'));
     }
     public function store(DonationRequest $request)
@@ -62,11 +69,14 @@ class DonationController extends Controller
         $lastInsertedForm = Donor::all()->last();
         $donation->donor_id = $lastInsertedForm->id;
         if (Input::get('amount_actual') != null) {
-            $donation->amount = Input::get('amount_actual');
+            $amount = Input::get('amount_actual');
         }
         else {
-            $donation->amount = Input::get('amount');
+            $amount = Input::get('amount');
         }
+        $amount = preg_replace("/[^0-9\.]/", "", $amount);
+
+        $donation->amount = $amount;
         if (Input::get('anonymous') == 1) {
             $donation->anonymous = 'yes';
         }
@@ -75,7 +85,42 @@ class DonationController extends Controller
         }
 
         $donation->date = date('Y-m-d');
+
+        $floatAmount = floatval(str_replace(',', '', $amount));
+
+        $params = array( 
+            'cancelUrl' => 'http://localhost/jachievement/public', 
+            'returnUrl' => 'http://localhost/jachievement/public/donation/donate', 
+            'amount' => $floatAmount
+        );
+
+        session()->put('params', $params); // here you save the params to the session so you can use them later.
+        session()->save();
+
+
+        
+        $gateway = Omnipay::create('PayPal_Express'); 
+        $gateway->setUsername('healey-facilitator_api1.jaomaha.net'); // here you should place the email of the business sandbox account 
+        $gateway->setPassword('7GTU6F8W8LZ56V7N'); // here will be the password for the account
+        $gateway->setSignature('AFcWxV21C7fd0v3bYYYRCpSSRl31AiAo7kLWmpqON.pHLW8CxeVR-E28'); // and the signature for the account 
+        $gateway->setTestMode(true); // set it to true when you develop and when you go to production to false
+
         $donation->save();
+        
+        $response = $gateway->purchase($params)->send(); // here you send details to PayPal
+        
+
+        if ($response->isRedirect()) { 
+            // redirect to offsite payment gateway 
+            $response->redirect(); 
+         } 
+         else { 
+            // payment failed: display message to customer 
+            echo $response->getMessage();
+        } 
+
+
+
 
         Session::flash('flash_message', 'Thank you for your donation');
         Log::info('DonationController.store - End: ' . $object->id);
