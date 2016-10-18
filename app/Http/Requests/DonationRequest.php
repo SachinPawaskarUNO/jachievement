@@ -31,7 +31,7 @@ class DonationRequest extends Request
             'zip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
             'phone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'email' => 'required|max:100|email',
-            'amount_actual' => 'regex:/^[+]?[1-9]+([.]\d+)?$/',
+            'amount_actual' => 'regex:/^[+]?[0-9]+([.]\d+)?$/',
         ];
 
         return $rules;
