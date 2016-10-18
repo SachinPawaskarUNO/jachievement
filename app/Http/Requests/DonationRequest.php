@@ -40,6 +40,8 @@ class DonationRequest extends Request
         return [
             'amount.numeric' => 'The amount must be a positive number',
             'amount.min:1' => 'The amount must be a positive number',
+            'phone.regex' => 'Phone number must be in the
+                following formats: XXX-XXX-XXXX, XXX XXX XXXX or XXXXXXXXXX'
         ];
     }
 }
