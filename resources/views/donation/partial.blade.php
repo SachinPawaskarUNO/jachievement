@@ -125,7 +125,7 @@
 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
     {!! Form::label('phone', 'Phone:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('phone', null, ['id'=> 'companyPhone','class' => 'col-md-6 form-control','maxLength' => 11]) !!}
+        {!! Form::text('phone', null, ['id'=> 'companyPhone','class' => 'col-md-6 form-control','maxLength' => 12]) !!}
         @if ($errors->has('phone'))
             <span class="help-block">
                 <strong>{{ $errors->first('phone') }}</strong></span>
