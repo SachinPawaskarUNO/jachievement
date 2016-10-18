@@ -41,7 +41,7 @@
             <div class="form-group">
                 {!! Form::radio('amount', null, ['id'=> 'amount6','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','Other:',['class' => 'btn']) !!}
-                {!! Form::text('amount_actual', null, ['id'=> 'amount_actual','class' => 'form-control']) !!}
+                {!! Form::text('amount_actual', null, ['id'=> 'amount_actual','class' => 'form-control', 'maxLength' => 12]) !!}
             </div>
         </div>
         @if ($errors->has('amount'))
@@ -113,6 +113,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('zip') ? ' has-error' : '' }}">
+    <span style="color:red;">*</span>
     {!! Form::label('zip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('zip', null, ['id'=> 'zip','class' => 'col-md-6 form-control','maxLength' => '10']) !!}
@@ -125,7 +126,7 @@
 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
     {!! Form::label('phone', 'Phone:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('phone', null, ['id'=> 'companyPhone','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('phone', null, ['id'=> 'companyPhone','class' => 'col-md-6 form-control','maxLength' => 12]) !!}
         @if ($errors->has('phone'))
             <span class="help-block">
                 <strong>{{ $errors->first('phone') }}</strong></span>

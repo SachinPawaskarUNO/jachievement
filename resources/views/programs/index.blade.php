@@ -1,20 +1,7 @@
 @extends('layouts.app')
 @section('content')
-        <!DOCTYPE html>
-<html lang="en">
-    <title>Junior achievement Programs</title>
-    <meta charset="utf-8">
     <div class="container">
         <div class="row">
-            <head>
-                <title>JA Program</title>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-                <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            </head>
-            <body>
             <div class="container">
                 <h1 class="text-center">JUNIOR ACHIEVEMENT PROGRAMS</h1>
                 <p class="text-left">Junior Achievement's unique delivery system provides the training, materials, and support necessary to bolster the chances for student success. The impact is measurable, too. Students who participate in Junior Achievement programs demonstrate a significant understanding of economics and business concepts. We invite you to take a closer look at our programs!</p>
@@ -31,6 +18,9 @@
                                 <p id="target1">Our programs help prepare young people for the real world by showing them how to generate wealth and effectively manage it,
                                     how to create jobs which make their communities more robust, and how to apply entrepreneurial thinking to the workplace. Students
                                     put these lessons into action and learn the value of contributing to their communities..</p>
+                                @foreach ($programsData as $product)
+                                    <div>{{ $product->id }} {{ $product->name }}</div>
+                                @endforeach
                             </md-content>
                         </md-tab>
                         <md-tab label="Elementary School">
@@ -62,8 +52,6 @@
                     </md-tabs>
                 </md-content>
             </div>
-            </body>
-
         </div>
     </div>
 @endsection

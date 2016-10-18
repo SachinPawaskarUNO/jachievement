@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Program;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -18,6 +19,12 @@ class ProgramController extends Controller
 
         Log::info('ProgramController.form: ');
         $this->viewData['heading'] = "JA Program";
+
+
+        $program = new Program();
+
+        $this->viewData['programsData'] = $program->all(array('name','id'));
+
         return view('programs.index', $this->viewData);
     }
 }
