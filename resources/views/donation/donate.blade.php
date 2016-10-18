@@ -52,7 +52,7 @@
                           {{$donor->firstname}} {{$donor->lastname}}.
                       </td>
                       <td>
-                          ${{$donor->amount}}
+                          ${{number_format($donor->amount,2)}}
                       </td>
                     </tr>
 
