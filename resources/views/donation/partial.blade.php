@@ -41,7 +41,7 @@
             <div class="form-group">
                 {!! Form::radio('amount', null, ['id'=> 'amount6','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','Other:',['class' => 'btn']) !!}
-                {!! Form::text('amount_actual', null, ['id'=> 'amount_actual','class' => 'form-control']) !!}
+                {!! Form::text('amount_actual', null, ['id'=> 'amount_actual','class' => 'form-control', 'maxLength' => 12]) !!}
             </div>
         </div>
         @if ($errors->has('amount'))
