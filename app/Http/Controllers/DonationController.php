@@ -89,8 +89,8 @@ class DonationController extends Controller
         $floatAmount = floatval(str_replace(',', '', $amount));
 
         $params = array( 
-            'cancelUrl' => 'http://localhost/jachievement/public', 
-            'returnUrl' => 'http://localhost/jachievement/public/donation/donate', 
+            'cancelUrl' => 'http://jachievement.herokuapp.com/donation/donate', 
+            'returnUrl' => 'http://jachievement.herokuapp.com/donation/donate', 
             'amount' => $floatAmount
         );
 
