@@ -1,4 +1,4 @@
-<div class="hidden-sm clear"> &nbsp;</div>
+<!-- <div class="hidden-sm clear"> &nbsp;</div> -->
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     {!! Form::label('name', 'Name:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
@@ -29,7 +29,7 @@
     {!! Form::label('phoneNumber', 'Phone:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('phone_number', null, ['id'=> 'phone_number', 'class' => 'col-md-6 form-control', 'required' => 'required', 'maxLength' => '11']) !!}
+        {!! Form::text('phone_number', null, ['id'=> 'phone_number', 'class' => 'col-md-6 form-control', 'required' => 'required', 'maxLength' => '10']) !!}
         @if ($errors->has('phone_number'))
             <span class="help-block">
                 <strong>{{ $errors->first('phone_number') }}</strong>

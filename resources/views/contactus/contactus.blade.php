@@ -32,13 +32,13 @@
 				</div> 
 			</div>
 			
-			<!-- The Contact Us form Column -->
+			<!-- The Contact Us form module -->
 			
 			<div class="col-md-6" >
                	<div class="panel panel-default" > 
 					<div class="panel-heading" style="background-color:#5cb85c !important;"><span style="font-size:1.8em;color:white;"><b> Contact Us </b></span></div>
 					<div class="panel-body" style="background-color:rgb(245,245,245)">
-						 <div style= "height:455px;width:500px;max-width:100%;">
+						<!-- <div style= "height:455px;width:500px;max-width:100%;"> -->
 							
 							{!! Form::open(['url' => '/contactus', 'class' => 'form-horizontal']) !!}
 							
@@ -48,7 +48,7 @@
 
 							{!! Form::close() !!}
 							
-						 </div>
+						<!-- </div> -->
 					</div>
 				</div>
 			</div>
