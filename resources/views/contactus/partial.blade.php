@@ -1,4 +1,4 @@
-<!-- <div class="hidden-sm clear"> &nbsp;</div> -->
+<div class="hidden-sm clear"> &nbsp;</div> 
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     {!! Form::label('name', 'Name:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
