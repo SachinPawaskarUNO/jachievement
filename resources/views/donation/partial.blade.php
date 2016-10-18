@@ -18,25 +18,21 @@
         <div class="col-md-6">
             <div class="form-group">
                 {!! Form::radio('amount', 5000.00, ['id'=> 'amount1','class' => 'col-md-6 form-control']) !!}
-                {!! Form::label('lb_1','$5000',['class' => 'btn']) !!}
+                {!! Form::label('lb_1','$5,000',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', 2500.00, ['id'=> 'amount2','class' => 'col-md-6 form-control']) !!}
-                {!! Form::label('lb_1','$2500',['class' => 'btn']) !!}
+                {!! Form::radio('amount', 1250.00, ['id'=> 'amount2','class' => 'col-md-6 form-control']) !!}
+                {!! Form::label('lb_1','$1,250',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', 2000.00, ['id'=> 'amount3','class' => 'col-md-6 form-control']) !!}
-                {!! Form::label('lb_1','$2000',['class' => 'btn']) !!}
+                {!! Form::radio('amount', 500.00, ['id'=> 'amount3','class' => 'col-md-6 form-control']) !!}
+                {!! Form::label('lb_1','$500',['class' => 'btn']) !!}
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                {!! Form::radio('amount', 1000.00, ['id'=> 'amount4','class' => 'col-md-6 form-control']) !!}
-                {!! Form::label('lb_1','$1000',['class' => 'btn']) !!}
-            </div>
-            <div class="form-group">
-            {!! Form::radio('amount', 200.00, ['id'=> 'amount5','class' => 'col-md-6 form-control']) !!}
-            {!! Form::label('lb_1','$200',['class' => 'btn']) !!}
+                {!! Form::radio('amount', 26.00, ['id'=> 'amount4','class' => 'col-md-6 form-control']) !!}
+                {!! Form::label('lb_1','$26',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
                 {!! Form::radio('amount', null, ['id'=> 'amount6','class' => 'col-md-6 form-control']) !!}
@@ -113,7 +109,6 @@
 </div>
 
 <div class="form-group{{ $errors->has('zip') ? ' has-error' : '' }}">
-    <span style="color:red;">*</span>
     {!! Form::label('zip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('zip', null, ['id'=> 'zip','class' => 'col-md-6 form-control','maxLength' => '10']) !!}
@@ -158,6 +153,6 @@
 
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
-        {!! Form::button('<i class="fa fa-btn fa-save"></i>Donate', ['type' => 'submit','id' => 'save', 'class' => 'btn btn-success']) !!}
+        {!! Form::button('<i></i>Donate', ['type' => 'submit','id' => 'save', 'class' => 'btn btn-success']) !!}
     </div>
 </div>
