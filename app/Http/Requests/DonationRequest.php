@@ -31,9 +31,15 @@ class DonationRequest extends Request
             'zip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
             'phone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
             'email' => 'required|max:100|email',
-            'amount' => 'min:1'
+            'amount' => 'numeric|min:1'
         ];
 
         return $rules;
+    }
+    public function messages() {
+        return [
+            'amount.numeric' => 'The amount must be a positive number',
+            'amount.min:1' => 'The amount must be a positive number',
+        ];
     }
 }
