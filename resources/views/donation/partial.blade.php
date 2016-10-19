@@ -10,6 +10,8 @@
     </div>
 </div>
 
+
+
 <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
 
     {!! Form::label('amount', 'Donation Amount:', ['class' => 'col-md-4 control-label']) !!}
