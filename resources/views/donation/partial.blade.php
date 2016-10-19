@@ -145,10 +145,10 @@
 </div>
 
 <div class="form-inline">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-7 col-md-offset-3">
         <div class="form-group">
             {!! Form::checkbox('anonymous', 1, false, ['id'=> 'anonymous', 'class' => 'check_box' ]) !!}
-            {!! Form::label('I would like to have my donation anonymous') !!}
+            {!! Form::label('I would like to have my donation to be anonymous') !!}
         </div>
     </div>
 </div>
