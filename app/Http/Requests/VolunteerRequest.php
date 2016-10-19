@@ -24,20 +24,19 @@ class VolunteerRequest extends Request
     public function rules()
     {
         $rules = [
-            'schoolPreference' => 'max:100',
-            'firstName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
-            'lastName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
-            'companyName' => 'max:100',
-            'companyAddress' => 'max:100',
-            'companyCity' => 'max:100|alpha',
-            'companyZip' => 'regex:/^\d{5}(?:[-\s]\d{4})?$/',
-            'company_state_id' => 'required',
-            'companyPhone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
-            'homePhone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
-            'homeAddress' => 'required|max:100',
-            'homeCity' => 'required|max:100|alpha',
+            'school_preference' => 'max:100',
+            'first_name' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
+            'last_name' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
+            'company_name' => 'max:100',
+            'company_address' => 'max:100',
+            'company_city' => 'max:100|alpha',
+            'company_zip' => 'regex:/^\d{5}(?:[-\s]\d{4})?$/',
+            'company_phone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
+            'home_phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
+            'home_address' => 'required|max:100',
+            'home_city' => 'required|max:100|alpha',
             'home_state_id' => 'required',
-            'homeZip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
+            'home_zip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
             'email' => 'required|max:100|email'
         ];
 
