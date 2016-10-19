@@ -25,7 +25,7 @@ class AddForeignKeysForDonationsTable extends Migration
             
         });
         Schema::table('donors', function (Blueprint $table) {
-            $table->integer('state_id')->unsigned();
+            $table->integer('state_id')->unsigned()->nullable();
             $table->foreign('state_id')->references('id')->on('states');
 
         });
