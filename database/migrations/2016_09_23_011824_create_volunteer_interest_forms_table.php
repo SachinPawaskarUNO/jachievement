@@ -14,18 +14,18 @@ class CreateVolunteerInterestFormsTable extends Migration
     {
         Schema::create('volunteer_interest_forms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('schoolPreference')->nullable();
-            $table->string('firstName');
-            $table->string('lastName');
-            $table->string('companyName')->nullable();
-            $table->string('companyAddress')->nullable();
-            $table->string('companyCity')->nullable();
-            $table->string('companyZip')->nullable();
-            $table->string('companyPhone')->nullable();
-            $table->string('homePhone');
-            $table->string('homeAddress');
-            $table->string('homeCity');
-            $table->string('homeZip');
+            $table->string('school_preference')->nullable();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('company_name')->nullable();
+            $table->string('company_address')->nullable();
+            $table->string('company_city')->nullable();
+            $table->string('company_zip')->nullable();
+            $table->string('company_phone')->nullable();
+            $table->string('home_phone');
+            $table->string('home_address');
+            $table->string('home_city');
+            $table->string('home_zip');
             $table->string('email');
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
