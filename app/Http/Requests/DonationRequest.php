@@ -38,7 +38,8 @@ class DonationRequest extends Request
     }
     public function messages() {
         return [
-            'amount_actual.regex' => 'The amount must be a positive number',
+            'amount_actual.min' => 'The minimum amount must be $1',
+            'amount_actual.max' => 'The maximum amount must be $10,000',
             'phone.regex' => 'Phone number must be in the
                 following formats: XXX-XXX-XXXX, XXX XXX XXXX or XXXXXXXXXX'
         ];
