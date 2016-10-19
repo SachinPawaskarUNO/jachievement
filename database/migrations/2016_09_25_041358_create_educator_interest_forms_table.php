@@ -14,17 +14,17 @@ class CreateEducatorInterestFormsTable extends Migration
     {
         Schema::create('educator_interest_forms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('firstName');
-            $table->string('lastName');
-            $table->string('schoolName');
-            $table->string('schoolPhone');
-            $table->string('schoolAddress');
-            $table->string('schoolCity');
-            $table->string('schoolZip');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('school_name');
+            $table->string('school_phone');
+            $table->string('school_address');
+            $table->string('school_city');
+            $table->string('school_zip');
             $table->string('email');
             $table->string('grade')->nullable();
-            $table->string('programTheme')->nullable();
-            $table->string('planningTime')->nullable();
+            $table->string('program_theme')->nullable();
+            $table->string('planning_Time')->nullable();
             $table->string('cellphone')->nullable();
             $table->string('commentsRequests')->nullable();
             $table->string('noOfClasses')->nullable();
