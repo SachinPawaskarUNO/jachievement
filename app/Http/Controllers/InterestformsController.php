@@ -49,7 +49,9 @@ class InterestformsController extends Controller
     public function store(VolunteerRequest $request) {
         Log::info('InterestformsController.store - Start: ');
         $input = $request->all();
-
+        if ($input['company_state_id'] == '') {
+            $input['company_state_id'] = null;
+        }
         $user = Auth::user();
         if($user) {
             $input['user_id'] = $user;
