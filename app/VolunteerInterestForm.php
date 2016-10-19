@@ -22,9 +22,9 @@ class VolunteerInterestForm extends Model
      * @var array
      */
     protected $fillable = [
-        'schoolPreference', 'firstName', 'lastName', 'companyName', 'companyAddress', 'companyCity', 'company_state_id',
-        'companyZip', 'companyPhone', 'homePhone', 'homeAddress', 'homeCity', 'home_state_id', 'homeZip', 'email', 'user_id',
-        'modeOfContact'
+        'school_preference', 'first_name', 'last_name', 'company_name', 'company_address', 'company_city', 'company_state_id',
+        'company_zip', 'company_phone', 'home_phone', 'home_address', 'home_city', 'home_state_id', 'home_zip', 'email', 'user_id',
+        'mode_of_contact'
     ];
 
 }
