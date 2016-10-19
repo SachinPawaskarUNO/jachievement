@@ -39,10 +39,10 @@ class DonationController extends Controller
 
         Log::info('DonationController.form: ');
 
-        //$defaultSelection = [''=>'None1'];
+        $defaultSelection = [''=>'Please Select'];
 
         $states = State::lists('name', 'id')->toArray();
-        //$states =  $defaultSelection + $states;
+        $states =  $defaultSelection + $states;
         $donors= DB::table('donors')->take(10)
             ->join('donations','donors.id','=','donations.donor_id')
             ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, donations.amount as amount'))
@@ -61,6 +61,10 @@ class DonationController extends Controller
     {
         Log::info('DonationController.store - Start: ');
         $input = $request->all();
+        if ($input['state_id'] == '') {
+            $input['state_id'] = null;
+        }
+
         $this->populateCreateFields($input);
         $object = Donor::create($input);
 
