@@ -6,28 +6,28 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
-                        <div><h4><b>{{ $heading }}</b></h4></div>
+                        <div><h4><b>Volunteer Interest Form</b></h4></div>
                     </div>
                     <div class="panel-body">
-                        @if (count($educatorInterestForms) > 0)
+                        @if (count($volunteerInterestForms) > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead>
                                     <th>Form Id</th><th>Name</th><th>Email</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
-                                    @foreach ($educatorInterestForms as $educatorInterestForm)
+                                    @foreach ($volunteerInterestForms as $volunteerInterestForm)
                                         <tr>
-                                            <td class="table-text"><div>{{ $educatorInterestForm->id }}</div></td>
-                                            <td class="table-text"><div>{{ $educatorInterestForm->first_name }}</div></td>
-                                            <td class="table-text"><div>{{ $educatorInterestForm->email }}</div></td>
+                                            <td class="table-text"><div>{{ $volunteerInterestForm->id }}</div></td>
+                                            <td class="table-text"><div>{{ $volunteerInterestForm->first_name }}</div></td>
+                                            <td class="table-text"><div>{{ $volunteerInterestForm->email }}</div></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         @else
-                            <div class="panel-body"><h4>No Educator Form Records found</h4></div>
+                            <div class="panel-body"><h4>No Volunteer Form Records found</h4></div>
                         @endif
                     </div>
                 </div>

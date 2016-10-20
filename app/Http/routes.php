@@ -89,6 +89,7 @@ Route::get('/programs/index', 'ProgramController@program');
 Route::get('/contributors', 'ContributorController@index');
 
 Route::get('/admin/educatorform', 'AdminController@listEducatorForm');
+Route::get('/admin/volunteerform', 'AdminController@listVolunteerForm');
 
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
