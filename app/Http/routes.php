@@ -90,7 +90,7 @@ Route::get('/contributors', 'ContributorController@index');
 
 Route::get('/admin/educatorform', 'AdminController@listEducatorForm');
 Route::get('/admin/volunteerform', 'AdminController@listVolunteerForm');
-
+Route::get('/reports/donation', 'ReportsController@DonationReporting');
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');
