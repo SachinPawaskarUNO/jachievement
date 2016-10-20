@@ -75,6 +75,7 @@ Route::get('/donation/donate', 'DonationController@donationform');
 Route::post('/donation/donate', 'DonationController@store');
 Route::get('/donation/notification', 'DonateController@notification');
 Route::get('/campaign/team/join', 'CampaignController@jointeam');
+Route::get('/campaign/team/teammember', 'CampaignController@teammember');
 
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 
@@ -82,7 +83,6 @@ Route::get('/contactus', 'ContactController@contactus');
 Route::post('/contactus', 'ContactController@sendmail');
 
 Route::get('/aboutus/index', 'AboutUsController@aboutus');
-
 Route::get('/aboutus/map', 'MapController@map');
 
 Route::get('/programs/index', 'ProgramController@program');
