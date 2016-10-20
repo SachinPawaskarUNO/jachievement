@@ -14,7 +14,8 @@ use Auth;
 use Log;
 use Session;
 use Illuminate\Support\Facades\Input;
-use Omnipay\Omnipay; 
+use Omnipay\Omnipay;
+use Illuminate\Support\Facades\Mail;
 
 class DonationController extends Controller
 {
@@ -96,6 +97,20 @@ class DonationController extends Controller
             'returnUrl' => 'http://jachievement.herokuapp.com/donation/donate', 
             'amount' => $floatAmount
         );
+
+        $data = array(
+            'first_name'=>Input::get('first_name'),
+            'email' => Input::get('email')
+
+        );
+
+        Mail::send('donation.emails',$data, function($message)use($input)
+        {
+
+            $message->from('juniorachievement.midlands@gmail.com');
+            $message->to(Input::get('email'))->subject('Thank you for Donation');
+
+        });
 
         session()->put('params', $params); // here you save the params to the session so you can use them later.
         session()->save();
