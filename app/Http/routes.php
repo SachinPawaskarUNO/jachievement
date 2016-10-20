@@ -88,6 +88,8 @@ Route::get('/aboutus/map', 'MapController@map');
 Route::get('/programs/index', 'ProgramController@program');
 Route::get('/contributors', 'ContributorController@index');
 
+Route::get('/admin/educatorform', 'AdminController@listEducatorForm');
+
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');
