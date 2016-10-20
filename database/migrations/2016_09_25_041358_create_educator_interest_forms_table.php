@@ -27,8 +27,8 @@ class CreateEducatorInterestFormsTable extends Migration
             $table->string('planning_Time')->nullable();
             $table->string('cellphone')->nullable();
             $table->string('commentsRequests')->nullable();
-            $table->string('noOfClasses')->nullable();
-            $table->string('noOfStudentsPerClass')->nullable();
+            $table->string('no_of_classes')->nullable();
+            $table->string('no_of_students_per_class')->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
 
