@@ -46,8 +46,9 @@ class DonationController extends Controller
         $states =  $defaultSelection + $states;
         $donors= DB::table('donors')->take(10)
             ->join('donations','donors.id','=','donations.donor_id')
-            ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, donations.amount as amount'))
-            ->where('donations.anonymous','no')
+            ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, 
+                              donations.amount as amount, donations.anonymous as anonymous,'))
+            ->where('donations.status','paid')
             ->orderBy('donations.created_at', 'DESC')
             ->get();
 
@@ -87,7 +88,7 @@ class DonationController extends Controller
         else {
             $donation->anonymous = 'no';
         }
-
+        $donation->status = 'pending';
         $donation->date = date('Y-m-d');
 
         $floatAmount = floatval(str_replace(',', '', $amount));
@@ -130,7 +131,9 @@ class DonationController extends Controller
 
         if ($response->isRedirect()) { 
             // redirect to offsite payment gateway 
-            $response->redirect(); 
+            $response->redirect();
+            $donation->status = 'paid';
+            $donation->save();
          } 
          else { 
             // payment failed: display message to customer 

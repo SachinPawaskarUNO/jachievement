@@ -48,9 +48,15 @@
 
                @foreach($donors as $donor)
                     <tr>
-                      <td>
+                    <?php if($donor->anonymous == 'yes'): ?>
+                        <td>
+                            Anonymous
+                        </td>
+                    <?php else: ?>
+                        <td>
                           {{$donor->firstname}} {{$donor->lastname}}.
-                      </td>
+                        </td>
+                    <?php endif;?>
                       <td>
                           ${{number_format($donor->amount,2)}}
                       </td>
