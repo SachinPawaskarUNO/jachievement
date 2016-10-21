@@ -36,20 +36,22 @@ class InterestformsController extends Controller
             ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
                 ->where('grade_id','=','3')
                 ->get();
-        $modeOfContact = array('none' => 'None', 'email' => 'Email', 'phone' => 'Phone');
+        $mode_of_contact = array('none' => 'None', 'email' => 'Email', 'phone' => 'Phone');
 
         $defaultSelection = [''=>'Please Select'];
 
         $states = State::lists('name', 'id')->toArray();
         $states =  $defaultSelection + $states;
 
-        return view('volunteers.interestform', compact('grade_program1', 'grade_program2', 'grade_program3', 'modeOfContact', 'states'));
+        return view('volunteers.interestform', compact('grade_program1', 'grade_program2', 'grade_program3', 'mode_of_contact', 'states'));
     }
 
     public function store(VolunteerRequest $request) {
         Log::info('InterestformsController.store - Start: ');
         $input = $request->all();
-
+        if ($input['company_state_id'] == '') {
+            $input['company_state_id'] = null;
+        }
         $user = Auth::user();
         if($user) {
             $input['user_id'] = $user;

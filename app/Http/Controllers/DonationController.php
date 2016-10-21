@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Requests\DonorRequest;
 use App\Http\Requests\DonationRequest;
 use App\Donor;
 use App\Donation;
+use App\State;
 use DB;
 use Auth;
 use Log;
 use Session;
 use Illuminate\Support\Facades\Input;
+use Omnipay\Omnipay;
+use Illuminate\Support\Facades\Mail;
 
 class DonationController extends Controller
 {
@@ -32,36 +34,111 @@ class DonationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function donate()
+
+    public function donationform()
     {
+
         Log::info('DonationController.form: ');
-        // $this->viewData['heading'] = "";
 
-               $donors= DB::table('donors')->take(5)
-                    ->join('donations','donor_id','=','donations.donor_id')
-                    ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, sum(donations.amount) as amount'))
-                    ->groupBy('donors.first_name','donors.last_name')
-                    ->orderBy('amount','desc')
-                    ->get();
+        $defaultSelection = [''=>'Please Select'];
 
-        return view('donation.donate', compact('donors'));
+        $states = State::lists('name', 'id')->toArray();
+        $states =  $defaultSelection + $states;
+        $donors= DB::table('donors')->take(10)
+            ->join('donations','donors.id','=','donations.donor_id')
+            ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, donations.amount as amount'))
+            ->where('donations.anonymous','no')
+            ->orderBy('donations.created_at', 'DESC')
+            ->get();
 
-        // return view('donation.donate', $this->viewData);
+
+        if (isset($_GET["token"]) && isset($_GET["PayerID"])) {
+          Session::flash('flash_message', 'Thank you for your donation');
+        }
+
+        return view('donation.donate', compact('states','donors'));
     }
-
-    public function store(Request $request)
+    public function store(DonationRequest $request)
     {
         Log::info('DonationController.store - Start: ');
         $input = $request->all();
+        if ($input['state_id'] == '') {
+            $input['state_id'] = null;
+        }
+
         $this->populateCreateFields($input);
         $object = Donor::create($input);
 
         $donation = new Donation();
         $lastInsertedForm = Donor::all()->last();
         $donation->donor_id = $lastInsertedForm->id;
-        $donation->amount = Input::get('amount');
+        if (Input::get('amount_actual') != null) {
+            $amount = Input::get('amount_actual');
+        }
+        else {
+            $amount = Input::get('amount');
+        }
+        $amount = preg_replace("/[^0-9\.]/", "", $amount);
+
+        $donation->amount = $amount;
+        if (Input::get('anonymous') == 1) {
+            $donation->anonymous = 'yes';
+        }
+        else {
+            $donation->anonymous = 'no';
+        }
+
         $donation->date = date('Y-m-d');
+
+        $floatAmount = floatval(str_replace(',', '', $amount));
+
+        $params = array( 
+            'cancelUrl' => 'http://jachievement.herokuapp.com/donation/donate', 
+            'returnUrl' => 'http://jachievement.herokuapp.com/donation/donate', 
+            'amount' => $floatAmount
+        );
+
+        $data = array(
+            'first_name'=>Input::get('first_name'),
+            'email' => Input::get('email')
+
+        );
+
+        Mail::send('donation.emails',$data, function($message)use($input)
+        {
+
+            $message->from('juniorachievement.midlands@gmail.com');
+            $message->to(Input::get('email'))->subject('Thank you for Donation');
+
+        });
+
+        session()->put('params', $params); // here you save the params to the session so you can use them later.
+        session()->save();
+
+
+        
+        $gateway = Omnipay::create('PayPal_Express'); 
+        $gateway->setUsername('healey-facilitator_api1.jaomaha.net'); // here you should place the email of the business sandbox account 
+        $gateway->setPassword('7GTU6F8W8LZ56V7N'); // here will be the password for the account
+        $gateway->setSignature('AFcWxV21C7fd0v3bYYYRCpSSRl31AiAo7kLWmpqON.pHLW8CxeVR-E28'); // and the signature for the account 
+        $gateway->setTestMode(true); // set it to true when you develop and when you go to production to false
+
         $donation->save();
+        
+        $response = $gateway->purchase($params)->send(); // here you send details to PayPal
+        
+
+        if ($response->isRedirect()) { 
+            // redirect to offsite payment gateway 
+            $response->redirect(); 
+         } 
+         else { 
+            // payment failed: display message to customer 
+            echo $response->getMessage();
+        } 
+
+
+
 
         Session::flash('flash_message', 'Thank you for your donation');
         Log::info('DonationController.store - End: ' . $object->id);

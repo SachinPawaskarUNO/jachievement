@@ -14,22 +14,21 @@ class CreateEducatorInterestFormsTable extends Migration
     {
         Schema::create('educator_interest_forms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('firstName');
-            $table->string('lastName');
-            $table->string('schoolName');
-            $table->string('schoolPhone');
-            $table->string('schoolAddress');
-            $table->string('schoolCity');
-            $table->string('schoolState');
-            $table->string('schoolZip');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('school_name');
+            $table->string('school_phone');
+            $table->string('school_address');
+            $table->string('school_city');
+            $table->string('school_zip');
             $table->string('email');
             $table->string('grade')->nullable();
-            $table->string('programTheme')->nullable();
-            $table->string('planningTime')->nullable();
-            $table->string('cellphone')->nullable();
-            $table->string('commentsRequests')->nullable();
-            $table->string('noOfClasses')->nullable();
-            $table->string('noOfStudentsPerClass')->nullable();
+            $table->string('program_theme')->nullable();
+            $table->string('planning_time')->nullable();
+            $table->string('cell_phone')->nullable();
+            $table->string('comments_requests')->nullable();
+            $table->string('no_of_classes')->nullable();
+            $table->string('no_of_students_per_class')->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
 

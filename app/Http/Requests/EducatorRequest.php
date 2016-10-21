@@ -24,21 +24,21 @@ class EducatorRequest extends Request
     public function rules()
     {
         $rules = [
-            'firstName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
-            'lastName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
-            'schoolName' => 'required|max:100',
-            'schoolPhone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
-            'schoolAddress' => 'required|max:100',
-            'schoolCity' => 'required|max:50',
-            'schoolStateId' => 'required',
-            'schoolZip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
+            'first_name' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
+            'last_name' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
+            'school_name' => 'required|max:100',
+            'school_phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
+            'school_address' => 'required|max:100',
+            'school_city' => 'required|max:50',
+            'school_state_id' => 'required',
+            'school_zip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
             'email' => 'required|max:50|email',
             'grade' => 'max:50',
-            'programTheme' => 'max:50',
-            'noOfClasses' => 'alpha_num',
-            'noOfStudentsPerClass' => 'alpha_num',
-            'commentsRequests' => 'max:255',
-            'cellphone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/'
+            'program_theme' => 'max:50',
+            'no_of_classes' => 'alpha_num',
+            'no_of_students_per_class' => 'alpha_num',
+            'comments_requests' => 'max:255',
+            'cell_phone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/'
         ];
 
         return $rules;

@@ -2,105 +2,105 @@
     <span style="color:red;">*</span> fields are mandatory
 </div>
 
-<div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 
-    {!! Form::label('firstName', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('first_name', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('firstName', null, ['id'=> 'firstName','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('first_name', null, ['id'=> 'first_name','class' => 'col-md-6 form-control']) !!}
 
-        @if ($errors->has('firstName'))
+        @if ($errors->has('first_name'))
             <span class="help-block">
-                <strong>{{ $errors->first('firstName') }}</strong>
+                <strong>{{ $errors->first('first_name') }}</strong>
             </span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
 
-    {!! Form::label('lastName', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('last_name', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('lastName', null, ['id'=> 'lastName','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('lastName'))
+        {!! Form::text('last_name', null, ['id'=> 'last_name','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('last_name'))
             <span class="help-block">
-                <strong>{{ $errors->first('lastName') }}</strong>
+                <strong>{{ $errors->first('last_name') }}</strong>
             </span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('schoolName') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('school_name') ? ' has-error' : '' }}">
 
-    {!! Form::label('schoolName', 'School Name:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('school_name', 'School Name:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolName', null, ['id'=>'schoolName','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('schoolName'))
+        {!! Form::text('school_name', null, ['id'=>'school_name','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('school_name'))
             <span class="help-block">
-                <strong>{{ $errors->first('schoolName') }}</strong>
+                <strong>{{ $errors->first('school_name') }}</strong>
             </span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('schoolPhone') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('school_phone') ? ' has-error' : '' }}">
 
-    {!! Form::label('schoolPhone', 'School Phone:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('school_phone', 'School Phone:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolPhone', null, ['id'=> 'schoolPhone','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('schoolPhone'))
-            <span class="help-block"><strong>{{ $errors->first('schoolPhone') }}</strong></span>
+        {!! Form::text('school_phone', null, ['id'=> 'school_phone','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('school_phone'))
+            <span class="help-block"><strong>{{ $errors->first('school_phone') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('schoolAddress') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('school_address') ? ' has-error' : '' }}">
 
-    {!! Form::label('schoolAddress', 'School Address:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('school_address', 'School Address:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolAddress', null, ['id'=> 'schoolAddress','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('schoolAddress'))
-            <span class="help-block"><strong>{{ $errors->first('schoolAddress') }}</strong></span>
+        {!! Form::text('school_address', null, ['id'=> 'school_address','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('school_address'))
+            <span class="help-block"><strong>{{ $errors->first('school_address') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('schoolCity') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('school_city') ? ' has-error' : '' }}">
 
-    {!! Form::label('schoolCity', 'City:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('school_city', 'City:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolCity', null, ['id'=> 'schoolCity','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('schoolCity'))
-            <span class="help-block"><strong>{{ $errors->first('schoolCity') }}</strong></span>
+        {!! Form::text('school_city', null, ['id'=> 'school_city','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('school_city'))
+            <span class="help-block"><strong>{{ $errors->first('school_city') }}</strong></span>
         @endif
     </div>
 </div>
 
 
-<div class="form-group{{ $errors->has('schoolStateId') ? ' has-error' : '' }}">
-    {!! Form::label('schoolStateId', 'State:', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group{{ $errors->has('school_state_id') ? ' has-error' : '' }}">
+    {!! Form::label('school_state_id', 'State:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::select('schoolStateId', $states, null,  ['id'=> 'schoolStateId','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('schoolStateId'))
-            <span class="help-block"><strong>{{ $errors->first('schoolStateId') }}</strong></span>
+        {!! Form::select('school_state_id', $states, null,  ['id'=> 'school_state_id','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('school_state_id'))
+            <span class="help-block"><strong>{{ $errors->first('school_state_id') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('schoolZip') ? ' has-error' : '' }}">
+<div class="form-group{{ $errors->has('school_zip') ? ' has-error' : '' }}">
 
-    {!! Form::label('companyZip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('company_zip', 'Zip:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('schoolZip', null, ['id'=> 'schoolZip','class' => 'col-md-6 form-control','maxLength' => '10']) !!}
-        @if ($errors->has('schoolZip'))
-            <span class="help-block"><strong>{{ $errors->first('schoolZip') }}</strong></span>
+        {!! Form::text('school_zip', null, ['id'=> 'school_zip','class' => 'col-md-6 form-control','maxLength' => '10']) !!}
+        @if ($errors->has('school_zip'))
+            <span class="help-block"><strong>{{ $errors->first('school_zip') }}</strong></span>
         @endif
     </div>
 </div>
@@ -127,60 +127,60 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('programTheme') ? ' has-error' : '' }}">
-    {!! Form::label('programTheme', 'Program Theme:', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group{{ $errors->has('program_theme') ? ' has-error' : '' }}">
+    {!! Form::label('program_theme', 'Program Theme:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-      {!! Form::text('programTheme', null, ['id'=>'programTheme','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('programTheme'))
-            <span class="help-block"><strong>{{ $errors->first('programTheme') }}</strong></span>
+        {!! Form::text('program_theme', null, ['id'=>'program_theme','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('program_theme'))
+            <span class="help-block"><strong>{{ $errors->first('program_theme') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('noOfClasses') ? ' has-error' : '' }}">
-    {!! Form::label('noOfClasses', '# of Classes:', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group{{ $errors->has('no_of_classes') ? ' has-error' : '' }}">
+    {!! Form::label('no_of_classes', '# of Classes:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('noOfClasses', null, ['id'=> 'noOfClasses','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('noOfClasses'))
-            <span class="help-block"><strong>{{ $errors->first('noOfClasses') }}</strong></span>
+        {!! Form::text('no_of_classes', null, ['id'=> 'no_of_classes','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('no_of_classes'))
+            <span class="help-block"><strong>{{ $errors->first('no_of_classes') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('noOfStudentsPerClass') ? ' has-error' : '' }}">
-    {!! Form::label('noOfStudentsPerClass', '# of Students/Class:', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group{{ $errors->has('no_of_students_per_class') ? ' has-error' : '' }}">
+    {!! Form::label('no_of_students_per_class', '# of Students/Class:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('noOfStudentsPerClass', null, ['id'=> 'noOfStudentsPerClass','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('noOfStudentsPerClass'))
-            <span class="help-block"><strong>{{ $errors->first('noOfStudentsPerClass') }}</strong></span>
+        {!! Form::text('no_of_students_per_class', null, ['id'=> 'no_of_students_per_class','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('no_of_students_per_class'))
+            <span class="help-block"><strong>{{ $errors->first('no_of_students_per_class') }}</strong></span>
         @endif
     </div>
 </div>
-<div class="form-group{{ $errors->has('planningTime') ? ' has-error' : '' }}">
-    {!! Form::label('planningTime', 'Planning Time:', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group{{ $errors->has('planning_time') ? ' has-error' : '' }}">
+    {!! Form::label('planning_time', 'Planning Time:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('planningTime', null, ['id'=> 'planningTime','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('planningTime'))
-            <span class="help-block"><strong>{{ $errors->first('planningTime') }}</strong></span>
+        {!! Form::text('planning_time', null, ['id'=> 'planning_time','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('planning_time'))
+            <span class="help-block"><strong>{{ $errors->first('planning_time') }}</strong></span>
         @endif
     </div>
 </div>
-<div class="form-group{{ $errors->has('cellphone') ? ' has-error' : '' }}">
-    {!! Form::label('cellphone', 'Cell Phone:', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group{{ $errors->has('cell_phone') ? ' has-error' : '' }}">
+    {!! Form::label('cell_phone', 'Cell Phone:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('cellphone', null, ['id'=> 'cellPhone','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('cellphone'))
-            <span class="help-block"><strong>{{ $errors->first('cellPhone') }}</strong></span>
+        {!! Form::text('cell_phone', null, ['id'=> 'cell_phone','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('cell_phone'))
+            <span class="help-block"><strong>{{ $errors->first('cell_phone') }}</strong></span>
         @endif
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('commentsRequests') ? ' has-error' : '' }}">
-    {!! Form::label('commentsRequests', 'Comments/Requests:', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group{{ $errors->has('comments_requests') ? ' has-error' : '' }}">
+    {!! Form::label('comments_requests', 'Comments/Requests:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::textarea('commentsRequests', null, ['id'=> 'commentsRequests','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('commentsRequests'))
-            <span class="help-block"><strong>{{ $errors->first('commentsRequests') }}</strong></span>
+        {!! Form::textarea('comments_requests', null, ['id'=> 'comments_requests','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('comments_requests'))
+            <span class="help-block"><strong>{{ $errors->first('comments_requests') }}</strong></span>
         @endif
     </div>
 </div>

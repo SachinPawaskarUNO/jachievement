@@ -13,22 +13,17 @@ class AddForeignKeyForStates extends Migration
     public function up()
     {
         Schema::table('volunteer_interest_forms', function (Blueprint $table) {
-            $table->dropColumn('companyState');
-            $table->dropColumn('homeState');
+            $table->integer('company_state_id')->unsigned()->nullable();
+            $table->foreign('company_state_id')->references('id')->on('states');
 
-            $table->integer('companyStateId')->unsigned()->nullable();
-            $table->foreign('companyStateId')->references('id')->on('states');
-
-            $table->integer('homeStateId')->unsigned();
-            $table->foreign('homeStateId')->references('id')->on('states');
+            $table->integer('home_state_id')->unsigned();
+            $table->foreign('home_state_id')->references('id')->on('states');
 
         });
 
         Schema::table('educator_interest_forms', function (Blueprint $table) {
-            $table->dropColumn('schoolState');
-
-            $table->integer('schoolStateId')->unsigned();
-            $table->foreign('schoolStateId')->references('id')->on('states');
+            $table->integer('school_state_id')->unsigned();
+            $table->foreign('school_state_id')->references('id')->on('states');
 
         });
     }
@@ -41,17 +36,12 @@ class AddForeignKeyForStates extends Migration
     public function down()
     {
         Schema::table('volunteer_interest_forms', function (Blueprint $table) {
-            $table->dropForeign(['companyStateId']);
-            $table->dropForeign(['homeStateId']);
-
-            $table->string('companyState')->nullable();
-            $table->string('homeState');
+            $table->dropForeign(['company_state_id']);
+            $table->dropForeign(['home_state_id']);
         });
 
         Schema::table('educator_interest_forms', function (Blueprint $table) {
-            $table->dropForeign(['schoolStateId']);
-
-            $table->string('schoolState');
+            $table->dropForeign(['school_state_id']);
         });
     }
 }

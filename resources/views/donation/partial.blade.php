@@ -10,6 +10,8 @@
     </div>
 </div>
 
+
+
 <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
 
     {!! Form::label('amount', 'Donation Amount:', ['class' => 'col-md-4 control-label']) !!}
@@ -17,32 +19,28 @@
     <div class="col-md-6">
         <div class="col-md-6">
             <div class="form-group">
-                {!! Form::radio('amount', 5000, ['id'=> 'amount1','class' => 'col-md-6 form-control']) !!}
-                {!! Form::label('lb_1','$5000',['class' => 'btn']) !!}
+                {!! Form::radio('amount', 5000.00, ['id'=> 'amount1','class' => 'col-md-6 form-control']) !!}
+                {!! Form::label('lb_1','$5,000',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', 2500, ['id'=> 'amount2','class' => 'col-md-6 form-control']) !!}
-                {!! Form::label('lb_1','$2500',['class' => 'btn']) !!}
+                {!! Form::radio('amount', 1250.00, ['id'=> 'amount2','class' => 'col-md-6 form-control']) !!}
+                {!! Form::label('lb_1','$1,250',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', 2000, ['id'=> 'amount3','class' => 'col-md-6 form-control']) !!}
-                {!! Form::label('lb_1','$2000',['class' => 'btn']) !!}
+                {!! Form::radio('amount', 500.00, ['id'=> 'amount3','class' => 'col-md-6 form-control']) !!}
+                {!! Form::label('lb_1','$500',['class' => 'btn']) !!}
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                {!! Form::radio('amount', 1000, ['id'=> 'amount4','class' => 'col-md-6 form-control']) !!}
-                {!! Form::label('lb_1','$1000',['class' => 'btn']) !!}
+                {!! Form::radio('amount', 26.00, ['id'=> 'amount4','class' => 'col-md-6 form-control']) !!}
+                {!! Form::label('lb_1','$26',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-            {!! Form::radio('amount', 200, ['id'=> 'amount5','class' => 'col-md-6 form-control']) !!}
-            {!! Form::label('lb_1','$200',['class' => 'btn']) !!}
-            </div>
-{{--            <div class="form-group">
-                {!! Form::radio('amount', null, ['id'=> 'amount_other','class' => 'col-md-6 form-control']) !!}
+                {!! Form::radio('amount', null, ['id'=> 'amount6','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','Other:',['class' => 'btn']) !!}
-                {!! Form::text('amount', null, ['id'=> 'amount_actual','class' => 'form-control']) !!}
-            </div>--}}
+                {!! Form::text('amount_actual', null, ['id'=> 'amount_actual','class' => 'form-control', 'maxLength' => 7]) !!}
+            </div>
         </div>
         @if ($errors->has('amount'))
             <span class="help-block">
@@ -102,13 +100,12 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
-    {!! Form::label('state', 'State:', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group{{ $errors->has('state_id') ? ' has-error' : '' }}">
+    {!! Form::label('state_id', 'State:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('state', null, ['id'=> 'state','class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('state'))
-            <span class="help-block"><strong>
-                    {{ $errors->first('state') }}</strong></span>
+        {!! Form::select('state_id', $states, null,  ['id'=> 'state_id','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('state_id'))
+            <span class="help-block"><strong>{{ $errors->first('state_id') }}</strong></span>
         @endif
     </div>
 </div>
@@ -126,7 +123,7 @@
 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
     {!! Form::label('phone', 'Phone:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('phone', null, ['id'=> 'companyPhone','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('phone', null, ['id'=> 'companyPhone','class' => 'col-md-6 form-control','maxLength' => 12]) !!}
         @if ($errors->has('phone'))
             <span class="help-block">
                 <strong>{{ $errors->first('phone') }}</strong></span>
@@ -147,8 +144,17 @@
     </div>
 </div>
 
+<div class="form-inline">
+    <div class="col-md-7 col-md-offset-3">
+        <div class="form-group">
+            {!! Form::checkbox('anonymous', 1, false, ['id'=> 'anonymous', 'class' => 'check_box' ]) !!}
+            {!! Form::label('I would like to have my donation to be anonymous') !!}
+        </div>
+    </div>
+</div>
+
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
-        {!! Form::button('<i class="fa fa-btn fa-save"></i>Donate', ['type' => 'submit','id' => 'save', 'class' => 'btn btn-success']) !!}
+        {!! Form::button('<i></i>Donate', ['type' => 'submit','id' => 'save', 'class' => 'btn btn-success']) !!}
     </div>
 </div>

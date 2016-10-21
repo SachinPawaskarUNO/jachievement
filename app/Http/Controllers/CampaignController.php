@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Requests\TeamRequest;
 use App\TeamMember;
 use Log;
+use DB;
 
 use Auth;
 use Session;
@@ -16,9 +17,14 @@ class CampaignController extends Controller
 {
   public function teammember()
   {
-      Log::info('CampaignController.teammember: ');
-        $this->viewData['heading'] = "Welcome to My Fundraising Page";
-      return view('campaign.teammember', $this->viewData);
+      Log::info('CampaignController.team_member: ');
+        $teamMembers= DB::table('team_members')
+                    ->join('donations', 'team_members.id', '=', 'donations.team_member_id')
+                    ->join('users', 'team_members.user_id', '=', 'users.id')
+                    ->select(DB::raw('team_members.id as id, team_members.goal as goal,donations.amount as amount,users.name as name'))
+                    ->get();
+        
+      return view('campaign.teammember', compact('teamMembers'));
       
   }
 

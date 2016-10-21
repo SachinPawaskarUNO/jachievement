@@ -13,7 +13,7 @@ class AddVolunteerInterestFormsField extends Migration
     public function up()
     {
         Schema::table('volunteer_interest_forms', function (Blueprint $table) {
-            $table->string('modeOfContact');
+            $table->string('mode_of_contact');
         });
     }
 
@@ -25,7 +25,7 @@ class AddVolunteerInterestFormsField extends Migration
     public function down()
     {
         Schema::table('volunteer_interest_forms', function (Blueprint $table) {
-            $table->dropColumn('modeOfContact');
+            $table->dropColumn('mode_of_contact');
         });
     }
 }

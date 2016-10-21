@@ -173,36 +173,27 @@
             <!-- Create heading-->
             <h3 class="team title text-center" id = "member_subtitle" >My Supporters</h3>  
             <!-- Create table-->
-                <div align="center"><table> 
-                        <tr> 
-                            <th>Rank</th> 
-                            <th>Team member</th> 
-                            <th>Amount Raised</th> 
-                            <th>Goal</th> 
-                            <th>% Raised</th>
-                        </tr>
-                        <td align="center">1</td> 
-                        <td align="center"><a href="/donation/donate">Jill Smith</a></td> 
-                        <td align="center">$200</td> 
-                        <td align="center">$500</td> 
-                        <td align="center">40%</td> 
-                        </tr>
-
-                        </tr>
-                        <td align="center">2</td> 
-                        <td align="center"><a href="/donation/donate">Keisha Peters</a></td> 
-                        <td align="center">$50</td> 
-                        <td align="center">$200</td> 
-                        <td align="center">25%</td> 
-                        </tr>
-
-                        </tr>
-                        <td align="center">2</td> 
-                        <td align="center"><a href="/donation/donate">Min Hui</a></td> 
-                        <td align="center">$25</td> 
-                        <td align="center">$100</td> 
-                        <td align="center">25%</td> 
-                        </tr>
+                <div align="center">
+                    <table> 
+                        <thead>Id</thead>
+                        <thead>Goal</thead>
+                       @foreach($teamMembers as $teamMember)
+                       <tr>
+                           <td>
+                            {{$teamMember->id}}   
+                           </td>
+                            <td>
+                            {{$teamMember->goal}}   
+                           </td>
+                            <td>
+                            {{$teamMember->amount}}   
+                           </td>
+                            <td>
+                            {{$teamMember->name}}   
+                           </td>
+                           
+                       </tr>
+                       @endforeach
 
                     </table>
                 </div> <!-- end of table alignment--> 
