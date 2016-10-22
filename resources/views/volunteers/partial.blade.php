@@ -248,7 +248,7 @@
 <div class="form-group{{ $errors->has('mode_of_contact') ? ' has-error' : '' }}">
     {!! Form::label('mode_of_contact', 'Preferred mode of contact:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::select('mode_of_contact', $modeOfContact, null,  ['id'=> 'modeOfContact','class' => 'col-md-6 form-control']) !!}
+        {!! Form::select('mode_of_contact', $mode_of_contact, null,  ['id'=> 'modeOfContact','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('mode_of_contact'))
             <span class="help-block"><strong>{{ $errors->first('modeOfContact') }}</strong></span>
         @endif
