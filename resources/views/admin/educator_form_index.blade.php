@@ -21,6 +21,10 @@
                                             <td class="table-text"><div>{{ $educatorInterestForm->id }}</div></td>
                                             <td class="table-text"><div>{{ $educatorInterestForm->first_name }}</div></td>
                                             <td class="table-text"><div>{{ $educatorInterestForm->email }}</div></td>
+                                            <td>
+                                                <a href="{{ action('AdminController@showEducatorDetails', $educatorInterestForm->id) }}" class="btn btn-default btn-small">View
+                                                    Details</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
