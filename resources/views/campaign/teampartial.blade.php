@@ -2,19 +2,19 @@
 <div class="form-group">
     {!! Form::label('campaign', 'Campaign:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-9">
-    <span class="control-label">JA Omaha Bowling Campaign</span>
+    <span class="control-label">{{ $teamInfo->campName }}</span>
     </div>
 </div>
 <div class="form-group">
     {!! Form::label('organization', 'Organization:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-9">
-    <span>Union Pacific Railroad</span>
+    <span>{{ $teamInfo->orgName }}</span>
     </div>
 </div>
 <div class="form-group">
     {!! Form::label('team', 'Team:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-9">
-    <span>Railroaders</span>
+    <span>{{ $teamInfo->teamName }}</span>
     </div>
 </div>
 
@@ -42,7 +42,7 @@
     </div>
 </div>
 
-{!! Form::hidden('team_id', 1) !!}
+{!! Form::hidden('team_id', $teamId) !!}
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
             {!! Form::button('<i class="fa fa-btn fa-user-plus"></i>Join Team', ['type' => 'submit','id' => 'joinTeam', 'class' => 'btn btn-primary']) !!}

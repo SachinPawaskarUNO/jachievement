@@ -29,10 +29,21 @@ class CampaignController extends Controller
   }
 
 
-  public function jointeam()
+  public function jointeam($teamId)
   {
       Log::info('CampaignController.jointeam: ');
-      return view('campaign.jointeam');
+      $data['teamId'] = $teamId;
+
+      $teamInfo = DB::table('teams')
+                  ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
+                  ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
+                  ->select('teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
+                  ->where('teams.id', '=', $data['teamId'])
+                  ->first();
+
+      $data['teamInfo'] = $teamInfo;
+
+      return view('campaign.jointeam', $data);
       
   }
 
