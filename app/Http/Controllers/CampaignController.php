@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\TeamRequest;
+use App\Http\Requests\TeamMemberRequest;
 use App\TeamMember;
+use App\Team;
+use App\User;
 use Log;
 use DB;
 
@@ -19,20 +22,62 @@ class CampaignController extends Controller
   {
       Log::info('CampaignController.team_member: ');
         $teamMembers= DB::table('team_members')
+                    ->select(DB::raw('users.name as name, team_members.goal as goal,
+                    sum(donations.amount) as amount,(sum(donations.amount)/team_members.goal) * 100 as per_raised'))
                     ->join('donations', 'team_members.id', '=', 'donations.team_member_id')
                     ->join('users', 'team_members.user_id', '=', 'users.id')
-                    ->select(DB::raw('team_members.id as id, team_members.goal as goal,donations.amount as amount,users.name as name'))
+                    ->groupBy('users.name', 'team_members.goal')
+                    ->orderBy('per_raised')
                     ->get();
+
         
       return view('campaign.teammember', compact('teamMembers'));
       
   }
 
 
-  public function jointeam()
+  public function joinTeam($teamId)
   {
-      Log::info('CampaignController.jointeam: ');
-      return view('campaign.jointeam');
+      Log::info('CampaignController.joinTeam: ');
+      $data['teamId'] = $teamId;
+      $data['action'] = 'join';
+      $data['heading'] = 'Join a Campaign Team';
+
+      $teamInfo = DB::table('teams')
+                  ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
+                  ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
+                  ->select('teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
+                  ->where('teams.id', '=', $data['teamId'])
+                  ->first();
+
+      $data['teamInfo'] = $teamInfo;
+
+      return view('campaign.jointeam', $data);
+      
+  }
+
+  public function createTeam($campaignId)
+  {
+      Log::info('CampaignController.createTeam: ');
+      $data['campaignId'] = $campaignId;
+      $data['action'] = 'create';
+      $data['heading'] = 'Create a Campaign Team';
+
+
+      $campaignInfo = DB::table('campaigns')
+                      ->select('campaigns.name as campName')
+                      ->where('campaigns.id', '=', $data['campaignId'])
+                      ->first();
+
+      $data['campaignInfo'] = $campaignInfo;
+
+      $organizationList = DB::table('organizations')
+                          ->whereNull('organizations.deleted_at')
+                          ->lists('name', 'id');
+
+      $data['organizationList'] = $organizationList;
+
+      return view('campaign.jointeam', $data);
       
   }
 
@@ -44,9 +89,9 @@ class CampaignController extends Controller
 
     }
 
-  public function jointeamstore(TeamRequest $request)
+  public function joinTeamStore(TeamMemberRequest $request)
   {
-      Log::info('CampaignController.store - Start: ');
+      Log::info('CampaignController.joinTeamStore - Start: ');
       $input = $request->all();
       $user = Auth::user();
 
@@ -59,6 +104,25 @@ class CampaignController extends Controller
       $object = TeamMember::create($input);
 
       Session::flash('flash_message', 'You have successfully joined the team!');
+      Log::info('CampaignController.store - End: ' . $object->id);
+      return redirect()->back();
+  }
+
+  public function createTeamStore(TeamRequest $request)
+  {
+      Log::info('CampaignController.createTeamStore - Start: ');
+      $input = $request->all();
+      $user = Auth::user();
+
+      if ($user) {
+          $input['user_id'] = $user->id;
+      }
+      $this->populateCreateFields($input);
+
+
+      $object = Team::create($input);
+
+      Session::flash('flash_message', 'You have successfully created a team!');
       Log::info('CampaignController.store - End: ' . $object->id);
       return redirect()->back();
   }
