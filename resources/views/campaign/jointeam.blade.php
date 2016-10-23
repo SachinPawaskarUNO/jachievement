@@ -14,9 +14,9 @@
 
 				<div class="panel-body">
 					@if ($action == 'join')
-					{!! Form::open(['url' => '/campaign/jointeam', 'class' => 'form-horizontal', 'method' => 'POST', 'id' => 'campaignForm']) !!}
+					{!! Form::open(['url' => '/campaign/team/join', 'class' => 'form-horizontal', 'method' => 'POST', 'id' => 'campaignForm']) !!}
 					@else
-					{!! Form::open(['url' => '/campaign/createteam', 'class' => 'form-horizontal', 'method' => 'POST', 'id' => 'campaignForm']) !!}
+					{!! Form::open(['url' => '/campaign/team/create', 'class' => 'form-horizontal', 'method' => 'POST', 'id' => 'campaignForm']) !!}
 					@endif
 					@include('common.errors')
 					@include('common.flash')
@@ -28,6 +28,7 @@
 			@endif
 		</div>
 	</div>
+</div>
 @endsection
 @section('scripts')
 <script type="text/javascript">

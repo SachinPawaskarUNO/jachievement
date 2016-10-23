@@ -141,6 +141,21 @@ class CampaignController extends Controller
       return redirect()->action('CampaignController@team', ['id' => $object->id]);
       //return redirect()->back();
   }
+  
+  public function active()
+  {
+		Log::info('CampaignController.active: ');
+		
+		//$active = DB::table('campaigns')
+					//->select(DB::raw('name, description, start_date, end_date'))
+					//->where('active', '=',1)
+					//->get();
+		
+		
+       $this->viewData['heading'] = "Active Campaigns";
+       return view('campaign.activecampaign',$this->viewData);
 
+
+  }
 }
 
