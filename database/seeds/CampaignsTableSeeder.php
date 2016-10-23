@@ -14,11 +14,11 @@ class CampaignsTableSeeder extends Seeder
     public function run()
     {
         DB::table('campaigns')->delete();
-        Campaign::create(['id' => '1',  'name' => 'Golf', 'description' => 'Donate for Golf','goal'=> '200','category' => 'Golf','start_date'=>'10/10/2016','end_date'=>'10/20/2016','active'=>'true',
+        Campaign::create(['id' => '1',  'name' => 'JA Omaha Golf Campaign - 2016', 'description' => 'Donate for Golf','goal'=> '200','category' => 'Golf','start_date'=>'10/10/2016','end_date'=>'10/20/2016','active'=>'true',
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
-        Campaign::create([ 'id'=> '2', 'name' => 'Basketball', 'description' => 'Donate fo Basketball','goal'=>'350','category' => 'Basketball','start_date'=>'11/15/2016','end_date'=>'11/20/2016','active'=>'true',
+        Campaign::create([ 'id'=> '2', 'name' => 'JA Omaha Bowling Campaign - 2016', 'description' => 'Donate for Bowling','goal'=>'350','category' => 'Bowling','start_date'=>'11/15/2016','end_date'=>'11/20/2016','active'=>'true',
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
-        Campaign::create([  'id' => '3','name' => 'Soccer', 'description' => 'Donate for Soccer','goal'=> '400','category' => 'Soccer','start_date'=>'12/01/2016','end_date'=>'12/10/2016','active'=>'true',
+        Campaign::create([  'id' => '3','name' => 'JA Omaha Soccer Campaign - 2016', 'description' => 'Donate for Soccer','goal'=> '400','category' => 'Soccer','start_date'=>'12/01/2016','end_date'=>'12/10/2016','active'=>'true',
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
 
     }

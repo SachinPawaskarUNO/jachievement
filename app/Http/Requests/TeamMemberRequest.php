@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class TeamRequest extends Request
+class TeamMemberRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,10 @@ class TeamRequest extends Request
     public function rules()
     {
         $rules = [
-            'organization_id' => 'required',
-            'name' => 'required|max:100',
             'title' => 'required|max:100',
             'content' => 'required|max:4000',
             'goal' => 'required|numeric',
-            'campaign_id' => 'required'
-            ];
+            'team_id' => 'required'        ];
 
         return $rules;
     }

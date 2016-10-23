@@ -74,9 +74,11 @@ Route::get('/campaign/team', 'CampaignController@team');
 Route::get('/donation/donate', 'DonationController@donationform');
 Route::post('/donation/donate', 'DonationController@store');
 Route::get('/donation/notification', 'DonateController@notification');
-Route::get('/campaign/team/join/{teamId}', 'CampaignController@jointeam');
+Route::get('/campaign/team/join/{teamId}', 'CampaignController@joinTeam');
+Route::get('/campaign/team/create/{campaignId}', 'CampaignController@createTeam');
 
-Route::post('/campaign/jointeam', 'CampaignController@jointeamstore');
+Route::post('/campaign/jointeam', 'CampaignController@joinTeamStore');
+Route::post('/campaign/createteam', 'CampaignController@createTeamStore');
 
 Route::get('/campaign/team/teammember', 'CampaignController@teammember');
 

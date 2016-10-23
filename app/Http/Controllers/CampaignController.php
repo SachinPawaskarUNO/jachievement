@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\TeamRequest;
+use App\Http\Requests\TeamMemberRequest;
 use App\TeamMember;
+use App\Team;
 use App\User;
 use Log;
 use DB;
@@ -34,10 +36,12 @@ class CampaignController extends Controller
   }
 
 
-  public function jointeam($teamId)
+  public function joinTeam($teamId)
   {
-      Log::info('CampaignController.jointeam: ');
+      Log::info('CampaignController.joinTeam: ');
       $data['teamId'] = $teamId;
+      $data['action'] = 'join';
+      $data['heading'] = 'Join a Campaign Team';
 
       $teamInfo = DB::table('teams')
                   ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
@@ -52,6 +56,31 @@ class CampaignController extends Controller
       
   }
 
+  public function createTeam($campaignId)
+  {
+      Log::info('CampaignController.createTeam: ');
+      $data['campaignId'] = $campaignId;
+      $data['action'] = 'create';
+      $data['heading'] = 'Create a Campaign Team';
+
+
+      $campaignInfo = DB::table('campaigns')
+                      ->select('campaigns.name as campName')
+                      ->where('campaigns.id', '=', $data['campaignId'])
+                      ->first();
+
+      $data['campaignInfo'] = $campaignInfo;
+
+      $organizationList = DB::table('organizations')
+                          ->whereNull('organizations.deleted_at')
+                          ->lists('name', 'id');
+
+      $data['organizationList'] = $organizationList;
+
+      return view('campaign.jointeam', $data);
+      
+  }
+
     public function team()
     {
         Log::info('CampaignController.team: ');
@@ -60,9 +89,9 @@ class CampaignController extends Controller
 
     }
 
-  public function jointeamstore(TeamRequest $request)
+  public function joinTeamStore(TeamMemberRequest $request)
   {
-      Log::info('CampaignController.store - Start: ');
+      Log::info('CampaignController.joinTeamStore - Start: ');
       $input = $request->all();
       $user = Auth::user();
 
@@ -75,6 +104,25 @@ class CampaignController extends Controller
       $object = TeamMember::create($input);
 
       Session::flash('flash_message', 'You have successfully joined the team!');
+      Log::info('CampaignController.store - End: ' . $object->id);
+      return redirect()->back();
+  }
+
+  public function createTeamStore(TeamRequest $request)
+  {
+      Log::info('CampaignController.createTeamStore - Start: ');
+      $input = $request->all();
+      $user = Auth::user();
+
+      if ($user) {
+          $input['user_id'] = $user->id;
+      }
+      $this->populateCreateFields($input);
+
+
+      $object = Team::create($input);
+
+      Session::flash('flash_message', 'You have successfully created a team!');
       Log::info('CampaignController.store - End: ' . $object->id);
       return redirect()->back();
   }
