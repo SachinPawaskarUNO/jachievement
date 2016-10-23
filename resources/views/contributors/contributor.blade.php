@@ -152,8 +152,8 @@
 
                             <br>
                             <br>
-                            <div class="closing-buttons" align="center" id="button-volunteer">
-                                <a class="btn btn-lg btn-primary" href="/volunteers/introduction">Learn More</a>
+                            <div class="closing-buttons" align="center" id="button-activecampaign">
+                                <a class="btn btn-lg btn-primary" href="{{ url('/campaign/activecampaign') }}">Learn More</a>
                             </div>
                             <div class="hidden-sm clear"> &nbsp;
                             </div>
