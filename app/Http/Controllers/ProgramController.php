@@ -19,20 +19,47 @@ class ProgramController extends Controller
     {
 
         Log::info('ProgramController.form: ');
-//        $this->viewData['heading'] = "JA Program";
 
-
-//        $program = new Program();
-//
-//        $this->viewData['programs'] = $program->all(array('name','description', 'image','implementation'));
-
-
-        $programs= DB::table('programs')
+        $allprograms= DB::table('programs')
             ->join('grades','programs.grade_id','=','grades.id')
             ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, grades.name as gradename'))
             ->get();
+
+
+
+       
+
         
-        return view('programs.index', compact ('programs'));
+        $elementaryprograms = DB::table('programs')
+                ->join('grades', 'programs.grade_id', '=', 'grades.id')
+                ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, grades.name as gradename'))
+                ->where('grade_id','=','1')
+                ->get();
+
+        
+
+       
+        $middleprograms = DB::table('programs')
+                ->join('grades', 'programs.grade_id', '=', 'grades.id')
+                ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, grades.name as gradename'))
+                ->where('grade_id','=','2')
+                ->get();
+
+
+        
+
+        
+        $highprograms = DB::table('programs')
+                ->join('grades', 'programs.grade_id', '=', 'grades.id')
+                ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, grades.name as gradename'))
+                ->where('grade_id','=','3')
+                ->get();
+
+
+        
+
+        return view('programs.index', compact ('allprograms','elementaryprograms','middleprograms','highprograms'));
+        
     }
 }
 /**
