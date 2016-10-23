@@ -18,9 +18,28 @@
                                 <p id="target1">Our programs help prepare young people for the real world by showing them how to generate wealth and effectively manage it,
                                     how to create jobs which make their communities more robust, and how to apply entrepreneurial thinking to the workplace. Students
                                     put these lessons into action and learn the value of contributing to their communities..</p>
-                                @foreach ($programsData as $product)
-                                    <div>{{ $product->id }} {{ $product->name }}</div>
-                                @endforeach
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Image</th>
+                                        <th>Implementation</th>
+                                        <th>GradeName</th>
+
+                                    @foreach ($programs as $program)
+                                        <tr>
+                                            <td>{{ $program->name }}</td>
+                                            <td>{{ $program->description }}</td>
+                                            <td>{{ $program->image }}</td>
+                                            <td>{{ $program->implementation }}</td>
+                                            <td>{{ $program->gradename }}</td>
+                                        </tr>
+
+                                     @endforeach
+                                     </table>
+                                    </div>
+                                </div>
                             </md-content>
                         </md-tab>
                         <md-tab label="Elementary School">
@@ -30,6 +49,7 @@
                                     <i class="fa fa-book"></i>
                                 </a>
                                <p id="target2">JA’s elementary school programs are the foundation of its K-12 curricula. Six sequential themes, each with five hands-on activities, as well as an after-school and capstone experience, work to change students’ lives by helping them understand business and economics.</p>
+
                             </md-content>
                         </md-tab>
                         <md-tab label="Middle School">

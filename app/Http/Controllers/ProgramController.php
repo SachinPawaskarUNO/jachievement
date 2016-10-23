@@ -10,6 +10,7 @@ use App\Http\Requests\VolunteerRequest;
 use Log;
 use App\VolunteerInterestForm;
 use Session;
+use DB;
 use Auth;
 
 class ProgramController extends Controller
@@ -18,14 +19,20 @@ class ProgramController extends Controller
     {
 
         Log::info('ProgramController.form: ');
-        $this->viewData['heading'] = "JA Program";
+//        $this->viewData['heading'] = "JA Program";
 
 
-        $program = new Program();
+//        $program = new Program();
+//
+//        $this->viewData['programs'] = $program->all(array('name','description', 'image','implementation'));
 
-        $this->viewData['programsData'] = $program->all(array('name','id'));
 
-        return view('programs.index', $this->viewData);
+        $programs= DB::table('programs')
+            ->join('grades','programs.grade_id','=','grades.id')
+            ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, grades.name as gradename'))
+            ->get();
+        
+        return view('programs.index', compact ('programs'));
     }
 }
 /**
