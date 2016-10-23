@@ -67,14 +67,14 @@ class CampaignController extends Controller
   {
 		Log::info('CampaignController.active: ');
 		
-		$active = DB::table('campaigns')
-					->select(DB::raw('name, description, start_date, end_date'))
-					->where('active', '=',1)
-					->get();
+		//$active = DB::table('campaigns')
+					//->select(DB::raw('name, description, start_date, end_date'))
+					//->where('active', '=',1)
+					//->get();
 		
 		
-       // $this->viewData['heading'] = "Active Campaigns";
-        return view('campaign.activecampaign', $this->viewData);
+       $this->viewData['heading'] = "Active Campaigns";
+       return view('campaign.activecampaign',$this->viewData);
 
 
   }
