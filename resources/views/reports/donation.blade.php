@@ -18,7 +18,7 @@
                      </div>
         </div>
         </div>
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div><h4><b>Donation Report</b></h4></div>
