@@ -22,7 +22,7 @@ class ProgramController extends Controller
 
         $allprograms= DB::table('programs')
             ->join('grades','programs.grade_id','=','grades.id')
-            ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, grades.name as gradename'))
+            ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, programs.entrepreneurship as entrepreneurship, programs.financial_readiness as financial_readiness, programs.work_readiness as work_readiness, programs.program_url as program_url'))
             ->get();
 
 
@@ -32,7 +32,7 @@ class ProgramController extends Controller
         
         $elementaryprograms = DB::table('programs')
                 ->join('grades', 'programs.grade_id', '=', 'grades.id')
-                ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, grades.name as gradename'))
+                ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, programs.entrepreneurship as entrepreneurship, programs.financial_readiness as financial_readiness, programs.work_readiness as work_readiness, programs.program_url as program_url'))
                 ->where('grade_id','=','1')
                 ->get();
 
@@ -41,7 +41,7 @@ class ProgramController extends Controller
        
         $middleprograms = DB::table('programs')
                 ->join('grades', 'programs.grade_id', '=', 'grades.id')
-                ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, grades.name as gradename'))
+                ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, programs.entrepreneurship as entrepreneurship, programs.financial_readiness as financial_readiness, programs.work_readiness as work_readiness, programs.program_url as program_url'))
                 ->where('grade_id','=','2')
                 ->get();
 
@@ -51,7 +51,7 @@ class ProgramController extends Controller
         
         $highprograms = DB::table('programs')
                 ->join('grades', 'programs.grade_id', '=', 'grades.id')
-                ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, grades.name as gradename'))
+                ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, programs.entrepreneurship as entrepreneurship, programs.financial_readiness as financial_readiness, programs.work_readiness as work_readiness, programs.program_url as program_url'))
                 ->where('grade_id','=','3')
                 ->get();
 

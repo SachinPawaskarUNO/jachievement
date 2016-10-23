@@ -31,22 +31,26 @@
                                 <div class="col-md-12">
                                     <div class="table-responsive">
                                     <table class="table table-hover">
+                                        <th>Image</th>
                                         <th>Name</th>
                                         <th>Description</th>
-                                        <th>Image</th>
                                         <th>Implementation</th>
-                                        <th>GradeName</th>
+                                        <th>Entrepreneurship</th>
+                                        <th>Financial Literacy</th>
+                                        <th>Work Readiness</th>
 
                                     @foreach ($allprograms as $allprogram)
                                         <tr>
+                                            <td><img src="{{ $allprogram->image }} "/></td>
                                             <td>{{ $allprogram->name }}</td>
                                             <td>{{ $allprogram->description }}</td>
-                                            <td><img src="{{ $allprogram->image }} "/></td>
                                             <td>{{ $allprogram->implementation }}</td>
-                                            <td>{{ $allprogram->gradename }}</td>
+                                            <td>{{ $allprogram->entrepreneurship }}</td>
+                                            <td>{{ $allprogram->financial_readiness }}</td>
+                                            <td>{{ $allprogram->work_readiness }}</td>
                                         </tr>
-
                                      @endforeach
+
                                      </table>
                                     </div>
                                 </div>
@@ -64,19 +68,23 @@
                                 <div class="col-md-12">
                                     <div class="table-responsive">
                                         <table class="table table-hover">
+                                            <th>Image</th>
                                             <th>Name</th>
                                             <th>Description</th>
-                                            <th>Image</th>
                                             <th>Implementation</th>
-                                            <th>GradeName</th>
+                                            <th>Entrepreneurship</th>
+                                            <th>Financial Literacy</th>
+                                            <th>Work Readiness</th>
 
                                             @foreach ($elementaryprograms as $elementaryprogram)
                                                 <tr>
+                                                    <td><img src="{{ $elementaryprogram->image }} "/></td>
                                                     <td>{{ $elementaryprogram->name }}</td>
                                                     <td>{{ $elementaryprogram->description }}</td>
-                                                    <td><img src="{{ $elementaryprogram->image }} "/></td>
                                                     <td>{{ $elementaryprogram->implementation }}</td>
-                                                    <td>{{ $elementaryprogram->gradename }}</td>
+                                                    <td>{{ $elementaryprogram->entrepreneurship }}</td>
+                                                    <td>{{ $elementaryprogram->financial_readiness }}</td>
+                                                    <td>{{ $elementaryprogram->work_readiness }}</td>
                                                 </tr>
 
                                             @endforeach
@@ -98,19 +106,23 @@
                                 <div class="col-md-12">
                                     <div class="table-responsive">
                                         <table class="table table-hover">
+                                            <th>Image</th>
                                             <th>Name</th>
                                             <th>Description</th>
-                                            <th>Image</th>
                                             <th>Implementation</th>
-                                            <th>GradeName</th>
+                                            <th>Entrepreneurship</th>
+                                            <th>Financial Literacy</th>
+                                            <th>Work Readiness</th>
 
                                             @foreach ($middleprograms as $middleprogram)
                                                 <tr>
+                                                    <td><img src="{{ $middleprogram->image }} "/></td>
                                                     <td>{{ $middleprogram->name }}</td>
                                                     <td>{{ $middleprogram->description }}</td>
-                                                    <td><img src="{{ $middleprogram->image }} "/></td>
                                                     <td>{{ $middleprogram->implementation }}</td>
-                                                    <td>{{ $middleprogram->gradename }}</td>
+                                                    <td>{{ $middleprogram->entrepreneurship }}</td>
+                                                    <td>{{ $middleprogram->financial_readiness }}</td>
+                                                    <td>{{ $middleprogram->work_readiness }}</td>
                                                 </tr>
 
                                             @endforeach
@@ -129,19 +141,23 @@
                                 <div class="col-md-12">
                                     <div class="table-responsive">
                                         <table class="table table-hover">
+                                            <th>Image</th>
                                             <th>Name</th>
                                             <th>Description</th>
-                                            <th>Image</th>
                                             <th>Implementation</th>
-                                            <th>GradeName</th>
+                                            <th>Entrepreneurship</th>
+                                            <th>Financial Literacy</th>
+                                            <th>Work Readiness</th>
 
                                             @foreach ($highprograms as $highprogram)
                                                 <tr>
+                                                    <td><img src="{{ $highprogram->image }} "/></td>
                                                     <td>{{ $highprogram->name }}</td>
                                                     <td>{{ $highprogram->description }}</td>
-                                                    <td><img src="{{ $highprogram->image }} "/></td>
                                                     <td>{{ $highprogram->implementation }}</td>
-                                                    <td>{{ $highprogram->gradename }}</td>
+                                                    <td>{{ $highprogram->entrepreneurship }}</td>
+                                                    <td>{{ $highprogram->financial_readiness }}</td>
+                                                    <td>{{ $highprogram->work_readiness }}</td>
                                                 </tr>
 
                                             @endforeach
