@@ -80,7 +80,7 @@ Route::get('/campaign/team/create/{campaignId}', 'CampaignController@createTeam'
 Route::post('/campaign/jointeam', 'CampaignController@joinTeamStore');
 Route::post('/campaign/createteam', 'CampaignController@createTeamStore');
 
-Route::get('/campaign/team/teammember', 'CampaignController@teammember');
+Route::get('/campaign/team/{id}/teammember', 'CampaignController@teammember');
 
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 
