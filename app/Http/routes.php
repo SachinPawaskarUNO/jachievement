@@ -81,6 +81,8 @@ Route::post('/campaign/team/join', 'CampaignController@joinTeamStore');
 Route::get('/campaign/team/create/{campaignId}', 'CampaignController@createTeam');
 Route::post('/campaign/team/create', 'CampaignController@createTeamStore');
 
+Route::get('/campaign/activecampaign', 'CampaignController@active');
+
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 
 Route::get('/contactus', 'ContactController@contactus');
