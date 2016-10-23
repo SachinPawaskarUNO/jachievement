@@ -29,6 +29,7 @@
                         <li><a id="ja_nav_roles" href="{{ url('/roles') }}"><i class="fa fa-btn fa-fw fa-users"></i>Roles</a></li>
                         <li><a id="ja_nav_educator_form" href="{{ url('/admin/educatorform') }}"><i class="fa fa-btn fa-fw fa-square"></i>Educator Forms</a></li>
                         <li><a id="ja_nav_volunteer_form" href="{{ url('/admin/volunteerform') }}"><i class="fa fa-btn fa-fw fa-square"></i>Volunteer Forms</a></li>
+                        <li><a id="ja_reports_donation" href="{{ url('/reports/donation') }}"><i class="fa fa-btn fa-fw fa-square"></i>Donation Reports</a></li>
                         {{--<li class="divider"></li>--}}
                         {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
                     </ul>

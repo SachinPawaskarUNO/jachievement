@@ -1,20 +1,47 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container">
-        <div class="row">
-        	<div class="col-md-8 col-md-offset-2">
-	            <div class="panel panel-default">
-	                <div class="panel-heading"><span style="font-size:1.2em;"><b>Join a Campaign Team</b></span></div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			@if (!Auth::check())
+			<div class="alert alert-warning">
+				<strong>Account Required:</strong> Before joining a team, please <a href="/login">login</a> or <a href="/register">register</a>
+			</div>
+			@else
+			<div class="panel panel-default">
+				<div class="panel-heading"><span style="font-size:1.2em;"><b>{{ $heading }}</b></span></div>
 
-	                <div class="panel-body">
-	                	{!! Form::open(['url' => '/campaign/jointeam', 'class' => 'form-horizontal', 'method' => 'POST']) !!}
-                        @include('common.errors')
-                        @include('common.flash')
-                        @include ('campaign.teampartial')
-                        {!! Form::close() !!}
-	                </div>
-	            </div>
-        </div>
-    </div>
+				<div class="panel-body">
+					@if ($action == 'join')
+					{!! Form::open(['url' => '/campaign/jointeam', 'class' => 'form-horizontal', 'method' => 'POST', 'id' => 'campaignForm']) !!}
+					@else
+					{!! Form::open(['url' => '/campaign/createteam', 'class' => 'form-horizontal', 'method' => 'POST', 'id' => 'campaignForm']) !!}
+					@endif
+					@include('common.errors')
+					@include('common.flash')
+					@include ('campaign.teampartial')
+					{!! Form::close() !!}
+
+				</div>
+			</div>
+			@endif
+		</div>
+	</div>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+	function changeGoalSlider(){
+		var goalText = document.getElementById("goal").value;
+
+		document.getElementById("fundraisingGoalRange").value = goalText;
+	}
+
+	function changeGoalText(){
+		var goalSlider = document.getElementById("fundraisingGoalRange").value;
+
+		document.getElementById("goal").value = goalSlider;
+
+	}
+</script>
 @endsection
