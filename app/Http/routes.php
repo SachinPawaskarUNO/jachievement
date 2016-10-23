@@ -68,8 +68,8 @@ Route::get('/educators/introduction', 'EducatorsController@index');
 Route::get('/educators/interestform', 'EducatorsController@interestform');
 Route::post('/educators/interestform', 'EducatorsController@store');
 
-Route::get('/campaign/teammember', 'CampaignController@teammember');
-Route::get('/campaign/team', 'CampaignController@team');
+Route::get('/campaign/teammember/{id}', 'CampaignController@teammember');
+Route::get('/campaign/team/{id}', 'CampaignController@team');
 
 Route::get('/donation/donate', 'DonationController@donationform');
 Route::post('/donation/donate', 'DonationController@store');
@@ -79,8 +79,6 @@ Route::get('/campaign/team/create/{campaignId}', 'CampaignController@createTeam'
 
 Route::post('/campaign/jointeam', 'CampaignController@joinTeamStore');
 Route::post('/campaign/createteam', 'CampaignController@createTeamStore');
-
-Route::get('/campaign/team/teammember', 'CampaignController@teammember');
 
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 

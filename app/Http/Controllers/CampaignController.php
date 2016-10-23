@@ -18,7 +18,7 @@ use Session;
 
 class CampaignController extends Controller
 {
-  public function teammember()
+  public function teammember($id)
   {
       Log::info('CampaignController.team_member: ');
         $teamMembers= DB::table('team_members')
@@ -26,6 +26,7 @@ class CampaignController extends Controller
                     sum(donations.amount) as amount,(sum(donations.amount)/team_members.goal) * 100 as per_raised'))
                     ->join('donations', 'team_members.id', '=', 'donations.team_member_id')
                     ->join('users', 'team_members.user_id', '=', 'users.id')
+                    ->where('team_members.id', '=', $id)
                     ->groupBy('users.name', 'team_members.goal')
                     ->orderBy('per_raised')
                     ->get();
@@ -81,7 +82,7 @@ class CampaignController extends Controller
       
   }
 
-    public function team()
+    public function team($id)
     {
         Log::info('CampaignController.team: ');
         $this->viewData['heading'] = "Welcome to My Fundraising Page";
@@ -105,7 +106,7 @@ class CampaignController extends Controller
 
       Session::flash('flash_message', 'You have successfully joined the team!');
       Log::info('CampaignController.store - End: ' . $object->id);
-      return redirect()->back();
+      return redirect()->action('CampaignController@teammember', ['id' => $object->id]);
   }
 
   public function createTeamStore(TeamRequest $request)
