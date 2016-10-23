@@ -68,17 +68,20 @@ Route::get('/educators/introduction', 'EducatorsController@index');
 Route::get('/educators/interestform', 'EducatorsController@interestform');
 Route::post('/educators/interestform', 'EducatorsController@store');
 
-Route::get('/campaign/teammember', 'CampaignController@teammember');
-Route::get('/campaign/team', 'CampaignController@team');
+Route::get('/campaign/teammember/view/{id}', 'CampaignController@teammember');
+Route::get('/campaign/team/view/{id}', 'CampaignController@team');
 
 Route::get('/donation/donate', 'DonationController@donationform');
 Route::post('/donation/donate', 'DonationController@store');
 Route::get('/donation/notification', 'DonateController@notification');
-Route::get('/campaign/team/join', 'CampaignController@jointeam');
 
-Route::post('/campaign/jointeam', 'CampaignController@jointeamstore');
+Route::get('/campaign/team/join/{teamId}', 'CampaignController@joinTeam');
+Route::post('/campaign/team/join', 'CampaignController@joinTeamStore');
 
-Route::get('/campaign/team/teammember', 'CampaignController@teammember');
+Route::get('/campaign/team/create/{campaignId}', 'CampaignController@createTeam');
+Route::post('/campaign/team/create', 'CampaignController@createTeamStore');
+
+Route::get('/campaign/activecampaign', 'CampaignController@active');
 
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 
