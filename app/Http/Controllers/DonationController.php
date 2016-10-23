@@ -130,10 +130,11 @@ class DonationController extends Controller
         
 
         if ($response->isRedirect()) { 
-            // redirect to offsite payment gateway 
-            $response->redirect();
+            // redirect to offsite payment gateway
             $donation->status = 'paid';
             $donation->save();
+            $response->redirect();
+
          } 
          else { 
             // payment failed: display message to customer 
