@@ -47,10 +47,10 @@
 <div class="form-group">
     {!! Form::label('fundraisingGoal', 'Fundraising Goal:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-4">
-        <input type="range" id="fundraisingGoalRange" min="0" max="10000" step="50" value="500">
+        <input type="range" id="fundraisingGoalRange" min="0" max="10000" step="50" value="500" onChange="changeGoalText()">
     </div>
     <div class="col-md-3">
-        {!! Form::number('goal', 500, ['step' => '50', 'min' => '0', 'id' => 'goal', 'class' => 'col-md-3 form-control', 'required' => 'required']) !!}
+        {!! Form::number('goal', 500, ['step' => '50', 'min' => '0', 'id' => 'goal', 'class' => 'col-md-3 form-control', 'required' => 'required', 'onChange' => 'changeGoalSlider()']) !!}
     </div>
 </div>
 
