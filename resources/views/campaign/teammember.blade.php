@@ -144,10 +144,10 @@
         <div class="container">
             <div class="col-md-9" >
                 <br>
-                <h2 class="team-title text-center" id = "member_title">{{$title}}</h2>
+                <h2 class="team-title text-center" id = "member_title">{{$team->title}}</h2>
                 <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
                 <p class="team-description" id="member_greeting">Hello everyone!</p>
-                <p class="team-description" id="member_description">{{$content}}</p>
+                <p class="team-description" id="member_description">{{$team->content}}</p>
                 <br>
                 <div class="closing-buttons" align="center" id="button-donate">
                     <a class="btn btn-lg btn-primary" href="{{url('/campaign/team/join')}}" id="member_join">Join Our Team</a>

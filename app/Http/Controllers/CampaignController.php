@@ -85,7 +85,7 @@ class CampaignController extends Controller
     public function team($id)
     {
         Log::info('CampaignController.team: ');
-        //$this->viewData['heading'] = "Welcome to My Fundraising Page";
+        $team = Team::findOrFail($id);
 
 
         $teamMembers= DB::table('team_members')
@@ -93,11 +93,12 @@ class CampaignController extends Controller
                     sum(donations.amount) as amount,(sum(donations.amount)/team_members.goal) * 100 as per_raised'))
             ->join('donations', 'team_members.id', '=', 'donations.team_member_id')
             ->join('users', 'team_members.user_id', '=', 'users.id')
+            ->where('team_members.id', '=', $id)
             ->groupBy('users.name', 'team_members.goal')
             ->orderBy('per_raised')
             ->get();
 
-        return view('campaign.teammember', compact('teamMembers'));
+        return view('campaign.teammember', compact('teamMembers','team'));
         //return view('campaign.team', $this->viewData);
 
     }
@@ -137,7 +138,8 @@ class CampaignController extends Controller
 
       Session::flash('flash_message', 'You have successfully created a team!');
       Log::info('CampaignController.store - End: ' . $object->id);
-      return redirect()->back();
+      return redirect()->action('CampaignController@team', ['id' => $object->id]);
+      //return redirect()->back();
   }
 
 }
