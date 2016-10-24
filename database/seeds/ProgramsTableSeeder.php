@@ -13,9 +13,14 @@ class ProgramsTableSeeder extends Seeder
      */
     public function run()
     {
+
+        $imageURL1 = 'https://www.juniorachievement.org/image/journal/article?img_id=1219015&t=1438890778924';
+        $programURL1 = 'https://www.juniorachievement.org/web/ja-usa/ja-programs?p_p_id=56_INSTANCE_abcd&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=ja-maincontent&p_p_col_count=1&_56_INSTANCE_abcd_groupId=14516&_56_INSTANCE_abcd_articleId=19256';
+
+
         DB::table('programs')->delete();
         Program::create(['name' => 'JA Ourselves','implementation' => 'Classroom-Based','entrepreneurship' => '1',
-            'financial_readiness' => '2', 'work_readiness' => '1','image' => 'https://www.juniorachievement.org/image/journal/article?img_id=1219015&t=1438890778924','program_url' => 'https://www.juniorachievement.org/web/ja-usa/ja-programs?p_p_id=56_INSTANCE_abcd&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=ja-maincontent&p_p_col_count=1&_56_INSTANCE_abcd_groupId=14516&_56_INSTANCE_abcd_articleId=19256',
+            'financial_readiness' => '2', 'work_readiness' => '1','image' => $imageURL1,'program_url' => $programURL1,
             'description' => 'JA Ourselves uses storybook characters in read-aloud and hands-on activities to introduce the role people play in an economy. Through engaging, volunteer-led activities, young students learn about individual choices, money, the importance of saving and giving, and the value of work. (Kindergarten)','grade_id' => '1', 'created_by' => 'System',
             'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
 
