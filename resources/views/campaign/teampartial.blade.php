@@ -3,9 +3,9 @@
     {!! Form::label('campaign', 'Campaign:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
     @if ($action == 'join')
-    <span class="control-label">{{ $teamInfo->campName }}</span>
+    <label class="control-label" style="font-weight: normal !important;">{{ $teamInfo->campName }}</label>
     @else
-    <span class="control-label">{{ $campaignInfo->campName }}</span>
+    <label class="control-label" style="font-weight: normal !important;">{{ $campaignInfo->campName }}</label>
     @endif
     </div>
 </div>
@@ -13,7 +13,7 @@
     {!! Form::label('organization', 'Organization:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
     @if ($action == 'join')
-    <span>{{ $teamInfo->orgName }}</span>
+    <label class="control-label" style="font-weight: normal !important;">{{ $teamInfo->orgName }}</label>
     @else
     {!! Form::select('organization_id', $organizationList, null, ['id' => 'organization_id', 'class' => 'col-md-7 form-control', 'required' => 'required', 'placeholder' => 'Select an organization...']) !!}
     @endif
@@ -23,7 +23,7 @@
     {!! Form::label('team', 'Team Name:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
     @if ($action == 'join')
-    <span>{{ $teamInfo->teamName }}</span>
+    <label class="control-label" style="font-weight: normal !important;">{{ $teamInfo->teamName }}</label>
     @else
     {!! Form::text('name', null, ['id' => 'name', 'class' => 'col-md-7 form-control', 'required' => 'required']) !!}
     @endif

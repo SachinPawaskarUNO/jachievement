@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-color:rgb(245,245,245)">
     <div class="container">
       <div class="text-center">
         <br>
