@@ -10,7 +10,7 @@
 			</div>
 			@else
 			<div class="panel panel-default">
-				<div class="panel-heading"><span style="font-size:1.2em;"><b>{{ $heading }}</b></span></div>
+				<div class="panel-heading" style="background-color:#5cb85c !important;"> <span style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></span></div>
 
 				<div class="panel-body">
 					@if ($action == 'join')
