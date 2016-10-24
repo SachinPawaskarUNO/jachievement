@@ -125,7 +125,7 @@ class CampaignController extends Controller
 
       Session::flash('flash_message', 'You have successfully created a team!');
       Log::info('CampaignController.store - End: ' . $object->id);
-      return redirect()->back();
+      return redirect()->action('CampaignController@team', ['id' => $object->id]);
   }
   
   public function active()
