@@ -16,7 +16,7 @@ class ProgramsTableSeeder extends Seeder
         DB::table('programs')->delete();
         Program::create(['name' => 'JA Ourselves','implementation' => 'Classroom-Based','entrepreneurship' => '1',
             'financial_readiness' => '2', 'work_readiness' => '1','image' => 'goo.gl/cGmmRE','program_url' => 'goo.gl/MzHVgp',
-            'description' => 'JA Ourselves uses storybook characters in read-aloud and hands-on activities to introduce the role people play in an economy. Through engaging, volunteer-led activities, young students learn about individual choices, money, the importance of saving and giving, and the value of work. (Kindergarten)','grade_id' => '1', 'created_by' => 'System',
+            'description' => "JA Ourselves uses storybook characters in read-aloud and hands-on activities to introduce the role people play in an economy. Through engaging, volunteer-led activities, young students learn about individual choices, money, the importance of saving and giving, and the value of work. (Kindergarten)",'grade_id' => '1', 'created_by' => 'System',
             'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
 
         Program::create(['name' => 'JA Our Families','implementation' => 'Classroom-Based','entrepreneurship' => '2',
