@@ -4,7 +4,9 @@
 @section('content')
     <div class="container">
         <div class="row">
-        <div class="col-md-3">
+
+        <!-- Donation Summary -->
+        <div class="col-md-12">
 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div><h4><b>Donation Summary</b></h4></div>
@@ -14,28 +16,30 @@
 
 
                      	<p>Bar Chart of Donation by Months</p>	
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
 
+
+<div id="container"></div>
+<button id="plain">Plain</button>
+<button id="inverted">Inverted</button>
+<button id="polar">Polar</button>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                      </div>
         </div>
         </div>
-            <div class="col-md-9">
+
+
+<!-- Donation Reports -->
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div><h4><b>Donation Report</b></h4></div>
                     </div>
                     <br>
-                    <div>
-                    <div class="col-md-10"> </div>
-                    <div class="col-md-2">
-                              <button onclick="myFunction()" class="dropbtn">Filter By</button>
-  <div id="myDropdown" class="dropdown-content" >
-    <a href="#">Amount</a>
-    <a href="#">Date</a>
-    <a href="#">Status</a>
-
-    </div>	
-    
-     </div>	
+                 
      </div>
 
 
@@ -82,50 +86,7 @@
         .tooltip-inner { white-space:pre-wrap; max-width: 400px; }
 
 
-       /* Dropdown Button */
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-
-}
-
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
+   
     </style>
 
     <script>
@@ -157,5 +118,69 @@ window.onclick = function(event) {
     }
   }
 }
+
+// Bar Chart for Donations
+$(function () {
+    var chart = Highcharts.chart('container', {
+
+        title: {
+            text: 'Donation Chart'
+        },
+
+        subtitle: {
+            text: ''
+        },
+
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+
+        series: [{
+            type: 'column',
+            colorByPoint: true,
+            data: [34, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+            showInLegend: false
+        }]
+
+    });
+
+
+    $('#plain').click(function () {
+        chart.update({
+            chart: {
+                inverted: false,
+                polar: false
+            },
+            subtitle: {
+                text: 'Plain'
+            }
+        });
+    });
+
+    $('#inverted').click(function () {
+        chart.update({
+            chart: {
+                inverted: true,
+                polar: false
+            },
+            subtitle: {
+                text: 'Inverted'
+            }
+        });
+    });
+
+    $('#polar').click(function () {
+        chart.update({
+            chart: {
+                inverted: false,
+                polar: true
+            },
+            subtitle: {
+                text: 'Polar'
+            }
+        });
+    });
+
+});
     </script>
 @endsection
