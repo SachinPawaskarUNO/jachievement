@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
         // Seed the System Users/Roles/Permissions tables
         $this->call(RolesTableSeeder::class);
         $this->call(PermissionsTableSeeder::class);
-        $this->call(TeamsTableSeeder::class);
-        $this->command->info('Team tables seeded!');
         $this->call(TeamMembersTableSeeder::class);
         $this->command->info('Team Members tables seeded!');
+        $this->call(TeamsTableSeeder::class);
+        $this->command->info('Team tables seeded!');
         $this->call(UsersTableSeeder::class);
         $this->call(RoleUserTableSeeder::class);
         $this->call(UsersRolesPermissions::class);
