@@ -23,7 +23,7 @@
                     <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}"><i class="fa fa-btn fa-fw fa-child"></i>Purpose</a></li>
                             <li><a id="ja_nav_map" href="{{ url('/aboutus/map') }}"><i class="fa fa-btn fa-fw fa-map-o"></i>Schools Map</a></li>
-                            <li><a id="ja_nav_programs" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
+                            <li><a id="ja_nav_programs" href="{{ url('/programs/index') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
                             <li><a id="ja_nav_faq" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
                             <li><a id="ja_nav_goingon" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-calendar-minus-o"></i>What's going on?</a></li>
                     </ul>
