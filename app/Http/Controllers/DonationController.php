@@ -88,7 +88,7 @@ class DonationController extends Controller
         else {
             $donation->anonymous = 'no';
         }
-        $donation->status = 'pending';
+        $donation->status = 'paid';
         $donation->date = date('Y-m-d');
 
         $floatAmount = floatval(str_replace(',', '', $amount));
@@ -130,14 +130,16 @@ class DonationController extends Controller
         
 
         if ($response->isRedirect()) { 
-            // redirect to offsite payment gateway 
+            // redirect to offsite payment gateway
             $response->redirect();
-            $donation->status = 'paid';
-            $donation->save();
+
          } 
          else { 
-            // payment failed: display message to customer 
+            // payment failed: display message to customer
+             $donation->status = 'pending';
+             $donation->save();
             echo $response->getMessage();
+
         } 
 
 

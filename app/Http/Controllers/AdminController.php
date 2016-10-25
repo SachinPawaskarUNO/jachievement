@@ -38,10 +38,10 @@ class AdminController extends Controller
     public function showEducatorDetails()
     {
         Log::info('AdminController.listEducatorForm: ');
-        $volunteerInterestForms =  VolunteerInterestForm::all();
-        $this->viewData['volunteerInterestForms'] = $volunteerInterestForms;
+        $educatorInterestForms =  EducatorInterestForm::all();
+        $this->viewData['educatorInterestForms'] = $educatorInterestForms;
 
-        return view('admin.volunteer_form_index', $this->viewData);
+        return view('admin.educator_form_show', $this->viewData);
     }
 
 }

@@ -59,7 +59,7 @@
             margin-right: 0%;
         }
         th{
-            background-color: #4CAF50;
+            background-color: #9ACD50;
              color: white;
             height: 50px;
             text-align: left;
@@ -93,7 +93,7 @@
             width: 20px;
         }
         .amount {
-            background: #ffe44d;
+            background: #9ACD50;
             border-radius: 100px;
             display: block;
             width: 20px;
@@ -110,7 +110,7 @@
             right: 35px;
         }
         .bulb {
-            background: #ffe44d;
+            background: #9ACD50;
             border-radius: 100px;
             display: block;
             height: 50px;
@@ -122,14 +122,14 @@
             width: 50px;
         }
         .red-circle {
-            background: #ffe44d;
+            background: #9ACD50;
             border-radius: 100px;
             display: block;
             height: 50px;
             width: 50px;
         }
         .filler {
-            background: #ffe44d;
+            background: #9ACD50;
             border-radius: 100px 100px 0 0;
             display: block;
             height: 30px;
@@ -144,32 +144,63 @@
         <div class="container">
             <div class="col-md-9" >
                 <br>
-                <h2 class="team-title text-center" id = "member_title">Welcome to My Junior Achievement Fundraiser</h2>
-                <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
-                <p class="team-description" id="member_greeting">Hello everyone!</p>
-                <p class="team-description" id="member_description">I am trying to raise $700 for golf tournnamamnt</p>
+                @include('common.errors')
+                @include('common.flash')
+                <div class="panel panel-default">
+                    <h2 class="team-title text-center" id = "member_title">{{$teamMember->title}}</h2>
+                    <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
+                    <p id="P_1">{{$teamMember->content}}</p>
+                </div>
+                <br>
                 <br>
                 <div class="closing-buttons" align="center" id="button-donate">
-                    <a class="btn btn-lg btn-primary" href="{{url('/campaign/team/join')}}" id="member_join">Join Our Team</a>
+                    <a class="btn btn-lg btn-primary" href="{{ action('CampaignController@joinTeam', [$teamMember->team_id]) }}" id="member_join">Join My Team</a>
                     <a class="btn btn-lg btn-primary" href="{{ url('/donation/donate')}}" id="member_donate">Donate to my goal</a>
                 </div>
                 <div>
                     <p class="text-center" id="solicitationLink"> <a href="{{ url('') }}">Click here to send solicitation link. </a> </p>
                 </div>
+                <br>
+                <br>
+                <p class="text-center">Team Members</p>
                 <div align="center">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped cds-datatable">
                             <thead>
-                            <th>Id</th><th>Name</th><th>Amount</th><th>Goal</th><th>% Raised</th>
+                            <th>Id</th><th>Name</th><th>Goal</th><th>Total Donated Amount</th><th>% Raised</th>
                             </thead>
                             <tbody> <!-- Table Body -->
                             @foreach ($teamMembers as $teamMember)
                                 <tr>
                                     <td class="table-text"><div></div></td>
-                                    <td class="table-text"><div>{{ $teamMember->name }}</div></td>
-                                    <td class="table-text"><div>{{ $teamMember->amount }}</div></td>
-                                    <td class="table-text"><div>{{ $teamMember->goal }}</div></td>
-                                    <td class="table-text"><div>{{ $teamMember->per_raised }}%</div></td>
+                                    <td class="table-text"><div><a href="{{action('CampaignController@teammember', [$teamMember->id])}}">{{ $teamMember->name }}</a></div></td>
+                                    <td class="table-text">
+                                        <div>
+                                            @if($teamMember->goal != null)
+                                                ${{ $teamMember->goal }}
+                                            @else
+                                                $0
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>
+                                            @if($teamMember->amount != null)
+                                                ${{ $teamMember->amount }}
+                                            @else
+                                                $0
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>
+                                            @if($teamMember->per_raised != null)
+                                                {{ $teamMember->per_raised }}%
+                                            @else
+                                                0%
+                                            @endif
+                                        </div>
+                                    </td>
                             @endforeach
                             </tbody>
                         </table>
@@ -182,9 +213,10 @@
                 <br>
                 <div class="donation-meter">
                     <strong>My Goal</strong>
-                    <strong class="goal">$700</strong>
+                    <strong class="goal">${{$teamMember->goal}}</strong>
                      <span class="glass">
-                    <strong class="total" style="bottom: 30%">$275</strong>
+                    <strong class="total" style="bottom: 30%">$100
+                    </strong>
                     <span class="amount" style="height: 30%"></span>
                     </span>
                     <div class="bulb">

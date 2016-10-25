@@ -3,9 +3,9 @@
     {!! Form::label('campaign', 'Campaign:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
     @if ($action == 'join')
-    <span class="control-label">{{ $teamInfo->campName }}</span>
+    <label class="control-label" style="font-weight: normal !important;">{{ $teamInfo->campName }}</label>
     @else
-    <span class="control-label">{{ $campaignInfo->campName }}</span>
+    <label class="control-label" style="font-weight: normal !important;">{{ $campaignInfo->campName }}</label>
     @endif
     </div>
 </div>
@@ -13,7 +13,7 @@
     {!! Form::label('organization', 'Organization:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
     @if ($action == 'join')
-    <span>{{ $teamInfo->orgName }}</span>
+    <label class="control-label" style="font-weight: normal !important;">{{ $teamInfo->orgName }}</label>
     @else
     {!! Form::select('organization_id', $organizationList, null, ['id' => 'organization_id', 'class' => 'col-md-7 form-control', 'required' => 'required', 'placeholder' => 'Select an organization...']) !!}
     @endif
@@ -23,7 +23,7 @@
     {!! Form::label('team', 'Team Name:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
     @if ($action == 'join')
-    <span>{{ $teamInfo->teamName }}</span>
+    <label class="control-label" style="font-weight: normal !important;">{{ $teamInfo->teamName }}</label>
     @else
     {!! Form::text('name', null, ['id' => 'name', 'class' => 'col-md-7 form-control', 'required' => 'required']) !!}
     @endif
@@ -47,10 +47,10 @@
 <div class="form-group">
     {!! Form::label('fundraisingGoal', 'Fundraising Goal:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-4">
-        <input type="range" id="fundraisingGoalRange" min="0" max="10000" step="50" value="500">
+        <input type="range" id="fundraisingGoalRange" min="0" max="10000" step="50" value="500" onChange="changeGoalText()">
     </div>
     <div class="col-md-3">
-        {!! Form::number('goal', 500, ['step' => '50', 'min' => '0', 'id' => 'goal', 'class' => 'col-md-3 form-control', 'required' => 'required']) !!}
+        {!! Form::number('goal', 500, ['step' => '50', 'min' => '0', 'id' => 'goal', 'class' => 'col-md-3 form-control', 'required' => 'required', 'onChange' => 'changeGoalSlider()']) !!}
     </div>
 </div>
 
@@ -63,9 +63,9 @@
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
             @if ($action == 'join')
-            {!! Form::button('<i class="fa fa-btn fa-user-plus"></i>Join Team', ['type' => 'submit','id' => 'joinTeam', 'class' => 'btn btn-primary']) !!}
+            {!! Form::button('<i class="fa fa-btn fa-user-plus"></i>Join Team', ['type' => 'submit','id' => 'joinTeam', 'class' => 'btn btn-success']) !!}
             @else
-            {!! Form::button('<i class="fa fa-btn fa-users"></i>Create Team', ['type' => 'submit','id' => 'createTeam', 'class' => 'btn btn-primary']) !!}
+            {!! Form::button('<i class="fa fa-btn fa-users"></i>Create Team', ['type' => 'submit','id' => 'createTeam', 'class' => 'btn btn-success']) !!}
             @endif
             {!! Form::button('<i class="fa"></i>Cancel', ['type' => 'button','id' => 'cancel', 'class' => 'btn']) !!}
         </div>

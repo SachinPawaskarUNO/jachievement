@@ -21,7 +21,7 @@ class CreateProgramsTable extends Migration
             $table->string('work_readiness');
             $table->string('image');
             $table->string('program_url');
-            $table->string('description');
+            $table->string('description',4000);
             $table->integer('grade_id')->unsigned();
             $table->foreign('grade_id')->references('id')->on('grades')->onUpdate('cascade')->onDelete('cascade');
 

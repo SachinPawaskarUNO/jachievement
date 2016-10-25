@@ -8,6 +8,6 @@ class Program extends Model
 {
     protected $table = 'programs';
     protected $fillable = [
-        'name','description', 'image','implementation'
+        'name','implementation', 'entrepreneurship','financial_readiness','work_readiness','image','program_url','description'
     ];
 }
