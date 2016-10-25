@@ -21,6 +21,7 @@ class CampaignController extends Controller
   public function teammember($id)
   {
       Log::info('CampaignController.teammember: ');
+
       $teamMember = TeamMember::findOrFail($id);
       $team_id = $teamMember->team_id;
 
@@ -31,16 +32,14 @@ class CampaignController extends Controller
           ->get();
 
       $teamMembers= DB::table('team_members')
-          ->select(DB::raw('users.name as name, team_members.goal as goal, team_members.id as id,
-              sum(donations.amount) as amount,(sum(donations.amount)/team_members.goal) * 100 as per_raised'))
+          ->select('users.name', 'team_members.goal', 'team_members.id', DB::raw(
+              'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
           ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
           ->join('users', 'team_members.user_id', '=', 'users.id')
           ->where('team_members.team_id', '=', $id)
           ->groupBy('users.name', 'team_members.goal', 'team_members.id')
           ->orderBy('per_raised')
           ->get();
-
-
 
       return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation'));
       
