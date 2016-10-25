@@ -19,9 +19,9 @@
            <div id="program-navbar">
                 <md-content>
                     <md-tabs md-dynamic-height="" md-border-bottom="">
-                        <md-tab label="All Program">
+                        <md-tab label="All Programs">
                             <md-content class="md-padding">
-                                <h3 style="color:rgba(140,198,62,0.85)">All Program</h3>
+                                <h3 style="color:rgba(140,198,62,0.85)">All Programs</h3>
                                 <a class="button" onclick="$('#target1').toggle();">
                                     <i class="fa fa-book"></i>
                                 </a>
@@ -63,7 +63,7 @@
                         <md-tab label="Elementary School">
 
                             <md-content class="md-padding">
-                                <h3 style="color: rgba(140,198,62,0.85)">Elementary School</h3>
+                                <h3 style="color: rgba(140,198,62,0.85)">Elementary School Programs</h3>
                                 <a class="button" onclick="$('#target2').toggle();">
                                     <i class="fa fa-book"></i>
                                 </a>
@@ -105,7 +105,7 @@
 
                         <md-tab label="Middle School">
                             <md-content class="md-padding">
-                                <h3 style="color: rgba(140,198,62,0.85)">Middle School</h3>
+                                <h3 style="color: rgba(140,198,62,0.85)">Middle School Programs</h3>
                                 <a class="button" onclick="$('#target3').toggle();">
                                     <i class="fa fa-book"></i>
                                 </a>
@@ -145,7 +145,7 @@
 
                         <md-tab label="High School">
                             <md-content class="md-padding">
-                                <h3 style="color: rgba(140,198,62,0.85)">High School</h3>
+                                <h3 style="color: rgba(140,198,62,0.85)">High School Programs</h3>
                                 <a class="button" onclick="$('#target4').toggle();">
                                     <i class="fa fa-book"></i>
                                 </a>
