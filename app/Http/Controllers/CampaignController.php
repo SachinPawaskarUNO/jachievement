@@ -26,19 +26,20 @@ class CampaignController extends Controller
 
       $teammemberDonation = DB::table('donations')
           ->select(DB::raw('sum(donations.amount) as donation_amount'))
-          ->leftJoin('team_members', 'donations.team_member_id', '=', 'team_members.id')
+          ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
           ->where('team_members.id', '=' ,$id)
           ->get();
 
       $teamMembers= DB::table('team_members')
           ->select(DB::raw('users.name as name, team_members.goal as goal, team_members.id as id,
-                    sum(donations.amount) as amount,(sum(donations.amount)/team_members.goal) * 100 as per_raised'))
-          ->join('donations', 'team_members.id', '=', 'donations.team_member_id')
+              sum(donations.amount) as amount,(sum(donations.amount)/team_members.goal) * 100 as per_raised'))
+          ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
           ->join('users', 'team_members.user_id', '=', 'users.id')
-          ->where('team_members.team_id', '=', $team_id)
-          ->groupBy('users.name', 'team_members.goal','team_members.id')
+          ->where('team_members.team_id', '=', $id)
+          ->groupBy('users.name', 'team_members.goal', 'team_members.id')
           ->orderBy('per_raised')
           ->get();
+
 
 
       return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation'));
@@ -104,7 +105,7 @@ class CampaignController extends Controller
 
         $teamMembers= DB::table('team_members')
             ->select(DB::raw('users.name as name, team_members.goal as goal, team_members.id as id,
-                    sum(donations.amount) as amount,(sum(donations.amount)/team_members.goal) * 100 as per_raised'))
+              sum(donations.amount) as amount,(sum(donations.amount)/team_members.goal) * 100 as per_raised'))
             ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
             ->join('users', 'team_members.user_id', '=', 'users.id')
             ->where('team_members.team_id', '=', $id)

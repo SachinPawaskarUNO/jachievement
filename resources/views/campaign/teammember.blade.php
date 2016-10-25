@@ -174,9 +174,33 @@
                                 <tr>
                                     <td class="table-text"><div></div></td>
                                     <td class="table-text"><div><a href="{{action('CampaignController@teammember', [$teamMember->id])}}">{{ $teamMember->name }}</a></div></td>
-                                    <td class="table-text"><div>{{ $teamMember->goal }}</div></td>
-                                    <td class="table-text"><div>{{ $teamMember->amount }}</div></td>
-                                    <td class="table-text"><div>{{ $teamMember->per_raised }}%</div></td>
+                                    <td class="table-text">
+                                        <div>
+                                            @if($teamMember->goal != null)
+                                                ${{ $teamMember->goal }}
+                                            @else
+                                                $0
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>
+                                            @if($teamMember->amount != null)
+                                                ${{ $teamMember->amount }}
+                                            @else
+                                                $0
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>
+                                            @if($teamMember->per_raised != null)
+                                                {{ $teamMember->per_raised }}%
+                                            @else
+                                                0%
+                                            @endif
+                                        </div>
+                                    </td>
                             @endforeach
                             </tbody>
                         </table>
