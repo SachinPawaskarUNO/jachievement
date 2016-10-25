@@ -63,9 +63,9 @@
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
             @if ($action == 'join')
-            {!! Form::button('<i class="fa fa-btn fa-user-plus"></i>Join Team', ['type' => 'submit','id' => 'joinTeam', 'class' => 'btn btn-primary']) !!}
+            {!! Form::button('<i class="fa fa-btn fa-user-plus"></i>Join Team', ['type' => 'submit','id' => 'joinTeam', 'class' => 'btn btn-success']) !!}
             @else
-            {!! Form::button('<i class="fa fa-btn fa-users"></i>Create Team', ['type' => 'submit','id' => 'createTeam', 'class' => 'btn btn-primary']) !!}
+            {!! Form::button('<i class="fa fa-btn fa-users"></i>Create Team', ['type' => 'submit','id' => 'createTeam', 'class' => 'btn btn-success']) !!}
             @endif
             {!! Form::button('<i class="fa"></i>Cancel', ['type' => 'button','id' => 'cancel', 'class' => 'btn']) !!}
         </div>
