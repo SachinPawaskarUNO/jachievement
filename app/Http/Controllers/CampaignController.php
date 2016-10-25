@@ -160,8 +160,8 @@ class CampaignController extends Controller
 		Log::info('CampaignController.active: ');
 		
 		$activecampaigns = DB::table('campaigns')
-					->select(DB::raw('campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
-					//->where('active', '=',1)
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
+					->where('active', '=','0')
 					->get();
 		
 		

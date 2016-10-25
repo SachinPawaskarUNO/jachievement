@@ -8,6 +8,6 @@ class Campaign extends Model
 {
     protected $table = 'campaigns';
     protected $fillable = [
-							'name','description', 'goal', 'category','start_date','end_date', 'active'
+							'id', 'name','description', 'goal', 'category','start_date','end_date', 'active'
 						  ];
 }
