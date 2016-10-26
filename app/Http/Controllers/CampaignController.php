@@ -139,7 +139,6 @@ class CampaignController extends Controller
       }
       $this->populateCreateFields($input);
 
-
       $object = TeamMember::create($input);
 
       Session::flash('flash_message', 'You have successfully joined the team!');
@@ -168,7 +167,6 @@ class CampaignController extends Controller
           $input['user_id'] = $user->id;
       }
       $this->populateCreateFields($input);
-
 
       $object = Team::create($input);
 
