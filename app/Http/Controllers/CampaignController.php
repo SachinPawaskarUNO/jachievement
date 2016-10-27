@@ -175,17 +175,27 @@ class CampaignController extends Controller
       $input = $request->all();
       $user = Auth::user();
 
+      do {
+        $teamMemberToken = str_random(15);
+
+        $tokenCheck = DB::table('team_members')
+                      ->select(DB::raw('count(*) as count'))
+                      ->where('team_members.token', '=', $teamMemberToken)
+                      ->first();
+      } while ($tokenCheck->count > 0);
+
+      $input['token'] = $teamMemberToken;
+
       if ($user) {
           $input['user_id'] = $user->id;
       }
       $this->populateCreateFields($input);
 
-
       $object = TeamMember::create($input);
 
       Session::flash('flash_message', 'You have successfully joined the team!');
       Log::info('CampaignController.store - End: ' . $object->id);
-      return redirect()->action('CampaignController@teammember', ['id' => $object->id]);
+      return redirect()->action('CampaignController@teammember', ['id' => $object->token]);
   }
 
   public function createTeamStore(TeamRequest $request)
@@ -194,17 +204,27 @@ class CampaignController extends Controller
       $input = $request->all();
       $user = Auth::user();
 
+      do {
+        $teamToken = str_random(15);
+
+        $tokenCheck = DB::table('teams')
+                      ->select(DB::raw('count(*) as count'))
+                      ->where('teams.token', '=', $teamToken)
+                      ->first();
+      } while ($tokenCheck->count > 0);
+
+      $input['token'] = $teamToken;
+
       if ($user) {
           $input['user_id'] = $user->id;
       }
       $this->populateCreateFields($input);
 
-
       $object = Team::create($input);
 
-      Session::flash('flash_message', 'You have successfully created a team!');
+      Session::flash('flash_message', 'Your team has been created successfully!');
       Log::info('CampaignController.store - End: ' . $object->id);
-      return redirect()->action('CampaignController@team', ['id' => $object->id]);
+      return redirect()->action('CampaignController@team', ['id' => $object->token]);
   }
   
   public function active()
@@ -212,15 +232,16 @@ class CampaignController extends Controller
 		Log::info('CampaignController.active: ');
 		
 		$activecampaigns = DB::table('campaigns')
-					->select(DB::raw('campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
-					//->where('active', '=',1)
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
+					//->where('active', '=','1')
+					//->whereBetween([campaigns.start_date, campaigns.end_date])
 					->get();
 		
 		
-       //$this->viewData['heading'] = "Active Campaigns";
+		//$this->viewData['heading'] = "Active Campaigns";
        return view('campaign.activecampaign',compact('activecampaigns'));
-
-
+		//return view('campaign.activecampaign', $this->viewData);
+  
   }
 }
 

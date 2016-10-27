@@ -23,7 +23,7 @@
                     <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}"><i class="fa fa-btn fa-fw fa-child"></i>Purpose</a></li>
                             <li><a id="ja_nav_map" href="{{ url('/aboutus/map') }}"><i class="fa fa-btn fa-fw fa-map-o"></i>Schools Map</a></li>
-                            <li><a id="ja_nav_programs" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
+                            <li><a id="ja_nav_programs" href="{{ url('/programs/index') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
                             <li><a id="ja_nav_faq" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
                             <li><a id="ja_nav_goingon" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-calendar-minus-o"></i>What's going on?</a></li>
                     </ul>
@@ -34,6 +34,7 @@
                             <li><a id="ja_nav_educator" href="{{ url('/educators/introduction') }}"><i class="fa fa-btn fa-fw fa-university"></i>Educator</a></li>
                             <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/introduction') }}"><i class="fa fa-btn fa-fw fa-hand-paper-o"></i>Volunteer</a></li>
                             <li><a id="ja_nav_contribute" href="{{ url('/contributors') }}"><i class="fa fa-btn fa-fw fa-money"></i>Contribute</a></li>
+                            <li><a id="ja_nav_contribute" href="{{ url('/campaign/activecampaign') }}"><i class="fa fa-btn fa-fw fa-flag-o"></i>Campaigns</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -43,7 +44,7 @@
                             <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/interestform') }}"><i class="fa fa-btn fa-fw fa-hand-paper-o"></i>As A Volunteer</a></li>
                     </ul>
                 </li>
-                <!--
+                <!--\\
                 <li class="dropdown">
                     <a id="ja_nav_campaign" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "Campaign" }} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -88,7 +89,7 @@
                     <li><a id="ja_register" href="{{ url('/register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome, {{ Auth::user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_logout" href="{{ url('/logout') }}"><i class="fa fa-btn fa-fw fa-sign-out"></i>Logout</a></li>
                             <li><a id="ja_changepw"href="{{ url('/change-password') }}"><i class="fa fa-btn fa-fw fa-lock"></i>Change Password</a></li>
