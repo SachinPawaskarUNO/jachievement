@@ -21,7 +21,7 @@
         .team-title {
             font-family: Helvetica;
             font-size:30px;
-            font-weight: 500;
+            font-weight: 300;
             margin-left: 10%;
             margin-right: 10%;
             padding:0px;
@@ -34,14 +34,6 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             margin:13px;
-        }
-        .btn-primary {
-            background: #9ACD50;
-            color: #ffffff;
-            border-radius: 0%;
-        }
-        .btn-primary:hover,.btn-primary:focus, .btn-primary:active:focus {
-            background: #4CBB17 !important;
         }
         /*underline the heading*/
         h3 {
@@ -59,9 +51,11 @@
             margin-right: 0%;
         }
         th{
-            background-color: #9ACD50;
-             color: white;
+            background-color: #5cb85c;
+            color: #fff;
             height: 50px;
+            font-size:1em;
+            font-weight:800;
             text-align: left;
             padding: 15px;
             border-bottom: 1px solid #ddd;
@@ -149,30 +143,36 @@
                 <div class="panel panel-default">
                     <h2 class="team-title text-center" id = "member_title">{{$teamMember->title}}</h2>
                     <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
-                    <p id="P_1">{{$teamMember->content}}</p>
+                    <p class="team-description">{{$teamMember->content}}</p>
                 </div>
                 <br>
                 <br>
                 <div class="closing-buttons" align="center" id="button-donate">
-                    <a class="btn btn-lg btn-primary" href="{{ action('CampaignController@joinTeam', [$teamMember->team_id]) }}" id="member_join">Join My Team</a>
-                    <a class="btn btn-lg btn-primary" href="{{ url('/donation/donate')}}" id="member_donate">Donate to my goal</a>
+                    @if($data['button_show'] == 'true')
+                        <a class="btn btn-lg btn-success" href="{{ action('CampaignController@joinTeam', [$teamMember->team_id]) }}" id="member_join">Join My Team</a>
+                    @else
+                        <a class="btn btn-lg btn-success" disabled="disabled" href="{{ action('CampaignController@joinTeam', [$teamMember->team_id]) }}" id="member_join">Join My Team</a>
+                    @endif
+                    <a class="btn btn-lg btn-success" href="{{ url('/donation/donate')}}" id="member_donate">Donate to my goal</a>
                 </div>
                 <div>
+                    @if($data['link_show']=='show')
                     <p class="text-center" id="solicitationLink"> <a href="{{ url('') }}">Click here to send solicitation link. </a> </p>
+                    @endif
                 </div>
                 <br>
                 <br>
-                <p class="text-center">Team Members</p>
+                <h4><u>Team Members in my Team</u></h4>
                 <div align="center">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped cds-datatable">
                             <thead>
-                            <th>Id</th><th>Name</th><th>Goal</th><th>Total Donated Amount</th><th>% Raised</th>
+                            <th>Name</th><th>Goal</th><th>Total Donated Amount</th><th>% Raised</th>
                             </thead>
                             <tbody> <!-- Table Body -->
                             @foreach ($teamMembers as $teamMember)
                                 <tr>
-                                    <td class="table-text"><div></div></td>
+
                                     <td class="table-text"><div><a href="{{action('CampaignController@teammember', [$teamMember->id])}}">{{ $teamMember->name }}</a></div></td>
                                     <td class="table-text">
                                         <div>

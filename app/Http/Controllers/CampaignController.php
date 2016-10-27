@@ -25,6 +25,32 @@ class CampaignController extends Controller
       $teamMember = TeamMember::findOrFail($id);
       $team_id = $teamMember->team_id;
 
+      $user = Auth::user();
+      $data['link_show']='';
+      $data['button_show']= 'true';
+
+      if ($user) {
+          $joinedMemberIfExist = DB::table('team_members')
+              ->select('team_members.id')
+              ->where('team_members.team_id', '=' ,$team_id)
+              ->where('team_members.user_id', '=', $user->id)
+              ->get();
+
+          if($joinedMemberIfExist){
+              $data['button_show'] = 'false';
+          } else {
+              $data['button_show'] = 'true';
+          }
+
+          if($user->id == $teamMember->user_id)
+          {
+              $data['link_show'] = 'show';
+          } else {
+              $data['link_show'] = 'hide';
+          }
+
+      }
+
       $teammemberDonation = DB::table('donations')
           ->select(DB::raw('sum(donations.amount) as donation_amount'))
           ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
@@ -41,7 +67,7 @@ class CampaignController extends Controller
           ->orderBy('per_raised')
           ->get();
 
-      return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation'));
+      return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation','data'));
       
   }
 
@@ -96,6 +122,32 @@ class CampaignController extends Controller
         Log::info('CampaignController.team: ');
         $team = Team::findOrFail($id);
 
+        $user = Auth::user();
+        $data['link_show']='';
+        $data['button_show']= 'true';
+
+        if ($user) {
+            $joinedMemberIfExist = DB::table('team_members')
+                ->select('team_members.id')
+                ->where('team_members.team_id', '=' ,$id)
+                ->where('team_members.user_id', '=', $user->id)
+                ->get();
+
+            if($joinedMemberIfExist){
+                $data['button_show'] = 'false';
+            } else {
+                $data['button_show'] = 'true';
+            }
+
+            if($user->id == $team->created_by)
+            {
+                $data['link_show'] = 'show';
+            } else {
+                $data['link_show'] = 'hide';
+            }
+
+        }
+
         $teamDonation = DB::table('donations')
             ->select(DB::raw('sum(donations.amount) as donation_amount'))
             ->join('teams', 'donations.team_id', '=', 'teams.id')
@@ -113,7 +165,7 @@ class CampaignController extends Controller
             ->get();
 
 
-        return view('campaign.team', compact('teamMembers','team','teamDonation'));
+        return view('campaign.team', compact('teamMembers','team','teamDonation','data'));
 
     }
 
