@@ -43,7 +43,7 @@ class ProgramController extends Controller
                         ->where('grade_id','=','3')
                         ->get();
         
-
+        
         return view('programs.index', compact ('allprograms','elementaryprograms','middleprograms','highprograms'));
         
     }
