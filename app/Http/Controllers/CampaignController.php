@@ -22,7 +22,8 @@ class CampaignController extends Controller
   {
       Log::info('CampaignController.teammember: ');
 
-      $teamMember = TeamMember::findOrFail($id);
+      //$teamMember = TeamMember::findOrFail($id);
+      $teamMember = TeamMember::where('token','=',$id);
       $team_id = $teamMember->team_id;
 
       $user = Auth::user();
@@ -33,7 +34,7 @@ class CampaignController extends Controller
           $joinedMemberIfExist = DB::table('team_members')
               ->select('team_members.id')
               ->where('team_members.team_id', '=' ,$team_id)
-              ->where('team_members.user_id', '=', $user->id)
+              ->where('team_members.created_by', '=', $user->id)
               ->get();
 
           if($joinedMemberIfExist){
@@ -54,7 +55,7 @@ class CampaignController extends Controller
       $teammemberDonation = DB::table('donations')
           ->select(DB::raw('sum(donations.amount) as donation_amount'))
           ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
-          ->where('team_members.id', '=' ,$id)
+          ->where('team_members.id', '=' ,$teamMember->id)
           ->get();
 
       $teamMembers= DB::table('team_members')
@@ -62,7 +63,7 @@ class CampaignController extends Controller
               'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
           ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
           ->join('users', 'team_members.user_id', '=', 'users.id')
-          ->where('team_members.team_id', '=', $id)
+          ->where('team_members.team_id', '=', $team_id)
           ->groupBy('users.name', 'team_members.goal', 'team_members.id')
           ->orderBy('per_raised')
           ->get();
@@ -120,7 +121,8 @@ class CampaignController extends Controller
     public function team($id)
     {
         Log::info('CampaignController.team: ');
-        $team = Team::findOrFail($id);
+       // $team = Team::findOrFail($id);
+        $team = Team::where('token','=',$id);
 
         $user = Auth::user();
         $data['link_show']='';
@@ -129,8 +131,8 @@ class CampaignController extends Controller
         if ($user) {
             $joinedMemberIfExist = DB::table('team_members')
                 ->select('team_members.id')
-                ->where('team_members.team_id', '=' ,$id)
-                ->where('team_members.user_id', '=', $user->id)
+                ->where('team_members.team_id', '=' ,$team->id)
+                ->where('team_members.created_by', '=', $user->id)
                 ->get();
 
             if($joinedMemberIfExist){
@@ -151,15 +153,15 @@ class CampaignController extends Controller
         $teamDonation = DB::table('donations')
             ->select(DB::raw('sum(donations.amount) as donation_amount'))
             ->join('teams', 'donations.team_id', '=', 'teams.id')
-            ->where('teams.id', '=' ,$id)
+            ->where('teams.id', '=' ,$team->id)
             ->get();
 
         $teamMembers= DB::table('team_members')
             ->select('users.name', 'team_members.goal', 'team_members.id', DB::raw(
                 'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
             ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
-            ->join('users', 'team_members.user_id', '=', 'users.id')
-            ->where('team_members.team_id', '=', $id)
+            ->join('users', 'team_members.created_by', '=', 'users.id')
+            ->where('team_members.team_id', '=', $team->id)
             ->groupBy('users.name', 'team_members.goal', 'team_members.id')
             ->orderBy('per_raised')
             ->get();
