@@ -1,8 +1,6 @@
 <?php
-
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateCampaignsTable extends Migration
 {
     /**
@@ -21,19 +19,14 @@ class CreateCampaignsTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->boolean('active')->default(true);
-
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-
             $table->string('created_by')->default('System');
             $table->string('updated_by')->default('System');
-
-
             $table->timestamps();
             $table->softDeletes();
         });
     }
-
     /**
      * Reverse the migrations.
      *

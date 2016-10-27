@@ -161,14 +161,15 @@ class CampaignController extends Controller
 		
 		$activecampaigns = DB::table('campaigns')
 					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
-					->where('active', '=','1')
+					//->where('active', '=','1')
+					//->whereBetween([campaigns.start_date, campaigns.end_date])
 					->get();
 		
 		
-       //$this->viewData['heading'] = "Active Campaigns";
+		//$this->viewData['heading'] = "Active Campaigns";
        return view('campaign.activecampaign',compact('activecampaigns'));
-
-
+		//return view('campaign.activecampaign', $this->viewData);
+  
   }
 }
 
