@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-15 col-md-offset-0">
                 <div class="panel panel-default">
-                    <p id="P_1">JA's volunteer-delivered, kindergarten-12th
+                    <p id="P_1">Junior Achievement's volunteer-delivered, kindergarten-12th
                     grade programs foster <strong id="STRONG_2">work-readiness,
                     entrepreneurship</strong> and <strong id=
                     "STRONG_3">financial literacy skills,</strong> and use
@@ -39,7 +39,7 @@
                         Why Junior Achievement?
                     </h2>
                     <p id="P_7">
-                        JA helps students realize that the education they are getting today will help them to have a bright future tomorrow. JA's unique, volunteer delivered programs, show them all of the possibilities that lay before them. They realize they can choose different paths; College? A specific trade? Start their own business? Through your participation as an organization or as an individual, these statistics below can begin to change in your community:
+                        Junior Achievement helps students realize that the education they are getting today will help them to have a bright future tomorrow. Junior Achievement's unique, volunteer delivered programs, show them all of the possibilities that lay before them. They realize they can choose different paths; College? A specific trade? Start their own business? Through your participation as an organization or as an individual, these statistics below can begin to change in your community:
                     </p>
                     <ul id="UL_8">
                         <li id="LI_9">
