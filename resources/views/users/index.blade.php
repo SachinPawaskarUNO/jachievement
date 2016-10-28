@@ -24,7 +24,7 @@
                                 <tbody> <!-- Table Body -->
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td class="table-text"><div><a href="{{ url('/users/'.$user->id.'/edit') }}">{{ $user->name }}</a></div></td>
+                                        <td class="table-text"><div><a href="{{ url('/users/'.$user->id.'/edit') }}">{{ $user->first_name }} {{$user->last_name}}</a></div></td>
                                         <td class="table-text"><div>{{ $user->email }}</div></td>
                                         @if ($user->active)<td class="table-text"><div>Active</div></td>@else<td class="table-text"><div>InActive</div></td>@endif
                                         {{--<td>--}}
