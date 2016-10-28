@@ -23,7 +23,7 @@ class CampaignController extends Controller
       Log::info('CampaignController.teammember: ');
 
       //$teamMember = TeamMember::findOrFail($id);
-      $teamMember = TeamMember::where('token','=',$id);
+      $teamMember = TeamMember::where('token','=',$id)->firstOrFail();
       $team_id = $teamMember->team_id;
 
       $user = Auth::user();
@@ -121,8 +121,9 @@ class CampaignController extends Controller
     public function team($id)
     {
         Log::info('CampaignController.team: ');
-       // $team = Team::findOrFail($id);
-        $team = Team::where('token','=',$id);
+      // $team = Team::findOrFail(1);
+        $team = Team::where('token',$id)->firstOrFail();
+
 
         $user = Auth::user();
         $data['link_show']='';
