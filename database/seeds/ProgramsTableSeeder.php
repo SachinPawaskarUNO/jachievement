@@ -31,7 +31,7 @@ class ProgramsTableSeeder extends Seeder
             'updated_at' => date_create()]);
 
         Program::create(['name' => 'JA Our City','implementation' => 'Classroom-Based','entrepreneurship' => '1',
-            'financial_readiness' => '2', 'work_readiness' => '1','image' => 'https://www.juniorachievement.org/image/journal/article?img_id=193085','program_url' => 'https://www.juniorachievement.org/web/ja-usa/ja-programs?p_p_id=56_INSTANCE_abcd&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=ja-maincontent&p_p_col_count=1&_56_INSTANCE_abcd_groupId=14516&_56_INSTANCE_abcd_articleId=19301',
+            'financial_readiness' => '2', 'work_readiness' => '1','image' => 'https://www.juniorachievement.org/image/journal/article?img_id=19308','program_url' => 'https://www.juniorachievement.org/web/ja-usa/ja-programs?p_p_id=56_INSTANCE_abcd&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=ja-maincontent&p_p_col_count=1&_56_INSTANCE_abcd_groupId=14516&_56_INSTANCE_abcd_articleId=19301',
             'description' => 'JA Our City introduces students to the characteristics of cities and how cities are shaped by zoning. Students also learn about the importance of money to a city; how financial institutions help businesses and city residents; and how the media is an integral part of a city\'s life. Students learn the role of an entrepreneur by exploring what it takes to open a restaurant. (Grade 3)','grade_id' => '1', 'created_by' => 'System',
             'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
 
