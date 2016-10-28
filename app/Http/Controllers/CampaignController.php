@@ -22,13 +22,40 @@ class CampaignController extends Controller
   {
       Log::info('CampaignController.teammember: ');
 
-      $teamMember = TeamMember::findOrFail($id);
+      //$teamMember = TeamMember::findOrFail($id);
+      $teamMember = TeamMember::where('token','=',$id)->firstOrFail();
       $team_id = $teamMember->team_id;
+
+      $user = Auth::user();
+      $data['link_show']='';
+      $data['button_show']= 'true';
+
+      if ($user) {
+          $joinedMemberIfExist = DB::table('team_members')
+              ->select('team_members.id')
+              ->where('team_members.team_id', '=' ,$team_id)
+              ->where('team_members.user_id', '=', $user->id)
+              ->get();
+
+          if($joinedMemberIfExist){
+              $data['button_show'] = 'false';
+          } else {
+              $data['button_show'] = 'true';
+          }
+
+          if($user->id == $teamMember->user_id)
+          {
+              $data['link_show'] = 'show';
+          } else {
+              $data['link_show'] = 'hide';
+          }
+
+      }
 
       $teammemberDonation = DB::table('donations')
           ->select(DB::raw('sum(donations.amount) as donation_amount'))
           ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
-          ->where('team_members.id', '=' ,$id)
+          ->where('team_members.id', '=' ,$teamMember->id)
           ->get();
 
       $teamMembers= DB::table('team_members')
@@ -36,12 +63,12 @@ class CampaignController extends Controller
               'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
           ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
           ->join('users', 'team_members.user_id', '=', 'users.id')
-          ->where('team_members.team_id', '=', $id)
+          ->where('team_members.team_id', '=', $team_id)
           ->groupBy('users.name', 'team_members.goal', 'team_members.id')
           ->orderBy('per_raised')
           ->get();
 
-      return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation'));
+      return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation','data'));
       
   }
 
@@ -94,12 +121,40 @@ class CampaignController extends Controller
     public function team($id)
     {
         Log::info('CampaignController.team: ');
-        $team = Team::findOrFail($id);
+      // $team = Team::findOrFail(1);
+        $team = Team::where('token',$id)->firstOrFail();
+
+
+        $user = Auth::user();
+        $data['link_show']='';
+        $data['button_show']= 'true';
+
+        if ($user) {
+            $joinedMemberIfExist = DB::table('team_members')
+                ->select('team_members.id')
+                ->where('team_members.team_id', '=' ,$team->id)
+                ->where('team_members.user_id', '=', $user->id)
+                ->get();
+
+            if($joinedMemberIfExist){
+                $data['button_show'] = 'false';
+            } else {
+                $data['button_show'] = 'true';
+            }
+
+            if($user->id == $team->user_id)
+            {
+                $data['link_show'] = 'show';
+            } else {
+                $data['link_show'] = 'hide';
+            }
+
+        }
 
         $teamDonation = DB::table('donations')
             ->select(DB::raw('sum(donations.amount) as donation_amount'))
             ->join('teams', 'donations.team_id', '=', 'teams.id')
-            ->where('teams.id', '=' ,$id)
+            ->where('teams.id', '=' ,$team->id)
             ->get();
 
         $teamMembers= DB::table('team_members')
@@ -107,13 +162,13 @@ class CampaignController extends Controller
                 'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
             ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
             ->join('users', 'team_members.user_id', '=', 'users.id')
-            ->where('team_members.team_id', '=', $id)
+            ->where('team_members.team_id', '=', $team->id)
             ->groupBy('users.name', 'team_members.goal', 'team_members.id')
             ->orderBy('per_raised')
             ->get();
 
 
-        return view('campaign.team', compact('teamMembers','team','teamDonation'));
+        return view('campaign.team', compact('teamMembers','team','teamDonation','data'));
 
     }
 
@@ -181,14 +236,15 @@ class CampaignController extends Controller
 		
 		$activecampaigns = DB::table('campaigns')
 					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
-					->where('active', '=','1')
+					//->where('active', '=','1')
+					//->whereBetween([campaigns.start_date, campaigns.end_date])
 					->get();
 		
 		
-       //$this->viewData['heading'] = "Active Campaigns";
+		//$this->viewData['heading'] = "Active Campaigns";
        return view('campaign.activecampaign',compact('activecampaigns'));
-
-
+		//return view('campaign.activecampaign', $this->viewData);
+  
   }
 }
 
