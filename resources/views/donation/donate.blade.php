@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-sm-6-pull">
-                                <h3 class="text-center">Make A Contribution</h3>
+                                <h3 class="text-center">Make A Donation</h3>
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;"><span style="font-size:1.2em;"><b> &nbsp;</b></span></div>
                     <div class="panel-body">
@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-5 col-sm-6-push">
                 <div class="row">
-                    <h3 class="text-center">Recent Contributors</h3>
+                    <h3 class="text-center">Recent Donors</h3>
       
         <div style="margin-left:20px;">
             <div>
