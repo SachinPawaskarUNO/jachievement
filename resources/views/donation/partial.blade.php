@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <p>
             <i>
-                By donating to Junior Achievement Omaha, you are helping in development and revisions of student curriculum,
+                By donating to Junior Achievement of Midlands, you are helping in development and revisions of student curriculum,
                 recruitment of volunteers, special events, and many other student-related initiatives. Questions?
                 Please contact us through our Contact Us form
             </i>
