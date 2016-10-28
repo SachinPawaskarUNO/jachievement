@@ -172,7 +172,7 @@
                             <tbody> <!-- Table Body -->
                             @foreach ($teamMembers as $teamMember)
                                 <tr>
-                                    <td class="table-text"><div><a href="{{action('CampaignController@teammember', [$teamMember->id])}}">{{ $teamMember->name }}</a></div></td>
+                                    <td class="table-text"><div><a href="{{action('CampaignController@teammember', [$teamMember->token])}}">{{ $teamMember->name }}</a></div></td>
                                     <td class="table-text">
                                         <div>
                                             @if($teamMember->goal != null)
