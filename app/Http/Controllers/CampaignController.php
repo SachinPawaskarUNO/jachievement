@@ -84,7 +84,7 @@ class CampaignController extends Controller
       $teamInfo = DB::table('teams')
                   ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
                   ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
-                  ->select('teams.id as id, teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
+                  ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
                   ->where('teams.token', '=', $teamToken)
                   ->first();
 
