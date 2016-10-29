@@ -25,6 +25,7 @@ class CampaignController extends Controller
       //$teamMember = TeamMember::findOrFail($id);
       $teamMember = TeamMember::where('token','=',$id)->firstOrFail();
       $team_id = $teamMember->team_id;
+      $team = Team::where('id', '=', $team_id)->firstOrFail();
 
       $user = Auth::user();
       $data['link_show']='';
@@ -68,23 +69,23 @@ class CampaignController extends Controller
           ->orderBy('per_raised')
           ->get();
 
-      return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation','data'));
+      return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation','data','team'));
       
   }
 
 
-  public function joinTeam($teamId)
+  public function joinTeam($teamToken)
   {
       Log::info('CampaignController.joinTeam: ');
-      $data['teamId'] = $teamId;
+      $data['team_token'] = $teamToken;
       $data['action'] = 'join';
       $data['heading'] = 'Join a Campaign Team';
 
       $teamInfo = DB::table('teams')
                   ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
                   ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
-                  ->select('teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
-                  ->where('teams.id', '=', $data['teamId'])
+                  ->select('teams.id as id, teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
+                  ->where('teams.token', '=', $teamToken)
                   ->first();
 
       $data['teamInfo'] = $teamInfo;

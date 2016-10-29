@@ -149,9 +149,9 @@
                 <br>
                 <div class="closing-buttons" align="center" id="button-donate">
                     @if($data['button_show'] == 'true')
-                        <a class="btn btn-lg btn-success" href="{{ action('CampaignController@joinTeam', [$team->id]) }}" id="member_join">Join Our Team</a>
+                        <a class="btn btn-lg btn-success" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join Our Team</a>
                     @else
-                        <a class="btn btn-lg btn-success" disabled="disabled" href="{{ action('CampaignController@joinTeam', [$team->id]) }}" id="member_join">Join Our Team</a>
+                        <a class="btn btn-lg btn-success" disabled="disabled" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join Our Team</a>
                     @endif
 
                     <a class="btn btn-lg btn-success" href="{{ url('/donation/donate')}}" id="member_donate">Donate to our goal</a>
