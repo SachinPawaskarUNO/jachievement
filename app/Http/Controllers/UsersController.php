@@ -138,7 +138,7 @@ class UsersController extends Controller
      */
     private function syncRoles(User $user, array $roles)
     {
-        Log::info('UsersController.syncRoles: Start: '.$user->name);
+        Log::info('UsersController.syncRoles: Start: '.$user->id);
         // ToDo: At somepoint need to update the timestamps and created_by/updated_by fields on the pivot table
         $user->roles()->sync($roles);
 //        $user->roles()->sync([$roles => ['created_by' => Auth::user()->name, 'updated_by' => Auth::user()->name]]);

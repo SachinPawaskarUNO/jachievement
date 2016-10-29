@@ -31,8 +31,8 @@ class Controller extends BaseController
     {
         if (Auth::check() && $input != null)
         {
-            $input['created_by'] = Auth::user()->name;
-            $input['updated_by'] = Auth::user()->name;
+            $input['created_by'] = Auth::user()->id;
+            $input['updated_by'] = Auth::user()->id;
         }
     }
 
@@ -40,7 +40,7 @@ class Controller extends BaseController
     {
         if (Auth::check() && $input != null)
         {
-            $input['updated_by'] = Auth::user()->name;
+            $input['updated_by'] = Auth::user()->id;
         }
     }
 
@@ -58,8 +58,8 @@ class Controller extends BaseController
         $input = [];
         if (Auth::check() && $input != null)
         {
-            $input['created_by'] = Auth::user()->name;
-            $input['updated_by'] = Auth::user()->name;
+            $input['created_by'] = Auth::user()->id;
+            $input['updated_by'] = Auth::user()->id;
         }
         return $input;
     }
