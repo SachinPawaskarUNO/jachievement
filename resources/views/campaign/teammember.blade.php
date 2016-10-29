@@ -173,7 +173,7 @@
                             @foreach ($teamMembers as $teamMember)
                                 <tr>
 
-                                    <td class="table-text"><div><a href="{{action('CampaignController@teammember', [$teamMember->token])}}">{{ $teamMember->name }}</a></div></td>
+                                    <td class="table-text"><div><a href="{{action('CampaignController@teammember', [$teamMember->token])}}">{{ $teamMember->first_name }} {{ str_limit($teamMember->last_name, $limit = 1, $end = '.')}}</a></div></td>
                                     <td class="table-text">
                                         <div>
                                             @if($teamMember->goal != null)

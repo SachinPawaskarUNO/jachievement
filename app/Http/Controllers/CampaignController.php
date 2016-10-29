@@ -59,12 +59,12 @@ class CampaignController extends Controller
           ->get();
 
       $teamMembers= DB::table('team_members')
-          ->select('users.name', 'team_members.goal', 'team_members.id', DB::raw(
+          ->select('users.first_name', 'users.last_name', 'team_members.goal', 'team_members.id', 'team_members.token', DB::raw(
               'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
           ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
           ->join('users', 'team_members.user_id', '=', 'users.id')
           ->where('team_members.team_id', '=', $team_id)
-          ->groupBy('users.name', 'team_members.goal', 'team_members.id')
+          ->groupBy('users.last_name', 'users.first_name', 'team_members.goal', 'team_members.id', 'team_members.token')
           ->orderBy('per_raised')
           ->get();
 
@@ -158,12 +158,12 @@ class CampaignController extends Controller
             ->get();
 
         $teamMembers= DB::table('team_members')
-            ->select('users.name', 'team_members.goal', 'team_members.id', DB::raw(
+            ->select('users.first_name', 'users.last_name', 'team_members.goal', 'team_members.id', 'team_members.token', DB::raw(
                 'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
             ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
             ->join('users', 'team_members.user_id', '=', 'users.id')
             ->where('team_members.team_id', '=', $team->id)
-            ->groupBy('users.name', 'team_members.goal', 'team_members.id')
+            ->groupBy('users.last_name', 'users.first_name', 'team_members.goal', 'team_members.id', 'team_members.token')
             ->orderBy('per_raised')
             ->get();
 
