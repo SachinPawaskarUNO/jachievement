@@ -4,6 +4,7 @@
     height: 78px;
     margin: 0 auto;
 }
+
 div.progressBar {
     background: #5cb85c;
     color: #fff;
@@ -19,6 +20,7 @@ div.progressBar {
     text-align: center;
     margin: 0;
 }
+
 span.goalAmount {
     display: none;
     text-indent: -9999px;
