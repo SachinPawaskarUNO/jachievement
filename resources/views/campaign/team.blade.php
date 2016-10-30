@@ -146,8 +146,8 @@
                 <script type="text/javascript">
                     $(document).ready(function(){
                         $('#raised').goalProgress({
-                            goalAmount: 600,
-                            currentAmount: 500,
+                            goalAmount: totalGoal,
+                            currentAmount: raised,
                             textBefore: '$ ',
                             textAfter: ' raised'
                         });
