@@ -6,7 +6,7 @@
 		<div class="col-md-8 col-md-offset-2">
 			@if (!Auth::check())
 			<div class="alert alert-warning">
-				<strong>Account Required:</strong> Before joining a team, please <a href="/login">login</a> or <a href="/register">register</a>
+				<strong>Account Required:</strong> Before joining a team, please <a id="loginLink" href="/login">login</a> or <a id="registerLink" href="/register">register</a>
 			</div>
 			@else
 			<div class="panel panel-default">
