@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+    <script type="text/javascript" src="{{ URL::asset('js/goalProgress.js') }}"></script> 
+    <link rel="stylesheet" href="{{ URL::asset('css/goalProgress.css') }}" />
     <style> 
         .fa_custom {
             color: #9ACD40;
@@ -140,6 +142,22 @@
                 <br>
                 @include('common.errors')
                 @include('common.flash')
+
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#raised').goalProgress({
+                            goalAmount: 600,
+                            currentAmount: 500,
+                            textBefore: '$ ',
+                            textAfter: ' raised'
+                        });
+                    });
+                </script>
+
+                <div class="form-group">
+                    <div id="raised"></div>
+                </div>
+
                 <div class="panel panel-default">
                     <h2 class="team-title text-center" id = "member_title">{{$team->title}}</h2>
                     <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
