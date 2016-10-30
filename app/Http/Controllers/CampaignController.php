@@ -12,7 +12,7 @@ use App\Team;
 use App\User;
 use Log;
 use DB;
-
+use JavaScript;
 use Auth;
 use Session;
 
@@ -168,6 +168,10 @@ class CampaignController extends Controller
             ->orderBy('per_raised')
             ->get();
 
+        JavaScript::put([
+            'raised' => 8600,
+            'totalGoal' => 10000
+        ]);
 
         return view('campaign.team', compact('teamMembers','team','teamDonation','data'));
 
