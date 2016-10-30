@@ -15,6 +15,7 @@ use DB;
 use JavaScript;
 use Auth;
 use Session;
+use URL;
 
 class CampaignController extends Controller
 {
@@ -77,6 +78,12 @@ class CampaignController extends Controller
   public function joinTeam($teamToken)
   {
       Log::info('CampaignController.joinTeam: ');
+
+      if (Auth::guest()){
+        Session::flash('warn_flash_message', 'Account Required: Before joining a team, please login or register.');
+        return redirect()->guest('login');
+      }
+
       $data['team_token'] = $teamToken;
       $data['action'] = 'join';
       $data['heading'] = 'Join a Campaign Team';
@@ -97,6 +104,12 @@ class CampaignController extends Controller
   public function createTeam($campaignId)
   {
       Log::info('CampaignController.createTeam: ');
+
+      if (Auth::guest()){
+        Session::flash('warn_flash_message', 'Account Required: Before creating a team, please login or register.');
+        return redirect()->guest('login');
+      }
+
       $data['campaignId'] = $campaignId;
       $data['action'] = 'create';
       $data['heading'] = 'Create a Campaign Team';
