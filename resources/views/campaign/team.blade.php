@@ -138,7 +138,7 @@
     </style>
     <div class="container-fluid">
         <div class="container">
-            <div class="col-md-9" >
+            <div class="col-md-12" >
                 <br>
                 @include('common.errors')
                 @include('common.flash')
@@ -223,7 +223,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3" >
+{{--            <div class="col-md-3" >
                 <br>
                 <br>
                 <br>
@@ -242,7 +242,7 @@
                         </span>
                     </div>
                 </div>
-            </div>
+            </div>--}}
         </div>
     </div>
 @endsection
