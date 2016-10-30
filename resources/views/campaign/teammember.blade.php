@@ -140,6 +140,7 @@
                 <br>
                 @include('common.errors')
                 @include('common.flash')
+                <div><b>{{$teamMember->first_name}}<b></div>
                 <div class="panel panel-default">
                     <h2 class="team-title text-center" id = "member_title">{{$teamMember->title}}</h2>
                     <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
@@ -162,10 +163,10 @@
                 </div>
                 <br>
                 <br>
-                <h4><u>Team Members in my Team</u></h4>
+                <h4><u>Team Members in my team - {{$team->name}}</u></h4>
                 <div align="center">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped cds-datatable">
+                        <table class="table table-bordered table-striped">
                             <thead>
                             <th>Name</th><th>Goal</th><th>Total Donated Amount</th><th>% Raised</th>
                             </thead>

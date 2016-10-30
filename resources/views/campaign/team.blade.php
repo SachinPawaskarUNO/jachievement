@@ -140,6 +140,7 @@
                 <br>
                 @include('common.errors')
                 @include('common.flash')
+                <div><b>This is {{$team->name}} page. <b></div>
                 <div class="panel panel-default">
                     <h2 class="team-title text-center" id = "member_title">{{$team->title}}</h2>
                     <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
@@ -162,10 +163,10 @@
                     @endif
                 </div>
                 <br>
-                <h4><u>Current Team Members</u></h4>
+                <h4><u>Current Team Members in {{$team->name}}</u></h4>
                 <div align="center">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped cds-datatable">
+                        <table class="table table-bordered table-striped">
                             <thead>
                             <th>Name</th><th>Goal</th><th>Total Donated Amount</th><th>% Raised</th>
                             </thead>
