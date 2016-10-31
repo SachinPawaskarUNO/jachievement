@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+    <script type="text/javascript" src="{{ URL::asset('js/goalProgress.js') }}"></script> 
+    <link rel="stylesheet" href="{{ URL::asset('css/goalProgress.css') }}" />
     <style> 
         .fa_custom {
             color: #9ACD40;
@@ -136,10 +138,25 @@
     </style>
     <div class="container-fluid">
         <div class="container">
-            <div class="col-md-9" >
+            <div class="col-md-12" >
                 <br>
                 @include('common.errors')
                 @include('common.flash')
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#raised').goalProgress({
+                            goalAmount: memberGoal,
+                            currentAmount: memberRaised,
+                            textBefore: '$ ',
+                            textAfter: ' raised'
+                        });
+                    });
+                </script>
+
+                <div class="form-group">
+                    <div id="raised"></div>
+                </div>
+
                 <div class="panel panel-default">
                     <h2 class="team-title text-center" id = "member_title">{{$teamMember->title}}</h2>
                     <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
@@ -204,26 +221,6 @@
                             @endforeach
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3" >
-                <br>
-                <br>
-                <br>
-                <div class="donation-meter">
-                    <strong>My Goal</strong>
-                    <strong class="goal">${{$teamMember->goal}}</strong>
-                     <span class="glass">
-                    <strong class="total" style="bottom: 30%">$100
-                    </strong>
-                    <span class="amount" style="height: 30%"></span>
-                    </span>
-                    <div class="bulb">
-                        <span class="red-circle"></span>
-                        <span class="filler">
-                        <span></span>
-                        </span>
                     </div>
                 </div>
             </div>
