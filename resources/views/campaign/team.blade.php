@@ -159,11 +159,17 @@
                     <div id="raised"></div>
                 </div>
 
+                <div align="center">
+                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/beautiful_team.jpg') }} "
+                         width="600">
+                </div>
+                <br>
                 <div class="panel panel-default">
                     <h2 class="team-title text-center" id = "member_title">{{$team->title}}</h2>
                     <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
                     <p class="team-description">{{$team->content}}</p>
                 </div>
+
                 <br>
                 <br>
                 <div class="closing-buttons" align="center" id="button-donate">
