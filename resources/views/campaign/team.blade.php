@@ -164,6 +164,7 @@
                          width="600">
                 </div>
                 <br>
+
                 <div class="panel panel-default">
                     <h2 class="team-title text-center" id = "member_title">{{$team->title}}</h2>
                     <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
