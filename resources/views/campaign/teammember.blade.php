@@ -158,13 +158,32 @@
                     <div id="raised"></div>
                 </div>
 
-                <div class="panel panel-default">
-                    <h2 class="team-title text-center" id = "member_title">{{$teamMember->title}}</h2>
-                    <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
-                    <p class="team-description">{{$teamMember->content}}</p>
+                <div align="center">
+                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/ice_person.jpg') }} "
+                         width="600">
                 </div>
                 <br>
+
+                <div class="panel panel-default">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <br>
+                            <div align="center">
+                                <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/person.png') }}">
+                            </div>
+                            <br>
+                        </div>
+                        <div class="col-md-8">
+                            <h2 class="team-title text-center" id = "member_title">{{$teamMember->title}}</h2>
+                            <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
+                            <p class="team-description">{{$teamMember->content}}</p>
+                        </div>
+                    </div>
+                </div>
+
                 <br>
+                <br>
+
                 <div class="closing-buttons" align="center" id="button-donate">
                     @if($data['button_show'] == 'true')
                         <a class="btn btn-lg btn-success" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join My Team</a>
