@@ -74,7 +74,7 @@ class CampaignController extends Controller
           'memberRaised' => ($teammemberDonation->donation_amount == null ? 0 : $teammemberDonation->donation_amount),
           'memberGoal' => $teamMember->goal
       ]);
-      
+
       return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation','data','team'));
       
   }
