@@ -58,7 +58,7 @@ class CampaignController extends Controller
           ->select(DB::raw('sum(donations.amount) as donation_amount'))
           ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
           ->where('team_members.id', '=' ,$teamMember->id)
-          ->get();
+          ->first();
 
       $teamMembers= DB::table('team_members')
           ->select('users.first_name', 'users.last_name', 'team_members.goal', 'team_members.id', 'team_members.token', DB::raw(
@@ -70,6 +70,10 @@ class CampaignController extends Controller
           ->orderBy('per_raised')
           ->get();
 
+      JavaScript::put([
+          'memberRaised' => ($teammemberDonation->donation_amount == null ? 0 : $teammemberDonation->donation_amount),
+          'memberGoal' => $teamMember->goal
+      ]);
       return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation','data','team'));
       
   }
