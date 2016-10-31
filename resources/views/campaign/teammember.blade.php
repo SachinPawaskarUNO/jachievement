@@ -154,6 +154,7 @@
                 </script>
 
                 <div class="form-group">
+                    <h3>My Progress </h3>
                     <div id="raised"></div>
                 </div>
 
