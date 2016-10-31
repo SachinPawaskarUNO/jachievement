@@ -155,6 +155,7 @@
                 </script>
 
                 <div class="form-group">
+                    <h3>Team {{$team->name}} Progress </h3>
                     <div id="raised"></div>
                 </div>
 
