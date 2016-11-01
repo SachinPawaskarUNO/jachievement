@@ -105,7 +105,7 @@ class Controller extends BaseController
         if (Auth::check()) {
             return Auth::user()->last_name;
         } else {
-            return 1; // by default return Administrator user id.
+            return null; // by default return Administrator user id.
         }
     }
 
