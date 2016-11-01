@@ -259,6 +259,8 @@ class CampaignController extends Controller
       Session::flash('flash_message', 'Your team has been created successfully!');
       Log::info('CampaignController.store - End: ' . $object->id);
       return redirect()->action('CampaignController@team', ['id' => $object->token]);
+
+
   }
   
   public function active()
@@ -270,6 +272,7 @@ class CampaignController extends Controller
 					//->where('active', '=','1')
 					//->whereBetween([campaigns.start_date, campaigns.end_date])
 					->get();
+
 		
 		
 		//$this->viewData['heading'] = "Active Campaigns";
@@ -277,6 +280,7 @@ class CampaignController extends Controller
 		//return view('campaign.activecampaign', $this->viewData);
   
   }
+  
 
 
    public function teamView()
@@ -332,34 +336,9 @@ class CampaignController extends Controller
 
   }
 
-        if ($user) {
-            $input['user_id'] = $user->id;
-        }
-        $this->populateCreateFields($input);
+     
 
-        $object = Team::create($input);
-
-        Session::flash('flash_message', 'Your team has been created successfully!');
-        Log::info('CampaignController.store - End: ' . $object->id);
-        return redirect()->action('CampaignController@team', ['id' => $object->token]);
-    }
-
-    public function active()
-    {
-        Log::info('CampaignController.active: ');
-
-        $activecampaigns = DB::table('campaigns')
-            ->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
-            //->where('active', '=','1')
-            //->whereBetween([campaigns.start_date, campaigns.end_date])
-            ->get();
-
-
-        //$this->viewData['heading'] = "Active Campaigns";
-        return view('campaign.activecampaign', compact('activecampaigns'));
-        //return view('campaign.activecampaign', $this->viewData);
-
-    }
+  
 
     public function sendmail(SolicitationRequest $request)
     {
