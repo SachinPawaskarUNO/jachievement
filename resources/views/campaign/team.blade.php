@@ -158,7 +158,7 @@
                 </script>
 
                 <div class="form-group">
-                    <h3>Team {{$team->name}} Page  </h3>
+                    <h3>{{$team->name}} Page  </h3>
                     <div id="raised"></div>
                 </div>
 
