@@ -280,7 +280,7 @@ class CampaignController extends Controller
 		//return view('campaign.activecampaign', $this->viewData);
   
   }
-  
+
 
 
    public function teamView()
@@ -331,7 +331,7 @@ class CampaignController extends Controller
       //       // ->orderBy('donations.created_at', 'DESC')
       //       ->get();
       // }
-      return view('campaign.teamView',compact('teamInfo'));
+      return view('campaign.teamview',compact('teamInfo'));
       
 
   }
