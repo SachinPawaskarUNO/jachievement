@@ -315,10 +315,15 @@ class CampaignController extends Controller
       //       // ->orderBy('donations.created_at', 'DESC')
       //       ->get();
 
-            $teamInfo= DB::table('teams')
+            $teamIndividuals= DB::table('teams')
+            ->join('team_members','teams.id','=','team_members.team_id')
+            ->select(DB::raw('teams.name as teamname,teams.goal as teamgoal, teams.title as teamtitle,teams.token as teamtoken'))
+            ->where('team_members.user_id', '=', $loginUser)
+            ->get();
+
+             $teamInfo= DB::table('teams')
             ->select(DB::raw('teams.name as teamname,teams.goal as teamgoal,teams.created_at as teamdate,teams.title as teamtitle,teams.token as teamtoken'))
             ->where('teams.user_id', '=', $loginUser)
-            // ->orderBy('donations.created_at', 'DESC')
             ->get();
       }
 
@@ -331,7 +336,7 @@ class CampaignController extends Controller
       //       // ->orderBy('donations.created_at', 'DESC')
       //       ->get();
       // }
-      return view('campaign.teamview',compact('teamInfo'));
+      return view('campaign.teamview',compact('teamInfo','teamIndividuals'));
       
 
   }
