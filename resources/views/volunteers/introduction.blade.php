@@ -36,7 +36,7 @@
                     <div>
                         <div class="col-md-1"><span class="glyphicon glyphicon-home" ID="9"></span></div>
                         <div class="col-md-11"  ID="10"><h4>MAKE A DIFFERENCE IN YOUR COMMUNITY</h4>
-                            <p style="font-size: 16px"> By being a JA volunteer and sharing your personal and professional experiences and skills with students from your community, you help them make the connection between what they are learning in school and what they will need to succeed in work and life.</p>
+                            <p style="font-size: 16px"> By being a Junior Achievement volunteer and sharing your personal and professional experiences and skills with students from your community, you help them make the connection between what they are learning in school and what they will need to succeed in work and life.</p>
                             <br></div>
                     </div>
 
@@ -53,8 +53,8 @@
 
 
                         <div class="col-md-1"  ID="15"><span class="glyphicon glyphicon-user"></span> </div>
-                        <div class="col-md-11"  ID="16"> <h4>JA PROVIDES AN AMAZING AND REWARDING VOLUNTEER EXPERIENCE</h4>
-                            <p style="font-size: 16px" ID="17"> JA gives you an opportunity through your employer's volunteer program (or on your own) to impact young people in your community in a positive way with simple to implement programs on financial literacy, work readiness, and entrepreneurship. This will empower young people to own their economic success.</p>
+                        <div class="col-md-11"  ID="16"> <h4>JUNIOR ACHIEVEMENT PROVIDES AN AMAZING AND REWARDING VOLUNTEER EXPERIENCE</h4>
+                            <p style="font-size: 16px" ID="17"> Junior Achievement gives you an opportunity through your employer's volunteer program (or on your own) to impact young people in your community in a positive way with simple to implement programs on financial literacy, work readiness, and entrepreneurship. This will empower young people to own their economic success.</p>
                         </div>
                     </div>
 

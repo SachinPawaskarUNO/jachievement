@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+        @include('common.flash')
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
@@ -11,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+                            <label class="col-md-4 control-label">E-Mail Address:</label>
 
                             <div class="col-md-6">
                                 <input id="ja_loginemail" type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -25,7 +26,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
+                            <label class="col-md-4 control-label">Password:</label>
 
                             <div class="col-md-6">
                                 <input id="ja_loginpw" type="password" class="form-control" name="password">

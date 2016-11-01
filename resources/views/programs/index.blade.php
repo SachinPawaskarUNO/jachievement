@@ -3,6 +3,10 @@
         color: rgba(140,198,62,0.85);
     }
 
+    body{
+        height: auto!important;
+    }
+
 </style>
 
 
@@ -15,7 +19,7 @@
             <p class="text-left">Junior Achievement's unique delivery system provides the training, materials, and support necessary to bolster the chances for student success. The impact is measurable, too. Students who participate in Junior Achievement programs demonstrate a significant understanding of economics and business concepts. We invite you to take a closer look at our programs!</p>
             <br>
         </div>
-        <div>
+        <div class="responsive">
             <md-content>
                 <md-tabs md-dynamic-height="" md-border-bottom="">
                     <md-tab label="All Programs">
@@ -27,7 +31,7 @@
                             <br>
                             <p id="target1">Our programs help prepare young people for the real world by showing them how to generate wealth and effectively manage it,
                                 how to create jobs which make their communities more robust, and how to apply entrepreneurial thinking to the workplace. Students
-                                put these lessons into action and learn the value of contributing to their communities..</p><br>
+                                put these lessons into action and learn the value of contributing to their communities.</p><br>
 
 
 
@@ -40,6 +44,8 @@
 
                                                 <div class="col-md-2" id="program_image">
                                                     <img src="{{ $allprogram->image }}" width="100", height="100"/>
+                                                    <br>
+                                                    <br>
                                                 </div>
 
                                                 <div class="col-md-10" id="program_name">
@@ -54,19 +60,39 @@
                                                 </div>
 
                                                 <div class="col-md-12 listDesc" style="padding-left:0;padding-right:0;">
-                                                    <div class="container table ja-table-pillars"><br>
+                                                    <div class="container table ja-table-pillars">
                                                         <div class="row">
-                                                            <div class="col-md-4 table-bordered" style="padding:3px; white-space: nowrap; background-color:#EEE!important;"><b>Implementation:</b>
+                                                            <div class="col-md-4 table-bordered" style="white-space: nowrap; background-color:#EEE!important;"><b>Implementation:</b>
                                                                 <span class="Classroom-Based text-nowrap">{{ $allprogram->implementation }}</span>
                                                             </div>
-                                                            <div class="col-md-3 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Entrepreneurship:</b> <i class="fa fa-star"></i>
-                                                                {{ $allprogram->entrepreneurship }}
+                                                            <div class="col-md-3 table-bordered" style="background-color:#EEE!important;"><b>Entrepreneurship:</b>
+
+                                                                @if ($allprogram->entrepreneurship == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($allprogram->entrepreneurship == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
+
                                                             </div>
-                                                            <div class="col-md-3 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Financial Literacy:</b> <i class="fa fa-star-o"></i>
-                                                                {{ $allprogram->financial_readiness }}
+                                                            <div class="col-md-3 table-bordered" style="background-color:#EEE!important;"><b>Financial Literacy:</b>
+                                                                @if ($allprogram->financial_readiness == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($allprogram->financial_readiness == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
                                                             </div>
-                                                            <div class="col-md-2 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Work Readiness:</b> <i class="fa fa-star-half-o"></i>
-                                                                {{ $allprogram->work_readiness }}
+                                                            <div class="col-md-2 table-bordered" style="background-color:#EEE!important;"><b>Work Readiness:</b>
+                                                                @if ($allprogram->work_readiness == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($allprogram->work_readiness == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -85,7 +111,7 @@
                             <a class="button" onclick="$('#target2').toggle();">
                                 <i class="fa fa-book"></i>
                             </a>
-                            <br><p id="target2">JA’s elementary school programs are the foundation of its K-12 curricula. Six sequential themes, each with five hands-on activities, as well as an after-school and capstone experience, work to change students’ lives by helping them understand business and economics.</p><br>
+                            <br><p id="target2">Junior Achievement’s elementary school programs are the foundation of its K-12 curricula. Six sequential themes, each with five hands-on activities, as well as an after-school and capstone experience, work to change students’ lives by helping them understand business and economics.</p><br>
 
 
                             <div id="programs" class="row ja-anchor" style="padding-bottom:15px;padding-top:15px;border-top:solid #ccc 1px">
@@ -97,6 +123,8 @@
 
                                                 <div class="col-md-2">
                                                     <img src="{{ $elementaryprogram->image }}" width="100", height="100"/>
+                                                    <br>
+                                                    <br>
                                                 </div>
 
                                                 <div class="col-md-10">
@@ -111,19 +139,37 @@
                                                 </div>
 
                                                 <div class="col-md-12 listDesc" style="padding-left:0;padding-right:0;">
-                                                    <div class="container table ja-table-pillars"><br>
+                                                    <div class="container table ja-table-pillars">
                                                         <div class="row">
-                                                            <div class="col-md-4 table-bordered" style="padding:3px; white-space: nowrap; background-color:#EEE!important;"><b>Implementation:</b>
+                                                            <div class="col-md-4 table-bordered" style="white-space: nowrap; background-color:#EEE!important;"><b>Implementation:</b>
                                                                 <span class="Classroom-Based text-nowrap">{{ $elementaryprogram->implementation }}</span>
                                                             </div>
-                                                            <div class="col-md-3 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Entrepreneurship:</b> <i class="fa fa-star"></i>
-                                                                {{ $elementaryprogram->entrepreneurship }}
+                                                            <div class="col-md-3 table-bordered" style="background-color:#EEE!important;"><b>Entrepreneurship:</b>
+                                                                @if ($elementaryprogram->entrepreneurship == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($elementaryprogram->entrepreneurship == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
                                                             </div>
-                                                            <div class="col-md-3 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Financial Literacy:</b> <i class="fa fa-star-o"></i>
-                                                                {{ $elementaryprogram->financial_readiness }}
+                                                            <div class="col-md-3 table-bordered" style="background-color:#EEE!important;"><b>Financial Literacy:</b>
+                                                                @if ($elementaryprogram->entrepreneurship == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($elementaryprogram->entrepreneurship == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
                                                             </div>
-                                                            <div class="col-md-2 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Work Readiness:</b> <i class="fa fa-star-half-o"></i>
-                                                                {{ $elementaryprogram->work_readiness }}
+                                                            <div class="col-md-2 table-bordered" style="background-color:#EEE!important;"><b>Work Readiness:</b>
+                                                                @if ($elementaryprogram->entrepreneurship == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($elementaryprogram->entrepreneurship == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -153,6 +199,8 @@
 
                                                 <div class="col-md-2">
                                                     <img src="{{ $middleprogram->image }}"width="100", height="100"/>
+                                                    <br>
+                                                    <br>
                                                 </div>
 
                                                 <div class="col-md-10">
@@ -167,19 +215,37 @@
                                                 </div>
 
                                                 <div class="col-md-12 listDesc" style="padding-left:0;padding-right:0;">
-                                                    <div class="container table ja-table-pillars"><br>
+                                                    <div class="container table ja-table-pillars">
                                                         <div class="row">
-                                                            <div class="col-md-4 table-bordered" style="padding:3px; white-space: nowrap; background-color:#EEE!important;"><b>Implementation:</b>
+                                                            <div class="col-md-4 table-bordered" style="white-space: nowrap; background-color:#EEE!important;"><b>Implementation:</b>
                                                                 <span class="Classroom-Based text-nowrap">{{ $middleprogram->implementation }}</span>
                                                             </div>
-                                                            <div class="col-md-3 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Entrepreneurship:</b> <i class="fa fa-star"></i>
-                                                                {{ $middleprogram->entrepreneurship }}
+                                                            <div class="col-md-3 table-bordered" style="background-color:#EEE!important;"><b>Entrepreneurship:</b>
+                                                                @if ($middleprogram->entrepreneurship == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($middleprogram->entrepreneurship == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
                                                             </div>
-                                                            <div class="col-md-3 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Financial Literacy:</b> <i class="fa fa-star-o"></i>
-                                                                {{ $middleprogram->financial_readiness }}
+                                                            <div class="col-md-3 table-bordered" style="background-color:#EEE!important;"><b>Financial Literacy:</b>
+                                                                @if ($middleprogram->entrepreneurship == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($middleprogram->entrepreneurship == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
                                                             </div>
-                                                            <div class="col-md-2 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Work Readiness:</b> <i class="fa fa-star-half-o"></i>
-                                                                {{ $middleprogram->work_readiness }}
+                                                            <div class="col-md-2 table-bordered" style="background-color:#EEE!important;"><b>Work Readiness:</b>
+                                                                @if ($middleprogram->entrepreneurship == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($middleprogram->entrepreneurship == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -209,6 +275,8 @@
 
                                                 <div class="col-md-2">
                                                     <img src="{{ $highprogram->image }}" width="100", height="100"/>
+                                                    <br>
+                                                    <br>
                                                 </div>
 
                                                 <div class="col-md-10">
@@ -223,19 +291,37 @@
                                                 </div>
 
                                                 <div class="col-md-12 listDesc" style="padding-left:0;padding-right:0;">
-                                                    <div class="container table ja-table-pillars"><br>
+                                                    <div class="container table ja-table-pillars">
                                                         <div class="row">
-                                                            <div class="col-md-4 table-bordered" style="padding:3px; white-space: nowrap; background-color:#EEE!important;"><b>Implementation:</b>
+                                                            <div class="col-md-4 table-bordered" style="white-space: nowrap; background-color:#EEE!important;"><b>Implementation:</b>
                                                                 <span class="Classroom-Based text-nowrap">{{ $highprogram->implementation }}</span>
                                                             </div>
-                                                            <div class="col-md-3 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Entrepreneurship:</b> <i class="fa fa-star"></i>
-                                                                {{ $highprogram->entrepreneurship }}
+                                                            <div class="col-md-3 table-bordered" style="background-color:#EEE!important;"><b>Entrepreneurship:</b>
+                                                                @if ($highprogram->entrepreneurship == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($highprogram->entrepreneurship == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
                                                             </div>
-                                                            <div class="col-md-3 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Financial Literacy:</b> <i class="fa fa-star-o"></i>
-                                                                {{ $highprogram->financial_readiness }}
+                                                            <div class="col-md-3 table-bordered" style="background-color:#EEE!important;"><b>Financial Literacy:</b>
+                                                                @if ($highprogram->entrepreneurship == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($highprogram->entrepreneurship == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
                                                             </div>
-                                                            <div class="col-md-2 table-bordered" style="padding:3px; background-color:#EEE!important;"><b>Work Readiness:</b> <i class="fa fa-star-half-o"></i>
-                                                                {{ $highprogram->work_readiness }}
+                                                            <div class="col-md-2 table-bordered" style="background-color:#EEE!important;"><b>Work Readiness:</b>
+                                                                @if ($highprogram->entrepreneurship == 2)
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($highprogram->entrepreneurship == 1)
+                                                                    <i class="fa fa-star-half-o"></i>
+                                                                @else
+                                                                    <i class="fa fa-star-o"></i>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>

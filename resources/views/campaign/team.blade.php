@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <style> 
+    <script type="text/javascript" src="{{ URL::asset('js/goalProgress.js') }}"></script>
+    <link rel="stylesheet" href="{{ URL::asset('css/goalProgress.css') }}" />
+    <style>
         .fa_custom {
             color: #9ACD40;
         }
@@ -133,18 +135,45 @@
             right: -15px;
             z-index: 30;
         }
+        @media screen and (min-width: 768px) {
+            #myModal1 .modal-dialog  {width:900px;}
+        }
     </style>
     <div class="container-fluid">
         <div class="container">
-            <div class="col-md-9" >
+            <div class="col-md-12" >
                 <br>
                 @include('common.errors')
                 @include('common.flash')
+
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#raised').goalProgress({
+                            goalAmount: totalGoal,
+                            currentAmount: raised,
+                            textBefore: '$ ',
+                            textAfter: ' raised'
+                        });
+                    });
+                </script>
+
+                <div class="form-group">
+                    <h3>Team {{$team->name}} Progress </h3>
+                    <div id="raised"></div>
+                </div>
+
+                <div align="center">
+                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/beautiful_team.jpg') }} "
+                         width="600">
+                </div>
+                <br>
+
                 <div class="panel panel-default">
                     <h2 class="team-title text-center" id = "member_title">{{$team->title}}</h2>
                     <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
                     <p class="team-description">{{$team->content}}</p>
                 </div>
+
                 <br>
                 <br>
                 <div class="closing-buttons" align="center" id="button-donate">
@@ -158,14 +187,106 @@
                 </div>
                 <div>
                     @if($data['link_show']=='show')
-                        <p class="text-center" id="solicitationLink"> <a href="{{ url('') }}">Click here to send solicitation link. </a> </p>
+                        <p class="text-center" id="solicitationLink"> <a data-toggle="modal" href="#myModal1">Click here to send solicitation request. </a> </p>
                     @endif
                 </div>
+                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color:#5cb85c !important;">
+                                <a class="close" data-dismiss="modal">×</a>
+                                <p align="center"><span style="font-size:1.5em;color:white;"><b>Family & Friends with Junior Achievement</b></span></p>
+                            </div>
+                            <div class="modal-body">
+                                {!! Form::open(['url' => '/campaign/team', 'class' => 'form-horizontal']) !!}
+                                @include('common.errors')
+                                @include('common.flash')
+                                <div class="hidden-sm clear"> &nbsp;</div>
+                                <div class="form-group{{ $errors->has('teamname') ? ' has-error' : '' }}">
+                                    {!! Form::label('teamname', 'Team Name:', ['class' => 'col-md-4 control-label']) !!}
+                                    <span style="color:red;">*</span>
+                                    <div class="col-md-6">
+                                        {!! Form::text('teamname', $team->title, ['id'=> 'teamname','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
+                                        @if ($errors->has('teamname'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('teamname') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                    {!! Form::label('email', 'E-Mail:', ['class' => 'col-md-4 control-label']) !!}
+                                    <span style="color:red;">*</span>
+                                    <div class="col-md-6">
+                                        {!! Form::text('email', null, ['id'=> 'email', 'class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+                                        @if ($errors->has('email'))
+                                            <span class="help-block">
+                <strong>{{ $errors->first('email') }}</strong>
+            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('user_message') ? ' has-error' : '' }}">
+                                    {!! Form::label('message', 'Message:', ['class' => 'col-md-4 control-label']) !!}
+                                    <span style="color:red;">*</span>
+                                    <div class="col-md-6">
+                                        {!! Form::textarea('user_message',$team->content, ['id'=> 'user_message', 'class' => 'col-md-6 form-control', 'required' => 'required', 'maxLength' => '1000']) !!}
+                                        @if ($errors->has('user_message'))
+                                            <span class="help-block">
+                <strong>{{ $errors->first('user_message') }}</strong>
+            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-4">
+                                        {!! Form::button('<i class="fa fa-btn fa-save"></i>Submit', ['type' => 'submit', 'id'=>'submit', 'class' => 'btn btn-success']) !!}
+                                        {!! Form::button('<i class="fa fa-btn fa-window-close-o"></i>Cancel', ['type' => 'submit', 'id'=>'close', 'class' => 'btn btn-success', 'data-dismiss' => 'modal']) !!}
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
+                                    {!! Form::hidden('url', 'URL:', ['class' => 'col-md-4 control-label']) !!}
+                                    <div class="col-md-6">
+                                        {!! Form::hidden('url',URL::current(), ['id'=> 'url','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
+                                        @if ($errors->has('url'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('url') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('token') ? ' has-error' : '' }}">
+                                    {!! Form::hidden('token', 'TOKEN:', ['class' => 'col-md-4 control-label']) !!}
+                                    <div class="col-md-6">
+                                        {!! Form::hidden('token',$team->token, ['id'=> 'token','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
+                                        @if ($errors->has('token'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('token') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('id') ? ' has-error' : '' }}">
+                                    {!! Form::hidden('id', 'ID:', ['class' => 'col-md-4 control-label']) !!}
+                                    <div class="col-md-6">
+                                        {!! Form::hidden('id',$team->id, ['id'=> 'id','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
+                                        @if ($errors->has('id'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('id') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                {!! Form::close() !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <br>
-                <h4><u>Current Team Members</u></h4>
+                <h4><u>Current Team Members in {{$team->name}}</u></h4>
                 <div align="center">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped cds-datatable">
+                        <table class="table table-bordered table-striped">
                             <thead>
                             <th>Name</th><th>Goal</th><th>Total Donated Amount</th><th>% Raised</th>
                             </thead>
@@ -205,26 +326,28 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3" >
-                <br>
-                <br>
-                <br>
-                <div class="donation-meter">
-                    <strong>Team Goal</strong>
-                    <strong class="goal">${{$team->goal}}</strong>
-                     <span class="glass">
-                    <strong class="total" style="bottom: 30%">$100
-                    </strong>
-                    <span class="amount" style="height: 30%"></span>
-                    </span>
-                    <div class="bulb">
-                        <span class="red-circle"></span>
-                        <span class="filler">
-                        <span></span>
-                        </span>
-                    </div>
-                </div>
-            </div>
+            {{--            <div class="col-md-3" >
+                            <br>
+                            <br>
+                            <br>
+                            <div class="donation-meter">
+                                <strong>Team Goal</strong>
+                                <strong class="goal">${{$team->goal}}</strong>
+                                 <span class="glass">
+                                <strong class="total" style="bottom: 30%">$100
+                                </strong>
+                                <span class="amount" style="height: 30%"></span>
+                                </span>
+                                <div class="bulb">
+                                    <span class="red-circle"></span>
+                                    <span class="filler">
+                                    <span></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>--}}
         </div>
     </div>
+
+
 @endsection
