@@ -183,7 +183,7 @@
                         <a class="btn btn-lg btn-success" disabled="disabled" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join Our Team</a>
                     @endif
 
-                    <a class="btn btn-lg btn-success" href="{{ url('/donation/donate')}}" id="member_donate">Donate to our goal</a>
+                    <a class="btn btn-lg btn-success" href="{{ url('/donation/donate?team=' . $team->token)}}" id="member_donate">Donate to our goal</a>
                 </div>
                 <div>
                     @if($data['link_show']=='show')
