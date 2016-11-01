@@ -54,7 +54,7 @@
         <br>
         <br>
         <br>
-        <h2 class="section-heading text-center"> WHICH WAY TO JA?</h2>
+        <h2 class="section-heading text-center"> WHICH WAY TO JUNIOR ACHIEVEMENT?</h2>
         <p style="color: #9d9d9d"  align="center">________________</p>
         <br>
         <br>
@@ -80,7 +80,7 @@
                         <br>
                         <h4 class="program-title" align="center"> INDIVIDUAL DONOR</h4>
                         <br>
-                        <p class="program-description"> Not affiliated with a corporation partnered with JA? You can make a donation directly to a JA in your community!</p>
+                        <p class="program-description"> Not affiliated with a corporation partnered with Junior Achievement? You can make a donation directly to a Junior Achievement in your community!</p>
                         <br>
                         <br>
                         <div class="closing-buttons" align="center" id="button-donate">
@@ -107,13 +107,13 @@
                             <br>
                             <h4 class="program-title" align="center"> CORPORATE VOLUNTEER</h4>
                             <br>
-                            <p class="program-description"> By volunteering for JA through your organization, you can be in the classroom during work hours and you can share your experience and inspire young people to pursue their dreams.</p>
+                            <p class="program-description"> By volunteering for Junior Achievement through your organization, you can be in the classroom during work hours and you can share your experience and inspire young people to pursue their dreams.</p>
                             <br>
                             <p class="program-description" align="center"> — OR —</p>
                             <br>
                             <h4 class="program-title" align="center"> INDIVIDUAL VOLUNTEER</h4>
                             <br>
-                            <p class="program-description"> Not affiliated with a corporation partnered with JA? You can volunteer directly with a JA in your community!</p>
+                            <p class="program-description"> Not affiliated with a corporation partnered with Junior Achievement? You can volunteer directly with a Junior Achievement in your community!</p>
                             <br>
                             <br>
                             <div class="closing-buttons" align="center" id="button-volunteer">
@@ -143,9 +143,9 @@
                         <br>
                         <p class="program-description" align="center"> — OR —</p>
                         <br>
-                        <h4 class="program-title" align="center"> LEARN MORE ABOUT JA PROGRAMS</h4>
+                        <h4 class="program-title" align="center"> LEARN MORE ABOUT JUNIOR ACHIEVEMENT PROGRAMS</h4>
                         <br>
-                        <p class="program-description"> Not an Educator? Find out how you can get JA programs into your local community!</p>
+                        <p class="program-description"> Not an Educator? Find out how you can get Junior Achievement programs into your local community!</p>
                         <br>
                         <br>
                         <div class="closing-buttons" align="center" id="button-educator">
