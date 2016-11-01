@@ -93,6 +93,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_logout" href="{{ url('/logout') }}"><i class="fa fa-btn fa-fw fa-sign-out"></i>Logout</a></li>
                             <li><a id="ja_changepw"href="{{ url('/change-password') }}"><i class="fa fa-btn fa-fw fa-lock"></i>Change Password</a></li>
+                             <li><a id="ja_teamview" href="{{ url('/campaign/team/view') }}"><i class="fa fa-btn fa-fw fa-file"></i>Team View</a></li>
                         </ul>
                     </li>
                 @endif
