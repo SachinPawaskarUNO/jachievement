@@ -2,7 +2,7 @@
 @section('content')
     <script type="text/javascript" src="{{ URL::asset('js/goalProgress.js') }}"></script> 
     <link rel="stylesheet" href="{{ URL::asset('css/goalProgress.css') }}" />
-    <style> 
+    <style>
         .fa_custom {
             color: #9ACD40;
         }
@@ -142,7 +142,6 @@
                 <br>
                 @include('common.errors')
                 @include('common.flash')
-                <div><b>{{$teamMember->first_name}}<b></div>
                 <script type="text/javascript">
                     $(document).ready(function(){
                         $('#raised').goalProgress({
@@ -155,7 +154,7 @@
                 </script>
 
                 <div class="form-group">
-                    <h3>My Progress </h3>
+                    <h3>{{$teamMember->first_name}} Page </h3>
                     <div id="raised"></div>
                 </div>
 
