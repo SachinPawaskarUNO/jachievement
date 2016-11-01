@@ -5,3 +5,9 @@
         {{ Session::get('flash_message') }}
     </div>
 @endif
+
+@if(Session::has('warn_flash_message'))
+	<div class="alert alert-warning">
+        {{ Session::get('warn_flash_message') }}
+    </div>
+@endif

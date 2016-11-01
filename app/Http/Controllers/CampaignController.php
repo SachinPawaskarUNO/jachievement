@@ -15,12 +15,15 @@ use DB;
 use JavaScript;
 use Auth;
 use Session;
+use URL;
+use App\Http\Requests\SolicitationRequest;
+use Mail;
 
 class CampaignController extends Controller
 {
-  public function teammember($id)
-  {
-      Log::info('CampaignController.teammember: ');
+    public function teammember($id)
+    {
+        Log::info('CampaignController.teammember: ');
 
       //$teamMember = TeamMember::where('token','=',$id)->firstOrFail();
 
@@ -60,98 +63,114 @@ class CampaignController extends Controller
 
       }
 
-      $teammemberDonation = DB::table('donations')
-          ->select(DB::raw('sum(donations.amount) as donation_amount'))
-          ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
-          ->where('team_members.id', '=' ,$teamMember->id)
-          ->get();
+        $teammemberDonation = DB::table('donations')
+            ->select(DB::raw('sum(donations.amount) as donation_amount'))
+            ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
+            ->where('team_members.id', '=', $teamMember->id)
+            ->first();
 
-      $teamMembers= DB::table('team_members')
-          ->select('users.first_name', 'users.last_name', 'team_members.goal', 'team_members.id', 'team_members.token', DB::raw(
-              'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
-          ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
-          ->join('users', 'team_members.user_id', '=', 'users.id')
-          ->where('team_members.team_id', '=', $team_id)
-          ->groupBy('users.last_name', 'users.first_name', 'team_members.goal', 'team_members.id', 'team_members.token')
-          ->orderBy('per_raised')
-          ->get();
+        $teamMembers = DB::table('team_members')
+            ->select('users.first_name', 'users.last_name', 'team_members.goal', 'team_members.id', 'team_members.token', DB::raw(
+                'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
+            ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
+            ->join('users', 'team_members.user_id', '=', 'users.id')
+            ->where('team_members.team_id', '=', $team_id)
+            ->groupBy('users.last_name', 'users.first_name', 'team_members.goal', 'team_members.id', 'team_members.token')
+            ->orderBy('per_raised')
+            ->get();
 
-      return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation','data','team'));
-      
-  }
+        JavaScript::put([
+            'memberRaised' => ($teammemberDonation->donation_amount == null ? 0 : $teammemberDonation->donation_amount),
+            'memberGoal' => $teamMember->goal
+        ]);
 
+        return view('campaign.teammember', compact('teamMember', 'teamMembers', 'teammemberDonation', 'data', 'team'));
 
-  public function joinTeam($teamToken)
-  {
-      Log::info('CampaignController.joinTeam: ');
-      $data['team_token'] = $teamToken;
-      $data['action'] = 'join';
-      $data['heading'] = 'Join a Campaign Team';
-
-      $teamInfo = DB::table('teams')
-                  ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
-                  ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
-                  ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
-                  ->where('teams.token', '=', $teamToken)
-                  ->first();
-
-      $data['teamInfo'] = $teamInfo;
-
-      return view('campaign.jointeam', $data);
-      
-  }
-
-  public function createTeam($campaignId)
-  {
-      Log::info('CampaignController.createTeam: ');
-      $data['campaignId'] = $campaignId;
-      $data['action'] = 'create';
-      $data['heading'] = 'Create a Campaign Team';
+    }
 
 
-      $campaignInfo = DB::table('campaigns')
-                      ->select('campaigns.name as campName')
-                      ->where('campaigns.id', '=', $data['campaignId'])
-                      ->first();
+    public function joinTeam($teamToken)
+    {
+        Log::info('CampaignController.joinTeam: ');
 
-      $data['campaignInfo'] = $campaignInfo;
+        if (Auth::guest()) {
+            Session::flash('warn_flash_message', 'Account Required: Before joining a team, please login or register.');
+            return redirect()->guest('login');
+        }
 
-      $organizationList = DB::table('organizations')
-                          ->whereNull('organizations.deleted_at')
-                          ->lists('name', 'id');
+        $data['team_token'] = $teamToken;
+        $data['action'] = 'join';
+        $data['heading'] = 'Join a Campaign Team';
 
-      $data['organizationList'] = $organizationList;
+        $teamInfo = DB::table('teams')
+            ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
+            ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
+            ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
+            ->where('teams.token', '=', $teamToken)
+            ->first();
 
-      return view('campaign.jointeam', $data);
-      
-  }
+        $data['teamInfo'] = $teamInfo;
+
+        return view('campaign.jointeam', $data);
+
+    }
+
+    public function createTeam($campaignId)
+    {
+        Log::info('CampaignController.createTeam: ');
+
+        if (Auth::guest()) {
+            Session::flash('warn_flash_message', 'Account Required: Before creating a team, please login or register.');
+            return redirect()->guest('login');
+        }
+
+        $data['campaignId'] = $campaignId;
+        $data['action'] = 'create';
+        $data['heading'] = 'Create a Campaign Team';
+
+
+        $campaignInfo = DB::table('campaigns')
+            ->select('campaigns.name as campName')
+            ->where('campaigns.id', '=', $data['campaignId'])
+            ->first();
+
+        $data['campaignInfo'] = $campaignInfo;
+
+        $organizationList = DB::table('organizations')
+            ->whereNull('organizations.deleted_at')
+            ->lists('name', 'id');
+
+        $data['organizationList'] = $organizationList;
+
+        return view('campaign.jointeam', $data);
+
+    }
 
     public function team($id)
     {
         Log::info('CampaignController.team: ');
-      // $team = Team::findOrFail(1);
-        $team = Team::where('token',$id)->firstOrFail();
+        // $team = Team::findOrFail(1);
+        $team = Team::where('token', $id)->firstOrFail();
 
 
         $user = Auth::user();
-        $data['link_show']='';
-        $data['button_show']= 'true';
+        $data['link_show'] = '';
+        $data['button_show'] = 'true';
 
         if ($user) {
             $joinedMemberIfExist = DB::table('team_members')
                 ->select('team_members.id')
-                ->where('team_members.team_id', '=' ,$team->id)
+                ->where('team_members.team_id', '=', $team->id)
                 ->where('team_members.user_id', '=', $user->id)
                 ->get();
 
-            if($joinedMemberIfExist){
+            if ($joinedMemberIfExist) {
                 $data['button_show'] = 'false';
             } else {
                 $data['button_show'] = 'true';
             }
 
-            if($user->id == $team->user_id)
-            {
+            if ($user->id == $team->user_id) {
                 $data['link_show'] = 'show';
             } else {
                 $data['link_show'] = 'hide';
@@ -161,10 +180,10 @@ class CampaignController extends Controller
 
         $teamDonation = DB::table('donations')
             ->select(DB::raw('sum(donations.amount) as donation_amount'))
-            ->where('donations.team_id', '=' ,$team->id)
+            ->where('donations.team_id', '=', $team->id)
             ->first();
 
-        $teamMembers= DB::table('team_members')
+        $teamMembers = DB::table('team_members')
             ->select('users.first_name', 'users.last_name', 'team_members.goal', 'team_members.id', 'team_members.token', DB::raw(
                 'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
             ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
@@ -179,83 +198,113 @@ class CampaignController extends Controller
             'totalGoal' => $team->goal
         ]);
 
-        return view('campaign.team', compact('teamMembers','team','teamDonation','data'));
+        return view('campaign.team', compact('teamMembers', 'team', 'teamDonation', 'data'));
 
     }
 
-  public function joinTeamStore(TeamMemberRequest $request)
-  {
-      Log::info('CampaignController.joinTeamStore - Start: ');
-      $input = $request->all();
-      $user = Auth::user();
+    public function joinTeamStore(TeamMemberRequest $request)
+    {
+        Log::info('CampaignController.joinTeamStore - Start: ');
+        $input = $request->all();
+        $user = Auth::user();
 
-      do {
-        $teamMemberToken = str_random(15);
+        do {
+            $teamMemberToken = str_random(15);
 
-        $tokenCheck = DB::table('team_members')
-                      ->select(DB::raw('count(*) as count'))
-                      ->where('team_members.token', '=', $teamMemberToken)
-                      ->first();
-      } while ($tokenCheck->count > 0);
+            $tokenCheck = DB::table('team_members')
+                ->select(DB::raw('count(*) as count'))
+                ->where('team_members.token', '=', $teamMemberToken)
+                ->first();
+        } while ($tokenCheck->count > 0);
 
-      $input['token'] = $teamMemberToken;
+        $input['token'] = $teamMemberToken;
 
-      if ($user) {
-          $input['user_id'] = $user->id;
-      }
-      $this->populateCreateFields($input);
+        if ($user) {
+            $input['user_id'] = $user->id;
+        }
+        $this->populateCreateFields($input);
 
-      $object = TeamMember::create($input);
+        $object = TeamMember::create($input);
 
-      Session::flash('flash_message', 'You have successfully joined the team!');
-      Log::info('CampaignController.store - End: ' . $object->id);
-      return redirect()->action('CampaignController@teammember', ['id' => $object->token]);
-  }
+        Session::flash('flash_message', 'You have successfully joined the team!');
+        Log::info('CampaignController.store - End: ' . $object->id);
+        return redirect()->action('CampaignController@teammember', ['id' => $object->token]);
+    }
 
-  public function createTeamStore(TeamRequest $request)
-  {
-      Log::info('CampaignController.createTeamStore - Start: ');
-      $input = $request->all();
-      $user = Auth::user();
+    public function createTeamStore(TeamRequest $request)
+    {
+        Log::info('CampaignController.createTeamStore - Start: ');
+        $input = $request->all();
+        $user = Auth::user();
 
-      do {
-        $teamToken = str_random(15);
+        do {
+            $teamToken = str_random(15);
 
-        $tokenCheck = DB::table('teams')
-                      ->select(DB::raw('count(*) as count'))
-                      ->where('teams.token', '=', $teamToken)
-                      ->first();
-      } while ($tokenCheck->count > 0);
+            $tokenCheck = DB::table('teams')
+                ->select(DB::raw('count(*) as count'))
+                ->where('teams.token', '=', $teamToken)
+                ->first();
+        } while ($tokenCheck->count > 0);
 
-      $input['token'] = $teamToken;
+        $input['token'] = $teamToken;
 
-      if ($user) {
-          $input['user_id'] = $user->id;
-      }
-      $this->populateCreateFields($input);
+        if ($user) {
+            $input['user_id'] = $user->id;
+        }
+        $this->populateCreateFields($input);
 
-      $object = Team::create($input);
+        $object = Team::create($input);
 
-      Session::flash('flash_message', 'Your team has been created successfully!');
-      Log::info('CampaignController.store - End: ' . $object->id);
-      return redirect()->action('CampaignController@team', ['id' => $object->token]);
-  }
-  
-  public function active()
-  {
-		Log::info('CampaignController.active: ');
-		
-		$activecampaigns = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
-					//->where('active', '=','1')
-					//->whereBetween([campaigns.start_date, campaigns.end_date])
-					->get();
-		
-		
-		//$this->viewData['heading'] = "Active Campaigns";
-       return view('campaign.activecampaign',compact('activecampaigns'));
-		//return view('campaign.activecampaign', $this->viewData);
-  
-  }
+        Session::flash('flash_message', 'Your team has been created successfully!');
+        Log::info('CampaignController.store - End: ' . $object->id);
+        return redirect()->action('CampaignController@team', ['id' => $object->token]);
+    }
+
+    public function active()
+    {
+        Log::info('CampaignController.active: ');
+
+        $activecampaigns = DB::table('campaigns')
+            ->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
+            //->where('active', '=','1')
+            //->whereBetween([campaigns.start_date, campaigns.end_date])
+            ->get();
+
+
+        //$this->viewData['heading'] = "Active Campaigns";
+        return view('campaign.activecampaign', compact('activecampaigns'));
+        //return view('campaign.activecampaign', $this->viewData);
+
+    }
+
+    public function sendmail(SolicitationRequest $request)
+    {
+
+        $data = array(
+            'teamname' => $request->teamname,
+            'email' => $request->email,
+            'user_message' => $request->user_message,
+            'url' => $request->url,
+            'token' => $request->token,
+            'id' => $request->id,
+            'user' => Auth::user(),
+            'firstname' => Auth::user()->first_name,
+            'lastname' => Auth::user()->last_name
+        );
+        $to=explode(',',$request->email);
+       // dd(Auth::user()->last_name);
+        foreach($to as $receipt)
+        {
+           // print $receipt;
+            Mail::send('campaign.solicitationform', $data, function ($message) use ($receipt,$request) {
+                $message->from('juniorachievement.midlands@gmail.com');
+                $message->bcc($receipt, 'Junior Achievement of Midlands, Inc')->subject('Family and Friends with Junior Achievement');;
+                //$message->to($receipt,'AJ')->subject('Family and Friends with Junior Achievement');
+            });
+        }
+
+        \Session::flash('flash_message', 'Your solicitation request has been sent successfully!');
+        return redirect()->action('CampaignController@team', ['id' =>$request->token]);
+    }
 }
 
