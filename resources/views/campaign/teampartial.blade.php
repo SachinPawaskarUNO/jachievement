@@ -55,7 +55,7 @@
 </div>
 
 @if ($action == 'join')
-{!! Form::hidden('team_id', $teamId) !!}
+{!! Form::hidden('team_id', $teamInfo->id) !!}
 @else
 {!! Form::hidden('campaign_id', $campaignId) !!}
 @endif

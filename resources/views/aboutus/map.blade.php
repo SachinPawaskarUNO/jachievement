@@ -22,7 +22,7 @@
 <body style="background-color: rgba(140,198,62,0.85)">
 <div class="container">
     <h1 style="color:white">Get Involved with Junior Achievement!</h1>
-    <p style="color:white">If you would like to volunteer, request a program, or volunteer with JA,
+    <p style="color:white">If you would like to volunteer, request a program, or volunteer with Junior Achievement,
         please reach out to a school near you!</p>
 </div>
 

@@ -82,5 +82,32 @@ class Controller extends BaseController
         }
     }
 
+    public function getLoginUserEmail()
+    {
+        if (Auth::check()) {
+            return Auth::user()->email;
+        } else {
+            return null; // by default return Administrator user id.
+        }
+    }
+
+    public function getLoginUserFirst()
+    {
+        if (Auth::check()) {
+            return Auth::user()->first_name;
+        } else {
+            return null; // by default return Administrator user id.
+        }
+    }
+
+    public function getLoginUserLast()
+    {
+        if (Auth::check()) {
+            return Auth::user()->last_name;
+        } else {
+            return 1; // by default return Administrator user id.
+        }
+    }
+
 
 }

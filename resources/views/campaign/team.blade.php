@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+    <script type="text/javascript" src="{{ URL::asset('js/goalProgress.js') }}"></script> 
+    <link rel="stylesheet" href="{{ URL::asset('css/goalProgress.css') }}" />
     <style> 
         .fa_custom {
             color: #9ACD40;
@@ -136,22 +138,46 @@
     </style>
     <div class="container-fluid">
         <div class="container">
-            <div class="col-md-9" >
+            <div class="col-md-12" >
                 <br>
                 @include('common.errors')
                 @include('common.flash')
+
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#raised').goalProgress({
+                            goalAmount: totalGoal,
+                            currentAmount: raised,
+                            textBefore: '$ ',
+                            textAfter: ' raised'
+                        });
+                    });
+                </script>
+
+                <div class="form-group">
+                    <h3>Team {{$team->name}} Progress </h3>
+                    <div id="raised"></div>
+                </div>
+
+                <div align="center">
+                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/beautiful_team.jpg') }} "
+                         width="600">
+                </div>
+                <br>
+
                 <div class="panel panel-default">
                     <h2 class="team-title text-center" id = "member_title">{{$team->title}}</h2>
                     <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
                     <p class="team-description">{{$team->content}}</p>
                 </div>
+
                 <br>
                 <br>
                 <div class="closing-buttons" align="center" id="button-donate">
                     @if($data['button_show'] == 'true')
-                        <a class="btn btn-lg btn-success" href="{{ action('CampaignController@joinTeam', [$team->id]) }}" id="member_join">Join Our Team</a>
+                        <a class="btn btn-lg btn-success" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join Our Team</a>
                     @else
-                        <a class="btn btn-lg btn-success" disabled="disabled" href="{{ action('CampaignController@joinTeam', [$team->id]) }}" id="member_join">Join Our Team</a>
+                        <a class="btn btn-lg btn-success" disabled="disabled" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join Our Team</a>
                     @endif
 
                     <a class="btn btn-lg btn-success" href="{{ url('/donation/donate')}}" id="member_donate">Donate to our goal</a>
@@ -172,7 +198,7 @@
                             <tbody> <!-- Table Body -->
                             @foreach ($teamMembers as $teamMember)
                                 <tr>
-                                    <td class="table-text"><div><a href="{{action('CampaignController@teammember', [$teamMember->token])}}">{{ $teamMember->name }}</a></div></td>
+                                    <td class="table-text"><div><a href="{{action('CampaignController@teammember', [$teamMember->token])}}">{{ $teamMember->first_name }} {{ str_limit($teamMember->last_name, $limit = 1, $end = '.')}}</a></div></td>
                                     <td class="table-text">
                                         <div>
                                             @if($teamMember->goal != null)
@@ -205,7 +231,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3" >
+{{--            <div class="col-md-3" >
                 <br>
                 <br>
                 <br>
@@ -224,7 +250,7 @@
                         </span>
                     </div>
                 </div>
-            </div>
+            </div>--}}
         </div>
     </div>
 @endsection

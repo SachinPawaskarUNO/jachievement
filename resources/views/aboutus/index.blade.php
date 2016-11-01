@@ -19,7 +19,7 @@
         cursor: pointer;
     }
 </style>
-<div align="right"><a href= "{{ url('/aboutus/map') }}" class="button">Local Schools with JA</a></div>
+<div align="right"><a href= "{{ url('/aboutus/map') }}" class="button">Local Schools with Junior Achievement</a></div>
 </div>
 <body>
 
@@ -27,14 +27,14 @@
     <div class="container">
         <div class="row">
             <br>
-            <h3 class="text-center" style="font-family:'Arial Black'">JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h3>
+            <h3 class="text-center" style="font-family: 'Arial Black'">JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h3>
             <br>
             <div class="col-md-6">
                 <img class="img-responsive" alt="JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES" src="http://lyderis.eu/wp-content/uploads/2011/05/junior-achievement.jpg" width="100%" height="auto">
             </div>
             <div class="col-md-6">
                 <br>
-                <p class="lead" style="font-size:x-large;font-family: bold;">Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</p>
+                <p style="font-size: 16px">Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</p>
                 <br>
                 <p style="font-size: 16px">Diversity Statement: Junior Achievement is the recognized leader in "empowering young people to own their economic success®" through volunteer-led, experiential learning. We are dedicated to providing a positive, enriching learning experience free of bias. Junior Achievement welcomes K-12 students, volunteers and potential staff regardless of race, religion, age, gender, national origin, disability, sexual orientation or any other legally protected characteristic.</p>
                 <br>
@@ -49,12 +49,12 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8" style="align-content: center; color:green">
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the boundless potential of young people</p>
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Commitment to the principles of market-based economics and entrepreneurship</p>
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Passion for what we do and honesty, integrity, and excellence in how we do it</p>
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Respect for the talents, creativity, perspectives, and backgrounds of all individuals</p>
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the power of partnership and collaboration</p>
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Conviction in the educational and motivational impact of relevant, hands-on learning</p>
+                <p style="font-family: 'Arial Black'; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the boundless potential of young people</p>
+                <p style="font-family: 'Arial Black';  text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Commitment to the principles of market-based economics and entrepreneurship</p>
+                <p style="font-family: 'Arial Black';  text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Passion for what we do and honesty, integrity, and excellence in how we do it</p>
+                <p style="font-family: 'Arial Black';  text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Respect for the talents, creativity, perspectives, and backgrounds of all individuals</p>
+                <p style="font-family: 'Arial Black';  text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the power of partnership and collaboration</p>
+                <p style="font-family: 'Arial Black';  text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Conviction in the educational and motivational impact of relevant, hands-on learning</p>
                 <br>
             </div>
             <div class="col-md-2"></div>
@@ -92,7 +92,7 @@
             <div class="col-sm-6">
                 <br>
                 <h4 class="text-center" style="font-family: 'Arial Black'">Program Reach</h4>
-                <p class="text-left">Junior Achievement USA reaches more than 4.6 million students per year in 201,444 classrooms and after-school locations. JA programs are taught by volunteers in inner cities, suburbs, and rural areas throughout the United States, by 112 Area Offices in all 50 states.</p>
+                <p class="text-left">Junior Achievement USA reaches more than 4.6 million students per year in 201,444 classrooms and after-school locations. Junior Achievement programs are taught by volunteers in inner cities, suburbs, and rural areas throughout the United States, by 112 Area Offices in all 50 states.</p>
             </div>
         </div>
 
@@ -100,13 +100,13 @@
             <div class="col-sm-6">
                 <br>
                 <h4 class="text-center" style="font-family: 'Arial Black'">A Brief History</h4>
-                <p class="text-left">Junior Achievement was founded in 1919 by Theodore Vail, president of American Telephone & Telegraph; Horace Moses, president of Strathmore Paper Co.; and Senator Murray Crane of Massachusetts. Its first program, JA Company Program®, was offered to high school students on an after-school basis. In 1975, the organization entered the classroom with the introduction of Project Business for the middle grades. Over the last 39 years, Junior Achievement has expanded its activities and broadened its scope to include in-school and after-school students.</p>
+                <p class="text-left">Junior Achievement was founded in 1919 by Theodore Vail, president of American Telephone & Telegraph; Horace Moses, president of Strathmore Paper Co.; and Senator Murray Crane of Massachusetts. Its first program, Junior Achievement Company Program®, was offered to high school students on an after-school basis. In 1975, the organization entered the classroom with the introduction of Project Business for the middle grades. Over the last 39 years, Junior Achievement has expanded its activities and broadened its scope to include in-school and after-school students.</p>
             </div>
 
             <div class="col-sm-6">
                 <br>
                 <h4 class="text-center" style="font-family: 'Arial Black'">Leadership</h4>
-                <p class="text-left">Ms. Julie Monaco, Global Head of Citi's Public Sector Group in the Corporate and Investment Banking division of Citi's Institutional Clients Group, is chairwoman of the Junior Achievement USA board of directors. Jack E. Kosakowski is the president and chief executive officer of Junior Achievement. Junior Achievement USA board members represent a wide range of businesses and academic institutions around the world. In addition, approximately 4,400 board members lead JA Area Offices around the United States.</p>
+                <p class="text-left">Ms. Julie Monaco, Global Head of Citi's Public Sector Group in the Corporate and Investment Banking division of Citi's Institutional Clients Group, is chairwoman of the Junior Achievement USA board of directors. Jack E. Kosakowski is the president and chief executive officer of Junior Achievement. Junior Achievement USA board members represent a wide range of businesses and academic institutions around the world. In addition, approximately 4,400 board members lead Junior Achievement Area Offices around the United States.</p>
             </div>
         </div>
 

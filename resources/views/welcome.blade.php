@@ -19,7 +19,7 @@
   <div class="container">
     <div class="text-center">
       <div class="panel panel-default">
-        <p id="P_1">JA's volunteer-delivered, kindergarten-12th
+        <p id="P_1">Junior Achievement's volunteer-delivered, kindergarten-12th
                     grade programs foster <strong id="STRONG_2">work-readiness,
                     entrepreneurship</strong> and <strong id=
                     "STRONG_3">financial literacy skills,</strong> and use
@@ -34,9 +34,9 @@
     <div class="row" id="WHY_1">
       <div class="col-md-6" id="WHY_2">
         <h2 id="H2_6">Why Junior Achievement?</h2>
-        <p id="P_7">JA helps students realize that the
+        <p id="P_7">Junior Achievement helps students realize that the
                         education they are getting today will help them to have
-                        a bright future tomorrow. JA's unique, volunteer
+                        a bright future tomorrow. Junior Achievement's unique, volunteer
                         delivered programs, show them all of the possibilities
                         that lay before them. They realize they can choose
                         different paths; College? A specific trade? Start their

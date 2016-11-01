@@ -12,9 +12,10 @@ use App\Team;
 use App\User;
 use Log;
 use DB;
-
+use JavaScript;
 use Auth;
 use Session;
+use URL;
 
 class CampaignController extends Controller
 {
@@ -25,6 +26,7 @@ class CampaignController extends Controller
       //$teamMember = TeamMember::findOrFail($id);
       $teamMember = TeamMember::where('token','=',$id)->firstOrFail();
       $team_id = $teamMember->team_id;
+      $team = Team::where('id', '=', $team_id)->firstOrFail();
 
       $user = Auth::user();
       $data['link_show']='';
@@ -56,35 +58,46 @@ class CampaignController extends Controller
           ->select(DB::raw('sum(donations.amount) as donation_amount'))
           ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
           ->where('team_members.id', '=' ,$teamMember->id)
-          ->get();
+          ->first();
 
       $teamMembers= DB::table('team_members')
-          ->select('users.name', 'team_members.goal', 'team_members.id', DB::raw(
+          ->select('users.first_name', 'users.last_name', 'team_members.goal', 'team_members.id', 'team_members.token', DB::raw(
               'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
           ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
           ->join('users', 'team_members.user_id', '=', 'users.id')
           ->where('team_members.team_id', '=', $team_id)
-          ->groupBy('users.name', 'team_members.goal', 'team_members.id')
+          ->groupBy('users.last_name', 'users.first_name', 'team_members.goal', 'team_members.id', 'team_members.token')
           ->orderBy('per_raised')
           ->get();
 
-      return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation','data'));
+      JavaScript::put([
+          'memberRaised' => ($teammemberDonation->donation_amount == null ? 0 : $teammemberDonation->donation_amount),
+          'memberGoal' => $teamMember->goal
+      ]);
+
+      return view('campaign.teammember', compact('teamMember','teamMembers','teammemberDonation','data','team'));
       
   }
 
 
-  public function joinTeam($teamId)
+  public function joinTeam($teamToken)
   {
       Log::info('CampaignController.joinTeam: ');
-      $data['teamId'] = $teamId;
+
+      if (Auth::guest()){
+        Session::flash('warn_flash_message', 'Account Required: Before joining a team, please login or register.');
+        return redirect()->guest('login');
+      }
+
+      $data['team_token'] = $teamToken;
       $data['action'] = 'join';
       $data['heading'] = 'Join a Campaign Team';
 
       $teamInfo = DB::table('teams')
                   ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
                   ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
-                  ->select('teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
-                  ->where('teams.id', '=', $data['teamId'])
+                  ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
+                  ->where('teams.token', '=', $teamToken)
                   ->first();
 
       $data['teamInfo'] = $teamInfo;
@@ -96,6 +109,12 @@ class CampaignController extends Controller
   public function createTeam($campaignId)
   {
       Log::info('CampaignController.createTeam: ');
+
+      if (Auth::guest()){
+        Session::flash('warn_flash_message', 'Account Required: Before creating a team, please login or register.');
+        return redirect()->guest('login');
+      }
+
       $data['campaignId'] = $campaignId;
       $data['action'] = 'create';
       $data['heading'] = 'Create a Campaign Team';
@@ -153,20 +172,23 @@ class CampaignController extends Controller
 
         $teamDonation = DB::table('donations')
             ->select(DB::raw('sum(donations.amount) as donation_amount'))
-            ->join('teams', 'donations.team_id', '=', 'teams.id')
-            ->where('teams.id', '=' ,$team->id)
-            ->get();
+            ->where('donations.team_id', '=' ,$team->id)
+            ->first();
 
         $teamMembers= DB::table('team_members')
-            ->select('users.name', 'team_members.goal', 'team_members.id', DB::raw(
+            ->select('users.first_name', 'users.last_name', 'team_members.goal', 'team_members.id', 'team_members.token', DB::raw(
                 'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
             ->leftJoin('donations', 'team_members.id', '=', 'donations.team_member_id')
             ->join('users', 'team_members.user_id', '=', 'users.id')
             ->where('team_members.team_id', '=', $team->id)
-            ->groupBy('users.name', 'team_members.goal', 'team_members.id')
+            ->groupBy('users.last_name', 'users.first_name', 'team_members.goal', 'team_members.id', 'team_members.token')
             ->orderBy('per_raised')
             ->get();
 
+        JavaScript::put([
+            'raised' => ($teamDonation->donation_amount == null ? 0 : $teamDonation->donation_amount),
+            'totalGoal' => $team->goal
+        ]);
 
         return view('campaign.team', compact('teamMembers','team','teamDonation','data'));
 

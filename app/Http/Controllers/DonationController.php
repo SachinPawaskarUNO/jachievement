@@ -56,8 +56,10 @@ class DonationController extends Controller
         if (isset($_GET["token"]) && isset($_GET["PayerID"])) {
           Session::flash('flash_message', 'Thank you for your donation');
         }
-
-        return view('donation.donate', compact('states','donors'));
+        $user_first = $this->getLoginUserFirst();
+        $user_last = $this->getLoginUserLast();
+        $user_email = $this->getLoginUserEmail();
+        return view('donation.donate', compact('states','donors','user_first','user_last','user_email'));
     }
     public function store(DonationRequest $request)
     {
