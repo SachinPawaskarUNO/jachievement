@@ -37,7 +37,7 @@
                 {!! Form::label('lb_1','$26',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', null, ['id'=> 'amount6','class' => 'col-md-6 form-control']) !!}
+                {!! Form::radio('amount', null, ['id'=> 'amount5','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','Other:',['class' => 'btn']) !!}
                 {!! Form::text('amount_actual', null, ['id'=> 'amount_actual','class' => 'form-control', 'maxLength' => 7]) !!}
             </div>
