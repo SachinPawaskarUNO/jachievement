@@ -283,7 +283,7 @@
                     </div>
                 </div>
                 <br>
-                <h4><u>Current Team Members in {{$team->name}}</u></h4>
+                <h4><u>Current Team Members in team - {{$team->name}}</u></h4>
                 <div align="center">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
