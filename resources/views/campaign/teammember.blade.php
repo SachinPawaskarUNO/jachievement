@@ -167,18 +167,9 @@
 
                 <div class="panel panel-default">
                     <div class="row">
-                        <div class="col-md-4">
-                            <br>
-                            <div align="center">
-                                <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/person.png') }}">
-                            </div>
-                            <br>
-                        </div>
-                        <div class="col-md-8">
-                            <h2 class="team-title text-center" id = "member_title">{{$teamMember->title}}</h2>
-                            <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
-                            <p class="team-description">{{$teamMember->content}}</p>
-                        </div>
+                        <h2 class="team-title text-center" id = "member_title">{{$teamMember->title}}</h2>
+                        <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
+                        <p class="team-description">{{$teamMember->content}}</p>
                     </div>
                 </div>
 
