@@ -111,7 +111,7 @@
                             <a class="button" onclick="$('#target2').toggle();">
                                 <i class="fa fa-book"></i>
                             </a>
-                            <br><p id="target2">JA’s elementary school programs are the foundation of its K-12 curricula. Six sequential themes, each with five hands-on activities, as well as an after-school and capstone experience, work to change students’ lives by helping them understand business and economics.</p><br>
+                            <br><p id="target2">Junior Achievement’s elementary school programs are the foundation of its K-12 curricula. Six sequential themes, each with five hands-on activities, as well as an after-school and capstone experience, work to change students’ lives by helping them understand business and economics.</p><br>
 
 
                             <div id="programs" class="row ja-anchor" style="padding-bottom:15px;padding-top:15px;border-top:solid #ccc 1px">
