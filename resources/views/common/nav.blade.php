@@ -21,7 +21,7 @@
                 <li class="dropdown">
                         <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Us<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                            <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}"><i class="fa fa-btn fa-fw fa-child"></i>Purpose</a></li>
+                            <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}"><i class="fa fa-btn fa-fw fa-child"></i>Mission</a></li>
                             <li><a id="ja_nav_map" href="{{ url('/aboutus/map') }}"><i class="fa fa-btn fa-fw fa-map-o"></i>Schools Map</a></li>
                             <li><a id="ja_nav_programs" href="{{ url('/programs/index') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>Programs</a></li>
                             <li><a id="ja_nav_faq" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
