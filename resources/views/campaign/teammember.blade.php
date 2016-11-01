@@ -10,7 +10,7 @@
             font-size: 3.5em;
         }
         .team-description {
-            font-family: "Calibri Light";
+            font-family: Helvetica;
             font-size: 20px;
             font-weight: 500;
             color: #1a1a1a;
