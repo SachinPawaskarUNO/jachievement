@@ -50,7 +50,7 @@
         <input type="range" id="fundraisingGoalRange" min="0" max="10000" step="50" value="500" onChange="changeGoalText()">
     </div>
     <div class="col-md-3">
-        {!! Form::number('goal', 500, ['step' => '50', 'min' => '0', 'id' => 'goal', 'class' => 'col-md-3 form-control', 'required' => 'required', 'onChange' => 'changeGoalSlider()']) !!}
+        {!! Form::text('formatGoal', '$500.00', ['id' => 'formatGoal', 'class' => 'col-md-3 form-control', 'required' => 'required', 'onChange' => 'changeGoalSlider()', 'data-prefix' => '$']) !!}
     </div>
 </div>
 
@@ -59,13 +59,14 @@
 @else
 {!! Form::hidden('campaign_id', $campaignId) !!}
 @endif
+{!! Form::hidden('goal', '500.00', ['id' => 'goal']) !!}
 
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
             @if ($action == 'join')
-            {!! Form::button('<i class="fa fa-btn fa-user-plus"></i>Join Team', ['type' => 'submit','id' => 'joinTeam', 'class' => 'btn btn-success']) !!}
+            {!! Form::button('Join Team', ['type' => 'submit','id' => 'joinTeam', 'class' => 'btn btn-success']) !!}
             @else
-            {!! Form::button('<i class="fa fa-btn fa-users"></i>Create Team', ['type' => 'submit','id' => 'createTeam', 'class' => 'btn btn-success']) !!}
+            {!! Form::button('Create Team', ['type' => 'submit','id' => 'createTeam', 'class' => 'btn btn-success']) !!}
             @endif
             {!! Form::button('<i class="fa"></i>Cancel', ['type' => 'button','id' => 'cancel', 'class' => 'btn']) !!}
         </div>
