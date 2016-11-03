@@ -14,7 +14,7 @@
 		<div class="container" id="div-container">
 			<br>
             <br>
-            <h2 class="text-center" id="page heading" >ACTIVE CAMPAIGNS</h2>
+            <h2 class="text-center" id="page heading" >ACTIVE EVENTS</h2>
             <br>
             <br>
 			<div class="h-divider"></div>
