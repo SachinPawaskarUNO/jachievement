@@ -28,7 +28,7 @@ class TeamRequest extends Request
             'name' => 'required|max:100',
             'title' => 'required|max:100',
             'content' => 'required|max:4000',
-            'goal' => 'required|numeric',
+            'goal' => 'required|numeric|min:1',
             'campaign_id' => 'required'
             ];
 
