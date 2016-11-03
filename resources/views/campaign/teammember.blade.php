@@ -182,15 +182,13 @@
                         <a class="btn btn-lg btn-success" disabled="disabled" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join My Team</a>
                     @endif
                     <a class="btn btn-lg btn-success" href="{{ url('/donation/donate')}}" id="member_donate">Donate to my goal</a>
-                </div>
-                <div>
                     @if($data['link_show']=='show')
-                    <p class="text-center" id="solicitationLink"> <a href="{{ url('') }}">Click here to send solicitation link. </a> </p>
+                        <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal" href="#myModal1">Invite friends for donation </a>
                     @endif
                 </div>
                 <br>
                 <br>
-                <h4><u>Team Members in my team - {{$team->name}}</u></h4>
+                <h4><u>Team Members in my Team - {{$team->name}}</u></h4>
                 <div align="center">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">

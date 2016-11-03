@@ -184,10 +184,8 @@
                     @endif
 
                     <a class="btn btn-lg btn-success" href="{{ url('/donation/donate?team=' . $team->token)}}" id="member_donate">Donate to our goal</a>
-                </div>
-                <div>
                     @if($data['link_show']=='show')
-                        <p class="text-center" id="solicitationLink"> <a data-toggle="modal" href="#myModal1">Click here to send solicitation request. </a> </p>
+                        <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal" href="#myModal1">Invite friends for donation </a>
                     @endif
                 </div>
                 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
@@ -221,8 +219,8 @@
                                         {!! Form::text('email', null, ['id'=> 'email', 'class' => 'col-md-6 form-control', 'required' => 'required']) !!}
                                         @if ($errors->has('email'))
                                             <span class="help-block">
-                <strong>{{ $errors->first('email') }}</strong>
-            </span>
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                             </span>
                                         @endif
                                     </div>
                                 </div>
@@ -233,8 +231,8 @@
                                         {!! Form::textarea('user_message',$team->content, ['id'=> 'user_message', 'class' => 'col-md-6 form-control', 'required' => 'required', 'maxLength' => '1000']) !!}
                                         @if ($errors->has('user_message'))
                                             <span class="help-block">
-                <strong>{{ $errors->first('user_message') }}</strong>
-            </span>
+                                                <strong>{{ $errors->first('user_message') }}</strong>
+                                            </span>
                                         @endif
                                     </div>
                                 </div>
@@ -283,7 +281,8 @@
                     </div>
                 </div>
                 <br>
-                <h4><u>Current Team Members in team - {{$team->name}}</u></h4>
+                <br>
+                <h4><u>Current Team Members in Team - {{$team->name}}</u></h4>
                 <div align="center">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
