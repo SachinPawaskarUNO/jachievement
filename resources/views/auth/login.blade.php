@@ -52,7 +52,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button id="ja_loginsubmit" type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i>Login
+                                    <i class="fa fa-btn"></i>Login
                                 </button>
 
                                 <a id="ja_loginreset" class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
