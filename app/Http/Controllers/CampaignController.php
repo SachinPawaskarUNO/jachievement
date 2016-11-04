@@ -238,17 +238,23 @@ class CampaignController extends Controller
   {
 		Log::info('CampaignController.active: ');
 		
+		//$currentdate= date("d-m-Y");
+		
 		$activecampaigns = DB::table('campaigns')
 					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
 					//->where('active', '=','1')
-					//->whereBetween([campaigns.start_date, campaigns.end_date])
+					//->where('$currentdate','<=','campaigns.end_date])
+					//->where('campaigns.end_date', '>=', 'date(y-m-d)')
 					->get();
-		
+					
+		//whereColumn([
+                   // ['first_name', '=', 'last_name'],
+                   // ['updated_at', '>', 'created_at']
+                //])
 		
 		//$this->viewData['heading'] = "Active Campaigns";
        return view('campaign.activecampaign',compact('activecampaigns'));
 		//return view('campaign.activecampaign', $this->viewData);
-  
-  }
+  }	
 }
 
