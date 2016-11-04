@@ -37,7 +37,7 @@
                 {!! Form::label('lb_1','$26',['class' => 'btn']) !!}
             </div>
             <div class="form-group">
-                {!! Form::radio('amount', null, ['id'=> 'amount6','class' => 'col-md-6 form-control']) !!}
+                {!! Form::radio('amount', null, ['id'=> 'amount5','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','Other:',['class' => 'btn']) !!}
                 {!! Form::text('amount_actual', null, ['id'=> 'amount_actual','class' => 'form-control', 'maxLength' => 7]) !!}
             </div>
@@ -55,7 +55,7 @@
     {!! Form::label('first_name', 'First Name:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('first_name', null, ['id'=> 'firstName','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('first_name', $user_first, ['id'=> 'firstName','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('first_name'))
             <span class="help-block">
                     <strong>{{ $errors->first('firstName') }}</strong>
@@ -69,7 +69,7 @@
     {!! Form::label('last_name', 'Last Name:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('last_name', null, ['id'=> 'lastName','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('last_name', $user_last, ['id'=> 'lastName','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('last_name'))
             <span class="help-block">
                     <strong>{{ $errors->first('lastName') }}</strong>
@@ -136,7 +136,7 @@
     {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
     <span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('email', null, ['id'=> 'email','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('email', $user_email, ['id'=> 'email','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('email'))
             <span class="help-block">
                 <strong>{{ $errors->first('email') }}</strong></span>
@@ -147,12 +147,12 @@
 <div class="form-inline">
     <div class="col-md-7 col-md-offset-3">
         <div class="form-group">
-            {!! Form::checkbox('anonymous', 1, false, ['id'=> 'anonymous', 'class' => 'check_box' ]) !!}
-            {!! Form::label('I would like to have my donation to be anonymous') !!}
+            {!! Form::checkbox('anonymous', 1, false, ['id'=> 'anonymous', 'class' => '' ]) !!}
+            <label style="font-weight: normal !important;">I would like my donation to remain anonymous</label>
         </div>
     </div>
 </div>
-
+<br><br>
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
         {!! Form::button('<i></i>Donate', ['type' => 'submit','id' => 'save', 'class' => 'btn btn-success']) !!}

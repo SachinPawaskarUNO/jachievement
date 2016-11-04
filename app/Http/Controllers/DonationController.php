@@ -53,11 +53,112 @@ class DonationController extends Controller
             ->get();
 
 
-        if (isset($_GET["token"]) && isset($_GET["PayerID"])) {
-          Session::flash('flash_message', 'Thank you for your donation');
-        }
+        $teamString = "";
+        $teamId = null;
+        $teamToken = "";
+        if (isset($_GET["team"])) {
+          $teamIndividuals= DB::table('teams')
+            ->join('team_members','teams.id','=','team_members.team_id')
+            ->select(DB::raw('teams.name as teamname,teams.goal as teamgoal, teams.title as teamtitle,teams.token as teamtoken'))
+            ->where('teams.token', '=', $_GET["team"])
+            ->get();
 
-        return view('donation.donate', compact('states','donors'));
+          $team= DB::table('teams')
+            ->select(DB::raw('teams.id as teamid, teams.name as teamname'))
+            ->where('teams.token', '=', $_GET["team"])
+            ->first();
+          $teamString = " for " . $team->teamname;
+          $teamId = $team->teamid;
+          $teamToken = $_GET["team"];
+        }
+        $user_first = $this->getLoginUserFirst();
+        $user_last = $this->getLoginUserLast();
+        $user_email = $this->getLoginUserEmail();
+        return view('donation.donate', compact('states','donors','user_first','user_last','user_email', 'teamString','teamId', 'teamToken'));
+    }
+
+    public function thankyou()
+    {
+
+        Log::info('DonationController.form: ');
+
+        $defaultSelection = [''=>'Please Select'];
+
+        $states = State::lists('name', 'id')->toArray();
+        $states =  $defaultSelection + $states;
+        $donors= DB::table('donors')->take(10)
+            ->join('donations','donors.id','=','donations.donor_id')
+            ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, 
+                              donations.amount as amount, donations.anonymous as anonymous'))
+            ->where('donations.status','paid')
+            ->orderBy('donations.created_at', 'DESC')
+            ->get();
+
+
+        $teamString = "";
+        $teamId = null;
+        $teamToken = "";
+        if (isset($_GET["team"])) {
+          $teamIndividuals= DB::table('teams')
+            ->join('team_members','teams.id','=','team_members.team_id')
+            ->select(DB::raw('teams.name as teamname,teams.goal as teamgoal, teams.title as teamtitle,teams.token as teamtoken'))
+            ->where('teams.token', '=', $_GET["team"])
+            ->get();
+
+          $team= DB::table('teams')
+            ->select(DB::raw('teams.id as teamid, teams.name as teamname'))
+            ->where('teams.token', '=', $_GET["team"])
+            ->first();
+          $teamString = " for " . $team->teamname;
+          $teamId = $team->teamid;
+          $teamToken = $_GET["team"];
+        }
+        $user_first = $this->getLoginUserFirst();
+        $user_last = $this->getLoginUserLast();
+        $user_email = $this->getLoginUserEmail();
+        return view('donation.thankyou', compact('states','donors','user_first','user_last','user_email', 'teamString','teamId', 'teamToken'));
+    }
+
+        public function cancel()
+    {
+
+        Log::info('DonationController.form: ');
+
+        $defaultSelection = [''=>'Please Select'];
+
+        $states = State::lists('name', 'id')->toArray();
+        $states =  $defaultSelection + $states;
+        $donors= DB::table('donors')->take(10)
+            ->join('donations','donors.id','=','donations.donor_id')
+            ->select(DB::raw('left(donors.last_name,1) as lastname, donors.first_name as firstname, 
+                              donations.amount as amount, donations.anonymous as anonymous'))
+            ->where('donations.status','paid')
+            ->orderBy('donations.created_at', 'DESC')
+            ->get();
+
+
+        $teamString = "";
+        $teamId = null;
+        $teamToken = "";
+        if (isset($_GET["team"])) {
+          $teamIndividuals= DB::table('teams')
+            ->join('team_members','teams.id','=','team_members.team_id')
+            ->select(DB::raw('teams.name as teamname,teams.goal as teamgoal, teams.title as teamtitle,teams.token as teamtoken'))
+            ->where('teams.token', '=', $_GET["team"])
+            ->get();
+
+          $team= DB::table('teams')
+            ->select(DB::raw('teams.id as teamid, teams.name as teamname'))
+            ->where('teams.token', '=', $_GET["team"])
+            ->first();
+          $teamString = " for " . $team->teamname;
+          $teamId = $team->teamid;
+          $teamToken = $_GET["team"];
+        }
+        $user_first = $this->getLoginUserFirst();
+        $user_last = $this->getLoginUserLast();
+        $user_email = $this->getLoginUserEmail();
+        return view('donation.cancel', compact('states','donors','user_first','user_last','user_email', 'teamString','teamId', 'teamToken'));
     }
     public function store(DonationRequest $request)
     {
@@ -82,6 +183,7 @@ class DonationController extends Controller
         $amount = preg_replace("/[^0-9\.]/", "", $amount);
 
         $donation->amount = $amount;
+        //$donation->team_id = $teamId;
         if (Input::get('anonymous') == 1) {
             $donation->anonymous = 'yes';
         }
@@ -94,8 +196,8 @@ class DonationController extends Controller
         $floatAmount = floatval(str_replace(',', '', $amount));
 
         $params = array( 
-            'cancelUrl' => 'http://jachievement.herokuapp.com/donation/donate', 
-            'returnUrl' => 'http://jachievement.herokuapp.com/donation/donate', 
+            'cancelUrl' => url('donation/cancel'), 
+            'returnUrl' => url('donation/thankyou'), 
             'amount' => $floatAmount
         );
 

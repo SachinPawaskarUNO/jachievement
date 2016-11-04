@@ -27,14 +27,14 @@
     <div class="container">
         <div class="row">
             <br>
-            <h3 class="text-center" style="font-family:'Arial Black'">JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h3>
+            <h3 class="text-center" style="font-family: 'Arial Black'">JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h3>
             <br>
             <div class="col-md-6">
                 <img class="img-responsive" alt="JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES" src="http://lyderis.eu/wp-content/uploads/2011/05/junior-achievement.jpg" width="100%" height="auto">
             </div>
             <div class="col-md-6">
                 <br>
-                <p class="lead" style="font-size:x-large;font-family: bold;">Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</p>
+                <p style="font-size: 16px">Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</p>
                 <br>
                 <p style="font-size: 16px">Diversity Statement: Junior Achievement is the recognized leader in "empowering young people to own their economic success®" through volunteer-led, experiential learning. We are dedicated to providing a positive, enriching learning experience free of bias. Junior Achievement welcomes K-12 students, volunteers and potential staff regardless of race, religion, age, gender, national origin, disability, sexual orientation or any other legally protected characteristic.</p>
                 <br>
@@ -49,12 +49,12 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8" style="align-content: center; color:green">
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the boundless potential of young people</p>
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Commitment to the principles of market-based economics and entrepreneurship</p>
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Passion for what we do and honesty, integrity, and excellence in how we do it</p>
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Respect for the talents, creativity, perspectives, and backgrounds of all individuals</p>
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the power of partnership and collaboration</p>
-                <p style="font-size:16px; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Conviction in the educational and motivational impact of relevant, hands-on learning</p>
+                <p style="font-family: 'Arial Black'; text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the boundless potential of young people</p>
+                <p style="font-family: 'Arial Black';  text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Commitment to the principles of market-based economics and entrepreneurship</p>
+                <p style="font-family: 'Arial Black';  text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Passion for what we do and honesty, integrity, and excellence in how we do it</p>
+                <p style="font-family: 'Arial Black';  text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Respect for the talents, creativity, perspectives, and backgrounds of all individuals</p>
+                <p style="font-family: 'Arial Black';  text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Belief in the power of partnership and collaboration</p>
+                <p style="font-family: 'Arial Black';  text-align: center;"><span class="glyphicon glyphicon-star-empty"></span> Conviction in the educational and motivational impact of relevant, hands-on learning</p>
                 <br>
             </div>
             <div class="col-md-2"></div>

@@ -34,26 +34,26 @@
                 </div>
                 <div class="col-md-6"  ID="7">
                 
-                <p style="font-size: 16px"  ID="8"> JA brings quality volunteers from the community into your classroom to deliver proven, hands-on programming on financial literacy, work readiness, and entrepreneurship that inspires students to understand the opportunities provided by education.</p>
+                <p style="font-size: 16px"  ID="8"> Junior Achievement brings quality volunteers from the community into your classroom to deliver proven, hands-on programming on financial literacy, work readiness, and entrepreneurship that inspires students to understand the opportunities provided by education.</p>
                 <br>
                 <div>
                 <div class="col-md-1"><span class="glyphicon glyphicon-education"  ID="9"></span> </div>
                 <div class="col-md-11"  ID="10"><h4>IMPORTANCE OF STAYING IN SCHOOL</h4>
-                <p style="font-size:16px"  > JA reinforces the value of an education. Evaluations conducted by an independent research firm showed that an average of eight out of 10 high school students reported that JA programs helped reinforce the importance of staying in school. In longitudinal studies, JA students were significantly more likely than their peers to believe that they would graduate from high school, pursue post-secondary education and graduate from college.</p>
+                <p style="font-size:16px"  > Junior Achievement reinforces the value of an education. Evaluations conducted by an independent research firm showed that an average of eight out of 10 high school students reported that Junior Achievement programs helped reinforce the importance of staying in school. In longitudinal studies, Junior Achievement students were significantly more likely than their peers to believe that they would graduate from high school, pursue post-secondary education and graduate from college.</p>
                 <br></div>
                 </div>
 
                 <div>
                 <div class="col-md-1"  ID="12"><span class="glyphicon glyphicon-globe"   ID="13"></span> </div>
                 <div class="col-md-11"  ID="14"> <h4>PREPARATION FOR THE REAL WORLD</h4>
-                <p style="font-size: 16px"> Ninety-five percent of teachers report that students who participate in JA have a better understanding of how the real world operates, and nine out of 10 teachers and volunteers agree that JA programs connect what is learned in the classroom to the outside world.</p>
+                <p style="font-size: 16px"> Ninety-five percent of teachers report that students who participate in Junior Achievement have a better understanding of how the real world operates, and nine out of 10 teachers and volunteers agree that Junior Achievement programs connect what is learned in the classroom to the outside world.</p>
                 <br></div>
                 </div>
                 
                 <div>
                 <div class="col-md-1"  ID="15"><span class="glyphicon glyphicon-star-empty" ></span> </div>
                 <div class="col-md-11"  ID="16"> <h4>EDUCATOR-RESPECTED AND RECOMMENDED</h4>
-                <p style="font-size: 16px"  ID="17"> Ninety-six percent of teachers agreed or strongly agreed that they would recommend JA to a colleague or friend.</p>
+                <p style="font-size: 16px"  ID="17"> Ninety-six percent of teachers agreed or strongly agreed that they would recommend Junior Achievement to a colleague or friend.</p>
                 </div>
                 </div>
                 </div>

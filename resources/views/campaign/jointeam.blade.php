@@ -1,14 +1,31 @@
 @extends('layouts.app')
 
+@section('scripts')
+<script type="text/javascript">
+	$(function() {
+		$('#formatGoal').maskMoney();
+	})
+
+	function changeGoalSlider(){
+		var goalText = $('#formatGoal').maskMoney('unmasked')[0];
+
+		document.getElementById("fundraisingGoalRange").value = goalText;
+		$('#goal').val(goalText);
+	}
+
+	function changeGoalText(){
+		var goalSlider = document.getElementById("fundraisingGoalRange").value;
+
+		$('#formatGoal').val(goalSlider + '.00').maskMoney('mask','1,999.99');
+		$('#goal').val(goalSlider);
+	}
+</script>
+@endsection
+
 @section('content')
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			@if (!Auth::check())
-			<div class="alert alert-warning">
-				<strong>Account Required:</strong> Before joining a team, please <a id="loginLink" href="/login">login</a> or <a id="registerLink" href="/register">register</a>
-			</div>
-			@else
 			<div class="panel panel-default">
 				<div class="panel-heading" style="background-color:#5cb85c !important;"> <span style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></span></div>
 
@@ -25,24 +42,7 @@
 
 				</div>
 			</div>
-			@endif
 		</div>
 	</div>
 </div>
-@endsection
-@section('scripts')
-<script type="text/javascript">
-	function changeGoalSlider(){
-		var goalText = document.getElementById("goal").value;
-
-		document.getElementById("fundraisingGoalRange").value = goalText;
-	}
-
-	function changeGoalText(){
-		var goalSlider = document.getElementById("fundraisingGoalRange").value;
-
-		document.getElementById("goal").value = goalSlider;
-
-	}
-</script>
 @endsection

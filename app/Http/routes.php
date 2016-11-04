@@ -75,13 +75,18 @@ Route::get('/donation/donate', 'DonationController@donationform');
 Route::post('/donation/donate', 'DonationController@store');
 Route::get('/donation/notification', 'DonateController@notification');
 
+Route::get('/donation/thankyou', 'DonationController@thankyou');
+Route::get('/donation/cancel', 'DonationController@cancel');
+
 Route::get('/campaign/team/join/{teamId}', 'CampaignController@joinTeam');
 Route::post('/campaign/team/join', 'CampaignController@joinTeamStore');
+Route::post('/campaign/team', 'CampaignController@sendmail');
 
 Route::get('/campaign/team/create/{campaignId}', 'CampaignController@createTeam');
 Route::post('/campaign/team/create', 'CampaignController@createTeamStore');
 
 Route::get('/campaign/activecampaign', 'CampaignController@active');
+Route::get('/campaign/team/view', 'CampaignController@teamview');
 
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 

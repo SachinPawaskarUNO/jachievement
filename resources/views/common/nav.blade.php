@@ -21,27 +21,27 @@
                 <li class="dropdown">
                         <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Us<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                            <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}"><i class="fa fa-btn fa-fw fa-child"></i>Purpose</a></li>
-                            <li><a id="ja_nav_map" href="{{ url('/aboutus/map') }}"><i class="fa fa-btn fa-fw fa-map-o"></i>Schools Map</a></li>
-                            <li><a id="ja_nav_programs" href="{{ url('/programs/index') }}"><i class="fa fa-btn fa-fw fa-graduation-cap"></i>JA Programs</a></li>
-                            <li><a id="ja_nav_faq" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-question-circle"></i>FAQS</a></li>
-                            <li><a id="ja_nav_goingon" href="{{ url('/') }}"><i class="fa fa-btn fa-fw fa-calendar-minus-o"></i>What's going on?</a></li>
+                            <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}"><i class="fa fa-btn"></i>Purpose</a></li>
+                            <li><a id="ja_nav_map" href="{{ url('/aboutus/map') }}"><i class="fa fa-btn"></i>Schools Map</a></li>
+                            <li><a id="ja_nav_programs" href="{{ url('/programs/index') }}"><i class="fa fa-btn"></i>Programs</a></li>
+                            <li><a id="ja_nav_faq" href="{{ url('/') }}"><i class="fa fa-btn"></i>FAQS</a></li>
+                            <li><a id="ja_nav_goingon" href="{{ url('/') }}"><i class="fa fa-btn"></i>What's going on?</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                         <a id="ja_nav_getinv" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Get Involved<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                            <li><a id="ja_nav_educator" href="{{ url('/educators/introduction') }}"><i class="fa fa-btn fa-fw fa-university"></i>Educator</a></li>
-                            <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/introduction') }}"><i class="fa fa-btn fa-fw fa-hand-paper-o"></i>Volunteer</a></li>
-                            <li><a id="ja_nav_contribute" href="{{ url('/contributors') }}"><i class="fa fa-btn fa-fw fa-money"></i>Donate</a></li>
-                            <li><a id="ja_nav_contribute" href="{{ url('/campaign/activecampaign') }}"><i class="fa fa-btn fa-fw fa-flag-o"></i>Campaigns</a></li>
+                            <li><a id="ja_nav_educator" href="{{ url('/educators/introduction') }}"><i class="fa fa-btn"></i>Educator</a></li>
+                            <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/introduction') }}"><i class="fa fa-btn"></i>Volunteer</a></li>
+                            <li><a id="ja_nav_contribute" href="{{ url('/contributors') }}"><i class="fa fa-btn"></i>Donate</a></li>
+                            <li><a id="ja_nav_contribute" href="{{ url('/campaign/activecampaign') }}"><i class="fa fa-btn"></i>Events</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                         <a id="ja_nav_getinv" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign Up<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                            <li><a id="ja_nav_educator" href="{{ url('/educators/interestform') }}"><i class="fa fa-btn fa-fw fa-university"></i>As An Educator</a></li>
-                            <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/interestform') }}"><i class="fa fa-btn fa-fw fa-hand-paper-o"></i>As A Volunteer</a></li>
+                            <li><a id="ja_nav_educator" href="{{ url('/educators/interestform') }}"><i class="fa fa-btn"></i>As An Educator</a></li>
+                            <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/interestform') }}"><i class="fa fa-btn"></i>As A Volunteer</a></li>
                     </ul>
                 </li>
                 <!--\\
@@ -68,13 +68,13 @@
                     <a href="#" id="ja_nav_getinv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <i class="fa fa-btn fa-fw fa-cogs"></i>Administration<span class="caret"></span></a>
                     <ul class="dropdown-menu multi level" role="menu">
-                        <li><a id="ja_nav_users" href="{{ url('/users') }}"><i class="fa fa-btn fa-fw fa-user"></i>Users</a></li>
-                        <li><a id="ja_nav_roles" href="{{ url('/roles') }}"><i class="fa fa-btn fa-fw fa-users"></i>Roles</a></li>
-                        <li><a id="ja_nav_educator_form" href="{{ url('/admin/educatorform') }}"><i class="fa fa-btn fa-fw fa-square"></i>Educator Forms</a></li>
-                        <li><a id="ja_nav_volunteer_form" href="{{ url('/admin/volunteerform') }}"><i class="fa fa-btn fa-fw fa-square"></i>Volunteer Forms</a></li>
-                        <li><a id="ja_reports_donation" href="{{ url('/reports/donation') }}"><i class="fa fa-btn fa-fw fa-square"></i>Donation Reports</a></li>
+                        <li><a id="ja_nav_users" href="{{ url('/users') }}"><i class="fa fa-btn"></i>Users</a></li>
+                        <li><a id="ja_nav_roles" href="{{ url('/roles') }}"><i class="fa fa-btn"></i>Roles</a></li>
+                        <li><a id="ja_nav_educator_form" href="{{ url('/admin/educatorform') }}"><i class="fa fa-btn"></i>Educator Forms</a></li>
+                        <li><a id="ja_nav_volunteer_form" href="{{ url('/admin/volunteerform') }}"><i class="fa fa-btn"></i>Volunteer Forms</a></li>
+                        <li><a id="ja_reports_donation" href="{{ url('/reports/donation') }}"><i class="fa fa-btn"></i>Donation Reports</a></li>
                         {{--<li class="divider"></li>--}}
-                        {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn fa-fw fa-file"></i>Files</a></li>--}}
+                        {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn"></i>Files</a></li>--}}
                     </ul>
                 </li>
                 @endrole
@@ -91,8 +91,9 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome, {{ Auth::user()->first_name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a id="ja_logout" href="{{ url('/logout') }}"><i class="fa fa-btn fa-fw fa-sign-out"></i>Logout</a></li>
-                            <li><a id="ja_changepw"href="{{ url('/change-password') }}"><i class="fa fa-btn fa-fw fa-lock"></i>Change Password</a></li>
+                            <li><a id="ja_logout" href="{{ url('/logout') }}"><i class="fa fa-btn"></i>Logout</a></li>
+                            <li><a id="ja_changepw"href="{{ url('/change-password') }}"><i class="fa fa-btn"></i>Change Password</a></li>
+                             <li><a id="ja_teamview" href="{{ url('/campaign/team/view') }}"><i class="fa fa-btn"></i>Team View</a></li>
                         </ul>
                     </li>
                 @endif

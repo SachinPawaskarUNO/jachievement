@@ -72,26 +72,26 @@
                 </div>
                 <div class="col-md-6"  ID="7">
 
-                    <p style="font-size: 16px"  ID="8"> Is your company looking to partner with an organization that makes a difference in the lives of youth in your community? Junior Achievement provides programs that are delivered to students in the classroom or in a simulated community (depending on the location). JA programs are developed with a focus on several different critically needed areas; STEM, building Leadership Skills, Uplifting At-Risk Communities, Work Readiness and Soft Skills, Business Ethics, College Readiness, Career and Technical Education (CTE), Industry Focus (Manufacturing/Health), and Financial Literacy.</p>
+                    <p style="font-size: 16px"  ID="8"> Is your company looking to partner with an organization that makes a difference in the lives of youth in your community? Junior Achievement provides programs that are delivered to students in the classroom or in a simulated community (depending on the location). Junior Achievement programs are developed with a focus on several different critically needed areas; STEM, building Leadership Skills, Uplifting At-Risk Communities, Work Readiness and Soft Skills, Business Ethics, College Readiness, Career and Technical Education (CTE), Industry Focus (Manufacturing/Health), and Financial Literacy.</p>
                     <br>
                     <div>
                         <div class="col-md-1"><span class="glyphicon glyphicon-gift"  ID="9"></span> </div>
-                        <div class="col-md-11"  ID="10"><h4>YOUR DONATION HELPS JA REACH STUDENTS</h4>
-                            <p style="font-size:16px"  > JA inspires and prepares young people to succeed in the global economy. By partnering with JA, you will empower young people to own their economic success.</p>
+                        <div class="col-md-11"  ID="10"><h4>YOUR DONATION HELPS JUNIOR ACHIEVEMENT REACH STUDENTS</h4>
+                            <p style="font-size:16px"  > Junior Achievement inspires and prepares young people to succeed in the global economy. By partnering with Junior Achievement, you will empower young people to own their economic success.</p>
                             <br></div>
                     </div>
 
                     <div>
                         <div class="col-md-1"  ID="12"><span class="glyphicon glyphicon-grain"   ID="13"></span> </div>
-                        <div class="col-md-11"  ID="14"> <h4>JA WILL HELP PREPARE YOUR FUTURE WORKFORCE</h4>
-                            <p style="font-size: 16px"> JA will help you develop leaders with the critical skills and the character necessary to succeed in your 21st century workplace.</p>
+                        <div class="col-md-11"  ID="14"> <h4>JUNIOR ACHIEVEMENT WILL HELP PREPARE YOUR FUTURE WORKFORCE</h4>
+                            <p style="font-size: 16px"> Junior Achievement will help you develop leaders with the critical skills and the character necessary to succeed in your 21st century workplace.</p>
                             <br></div>
                     </div>
 
                     <div>
                         <div class="col-md-1"  ID="15"><span class="glyphicon glyphicon-heart-empty" ></span> </div>
-                        <div class="col-md-11"  ID="16"> <h4>JA PROVIDES AN ENRICHING VOLUNTEER EXPERIENCE FOR YOUR EMPLOYEES</h4>
-                            <p style="font-size: 16px"  ID="17"> JA will empower your employees with quality, skills-based volunteering experiences in the community using proven programs that change young peoples' lives.</p>
+                        <div class="col-md-11"  ID="16"> <h4>JUNIOR ACHIEVEMENT PROVIDES AN ENRICHING VOLUNTEER EXPERIENCE FOR YOUR EMPLOYEES</h4>
+                            <p style="font-size: 16px"  ID="17"> Junior Achievement will empower your employees with quality, skills-based volunteering experiences in the community using proven programs that change young peoples' lives.</p>
                         </div>
                     </div>
                 </div>
@@ -117,8 +117,8 @@
                             </div>
                             <h4 class="program-title" align="center"> Donate Directly</h4>
                             <br>
-                            <p class="program-description"> Every single dollar makes a difference. Donating to JA Omaha will help to continually evolve JA's enriching programs, or
-                                donating directly to a JA Omaha will help JA reach more students.</p>
+                            <p class="program-description"> Every single dollar makes a difference. Donating to Junior Achievement will help to continually evolve Junior Achievement's enriching programs, or
+                                donating directly to a Junior Achievement subsidiary will help Junior Achievement reach more students.</p>
                             <br>
                             <br>
                             <div class="closing-buttons" align="center" id="button-donate">
@@ -143,9 +143,9 @@
                                 <span class="fa fa-heart-o fa_custom fa-4x" data-animation="bounceIn"></span>
                             </p>
                             <br>
-                            <h4 class="program-title" align="center"> Donate through Campaigns</h4>
+                            <h4 class="program-title" align="center"> Donate through Events</h4>
                             <br>
-                            <p class="program-description"> For larger donations, you can be a part of the JA campaigns. Any person can create campaign and add team member
+                            <p class="program-description"> For larger donations, you can be a part of the Junior Achievement events. Any person can create events and add team member
                             <br>
                             <br>
                             </p>

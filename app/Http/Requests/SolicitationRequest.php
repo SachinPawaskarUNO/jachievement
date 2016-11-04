@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class TeamRequest extends Request
+class SolicitationRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,15 @@ class TeamRequest extends Request
     public function rules()
     {
         $rules = [
-            'organization_id' => 'required',
-            'name' => 'required|max:100',
-            'title' => 'required|max:100',
-            'content' => 'required|max:4000',
-            'goal' => 'required|numeric|min:1',
-            'campaign_id' => 'required'
-            ];
+            'teamname' => 'required',
+            //'email' => 'required|max:50|email',
+            //'phone_number' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
+            'message' => 'max:1000'
+        ];
+       /* foreach($this->request->get('email') as $key => $value)
+        {
+            $rules['email.'.$key] = 'required';
+        }*/
 
         return $rules;
     }

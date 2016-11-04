@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <style> 
+    <script type="text/javascript" src="{{ URL::asset('js/goalProgress.js') }}"></script> 
+    <link rel="stylesheet" href="{{ URL::asset('css/goalProgress.css') }}" />
+    <style>
         .fa_custom {
             color: #9ACD40;
         }
@@ -8,7 +10,7 @@
             font-size: 3.5em;
         }
         .team-description {
-            font-family: "Calibri Light";
+            font-family: Helvetica;
             font-size: 20px;
             font-weight: 500;
             color: #1a1a1a;
@@ -136,17 +138,43 @@
     </style>
     <div class="container-fluid">
         <div class="container">
-            <div class="col-md-9" >
+            <div class="col-md-12" >
                 <br>
                 @include('common.errors')
                 @include('common.flash')
-                <div class="panel panel-default">
-                    <h2 class="team-title text-center" id = "member_title">{{$teamMember->title}}</h2>
-                    <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
-                    <p class="team-description">{{$teamMember->content}}</p>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#raised').goalProgress({
+                            goalAmount: memberGoal,
+                            currentAmount: memberRaised,
+                            textBefore: '$ ',
+                            textAfter: ' raised'
+                        });
+                    });
+                </script>
+
+                <div class="form-group">
+                    <h3>{{$teamMember->first_name}} Page </h3>
+                    <div id="raised"></div>
+                </div>
+
+                <div align="center">
+                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/ice_person.jpg') }} "
+                         width="600">
                 </div>
                 <br>
+
+                <div class="panel panel-default">
+                    <div class="row">
+                        <h2 class="team-title text-center" id = "member_title">{{$teamMember->title}}</h2>
+                        <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
+                        <p class="team-description">{{$teamMember->content}}</p>
+                    </div>
+                </div>
+
                 <br>
+                <br>
+
                 <div class="closing-buttons" align="center" id="button-donate">
                     @if($data['button_show'] == 'true')
                         <a class="btn btn-lg btn-success" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join My Team</a>
@@ -154,18 +182,16 @@
                         <a class="btn btn-lg btn-success" disabled="disabled" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join My Team</a>
                     @endif
                     <a class="btn btn-lg btn-success" href="{{ url('/donation/donate')}}" id="member_donate">Donate to my goal</a>
-                </div>
-                <div>
                     @if($data['link_show']=='show')
-                    <p class="text-center" id="solicitationLink"> <a href="{{ url('') }}">Click here to send solicitation link. </a> </p>
+                        <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal" href="#myModal1">Invite friends for donation </a>
                     @endif
                 </div>
                 <br>
                 <br>
-                <h4><u>Team Members in my Team</u></h4>
+                <h4><u>Team Members in my Team - {{$team->name}}</u></h4>
                 <div align="center">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped cds-datatable">
+                        <table class="table table-bordered table-striped">
                             <thead>
                             <th>Name</th><th>Goal</th><th>Total Donated Amount</th><th>% Raised</th>
                             </thead>
@@ -204,26 +230,6 @@
                             @endforeach
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3" >
-                <br>
-                <br>
-                <br>
-                <div class="donation-meter">
-                    <strong>My Goal</strong>
-                    <strong class="goal">${{$teamMember->goal}}</strong>
-                     <span class="glass">
-                    <strong class="total" style="bottom: 30%">$100
-                    </strong>
-                    <span class="amount" style="height: 30%"></span>
-                    </span>
-                    <div class="bulb">
-                        <span class="red-circle"></span>
-                        <span class="filler">
-                        <span></span>
-                        </span>
                     </div>
                 </div>
             </div>
