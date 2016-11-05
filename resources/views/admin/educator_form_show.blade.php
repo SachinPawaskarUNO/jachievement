@@ -1,36 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+
+ <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-primary">
-                    <div class="panel-heading clearfix">
-                        <h1 class="panel-title pull-left">Educator Form Information - User Name: {{ $educatorInterestForm->first_name }} </h1>
+                    <div class="panel-heading clearfix" style="background-color:#5cb85c !important;">
+                        <p class="panel-title pull-left"><span style="font-size:1.2em;color:white;">Educator Form Information - Educator Name: {{ $educatorInterestForm->first_name }}</span> </p>
                     </div>
-                    $table->string('first_name');
-                    $table->string('last_name');
-                    $table->string('school_name');
-                    $table->string('school_phone');
-                    $table->string('school_address');
-                    $table->string('school_city');
-                    $table->string('school_zip');
-                    $table->string('email');
-                    $table->string('grade')->nullable();
-                    $table->string('program_theme')->nullable();
-                    $table->string('planning_time')->nullable();
-                    $table->string('cell_phone')->nullable();
-                    $table->string('comments_requests')->nullable();
-                    $table->string('no_of_classes')->nullable();
-                    $table->string('no_of_students_per_class')->nullable();
-                    $table->integer('user_id')->unsigned()->nullable();
-                    $table->foreign('user_id')->references('id')->on('users');
-
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <label for="first_name">First Name</label>
-                                <p id="fname">{{ $educatorInterestForm->first_name }}</p>
+                                <p id="first_name">{{ $educatorInterestForm->first_name }}</p>
                             </div>
                             <div class="col-md-6 col-xs-6">
                                 <label for="last_name">Last Name</label>
@@ -63,27 +46,73 @@
                                 <p id="school_zip" >{{ $educatorInterestForm->school_zip }}</p>
                             </div>
                             <div class="col-md-6 col-xs-6">
-                                <label for="school_phone">School City</label>
-                                <p id="school_phone" >{{ $educatorInterestForm->school_city }}</p>
+                                <label for="school_phone">Email</label>
+                                <p id="school_phone" >{{ $educatorInterestForm->email }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6">
+                                <label for="school_zip">Grade</label>
+                                <p id="school_zip" >{{ $educatorInterestForm->grade }}</p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <label for="school_phone">Program Theme</label>
+                                <p id="school_phone" >{{ $educatorInterestForm->program_theme }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6">
+                                <label for="school_zip">Planning Time</label>
+                                <p id="school_zip" >{{ $educatorInterestForm->planning_time }}</p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <label for="school_phone">Cell Phone</label>
+                                <p id="school_phone" >{{ $educatorInterestForm->cell_phone }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6">
+                                <label for="school_zip">Comments/Requests</label>
+                                <p id="school_zip" >{{ $educatorInterestForm->comments_requests }}</p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <label for="school_phone">No of Classes</label>
+                                <p id="school_phone" >{{ $educatorInterestForm->no_of_classes }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6">
+                                <label for="school_zip">No of Students Per Class</label>
+                                <p id="school_zip" >{{ $educatorInterestForm->no_of_students_per_class }}</p>
                             </div>
                         </div>
 
                     </div>
 
-                    <div class="panel-footer clearfix">
+                    <div class="">
                         <div class="pull-left">
-                            {!! Form::model($user, [
+                            {!! Form::model($educatorInterestForm, [
                             'method' => 'DELETE',
                             'action' => [
-                            'EducatorsController@destroy',
-                            $user->id
+                            'AdminController@destroyEducatorForm',
+                            $educatorInterestForm->id
                             ]
                             ]) !!}
-                            <a href="{{ action('UsersController@edit', [$user->id]) }}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</button></a>
-                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                            <a href="{{ action('AdminController@destroyEducatorForm', [$educatorInterestForm->id]) }}"><button type="button" class="btn btn-danger"> Delete</button></a>
+                            <a href="{{ action('AdminController@listEducatorForm') }}" class="btn btn-default">Back</a>
                             {!! Form::close() !!}
+
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+     </div>
+
 @endsection
+
+<script type="text/javascript">
+    $(document).on('submit', '.delete-form', function () {
+        return confirm('Are you sure you want to delete this trainee?  If you do so, all evaluation records for the trainee will be lost.');
+    });
+</script>
