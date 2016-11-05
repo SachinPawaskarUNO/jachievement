@@ -6,6 +6,28 @@
 		$('#formatGoal').maskMoney();
 	})
 
+	$(function() {
+		$('#personalFormatGoal').maskMoney();
+	})
+
+	function createAndJoin() {
+		if(document.getElementById('createMember').checked) {
+			$("#div1").show();
+			$("#personalTitle").attr('required', 'required');
+	    	$("#div2").show();
+	    	$("#personalContent").attr('required', 'required');
+	    	$("#div3").show();
+	    	$("#personalFormatGoal").attr('required', 'required');
+		} else {
+			$("#div1").hide();
+			$("#personalTitle").removeAttr('required', 'required');
+	    	$("#div2").hide();
+	    	$("#personalContent").removeAttr('required', 'required');
+	    	$("#div3").hide();
+	    	$("#personalFormatGoal").removeAttr('required', 'required');
+		}
+	}
+
 	function changeGoalSlider(){
 		var goalText = $('#formatGoal').maskMoney('unmasked')[0];
 
@@ -18,6 +40,20 @@
 
 		$('#formatGoal').val(goalSlider + '.00').maskMoney('mask','1,999.99');
 		$('#goal').val(goalSlider);
+	}
+
+	function changePersonalGoalSlider(){
+		var goalText = $('#personalFormatGoal').maskMoney('unmasked')[0];
+
+		document.getElementById("personalFundraisingGoalRange").value = goalText;
+		$('#personalGoal').val(goalText);
+	}
+
+	function changePersonalGoalText(){
+		var goalSlider = document.getElementById("personalFundraisingGoalRange").value;
+
+		$('#personalFormatGoal').val(goalSlider + '.00').maskMoney('mask','1,999.99');
+		$('#personalGoal').val(goalSlider);
 	}
 </script>
 @endsection

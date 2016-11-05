@@ -22,6 +22,6 @@ class TeamMember extends Model
      * @var array
      */
     protected $fillable = [
-         'title', 'content', 'goal', 'team_id', 'user_id', 'token'
+         'title', 'content', 'goal', 'team_id', 'user_id', 'token', 'created_by', 'updated_by'
     ];
 }

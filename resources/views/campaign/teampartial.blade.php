@@ -55,6 +55,40 @@
 </div>
 
 @if ($action == 'join')
+@else
+<div class="form-group">
+    <div class="col-md-6 col-md-offset-3">
+        {!! Form::checkbox('createMember', 1, null, ['id' => 'createMember', 'onClick' => 'createAndJoin()']) !!}
+        <label class="control-label" style="font-weight: normal !important;"> &nbsp; Automatically join team after creating?</label>
+    </div>
+</div>
+
+<div class="form-group" style="display:none" id="div1">
+<br>
+    {!! Form::label('personalPageTitle', 'My Page Title:', ['class' => 'col-md-3 control-label']) !!}
+    <div class="col-md-7">
+        {!! Form::text('personalTitle', null, ['id' => 'personalTitle','class' => 'col-md-7 form-control', 'placeholder' => 'Welcome to My JA Fundraiser Page!']) !!}
+    </div>
+</div>
+<div class="form-group" style="display:none" id="div2">
+    {!! Form::label('personalPageContent', 'My Page Content:', ['class' => 'col-md-3 control-label']) !!}
+    <div class="col-md-7">
+        {!! Form::textarea('personalContent', null, ['id' => 'personalContent','class' => 'col-md-7 form-control']) !!}
+    </div>
+</div>
+<div class="form-group" style="display:none" id="div3">
+    {!! Form::label('personalFundraisingGoal', 'My Fundraising Goal:', ['class' => 'col-md-3 control-label']) !!}
+    <div class="col-md-4">
+        <input type="range" id="personalFundraisingGoalRange" min="0" max="10000" step="50" value="500" onChange="changePersonalGoalText()">
+    </div>
+    <div class="col-md-3">
+        {!! Form::text('personalFormatGoal', '$500.00', ['id' => 'personalFormatGoal', 'class' => 'col-md-3 form-control', 'onChange' => 'changePersonalGoalSlider()', 'data-prefix' => '$']) !!}
+    </div>
+</div>
+{!! Form::hidden('personalGoal', '500.00', ['id' => 'personalGoal']) !!}
+@endif
+
+@if ($action == 'join')
 {!! Form::hidden('team_id', $teamInfo->id) !!}
 @else
 {!! Form::hidden('campaign_id', $campaignId) !!}
@@ -68,6 +102,6 @@
             @else
             {!! Form::button('Create Team', ['type' => 'submit','id' => 'createTeam', 'class' => 'btn btn-success']) !!}
             @endif
-            {!! Form::button('<i class="fa"></i>Cancel', ['type' => 'button','id' => 'cancel', 'class' => 'btn']) !!}
+            {!! Form::button('Cancel', ['type' => 'button','id' => 'cancel', 'class' => 'btn']) !!}
         </div>
     </div>
