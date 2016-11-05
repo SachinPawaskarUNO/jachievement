@@ -95,16 +95,12 @@ class ProgramsTableSeeder extends Seeder
 //            'description' => 'JA Company Program unlocks the innate ability in high school students to fill a need or solve a problem in their community by launching a business venture and unleashing their entrepreneurial spirit. The program focuses on Company Ops, the majority of meeting time, where students build and manage their business. Meeting-specific, student-friendly materials and resources increase student interaction and emphasize JA’s experiential approach to learning. (Grades 9-12)','grade_id' => '3', 'created_by' => 'System',
 //            'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
 
-        Program::create(['name' => 'JA Economics (semester program)','implementation' => 'Classroom-Based','entrepreneurship' => '1',
-            'financial_readiness' => '1', 'work_readiness' => '1','image'=>'https://www.juniorachievement.org/image/journal/article?img_id=85317&t=1380827832932','program_url' => 'https://www.juniorachievement.org/web/ja-usa/ja-programs?p_p_id=56_INSTANCE_abcd&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=ja-maincontent&p_p_col_count=1&_56_INSTANCE_abcd_groupId=14516&_56_INSTANCE_abcd_articleId=19526',
-            'description' => 'JA Economics reinforces concepts of micro- and macro-economics by having students explore the basic characteristics of the U.S. economic system and how economic principles influence business decisions. It also introduces students to consumer issues, such as saving, investing, and taxation. (Grades 11-12)', 'grade_id' => '3',
-            'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(),
-            'updated_at' => date_create()]);
 
         Program::create(['name' => 'JA Exploring Economics','implementation' => 'Classroom-Based','entrepreneurship' => '1',
             'financial_readiness' => '1', 'work_readiness' => '1','image' => 'https://www.juniorachievement.org/image/journal/article?img_id=19548','program_url' => 'https://www.juniorachievement.org/web/ja-usa/ja-programs?p_p_id=56_INSTANCE_abcd&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=ja-maincontent&p_p_col_count=1&_56_INSTANCE_abcd_groupId=14516&_56_INSTANCE_abcd_articleId=19541',
             'description' => 'JA Exploring Economics uses hands-on activities to explain complex economic concepts such as supply and demand, inflation, and the production, distribution and consumption of goods. It gives insight into the effect governments and individuals have on the global economy— and on the price of a loaf of bread. (Grades 9-12)','grade_id' => '3', 'created_by' => 'System',
             'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+
 
         Program::create(['name' => 'JA Personal Finance','implementation' => 'Classroom-Based','entrepreneurship' => '0',
             'financial_readiness' => '3', 'work_readiness' => '2','image'=>'https://www.juniorachievement.org/image/journal/article?img_id=19578','program_url' => 'https://www.juniorachievement.org/web/ja-usa/ja-programs?p_p_id=56_INSTANCE_abcd&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=ja-maincontent&p_p_col_count=1&_56_INSTANCE_abcd_groupId=14516&_56_INSTANCE_abcd_articleId=19571',
@@ -117,5 +113,10 @@ class ProgramsTableSeeder extends Seeder
             'description' => 'JA Titan allows students to operate a virtual company through a Web-based simulation. The students\' success depends on decisions about their product\'s price and their company\'s marketing, research and development, and business practices. Win or lose, students gain an understanding of how management decisions affect a company\'s bottom line. (Grades 9-12)','grade_id' => '3', 'created_by' => 'System',
             'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
 
+        Program::create(['name' => 'JA Economics (semester program)','implementation' => 'Classroom-Based','entrepreneurship' => '1',
+            'financial_readiness' => '1', 'work_readiness' => '1','image'=>'https://www.juniorachievement.org/image/journal/article?img_id=85317&t=1380827832932','program_url' => 'https://www.juniorachievement.org/web/ja-usa/ja-programs?p_p_id=56_INSTANCE_abcd&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=ja-maincontent&p_p_col_count=1&_56_INSTANCE_abcd_groupId=14516&_56_INSTANCE_abcd_articleId=19526',
+            'description' => 'JA Economics reinforces concepts of micro- and macro-economics by having students explore the basic characteristics of the U.S. economic system and how economic principles influence business decisions. It also introduces students to consumer issues, such as saving, investing, and taxation. (Grades 11-12)', 'grade_id' => '3',
+            'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(),
+            'updated_at' => date_create()]);
     }
 }
