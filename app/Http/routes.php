@@ -75,6 +75,9 @@ Route::get('/donation/donate', 'DonationController@donationform');
 Route::post('/donation/donate', 'DonationController@store');
 Route::get('/donation/notification', 'DonateController@notification');
 
+Route::get('/donation/thankyou', 'DonationController@thankyou');
+Route::get('/donation/cancel', 'DonationController@cancel');
+
 Route::get('/campaign/team/join/{teamId}', 'CampaignController@joinTeam');
 Route::post('/campaign/team/join', 'CampaignController@joinTeamStore');
 Route::post('/campaign/team', 'CampaignController@sendmail');
@@ -98,6 +101,10 @@ Route::get('/contributors', 'ContributorController@index');
 
 Route::get('/admin/educatorform', 'AdminController@listEducatorForm');
 Route::get('/admin/volunteerform', 'AdminController@listVolunteerForm');
+Route::get('/admin/educatorform/{id}', 'AdminController@showEducatorDetails');
+Route::post('/admin/educatorform/{id}/delete', 'AdminController@destroyEducatorForm');
+Route::get('/admin/volunteerform/{id}', 'AdminController@showVolunteerDetails');
+Route::post('/admin/volunteerform/{id}/delete', 'AdminController@destroyVolunteerForm');
 Route::get('/reports/donation', 'ReportsController@DonationReporting');
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');

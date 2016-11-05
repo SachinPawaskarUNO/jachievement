@@ -143,9 +143,9 @@
                                 <span class="fa fa-heart-o fa_custom fa-4x" data-animation="bounceIn"></span>
                             </p>
                             <br>
-                            <h4 class="program-title" align="center"> Donate through Campaigns</h4>
+                            <h4 class="program-title" align="center"> Donate through Events</h4>
                             <br>
-                            <p class="program-description"> For larger donations, you can be a part of the Junior Achievement campaigns. Any person can create campaign and add team member
+                            <p class="program-description"> For larger donations, you can be a part of the Junior Achievement events. Any person can create events and add team member
                             <br>
                             <br>
                             </p>

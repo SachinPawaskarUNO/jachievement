@@ -1,5 +1,27 @@
 @extends('layouts.app')
 
+@section('scripts')
+<script type="text/javascript">
+	$(function() {
+		$('#formatGoal').maskMoney();
+	})
+
+	function changeGoalSlider(){
+		var goalText = $('#formatGoal').maskMoney('unmasked')[0];
+
+		document.getElementById("fundraisingGoalRange").value = goalText;
+		$('#goal').val(goalText);
+	}
+
+	function changeGoalText(){
+		var goalSlider = document.getElementById("fundraisingGoalRange").value;
+
+		$('#formatGoal').val(goalSlider + '.00').maskMoney('mask','1,999.99');
+		$('#goal').val(goalSlider);
+	}
+</script>
+@endsection
+
 @section('content')
 <div class="container">
 	<div class="row">
@@ -23,20 +45,4 @@
 		</div>
 	</div>
 </div>
-@endsection
-@section('scripts')
-<script type="text/javascript">
-	function changeGoalSlider(){
-		var goalText = document.getElementById("goal").value;
-
-		document.getElementById("fundraisingGoalRange").value = goalText;
-	}
-
-	function changeGoalText(){
-		var goalSlider = document.getElementById("fundraisingGoalRange").value;
-
-		document.getElementById("goal").value = goalSlider;
-
-	}
-</script>
 @endsection

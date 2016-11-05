@@ -30,7 +30,8 @@ elixir(function(mix) {
         //'libs/select2.min/js',
         //'libs/jquery.dataTables.min.js',
         //'libs/dataTables.bootstrap.min.js',
-        'app.js'
+        'app.js',
+        'jquery.maskMoney.min.js'
     ]);
 
     //mix.version('public/css/all.css');

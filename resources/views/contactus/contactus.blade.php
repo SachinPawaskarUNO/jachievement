@@ -7,6 +7,7 @@
 	<br>
 	<h2 class="text-center"> Have quick questions? </h2>
 	<h4 class="text-center"> Please check out the <a href="">FAQ</a> section before contacting us </h4>
+	
         <br>
         <br>
         <div class="row">
