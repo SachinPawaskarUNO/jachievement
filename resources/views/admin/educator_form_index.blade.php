@@ -13,7 +13,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead>
-                                    <th>Form Id</th><th>Name</th><th>Email</th>
+                                    <th>Form Id</th><th>Name</th><th>Email</th><th>Action</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($educatorInterestForms as $educatorInterestForm)

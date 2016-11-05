@@ -13,7 +13,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead>
-                                    <th>Form Id</th><th>Name</th><th>Email</th>
+                                    <th>Form Id</th><th>Name</th><th>Email</th><th>Action</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($volunteerInterestForms as $volunteerInterestForm)
@@ -21,6 +21,10 @@
                                             <td class="table-text"><div>{{ $volunteerInterestForm->id }}</div></td>
                                             <td class="table-text"><div>{{ $volunteerInterestForm->first_name }}</div></td>
                                             <td class="table-text"><div>{{ $volunteerInterestForm->email }}</div></td>
+                                            <td>
+                                                <a href="{{ action('AdminController@showVolunteerDetails', $volunteerInterestForm->id) }}" class="btn btn-default btn-small">View
+                                                    Details</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>

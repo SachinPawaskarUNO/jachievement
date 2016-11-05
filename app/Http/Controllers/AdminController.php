@@ -35,13 +35,33 @@ class AdminController extends Controller
 
         return view('admin.volunteer_form_index', $this->viewData);
     }
-    public function showEducatorDetails()
+    public function showEducatorDetails($id)
     {
-        Log::info('AdminController.listEducatorForm: ');
-        $educatorInterestForms =  EducatorInterestForm::all();
-        $this->viewData['educatorInterestForms'] = $educatorInterestForms;
+        Log::info('AdminController.showEducatorDetails: ');
+        $educatorInterestForm =   EducatorInterestForm::where('id', '=', $id)->firstOrFail();;
 
-        return view('admin.educator_form_show', $this->viewData);
+
+        return view('admin.educator_form_show', compact('educatorInterestForm'));
     }
 
+    public function showVolunteerDetails($id)
+    {
+        Log::info('AdminController.showVolunteerDetails: ');
+        $volunteerInterestForm =   VolunteerInterestForm::where('id', '=', $id)->firstOrFail();;
+
+
+        return view('admin.volunteer_form_show', compact('volunteerInterestForm'));
+    }
+
+    public function destroyEducatorForm($id)
+    {
+        Log::info('AdminController.destroyEducatorForm: ');
+        return view('admin.educator_form_show', compact('educatorInterestForm'));
+    }
+
+    public function destroyVolunteerForm($id)
+    {
+        Log::info('AdminController.destroyEducatorForm: ');
+        return view('admin.educator_form_show', compact('educatorInterestForm'));
+    }
 }
