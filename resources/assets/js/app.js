@@ -45,11 +45,11 @@ $.ajaxSetup({
 //    });
 //});
 
-$(document).ready(function(){
-    $('table.cds-datatable').DataTable({
-        "columnDefs": [ {
-            "targets"  : 'no-sort',
-            "orderable": false
-        }]
-    });
-});
+//$(document).ready(function(){
+//   $('table.cds-datatable').DataTable({
+//        "columnDefs": [ {
+//            "targets"  : 'no-sort',
+//            "orderable": false
+//        }]
+//    });
+//});
