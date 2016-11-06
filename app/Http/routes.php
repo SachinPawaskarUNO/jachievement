@@ -105,6 +105,8 @@ Route::get('/admin/educatorform/{id}', 'AdminController@showEducatorDetails');
 Route::post('/admin/educatorform/{id}/delete', 'AdminController@destroyEducatorForm');
 Route::get('/admin/volunteerform/{id}', 'AdminController@showVolunteerDetails');
 Route::post('/admin/volunteerform/{id}/delete', 'AdminController@destroyVolunteerForm');
+Route::get('/admin/download/volunteerreport', 'AdminController@downloadVolunteerReport');
+
 Route::get('/reports/donation', 'ReportsController@DonationReporting');
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');

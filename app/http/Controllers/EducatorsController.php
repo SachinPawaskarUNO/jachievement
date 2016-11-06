@@ -64,4 +64,6 @@ class EducatorsController extends Controller
         return view('get_Involved.getinvolved', $this->viewData);
 
     }
+
+
 }

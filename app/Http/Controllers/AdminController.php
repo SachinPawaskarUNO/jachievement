@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\EducatorInterestForm;
 use App\VolunteerInterestForm;
 use Log;
+use Excel;
 
 class AdminController extends Controller
 {
@@ -63,5 +64,17 @@ class AdminController extends Controller
     {
         Log::info('AdminController.destroyEducatorForm: ');
         return view('admin.educator_form_show', compact('educatorInterestForm'));
+    }
+
+    public function downloadVolunteerReport()
+    {
+
+       Log::info('AdminController.downloadVolunteerReport: ');
+       $volunteerInterestForms =  VolunteerInterestForm::all();
+       Excel::create('report', function($excel) use($volunteerInterestForms) {
+            $excel->sheet('Sheet 1', function($sheet) use($volunteerInterestForms) {
+                $sheet->fromArray($volunteerInterestForms);
+            });
+        })->export('xls');
     }
 }

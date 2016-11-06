@@ -7,6 +7,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div><h4><b>Volunteer Interest Form</b></h4></div>
+                        <a href="{{ action('AdminController@downloadVolunteerReport')}}" class="btn btn-default btn-small">Download</a>
+
+
                     </div>
                     <div class="panel-body">
                         @if (count($volunteerInterestForms) > 0)
