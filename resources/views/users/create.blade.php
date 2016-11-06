@@ -5,8 +5,9 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading"> {{ $heading }}</div>
-
+                    <div class="panel-heading" style="background-color:#5cb85c !important;">
+                        <div style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></div>
+                    </div>
                     <div class="panel-body">
                         {!! Form::open(['url' => 'users', 'class' => 'form-horizontal']) !!}
                         @include('common.errors')

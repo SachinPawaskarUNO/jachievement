@@ -11,7 +11,7 @@
                                 <button type="submit" id="download" class="btn btn-default">Export To Excel</button>
                             </form>
                         </div>
-                        <div style="font-size:1.2em;color:white;"><b>Educator Interest Form</b></div>
+                        <p style="font-size:1.2em;color:white;"><b>Educator Interest Form</b></p>
                     </div>
 
                     <div class="panel-body">

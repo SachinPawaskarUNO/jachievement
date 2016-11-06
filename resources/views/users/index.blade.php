@@ -5,14 +5,16 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div class="pull-right">
                             <form action="{{ url('users/create') }}" method="GET">{{ csrf_field() }}
-                                <button type="submit" id="create-user" class="btn btn-primary">Create</button>
+                                <button type="submit" id="create-user" class="btn btn-default">Create</button>
                             </form>
                         </div>
-                        <div><h4>{{ $heading }}</h4></div>
+                        <div style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></div>
                     </div>
+
+
                     <div class="panel-body">
                         @if (count($users) > 0)
                         <div class="table-responsive">
