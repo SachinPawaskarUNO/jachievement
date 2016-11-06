@@ -5,10 +5,8 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#5cb85c !important;">
-                        <div><h4><b>Volunteer Interest Form</b></h4></div>
-                        <a href="{{ action('AdminController@downloadVolunteerReport')}}" class="btn btn-default btn-small">Download</a>
-
+                    <div class="panel-heading" style="background-color:#5cb85c !important;"> <span style="font-size:1.2em;color:white;"><b>Volunteer Interest Form</b></span>
+                        <span style="float:right;"><a href="{{ action('AdminController@downloadEducatorReport')}}" class="btn btn-default btn-small">Export to Excel</a></span>
 
                     </div>
                     <div class="panel-body">
