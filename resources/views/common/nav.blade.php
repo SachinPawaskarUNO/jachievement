@@ -34,7 +34,7 @@
                             <li><a id="ja_nav_educator" href="{{ url('/educators/introduction') }}"><i class="fa fa-btn"></i>Educator</a></li>
                             <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/introduction') }}"><i class="fa fa-btn"></i>Volunteer</a></li>
                             <li><a id="ja_nav_contribute" href="{{ url('/contributors') }}"><i class="fa fa-btn"></i>Donate</a></li>
-                            <li><a id="ja_nav_contribute" href="{{ url('/campaign/activecampaign') }}"><i class="fa fa-btn"></i>Events</a></li>
+                            <li><a id="ja_nav_contribute" href="{{ url('/event/activeevent') }}"><i class="fa fa-btn"></i>Events</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
