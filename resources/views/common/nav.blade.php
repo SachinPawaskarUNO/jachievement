@@ -34,7 +34,7 @@
                             <li><a id="ja_nav_educator" href="{{ url('/educators/introduction') }}"><i class="fa fa-btn"></i>Educator</a></li>
                             <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/introduction') }}"><i class="fa fa-btn"></i>Volunteer</a></li>
                             <li><a id="ja_nav_contribute" href="{{ url('/contributors') }}"><i class="fa fa-btn"></i>Donate</a></li>
-                            <li><a id="ja_nav_contribute" href="{{ url('/campaign/activecampaign') }}"><i class="fa fa-btn"></i>Events</a></li>
+                            <li><a id="ja_nav_contribute" href="{{ url('/event/activeevent') }}"><i class="fa fa-btn"></i>Events</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -46,10 +46,10 @@
                 </li>
                 <!--\\
                 <li class="dropdown">
-                    <a id="ja_nav_campaign" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "Campaign" }} <span class="caret"></span></a>
+                    <a id="ja_nav_campaign" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ "Event" }} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a id="ja_nav_team" href="{{ url('/campaign/team') }}"></i>Team</a></li>
-                        <li><a id="ja_nav_teammember" href="{{ url('/campaign/teammember') }}"></i>Team Member</a></li>
+                        <li><a id="ja_nav_team" href="{{ url('/event/team') }}"></i>Team</a></li>
+                        <li><a id="ja_nav_teammember" href="{{ url('/event/teammember') }}"></i>Team Member</a></li>
                     </ul>
                 </li>
                 -->
@@ -66,7 +66,7 @@
                 @role('admin')
                 <li class="dropdown">
                     <a href="#" id="ja_nav_getinv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <i class="fa fa-btn fa-fw fa-cogs"></i>Administration<span class="caret"></span></a>
+                        <i class="fa fa-btn"></i>Administration<span class="caret"></span></a>
                     <ul class="dropdown-menu multi level" role="menu">
                         <li><a id="ja_nav_users" href="{{ url('/users') }}"><i class="fa fa-btn"></i>Users</a></li>
                         <li><a id="ja_nav_roles" href="{{ url('/roles') }}"><i class="fa fa-btn"></i>Roles</a></li>
@@ -93,7 +93,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_logout" href="{{ url('/logout') }}"><i class="fa fa-btn"></i>Logout</a></li>
                             <li><a id="ja_changepw"href="{{ url('/change-password') }}"><i class="fa fa-btn"></i>Change Password</a></li>
-                             <li><a id="ja_teamview" href="{{ url('/campaign/team/view') }}"><i class="fa fa-btn"></i>Team View</a></li>
+                             <li><a id="ja_teamview" href="{{ url('/event/team/view') }}"><i class="fa fa-btn"></i>Team View</a></li>
                         </ul>
                     </li>
                 @endif
