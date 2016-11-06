@@ -158,21 +158,15 @@ class CampaignController extends Controller
         Log::info('CampaignController.joinTeamStore - Start: ');
         $input = $request->all();
         $user = Auth::user();
-        do {
-            $teamMemberToken = str_random(15);
-            $tokenCheck = DB::table('team_members')
-                ->select(DB::raw('count(*) as count'))
-                ->where('team_members.token', '=', $teamMemberToken)
-                ->first();
-        } while ($tokenCheck->count > 0);
-        $input['token'] = $teamMemberToken;
+        
+        $input['token'] = $this->getTeamMemberToken();
         if ($user) {
             $input['user_id'] = $user->id;
         }
         $this->populateCreateFields($input);
         $object = TeamMember::create($input);
         Session::flash('flash_message', 'You have successfully joined the team!');
-        Log::info('CampaignController.store - End: ' . $object->id);
+        Log::info('CampaignController.joinTeamStore - End: ' . $object->id);
         return redirect()->action('CampaignController@teammember', ['id' => $object->token]);
     }
     public function createTeamStore(TeamRequest $request)
@@ -194,7 +188,28 @@ class CampaignController extends Controller
       $this->populateCreateFields($input);
       $object = Team::create($input);
       Session::flash('flash_message', 'Your team has been created successfully!');
-      Log::info('CampaignController.store - End: ' . $object->id);
+      Log::info('CampaignController.createTeamStore - End: ' . $object->id);
+
+      // Create Team Member when requested on Create Team page
+      if (array_key_exists('createMember', $input)){
+        Log::info('CampaignController.joinTeamStoreInCreateTeamStore - Start: ');
+        $teamMember = $input;
+        unset($input);
+
+        $input['title'] = $teamMember['personalTitle'];
+        $input['content'] = $teamMember['personalContent'];
+        $input['goal'] = $teamMember['personalGoal'];
+        $input['team_id'] = $object->id;
+        $input['user_id'] = $teamMember['user_id'];
+
+        $input['token'] = $this->getTeamMemberToken();
+
+        $this->populateCreateFields($input);
+
+        $memberObject = TeamMember::create($input);
+        Log::info('CampaignController.joinTeamStoreInCreateTeamStore - End: ' . $memberObject->id);
+      }
+
       return redirect()->action('CampaignController@team', ['id' => $object->token]);
   }
   
@@ -290,4 +305,18 @@ class CampaignController extends Controller
         \Session::flash('flash_message', 'Your solicitation request has been sent successfully!');
         return redirect()->action('CampaignController@team', ['id' =>$request->token]);
     }
+
+
+    protected function getTeamMemberToken() {
+      do {
+            $teamMemberToken = str_random(15);
+            $tokenCheck = DB::table('team_members')
+                ->select(DB::raw('count(*) as count'))
+                ->where('team_members.token', '=', $teamMemberToken)
+                ->first();
+        } while ($tokenCheck->count > 0);
+
+        return $teamMemberToken;
+    }
+
 }

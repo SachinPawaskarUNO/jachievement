@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TeamMember extends Model
+class School extends Model
 {
     use SoftDeletes;
 
@@ -22,6 +22,6 @@ class TeamMember extends Model
      * @var array
      */
     protected $fillable = [
-         'title', 'content', 'goal', 'team_id', 'user_id', 'token', 'created_by', 'updated_by'
+         'school_name', 'school_address', 'school_city', 'school_state_id', 'school_zip', 'school_phone', 'school_latitude', 'school_longitude', 'active', 'created_by', 'updated_by'
     ];
 }

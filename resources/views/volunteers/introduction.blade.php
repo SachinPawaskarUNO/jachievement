@@ -12,14 +12,24 @@
             color:green;
         }
 
-    </style>
+         .button {
+        background-color: rgb( 0, 135, 81);
+        border: none;
+        color: white;
+        padding: 10px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
 
+    </style>
+<div align="right"><a href= "{{ url('/volunteers/interestform') }}" class="button" ID="SignUP">Sign up as a Volunteer</a></div>
     <div class="container-fluid" ID="1" style="background-color:rgb(245,245,245)">
         <div class="container" ID="2">
-            <br>
-            <br>
-            <br>
-
+          
             <h2 class="text-center" ID="3"> VOLUNTEERING WITH JUNIOR ACHIEVEMENT</h2>
             <br>
             <br>
@@ -68,9 +78,8 @@
         <br>
         <div class="col-md-4" ID="19"></div>
         <div class="col-md-4" ID="20">
-            <h4 class="text-center" ID="21"><strong> Interesting, right? Would you like to engage with Junior Achievement? Just reach out to your local Junior Achievement by signing-up at the below link.</strong></h4>
-            <br>
-            <h3 class="text-center" ID="22"> <a href="{{ url('/volunteers/interestform') }}">Please sign-up here! </a> </h3>
+            <h4 class="text-center" ID="21"><strong> Interesting, right? Would you like to engage with Junior Achievement? Just reach out to your local Junior Achievement to sign up.</strong></h4>
+            
         </div>
         <div class="col-md-4" ID="24"></div>
     </div>
