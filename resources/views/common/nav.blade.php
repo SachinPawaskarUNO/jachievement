@@ -66,7 +66,7 @@
                 @role('admin')
                 <li class="dropdown">
                     <a href="#" id="ja_nav_getinv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <i class="fa fa-btn fa-fw fa-cogs"></i>Administration<span class="caret"></span></a>
+                        <i class="fa fa-btn"></i>Administration<span class="caret"></span></a>
                     <ul class="dropdown-menu multi level" role="menu">
                         <li><a id="ja_nav_users" href="{{ url('/users') }}"><i class="fa fa-btn"></i>Users</a></li>
                         <li><a id="ja_nav_roles" href="{{ url('/roles') }}"><i class="fa fa-btn"></i>Roles</a></li>
