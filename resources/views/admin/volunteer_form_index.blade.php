@@ -5,16 +5,20 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#5cb85c !important;"> <span style="font-size:1.2em;color:white;"><b>Volunteer Interest Form</b></span>
-                        <span style="float:right;"><a href="{{ action('AdminController@downloadEducatorReport')}}" class="btn btn-default btn-small">Export to Excel</a></span>
-
+                    <div class="panel-heading" style="background-color:#5cb85c !important;">
+                        <div class="pull-right">
+                            <form action="{{ url('/admin/download/volunteerreport') }}" method="GET">
+                                <button type="submit" id="download_report" class="btn btn-default">Export To Excel</button>
+                            </form>
+                        </div>
+                        <div style="font-size:1.2em;color:white;"><b>Volunteer Interest Form</b></div>
                     </div>
                     <div class="panel-body">
                         @if (count($volunteerInterestForms) > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead>
-                                    <th>Form Id</th><th>Name</th><th>Email</th><th>Action</th>
+                                    <th>Form Id</th><th>Volunteer Name</th><th>Email</th><th>Action</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($volunteerInterestForms as $volunteerInterestForm)
