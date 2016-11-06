@@ -77,4 +77,16 @@ class AdminController extends Controller
             });
         })->export('xls');
     }
+
+    public function downloadEducatorReport()
+    {
+        Log::info('AdminController.downloadEducatorReport: ');
+        $educatorInterestForms =  EducatorInterestForm::all();
+        Excel::create('report', function($excel) use($educatorInterestForms) {
+            $excel->sheet('Sheet 1', function($sheet) use($educatorInterestForms) {
+                $sheet->fromArray($educatorInterestForms);
+            });
+        })->export('xls');
+
+    }
 }
