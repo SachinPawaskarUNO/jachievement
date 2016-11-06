@@ -5,8 +5,14 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#5cb85c !important;">
-                        <div><h4><b>Educator Interest Form</b></h4></div>
+                    <div class="panel-heading" style="background-color:#5cb85c !important;"> <span style="font-size:1.2em;color:white;"><b>Educator Interest Form</b></span>
+                        <span class="pull-right"><a href="{{ action('AdminController@downloadEducatorReport')}}" class="btn btn-default btn-small">Export to Excel</a></span>
+
+                    </div>
+                    <div class="pull-right">
+                        <form action="{{ url('users/create') }}" method="GET">{{ csrf_field() }}
+                            <button type="submit" id="create-user" class="btn btn-primary">Create</button>
+                        </form>
                     </div>
                     <div class="panel-body">
                         @if (count($educatorInterestForms) > 0)
