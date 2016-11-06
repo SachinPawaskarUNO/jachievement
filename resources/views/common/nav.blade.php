@@ -11,7 +11,7 @@
             </button>
 
             <!-- Branding Image -->
-            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('images/ja_nav_logo.png') }}" style="height: 48px;" vspace="4px"></a></div>
+            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('images/ja_nav_logo.png') }}" style="height: 60px;"></a></div>
 
         </div>
 
@@ -21,7 +21,7 @@
                 <li class="dropdown">
                         <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Us<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                            <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}"><i class="fa fa-btn"></i>Purpose</a></li>
+                            <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}"><i class="fa fa-btn"></i>Mission</a></li>
                             <li><a id="ja_nav_map" href="{{ url('/aboutus/map') }}"><i class="fa fa-btn"></i>Schools Map</a></li>
                             <li><a id="ja_nav_programs" href="{{ url('/programs/index') }}"><i class="fa fa-btn"></i>Programs</a></li>
                             <li><a id="ja_nav_faq" href="{{ url('/') }}"><i class="fa fa-btn"></i>FAQS</a></li>
