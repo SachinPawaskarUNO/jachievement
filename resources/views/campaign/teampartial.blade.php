@@ -102,6 +102,6 @@
             @else
             {!! Form::button('Create Team', ['type' => 'submit','id' => 'createTeam', 'class' => 'btn btn-success']) !!}
             @endif
-            {!! Form::button('Cancel', ['type' => 'button','id' => 'cancel', 'class' => 'btn']) !!}
+            <a class="btn btn-default" href="/">Cancel</a>
         </div>
     </div>
