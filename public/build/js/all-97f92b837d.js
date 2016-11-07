@@ -45,14 +45,15 @@ $.ajaxSetup({
 //    });
 //});
 
-//$(document).ready(function(){
-//   $('table.cds-datatable').DataTable({
-//        "columnDefs": [ {
-//            "targets"  : 'no-sort',
-//            "orderable": false
-//        }]
-//    });
-//});
+$(document).ready(function(){
+   $('table.cds-datatable').DataTable({
+        retrieve: true,
+        "columnDefs": [ {
+            "targets"  : 'no-sort',
+            "orderable": false
+        }]
+    });
+});
 
 /*
  *  jquery-maskmoney - v3.0.2
