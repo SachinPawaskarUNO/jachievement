@@ -10,6 +10,7 @@ use App\EducatorInterestForm;
 use App\VolunteerInterestForm;
 use Log;
 use Excel;
+use App\State;
 
 class AdminController extends Controller
 {
@@ -39,7 +40,12 @@ class AdminController extends Controller
     public function showEducatorDetails($id)
     {
         Log::info('AdminController.showEducatorDetails: ');
-        $educatorInterestForm =   EducatorInterestForm::where('id', '=', $id)->firstOrFail();;
+        $educatorInterestForm =   EducatorInterestForm::where('id', '=', $id)->firstOrFail();
+        $school_state_id =  $educatorInterestForm->school_state_id;
+        if($school_state_id != null) {
+            $state = State::where('id', "=" , $school_state_id)->firstOrFail();
+            $educatorInterestForm->school_state = $state->name;
+        }
 
 
         return view('admin.educator_form_show', compact('educatorInterestForm'));
@@ -48,8 +54,19 @@ class AdminController extends Controller
     public function showVolunteerDetails($id)
     {
         Log::info('AdminController.showVolunteerDetails: ');
-        $volunteerInterestForm =   VolunteerInterestForm::where('id', '=', $id)->firstOrFail();;
+        $volunteerInterestForm =   VolunteerInterestForm::where('id', '=', $id)->firstOrFail();
 
+        $home_state_id =  $volunteerInterestForm->home_state_id;
+        $company_state_id =  $volunteerInterestForm->home_state_id;
+        if($home_state_id != null) {
+            $state1 = State::where('id', "=" , $home_state_id)->firstOrFail();
+            $volunteerInterestForm->home_state = $state1->name;
+        }
+
+        if($company_state_id != null) {
+            $state2 = State::where('id', "=" , $company_state_id)->firstOrFail();
+            $volunteerInterestForm->company_state = $state2->name;
+        }
 
         return view('admin.volunteer_form_show', compact('volunteerInterestForm'));
     }
