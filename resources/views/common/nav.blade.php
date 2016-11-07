@@ -37,6 +37,15 @@
                             <li><a id="ja_nav_contribute" href="{{ url('/event/activeevent') }}">Events</a></li>
                     </ul>
                 </li>
+
+                <li class="dropdown">
+                    <a id="ja_nav_events" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Events <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a id="ja_nav_educator" href="{{ url('/') }}">Golf Challenge</a></li>
+                        <li><a id="ja_nav_volunteer" href="{{ url('/') }}">Bowling Classic</a></li>
+                    </ul>
+                </li>
+
                 <li class="dropdown">
                         <a id="ja_nav_getinv" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign Up <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
