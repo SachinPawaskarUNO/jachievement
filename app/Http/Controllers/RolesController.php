@@ -28,7 +28,7 @@ class RolesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:admin');
+        $this->middleware('role:superadmin');
 
         $this->user = Auth::user();
         $this->list_permission = Permission::lists('display_name', 'id');
