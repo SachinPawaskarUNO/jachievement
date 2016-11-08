@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="panel-body">
-                        {!! Form::model($school, ['class' => 'form-horizontal', 'method' => 'PATCH', 'action' => ['MapController@update', $school->id]]) !!}
+                        {!! Form::model($school, ['class' => 'form-horizontal', 'method' => 'PATCH', 'action' => ['SchoolController@update', $school->id]]) !!}
                         @include('common.errors')
                         @include('common.flash')
 
