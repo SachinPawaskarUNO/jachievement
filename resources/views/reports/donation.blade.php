@@ -121,6 +121,9 @@ window.onclick = function(event) {
 
 // Bar Chart for Donations
 $(function () {
+   
+    var datas=  {{$donations}};
+    console.log(data);
     var chart = Highcharts.chart('container', {
 
         title: {
@@ -132,15 +135,18 @@ $(function () {
         },
 
         xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            categories: ['Jan', 'Feb', 'Mar']
         },
 
-        series: [{
-            type: 'column',
-            colorByPoint: true,
-            data: [34, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
-            showInLegend: false
-        }]
+        series: [data: datas
+        // {
+        //     type: 'column',
+        //     colorByPoint: true,
+        //     data: [34, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+        //     showInLegend: false
+        // }
+
+        ]
 
     });
 
