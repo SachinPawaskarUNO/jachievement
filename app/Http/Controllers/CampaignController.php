@@ -228,7 +228,7 @@ class CampaignController extends Controller
 					
 			
 		//$this->viewData['heading'] = "Active Campaigns";
-       return view('campaign.activecampaign',compact('activecampaigns'));
+       return view('event.activeevent',compact('activecampaigns'));
 		//return view('campaign.activecampaign', $this->viewData);
   
   }
