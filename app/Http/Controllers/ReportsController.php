@@ -15,8 +15,8 @@ class ReportsController extends Controller
     }
 
 
-	public function DonationReporting()
-	{
+    public function DonationReporting()
+    {
       Log::info('ReportsController: ');
       $donors= DB::table('donors')
             ->join('donations','donors.id','=','donations.donor_id')
@@ -26,28 +26,20 @@ class ReportsController extends Controller
             ->orderBy('donations.created_at', 'DESC')
             ->get();
 
-
-$donations = array(43, 433,2321);
-// return $donations;
-
-        // $donations= DB::table('donations')
-        //     ->select(DB::raw('SUM(donations.amount) as sum'))
-        //     // ->whereRaw('donations.created_at= ?', array(date('Y')))
-        //     ->groupBy(DB::raw('month(donations.created_at)'))
+        // $donation_sum= DB::table('donations')
+        //     ->select(DB::raw('SUM(donations.amount) as sum,month(donations.created_at) as month'))
+        //     // ->where('year(donations.created_at)','=','2016')
+        //       // ->where('year(donations.created_at)','=','2016')
+        //     ->whereMonth('donations.created_at','=','10')
+        //     ->groupBy('month')
 
         //     ->get();
-        // $donations=array_column($donations, 'sum');
-        // return $donations;
 
-          // return $donation_sum;
-
-        // ->whereRaw('year(`created_at`) = ?', array(date('Y')))
+          
 
 
 
-
-
-        return view('reports.donation',compact('donors','donation_sum',json_encode($donations)));
+        return view('reports.donation',compact('donors','donation_sum'));
     }
 
 
