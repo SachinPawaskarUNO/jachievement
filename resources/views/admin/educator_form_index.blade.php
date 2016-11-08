@@ -11,7 +11,7 @@
                                 <button type="submit" id="download" class="btn btn-default">Export To Excel</button>
                             </form>
                         </div>
-                        <p style="font-size:1.2em;color:white;"><b>Educator Interest Form</b></p>
+                        <p style="font-size:1.2em;color:white;"><b>Educator Information</b></p>
                     </div>
 
                     <div class="panel-body">
@@ -25,7 +25,7 @@
                                     @foreach ($educatorInterestForms as $educatorInterestForm)
                                         <tr>
                                             <td class="table-text"><div>{{ $educatorInterestForm->id }}</div></td>
-                                            <td class="table-text"><div>{{ $educatorInterestForm->first_name }}</div></td>
+                                            <td class="table-text"><div>{{ $educatorInterestForm->first_name }} {{$educatorInterestForm->last_name }}</div></td>
                                             <td class="table-text"><div>{{ $educatorInterestForm->email }}</div></td>
                                             <td>
                                                 <a href="{{ action('AdminController@showEducatorDetails', $educatorInterestForm->id) }}" class="btn btn-default btn-small">View

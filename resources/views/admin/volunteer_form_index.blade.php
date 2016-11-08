@@ -11,7 +11,7 @@
                                 <button type="submit" id="download_report" class="btn btn-default">Export To Excel</button>
                             </form>
                         </div>
-                        <div style="font-size:1.2em;color:white;"><b>Volunteer Interest Form</b></div>
+                        <div style="font-size:1.2em;color:white;"><b>Volunteer Information</b></div>
                     </div>
                     <div class="panel-body">
                         @if (count($volunteerInterestForms) > 0)
@@ -24,7 +24,7 @@
                                     @foreach ($volunteerInterestForms as $volunteerInterestForm)
                                         <tr>
                                             <td class="table-text"><div>{{ $volunteerInterestForm->id }}</div></td>
-                                            <td class="table-text"><div>{{ $volunteerInterestForm->first_name }}</div></td>
+                                            <td class="table-text"><div>{{ $volunteerInterestForm->first_name }} {{$volunteerInterestForm->last_name}}</div></td>
                                             <td class="table-text"><div>{{ $volunteerInterestForm->email }}</div></td>
                                             <td>
                                                 <a href="{{ action('AdminController@showVolunteerDetails', $volunteerInterestForm->id) }}" class="btn btn-default btn-small">View

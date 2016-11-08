@@ -5,9 +5,9 @@
  <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading clearfix" style="background-color:#5cb85c !important;">
-                        <p class="panel-title pull-left"><span style="font-size:1.2em;color:white;">Educator Form Information - Educator Name: {{ $educatorInterestForm->first_name }}</span> </p>
+                        <p class="panel-title pull-left"><span style="font-size:1.2em;color:white;">Educator Information of {{ $educatorInterestForm->first_name }} {{$educatorInterestForm->last_name}}</span> </p>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -91,6 +91,7 @@
                             </div>
                         </div>
                     </div>
+                    <br>
                     <div class="pull-left">
                         <a href="{{ action('AdminController@listEducatorForm') }}" class="btn btn-default">Back</a>
                     </div>
