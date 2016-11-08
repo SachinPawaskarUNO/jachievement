@@ -340,7 +340,15 @@ class CampaignController extends Controller
         $campaigns = Campaign::all();
         $this->viewData['events'] = $campaigns;
 
-        return view('events.index', $this->viewData);
+        return view('events.indexevent', $this->viewData);
+    }
+
+    public function create()
+    {
+        Log::info('SchoolController.create: ');
+        $this->viewData['heading'] = "New School";
+
+        return view('schools.create', $this->viewData);
     }
 
     public function edit(Campaign $campaigns)
@@ -350,7 +358,7 @@ class CampaignController extends Controller
         $this->viewData['event'] = $object;
         $this->viewData['heading'] = "Edit Event: ".$object->name;
 
-        return view('events.edit', $this->viewData);
+        return view('events.editevent', $this->viewData);
     }
 
     public function update(Campaign $campaigns, CampaignRequest $request)
@@ -364,6 +372,31 @@ class CampaignController extends Controller
         $object->update($request->all());
         Session::flash('flash_message', 'Event successfully updated!');
         Log::info('CampaignController.update - End: '.$object->id.'|'.$object->name);
+        return redirect('/events');
+    }
+    public function store(CampaignRequest $request)
+    {
+        Log::info('CampaignController.store - Start: ');
+        $input = $request->all();
+        $this->populateCreateFields($input);
+        $input['active'] = $request['active'] == '' ? false : true;
+        $object = Campaign::create($input);
+        Session::flash('flash_message', 'Event successfully added!');
+        Log::info('SchoolController.store - End: '.$object->id.'|'.$object->name);
+        return redirect('/schools');
+    }
+
+    public function destroy(Request $request, Campaign $campaigns)
+    {
+        $object = $campaigns;
+        Log::info('CampaignController.destroy: Start: '.$object->id.'|'.$object->name);
+        if ($this->authorize('destroy', $object))
+        {
+            Log::info('Authorization successful');
+            $object->delete();
+            Session::flash('flash_message', 'Event successfully deleted!');
+        }
+        Log::info('SchoolController.destroy: End: ');
         return redirect('/events');
     }
 }
