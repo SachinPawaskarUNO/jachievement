@@ -25,22 +25,26 @@
 <button id="plain">Plain</button>
 <button id="inverted">Inverted</button>
 <button id="polar">Polar</button>
+</div>
+        </div>
+        </div>
+        </div>
 
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                     </div>
-        </div>
-        </div>
+<br>
+
 
 
 <!-- Donation Reports -->
-            <div class="col-md-12">
+            
+             
+             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div><h4><b>Donation Report</b></h4></div>
                     </div>
                     <br>
                  
-     </div>
+     
 
 
     
@@ -73,9 +77,8 @@
                         @endif
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                </div>
+
 @endsection
 
 
