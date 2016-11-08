@@ -15,7 +15,7 @@ class UpdateCampaignTable extends Migration
         Schema::table('campaigns', function($table)
         {
             $table->dropColumn('goal');
-            $table->string('default_content',4000);
+            $table->string('default_content',4000)->nullable();
         });    
     }
 
