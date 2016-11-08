@@ -82,7 +82,7 @@ class UsersController extends Controller
         $this->syncRoles($object, $request->input('rolelist'));
         Session::flash('flash_message', 'User successfully added!');
         Log::info('UsersController.store - End: '.$object->id.'|'.$object->name);
-        return redirect()->back();
+        return redirect('/users');
     }
 
     public function edit(User $users)
@@ -107,7 +107,7 @@ class UsersController extends Controller
         $this->syncRoles($object, $request->input('rolelist'));
         Session::flash('flash_message', 'User successfully updated!');
         Log::info('UsersController.update - End: '.$object->id.'|'.$object->name);
-        return redirect('users');
+        return redirect('/users');
     }
 
     /**
