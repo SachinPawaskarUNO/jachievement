@@ -109,7 +109,7 @@ Route::get('/admin/download/volunteerreport', 'AdminController@downloadVolunteer
 Route::get('/admin/download/educatorreport', 'AdminController@downloadEducatorReport');
 Route::get('/reports/donation', 'ReportsController@DonationReporting');
 
-Route::resource('schools', 'MapController');
+Route::resource('schools', 'SchoolController');
 
 
 
