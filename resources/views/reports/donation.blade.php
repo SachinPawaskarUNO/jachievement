@@ -15,7 +15,7 @@
                      <div class="panel-body">
 
 
-                     	<p>Bar Chart of Donation by Months</p>	
+                        <p>Bar Chart of Donation by Months</p>  
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>

@@ -69,6 +69,7 @@ class CampaignController extends Controller
         ]);
         return view('campaign.teammember', compact('teamMember', 'teamMembers', 'teammemberDonation', 'data', 'team'));
     }
+
     public function joinTeam($teamToken)
     {
         Log::info('CampaignController.joinTeam: ');
@@ -82,12 +83,13 @@ class CampaignController extends Controller
         $teamInfo = DB::table('teams')
             ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
             ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
-            ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
+            ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName', 'campaigns.default_content as campCont')
             ->where('teams.token', '=', $teamToken)
             ->first();
         $data['teamInfo'] = $teamInfo;
         return view('campaign.jointeam', $data);
     }
+
     public function createTeam($campaignId)
     {
         Log::info('CampaignController.createTeam: ');
@@ -99,7 +101,7 @@ class CampaignController extends Controller
         $data['action'] = 'create';
         $data['heading'] = 'Create a Campaign Team';
         $campaignInfo = DB::table('campaigns')
-            ->select('campaigns.name as campName')
+            ->select('campaigns.name as campName', 'campaigns.default_content as campCont')
             ->where('campaigns.id', '=', $data['campaignId'])
             ->first();
         $data['campaignInfo'] = $campaignInfo;
@@ -228,7 +230,7 @@ class CampaignController extends Controller
 					
 			
 		//$this->viewData['heading'] = "Active Campaigns";
-       return view('campaign.activecampaign',compact('activecampaigns'));
+       return view('event.activeevent',compact('activecampaigns'));
 		//return view('campaign.activecampaign', $this->viewData);
   
   }

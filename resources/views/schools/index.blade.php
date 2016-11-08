@@ -14,6 +14,7 @@
                         <div><h4>{{ $heading }}</h4></div>
                     </div>
                     <div class="panel-body">
+                        @include('common.flash')
                         @if (count($schools) > 0)
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped cds-datatable">

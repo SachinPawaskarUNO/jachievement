@@ -41,7 +41,7 @@
 <div class="form-group">
     {!! Form::label('pageContent', 'Page Content:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
-        {!! Form::textarea('content', $campaignInfo->campCont, ['id' => 'content','class' => 'col-md-7 form-control', 'required' => 'required']) !!}
+        {!! Form::textarea('content', null, ['id' => 'content','class' => 'col-md-7 form-control', 'required' => 'required']) !!}
     </div>
 </div>
 <div class="form-group">
@@ -73,7 +73,7 @@
 <div class="form-group" style="display:none" id="div2">
     {!! Form::label('personalPageContent', 'My Page Content:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
-        {!! Form::textarea('personalContent', $campaignInfo->campCont, ['id' => 'personalContent','class' => 'col-md-7 form-control']) !!}
+        {!! Form::textarea('personalContent', null, ['id' => 'personalContent','class' => 'col-md-7 form-control']) !!}
     </div>
 </div>
 <div class="form-group" style="display:none" id="div3">

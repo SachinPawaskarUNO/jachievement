@@ -1,30 +1,5 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading" style="background-color:#5cb85c !important;"> <span style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></span></div>
-
-				<div class="panel-body">
-					@if ($action == 'join')
-					{!! Form::open(['url' => '/event/team/join', 'class' => 'form-horizontal', 'method' => 'POST', 'id' => 'campaignForm']) !!}
-					@else
-					{!! Form::open(['url' => '/event/team/create', 'class' => 'form-horizontal', 'method' => 'POST', 'id' => 'campaignForm']) !!}
-					@endif
-					@include('common.errors')
-					@include('common.flash')
-					@include ('campaign.teampartial')
-					{!! Form::close() !!}
-
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-@endsection
-
 @section('scripts')
 <script type="text/javascript">
 	$(function() {
@@ -81,4 +56,29 @@
 		$('#personalGoal').val(goalSlider);
 	}
 </script>
+@endsection
+
+@section('content')
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading" style="background-color:#5cb85c !important;"> <span style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></span></div>
+
+				<div class="panel-body">
+					@if ($action == 'join')
+					{!! Form::open(['url' => '/campaign/team/join', 'class' => 'form-horizontal', 'method' => 'POST', 'id' => 'campaignForm']) !!}
+					@else
+					{!! Form::open(['url' => '/campaign/team/create', 'class' => 'form-horizontal', 'method' => 'POST', 'id' => 'campaignForm']) !!}
+					@endif
+					@include('common.errors')
+					@include('common.flash')
+					@include ('campaign.teampartial')
+					{!! Form::close() !!}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 @endsection
