@@ -222,7 +222,7 @@ class CampaignController extends Controller
 		//$currentdate= date("d-m-Y");
 		
 		$activeevents = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.goal as goal, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue'))
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue'))
 					//->where('active', '=','1')
 					//->where('$currentdate','<=','campaigns.end_date])
 					//->where('campaigns.end_date', '>=', 'date(y-m-d)')

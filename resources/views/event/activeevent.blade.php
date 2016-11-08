@@ -5,21 +5,35 @@
 		<div class="container" id="div-container">
 			<h2 class="text-center" id="pageHeading" >OUR EVENTS</h2>
 			<br>
-			<h4 class="text-center" id="pageDescription" style="color:green">Junior Achievement hosts several signature events throughout the year to raise money to support our programs, as well as raise awareness about our mission.</h4>
+			<h4 class="text-justify" id="pageDescription"><i>Junior Achievement hosts several signature events throughout the year to raise money to support our programs, as well as raise awareness about our mission.</i></h4>
+			<br>
 
 			@foreach ($activeevents as $activeevent)
-
-
 			<div class="row" id="div-row">
-
-				<div class="col-md-4" id="eventImage">
+				<div class="col-md-3" id="eventImage">
 					<img src="{{ $activeevent->image }}" width="100%", height="auto"/>
+					<br>
+					<br>
 				</div>
-				<div class="col-md-8" id="eventDesc" style="background-color: #3c763d">
-					<h5 style="margin-top:0px; margin-bottom:0px">
+
+				<div class="col-md-9" id="eventDesc">
+					<h4 style=" color:green; margin-top:0px; margin-bottom:0px">
 						{{$activeevent->name}}
-					</h5>
-					<a class="btn btn-success btn-lg" style="font-size: 16px" id="button-create_team"> Learn More </a>
+					</h4>
+
+					<div class="allDesc collapse in">
+						<p style="font-size: small; line-height: 1.4em;">
+							{{ $activeevent->description }}
+						</p>
+
+					<a class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Learn More </a>
+					@if ($activeevent->name == 'Junior Achievement Omaha Golf Campaign - 2016')
+						<a class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Register Now </a>
+					@else
+						<a class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Create Team </a>
+					@endif
+
+					</div>
 				</div>
 			</div>
 			<br>
