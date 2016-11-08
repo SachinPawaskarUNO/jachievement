@@ -11,6 +11,8 @@ use App\School;
 use App\State;
 use App\Http\Requests\SchoolRequest;
 use App\Http\Requests;
+use Illuminate\Http\Request;
+
 
 
 class MapController extends Controller
@@ -35,7 +37,7 @@ class MapController extends Controller
     }
 
     public function index() {
-    	Log::info('MapController.manageSchools: Start -');
+    	Log::info('MapController.index: Start -');
 
     	$schools = School::all();
         $this->viewData['schools'] = $schools;
@@ -45,7 +47,7 @@ class MapController extends Controller
 
     public function create()
     {
-        Log::info('MapController.createSchool: ');
+        Log::info('MapController.create: ');
         $this->viewData['heading'] = "New School";
 
         return view('schools.create', $this->viewData);
@@ -54,7 +56,7 @@ class MapController extends Controller
     public function edit(School $schools)
     {
         $object = $schools;
-        Log::info('MapController.editSchool: '.$object->id.'|'.$object->school_name);
+        Log::info('MapController.editS: '.$object->id.'|'.$object->school_name);
         $this->viewData['school'] = $object;
         $this->viewData['heading'] = "Edit School: ".$object->school_name;
 
@@ -64,14 +66,52 @@ class MapController extends Controller
     public function update(School $schools, SchoolRequest $request)
     {
         $object = $schools;
-        Log::info('MapController.updateSchool - Start: '.$object->id.'|'.$object->school_name);
+        Log::info('MapController.update - Start: '.$object->id.'|'.$object->school_name);
         $this->populateUpdateFields($request);
         $request['active'] = $request['active'] == '' ? false : true;
 
+        /* If school_state_id = '', then set to null to avoid foreign key violation */
+        if ($request['school_state_id'] == '') {
+        	$request['school_state_id'] = null;
+        }
+
         $object->update($request->all());
         Session::flash('flash_message', 'School successfully updated!');
-        Log::info('MapController.updateSchool - End: '.$object->id.'|'.$object->school_name);
-        return redirect('schools');
+        Log::info('MapController.update - End: '.$object->id.'|'.$object->school_name);
+        return redirect('/schools');
+    }
+
+    public function store(SchoolRequest $request)
+    {
+        Log::info('MapController.store - Start: ');
+        $input = $request->all();
+        $this->populateCreateFields($input);
+        $input['active'] = $request['active'] == '' ? false : true;
+
+        /* If school_state_id = '', then set to null to avoid foreign key violation */
+        if ($request['school_state_id'] == '') {
+        	$input['school_state_id'] = null;
+        }
+
+        $object = School::create($input);
+        Session::flash('flash_message', 'School successfully added!');
+        Log::info('UsersController.store - End: '.$object->id.'|'.$object->school_name);
+        return redirect('/schools');
+    }
+
+    public function destroy(Request $request, School $schools)
+    {
+        $object = $schools;
+        Log::info('MapController.destroy: Start: '.$object->id.'|'.$object->school_name);
+        if ($this->authorize('destroy', $object))
+        {
+            Log::info('Authorization successful');
+            $object->delete();
+            Session::flash('flash_message', 'School successfully deleted!');
+
+        }
+        Log::info('MapController.destroy: End: ');
+        return redirect('/schools');
     }
 }
 
