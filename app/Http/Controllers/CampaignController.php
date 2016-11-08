@@ -219,8 +219,8 @@ class CampaignController extends Controller
 		
 		//$currentdate= date("d-m-Y");
 		
-		$activecampaigns = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
+		$activeevents = DB::table('campaigns')
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.goal as goal, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue'))
 					//->where('active', '=','1')
 					//->where('$currentdate','<=','campaigns.end_date])
 					//->where('campaigns.end_date', '>=', 'date(y-m-d)')
@@ -228,7 +228,7 @@ class CampaignController extends Controller
 					
 			
 		//$this->viewData['heading'] = "Active Campaigns";
-       return view('event.activeevent',compact('activecampaigns'));
+       return view('event.activeevent',compact('activeevents'));
 		//return view('campaign.activecampaign', $this->viewData);
   
   }
