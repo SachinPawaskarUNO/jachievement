@@ -4,9 +4,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\TeamRequest;
 use App\Http\Requests\TeamMemberRequest;
+use App\Http\Requests\CampaignRequest;
 use App\TeamMember;
 use App\Team;
 use App\User;
+use App\Campaign;
 use Log;
 use DB;
 use JavaScript;
@@ -69,6 +71,7 @@ class CampaignController extends Controller
         ]);
         return view('campaign.teammember', compact('teamMember', 'teamMembers', 'teammemberDonation', 'data', 'team'));
     }
+
     public function joinTeam($teamToken)
     {
         Log::info('CampaignController.joinTeam: ');
@@ -82,12 +85,13 @@ class CampaignController extends Controller
         $teamInfo = DB::table('teams')
             ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
             ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
-            ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
+            ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName', 'campaigns.default_content as campCont')
             ->where('teams.token', '=', $teamToken)
             ->first();
         $data['teamInfo'] = $teamInfo;
         return view('campaign.jointeam', $data);
     }
+
     public function createTeam($campaignId)
     {
         Log::info('CampaignController.createTeam: ');
@@ -99,7 +103,7 @@ class CampaignController extends Controller
         $data['action'] = 'create';
         $data['heading'] = 'Create a Campaign Team';
         $campaignInfo = DB::table('campaigns')
-            ->select('campaigns.name as campName')
+            ->select('campaigns.name as campName', 'campaigns.default_content as campCont')
             ->where('campaigns.id', '=', $data['campaignId'])
             ->first();
         $data['campaignInfo'] = $campaignInfo;
@@ -219,8 +223,8 @@ class CampaignController extends Controller
 		
 		//$currentdate= date("d-m-Y");
 		
-		$activecampaigns = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
+		$activeevents = DB::table('campaigns')
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue'))
 					//->where('active', '=','1')
 					//->where('$currentdate','<=','campaigns.end_date])
 					//->where('campaigns.end_date', '>=', 'date(y-m-d)')
@@ -228,7 +232,7 @@ class CampaignController extends Controller
 					
 			
 		//$this->viewData['heading'] = "Active Campaigns";
-       return view('event.activeevent',compact('activecampaigns'));
+       return view('event.activeevent',compact('activeevents'));
 		//return view('campaign.activecampaign', $this->viewData);
   
   }
@@ -319,4 +323,80 @@ class CampaignController extends Controller
         return $teamMemberToken;
     }
 
+//    public function __construct()
+//    {
+//        $this->middleware('role:admin');
+//
+//        $this->user = Auth::user();
+//        $this->campaigns = Campaign::all();
+//        $this->heading = "Events";
+//
+//        $this->viewData = [ 'user' => $this->user, 'events' => $this->events, 'heading' => $this->heading ];
+//    }
+
+    public function index() {
+        Log::info('CampaignController.index: Start -');
+
+        $campaigns = Campaign::all();
+        $this->viewData['events'] = $campaigns;
+
+        return view('events.indexevent', $this->viewData);
+    }
+
+    public function create()
+    {
+        Log::info('SchoolController.create: ');
+        $this->viewData['heading'] = "New School";
+
+        return view('schools.create', $this->viewData);
+    }
+
+    public function edit(Campaign $campaigns)
+    {
+        $object = $campaigns;
+        Log::info('CampaignController.edit: '.$object->id.'|'.$object->name);
+        $this->viewData['event'] = $object;
+        $this->viewData['heading'] = "Edit Event: ".$object->name;
+
+        return view('events.editevent', $this->viewData);
+    }
+
+    public function update(Campaign $campaigns, CampaignRequest $request)
+    {
+        $object = $campaigns;
+        Log::info('SchoolController.update - Start: '.$object->id.'|'.$object->name);
+        $this->populateUpdateFields($request);
+        $request['active'] = $request['active'] == '' ? false : true;
+
+
+        $object->update($request->all());
+        Session::flash('flash_message', 'Event successfully updated!');
+        Log::info('CampaignController.update - End: '.$object->id.'|'.$object->name);
+        return redirect('/events');
+    }
+    public function store(CampaignRequest $request)
+    {
+        Log::info('CampaignController.store - Start: ');
+        $input = $request->all();
+        $this->populateCreateFields($input);
+        $input['active'] = $request['active'] == '' ? false : true;
+        $object = Campaign::create($input);
+        Session::flash('flash_message', 'Event successfully added!');
+        Log::info('SchoolController.store - End: '.$object->id.'|'.$object->name);
+        return redirect('/schools');
+    }
+
+    public function destroy(Request $request, Campaign $campaigns)
+    {
+        $object = $campaigns;
+        Log::info('CampaignController.destroy: Start: '.$object->id.'|'.$object->name);
+        if ($this->authorize('destroy', $object))
+        {
+            Log::info('Authorization successful');
+            $object->delete();
+            Session::flash('flash_message', 'Event successfully deleted!');
+        }
+        Log::info('SchoolController.destroy: End: ');
+        return redirect('/events');
+    }
 }
