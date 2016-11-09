@@ -26,22 +26,22 @@ class ReportsController extends Controller
             ->orderBy('donations.created_at', 'DESC')
             ->get();
 
-        $donation_sum= DB::table('donations')
-            ->select(DB::raw('SUM(donations.amount) as sum,month(donations.created_at) as month'))
-            // ->where('year(donations.created_at)','=','2016')
-              // ->where('year(donations.created_at)','=','2016')
+        // $donation_sum= DB::table('donations')
+        //     ->select(DB::raw('SUM(donations.amount) as sum,month(donations.created_at) as month'))
+        //     // ->where('year(donations.created_at)','=','2016')
+        //       // ->where('year(donations.created_at)','=','2016')
         
-            ->groupBy('month')
+        //     ->groupBy('month')
 
-            ->get();
-
-
+        //     ->get();
 
 
 
 
 
-        return view('reports.donation',compact('donors','donation_sum'));
+
+
+        return view('reports.donation',compact('donors'));
     }
 
 
