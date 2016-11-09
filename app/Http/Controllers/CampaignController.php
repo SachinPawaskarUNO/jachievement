@@ -224,7 +224,16 @@ class CampaignController extends Controller
 					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue'))
 					->get();
 
-       return view('event.eventmarketing',compact('activeevents'));
+
+//
+//      $data = DB::table('teams')
+//            ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
+//            ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
+//            ->select('teams.id as id')
+//           //->where('teams.token', '=', $teamToken)
+//            ->get();
+
+      return view('event.eventmarketing',compact('activeevents'));
   }
 
    public function eventDetail()
