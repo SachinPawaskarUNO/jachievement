@@ -217,25 +217,31 @@ class CampaignController extends Controller
       return redirect()->action('CampaignController@team', ['id' => $object->token]);
   }
   
-  public function active()
+  public function eventMarketing()
   {
-		Log::info('CampaignController.active: ');
-		
-		//$currentdate= date("d-m-Y");
-		
+		Log::info('CampaignController.eventMarketing: ');
 		$activeevents = DB::table('campaigns')
 					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue'))
-					//->where('active', '=','1')
-					//->where('$currentdate','<=','campaigns.end_date])
-					//->where('campaigns.end_date', '>=', 'date(y-m-d)')
 					->get();
-					
-			
-		//$this->viewData['heading'] = "Active Campaigns";
-       return view('event.activeevent',compact('activeevents'));
-		//return view('campaign.activecampaign', $this->viewData);
-  
+
+
+//
+//      $data = DB::table('teams')
+//            ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
+//            ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
+//            ->select('teams.id as id')
+//           //->where('teams.token', '=', $teamToken)
+//            ->get();
+
+      return view('event.eventmarketing',compact('activeevents'));
   }
+
+   public function eventDetail()
+   {
+        Log::info('CampaignController.eventDetail: ');
+
+    return view('event.eventdetail');
+   }
    public function teamView()
   {
       Log::info('CampaignController.teamView: ');
