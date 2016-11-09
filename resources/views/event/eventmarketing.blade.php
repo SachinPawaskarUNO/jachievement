@@ -26,11 +26,13 @@
 							{{ $activeevent->description }}
 						</p>
 
-					<a class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Learn More </a>
+					<a href= "{{ url('/event/eventdetail') }}" class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Learn More </a>
 					@if ($activeevent->name == 'Junior Achievement Omaha Golf Campaign - 2016')
-						<a class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Register Now </a>
+
+							<a class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Register Now </a>
+
 					@else
-						<a class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Create Team </a>
+						<a href= "{{action('CampaignController@createTeam', [$activeevent->id])  }}" class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Create Team </a>
 					@endif
 
 					</div>
