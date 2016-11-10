@@ -240,8 +240,12 @@ class CampaignController extends Controller
    public function eventDetail()
    {
         Log::info('CampaignController.eventDetail: ');
-
-    return view('event.eventdetail');
+		
+		//$activeevents = DB::table('campaigns')
+		//			->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue'))
+		//			->get();
+		
+		return view('event.eventdetail');
    }
    public function teamView()
   {

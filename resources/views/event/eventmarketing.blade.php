@@ -20,19 +20,19 @@
 					<h4 style=" color:green; margin-top:0px; margin-bottom:0px">
 						{{$activeevent->name}}
 					</h4>
-
+					<br>
 					<div class="allDesc collapse in">
-						<p style="font-size: small; line-height: 1.4em;">
+						<p class="text-justify" style="font-size: 16px; line-height: 1.4em;">
 							{{ $activeevent->description }}
 						</p>
 
-					<a href= "{{ url('/event/eventdetail') }}" class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Learn More </a>
+					<a href= "{{ url('/event/eventdetail') }}" class="btn btn-success btn-lg" style="font-size: 16px" id="button-create_team"> Learn More </a>
 					@if ($activeevent->name == 'Junior Achievement Omaha Golf Campaign - 2016')
 
-							<a class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Register Now </a>
+							<a class="btn btn-success btn-lg" style="font-size: 16px" id="button-create_team"> Register Now </a>
 
 					@else
-						<a href= "{{action('CampaignController@createTeam', [$activeevent->id])  }}" class="btn btn-success btn-lg" style="font-size: 12px" id="button-create_team"> Create Team </a>
+						<a href= "{{action('CampaignController@createTeam', [$activeevent->id])  }}" class="btn btn-success btn-lg" style="font-size: 16px" id="button-create_team"> Create Team </a>
 					@endif
 
 					</div>

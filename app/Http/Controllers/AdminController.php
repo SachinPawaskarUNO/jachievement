@@ -10,6 +10,7 @@ use App\EducatorInterestForm;
 use App\VolunteerInterestForm;
 use Log;
 use Excel;
+use DB;
 use App\State;
 
 class AdminController extends Controller
@@ -47,16 +48,23 @@ class AdminController extends Controller
             $educatorInterestForm->school_state = $state->name;
         }
 
-
         return view('admin.educator_form_show', compact('educatorInterestForm'));
     }
 
     public function showVolunteerDetails($id)
     {
         Log::info('AdminController.showVolunteerDetails: ');
-        $volunteerInterestForm =   VolunteerInterestForm::where('id', '=', $id)->firstOrFail();
+        //$volunteerInterestForm =   VolunteerInterestForm::where('id', '=', $id)->firstOrFail();
+        $volunteerInterestForm= DB::table('volunteer_interest_forms')
+            ->select('volunteer_interest_forms.*')
+            ->join('volunteer_programs', 'volunteer_interest_forms.id', '=', 'volunteer_programs.volunteerform_id')
+            ->join('programs', 'programs.id','=','volunteer_programs.program_id')
+            ->where('volunteer_interest_forms.id', '=' ,$id)
+            ->firstOrFail();
+
 
         $home_state_id =  $volunteerInterestForm->home_state_id;
+        return $home_state_id;
         $company_state_id =  $volunteerInterestForm->home_state_id;
         if($home_state_id != null) {
             $state1 = State::where('id', "=" , $home_state_id)->firstOrFail();
@@ -87,9 +95,23 @@ class AdminController extends Controller
     {
 
        Log::info('AdminController.downloadVolunteerReport: ');
-       $volunteerInterestForms =  VolunteerInterestForm::all();
+        // $volunteerInterestForms =  VolunteerInterestForm::all();
 
-       foreach($volunteerInterestForms as $volunteerInterestForm) {
+        $volunteerInterestForms =  DB::table('volunteer_interest_forms')
+            ->select('volunteer_interest_forms.school_preference','volunteer_interest_forms.first_name',
+                'volunteer_interest_forms.last_name','volunteer_interest_forms.company_name',
+                'volunteer_interest_forms.company_address','volunteer_interest_forms.company_city',
+                'states1.name as company_state','volunteer_interest_forms.company_zip','volunteer_interest_forms.company_phone',
+                'volunteer_interest_forms.home_phone','volunteer_interest_forms.home_address','volunteer_interest_forms.home_city',
+                'states2.name as home_state','volunteer_interest_forms.home_zip','volunteer_interest_forms.email',
+                'volunteer_interest_forms.created_at','volunteer_interest_forms.mode_of_contact')
+            ->join('states as states1', 'states1.id','=','volunteer_interest_forms.company_state_id')
+            ->join('states as states2', 'states2.id', '=', 'volunteer_interest_forms.home_state_id')
+            ->get();
+        return $volunteerInterestForms;
+
+
+       /* foreach($volunteerInterestForms as $volunteerInterestForm) {
            $home_state_id =  $volunteerInterestForm->home_state_id;
            $company_state_id =  $volunteerInterestForm->home_state_id;
            if($home_state_id != null) {
@@ -102,7 +124,7 @@ class AdminController extends Controller
                $volunteerInterestForm->company_state = $state2->name;
            }
 
-       }
+       }*/
        Excel::create('report', function($excel) use($volunteerInterestForms) {
             $excel->sheet('Sheet 1', function($sheet) use($volunteerInterestForms) {
                 $sheet->fromArray($volunteerInterestForms);

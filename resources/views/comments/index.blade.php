@@ -6,7 +6,7 @@
         <div class="panel-heading">
             <div class="pull-right">
                 <form action="{{ url('comments/create') }}" method="GET">{{ csrf_field() }}
-                    <button type="submit" id="create-comment" class="btn btn-primary"><i class="fa fa-btn fa-file-o"></i>Create</button>
+                    <button type="submit" id="create-comment" class="btn btn-primary">Create</button>
                 </form>
             </div>
             <div><h2 style="text-align:center;">Comments</h2></div>
@@ -25,7 +25,7 @@
                             @if($comment->id != 1 && $comment->id != 2) <!-- Administrator and Advisor Comment -->
                             <div class="pull-right" style="height: 25px;">
                                 <form action="{{ url('comments/'.$comment->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('delete') }}
-                                    <button type="submit" id="delete-comment-{{ $comment->id }}" class="btn btn-default"><i class="fa fa-trash"></i></button>
+                                    <button type="submit" id="delete-comment-{{ $comment->id }}" class="btn btn-default"></button>
                                 </form>
                             </div>
                             @endif
