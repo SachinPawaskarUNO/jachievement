@@ -8,7 +8,7 @@
             @if ($CRUD_Action == "Update")
             <div class="pull-right" data-toggle="tooltip" title="{{$skeletalelement->comments->count()}} - Comments(s)">
                 @if($commentfor == "SkeletalElement")
-                    <a href="{{ URL::route('comments.addforskeletalelement', $skeletalelement->id,['method' => 'GET']) }}" class="btn btn-primary"><i class="fa fa-btn fa-comment"></i>Add Comment</a>
+                    <a href="{{ URL::route('comments.addforskeletalelement', $skeletalelement->id,['method' => 'GET']) }}" class="btn btn-primary">Add Comment</a>
                 @endif
             </div>
             @endif
@@ -36,9 +36,9 @@
                                     @if($user->id == $comment->user_id)
                                         <div class="pull-right" style="height: 25px;">
                                             @if ($CRUD_Action == "Update")
-                                            <a href="{{ URL::route('comments.edit', ['id' => $comment->id, 'method' => 'GET']) }}" class="edit-comment btn btn-default"><i class="fa fa-edit"></i></a>
+                                            <a href="{{ URL::route('comments.edit', ['id' => $comment->id, 'method' => 'GET']) }}" class="edit-comment btn btn-default"></a>
                                             <form action="{{ url('comments/'.$comment->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('delete') }}
-                                                <button type="submit" id="delete-comment-{{ $comment->id }}" class="btn btn-default"><i class="fa fa-trash"></i></button>
+                                                <button type="submit" id="delete-comment-{{ $comment->id }}" class="btn btn-default"></button>
                                             </form>
                                             @endif
                                         </div>
