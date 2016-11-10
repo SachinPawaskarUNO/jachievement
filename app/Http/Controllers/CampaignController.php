@@ -220,8 +220,10 @@ class CampaignController extends Controller
   public function eventMarketing()
   {
 		Log::info('CampaignController.eventMarketing: ');
+		
+		
 		$activeevents = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue'))
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.image as image, campaigns.event_date as event_date, campaigns.venue as venue, campaigns.default_content as content'))
 					->get();
 
 
@@ -234,17 +236,35 @@ class CampaignController extends Controller
 //            ->get();
 
       return view('event.eventmarketing',compact('activeevents'));
+	 // return redirect()->action('CampaignController@eventDetail', ['id' => $campaignid]);
   }
 
-   public function eventDetail()
+   public function eventDetail($campaignId)
    {
         Log::info('CampaignController.eventDetail: ');
+		$data['campaignId'] = $campaignId;
+		//$data['action'] = 'eventDetail';
+		$details = DB::table('campaigns')
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue,campaigns.default_content as content'))
+					->where('campaigns.id', '=', $data['campaignId'])
+					->get();
+		//$data['details'] = $details;
+		return view('event.eventdetail',compact('details'));
 		
-		//$activeevents = DB::table('campaigns')
-		//			->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue'))
-		//			->get();
 		
-		return view('event.eventdetail');
+ //       $data['campaignId'] = $campaignId;
+ //       $data['action'] = 'create';
+ //       $data['heading'] = 'Create a Campaign Team';
+ //       $campaignInfo = DB::table('campaigns')
+ //           ->select('campaigns.name as campName', 'campaigns.default_content as campCont')
+ //           ->where('campaigns.id', '=', $data['campaignId'])
+ //           ->first();
+ //       $data['campaignInfo'] = $campaignInfo;
+ //       $organizationList = DB::table('organizations')
+ //           ->whereNull('organizations.deleted_at')
+ //           ->lists('name', 'id');
+ //       $data['organizationList'] = $organizationList;
+ //       return view('campaign.jointeam', $data);
    }
    public function teamView()
   {

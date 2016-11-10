@@ -86,7 +86,7 @@ Route::get('/event/team/create/{campaignId}', 'CampaignController@createTeam');
 Route::post('/event/team/create', 'CampaignController@createTeamStore');
 
 Route::get('/event/current', 'CampaignController@eventMarketing');
-Route::get('/event/eventdetail', 'CampaignController@eventDetail');
+Route::get('/event/eventdetail/{campaignId}', 'CampaignController@eventDetail');
 
 Route::get('/event/team/view', 'CampaignController@teamview');
 

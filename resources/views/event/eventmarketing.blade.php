@@ -7,8 +7,7 @@
 			<br>
 			<h4 class="text-justify" id="pageDescription"><i>Junior Achievement hosts several signature events throughout the year to raise money to support our programs, as well as raise awareness about our mission.</i></h4>
 			<br>
-
-			@foreach ($activeevents as $activeevent)
+			@foreach($activeevents as $activeevent)
 			<div class="row" id="div-row">
 				<div class="col-md-3" id="eventImage">
 					<img src="{{ $activeevent->image }}" width="100%", height="auto"/>
@@ -22,17 +21,19 @@
 					</h4>
 					<br>
 					<div class="allDesc collapse in">
-						<p class="text-justify" style="font-size: 16px; line-height: 1.4em;">
-							{{ $activeevent->description }}
-						</p>
-
-					<a href= "{{ url('/event/eventdetail') }}" class="btn btn-success btn-lg" style="font-size: 16px" id="button-create_team"> Learn More </a>
+						<p style="font-size: 16px;"><b>When:</b>&nbsp;{{$activeevent->event_date}}
+						<!--<p class="text-justify" style="font-size: 16px; line-height: 1.4em;"></p> -->
+						<br>
+						<b>Where:</b>&nbsp; {{$activeevent->venue}}</p>
+						<br>
+					
+					<a href= "{{ action('CampaignController@eventDetail', [$activeevent->id])}}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-create_team"> Learn More </a>
 					@if ($activeevent->name == 'Junior Achievement Omaha Golf Campaign - 2016')
 
-							<a class="btn btn-success btn-lg" style="font-size: 16px" id="button-create_team"> Register Now </a>
+							<a class="btn btn-success btn-lg" style="font-size: 14px" id="button-create_team"> Register Now </a>
 
 					@else
-						<a href= "{{action('CampaignController@createTeam', [$activeevent->id])  }}" class="btn btn-success btn-lg" style="font-size: 16px" id="button-create_team"> Create Team </a>
+						<a href= "{{action('CampaignController@createTeam', [$activeevent->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-create_team"> Create Team </a>
 					@endif
 
 					</div>
