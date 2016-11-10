@@ -6,7 +6,7 @@
         <div class="panel-heading">
             <div class="pull-right">
                 <form action="{{ url('tags/create') }}" method="GET">{{ csrf_field() }}
-                    <button type="submit" id="create-tag" class="btn btn-primary"><i class="fa fa-btn fa-file-o"></i>Create</button>
+                    <button type="submit" id="create-tag" class="btn btn-primary">Create</button>
                 </form>
             </div>
             <div><h2 style="text-align:center;">Tags</h2></div>
@@ -25,7 +25,7 @@
                             @if($tag->id != 1 && $tag->id != 2) <!-- Administrator and Advisor Tag -->
                             <div class="pull-right" style="height: 25px;">
                                 <form action="{{ url('tags/'.$tag->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('delete') }}
-                                    <button type="submit" id="delete-tag-{{ $tag->id }}" class="btn btn-default"><i class="fa fa-trash"></i></button>
+                                    <button type="submit" id="delete-tag-{{ $tag->id }}" class="btn btn-default"></button>
                                 </form>
                             </div>
                             @endif

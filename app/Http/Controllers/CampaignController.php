@@ -21,10 +21,11 @@ class CampaignController extends Controller
 {
     public function teammember($id)
     {
+//        dd($id);
         Log::info('CampaignController.teammember: ');
       //$teamMember = TeamMember::where('token','=',$id)->firstOrFail();
       $teamMember= DB::table('team_members')
-          ->select('team_members.id','team_members.team_id','team_members.title','team_members.goal','team_members.content','users.first_name as first_name','team_members.user_id')
+          ->select('team_members.id','team_members.team_id','team_members.title','team_members.goal','team_members.content','users.first_name as first_name','team_members.user_id','team_members.token')
           ->join('users', 'users.id', '=', 'team_members.user_id')
           ->where('team_members.token', '=' ,$id)
           ->first();
@@ -69,7 +70,7 @@ class CampaignController extends Controller
             'memberRaised' => ($teammemberDonation->donation_amount == null ? 0 : $teammemberDonation->donation_amount),
             'memberGoal' => $teamMember->goal
         ]);
-        return view('campaign.teammember', compact('teamMember', 'teamMembers', 'teammemberDonation', 'data', 'team'));
+        return view('event.teammember', compact('teamMember', 'teamMembers', 'teammemberDonation', 'data', 'team'));
     }
 
     public function joinTeam($teamToken)
@@ -155,7 +156,7 @@ class CampaignController extends Controller
             'raised' => ($teamDonation->donation_amount == null ? 0 : $teamDonation->donation_amount),
             'totalGoal' => $team->goal
         ]);
-        return view('campaign.team', compact('teamMembers', 'team', 'teamDonation', 'data'));
+        return view('event.team', compact('teamMembers', 'team', 'teamDonation', 'data'));
     }
     public function joinTeamStore(TeamMemberRequest $request)
     {
@@ -323,23 +324,54 @@ class CampaignController extends Controller
             'id' => $request->id,
             'user' => Auth::user(),
             'firstname' => Auth::user()->first_name,
-            'lastname' => Auth::user()->last_name
+            'lastname' => Auth::user()->last_name,
+            'verifyTeam' => $request->verifyTeam
         );
-        $to=explode(',',$request->email);
-       // dd(Auth::user()->last_name);
-        foreach($to as $receipt)
-        {
-           // print $receipt;
-            Mail::send('campaign.solicitationform', $data, function ($message) use ($receipt,$request) {
-                $message->from('juniorachievement.midlands@gmail.com');
-                $message->bcc($receipt, 'Junior Achievement of Midlands, Inc')->subject('Family and Friends with Junior Achievement');;
-                //$message->to($receipt,'AJ')->subject('Family and Friends with Junior Achievement');
-            });
+        $to = explode(',', str_replace(';', ',', str_replace(' ', ',', $request->email)));
+            foreach ($to as $receipt) {
+                // print $receipt;
+                Mail::send('event.solicitationform', $data, function ($message) use ($receipt, $request) {
+                    $message->from('juniorachievement.midlands@gmail.com');
+                    $message->bcc($receipt, 'Junior Achievement of Midlands, Inc')->subject('Family and Friends with Junior Achievement');;
+                    //$message->to($receipt,'AJ')->subject('Family and Friends with Junior Achievement');
+                });
+            }
+            \Session::flash('flash_message', 'Your solicitation request has been sent successfully!');
+            return redirect()->action('CampaignController@team', ['id' => $request->token]);
         }
-        \Session::flash('flash_message', 'Your solicitation request has been sent successfully!');
-        return redirect()->action('CampaignController@team', ['id' =>$request->token]);
-    }
 
+    public function sendmailmember(SolicitationRequest $request)
+    {
+        $teamMemberToken=null;
+        $data = array(
+            'teamname' => $request->teamname,
+            'email' => $request->email,
+            'user_message' => $request->user_message,
+            'url' => $request->url,
+            'token' => $request->token,
+            'id' => $request->id,
+            'user' => Auth::user(),
+            'firstname' => Auth::user()->first_name,
+            'lastname' => Auth::user()->last_name,
+            'verifyTeam' => $request->verifyTeam
+        );
+
+                    $teamMember=DB::table('team_members')
+                            ->select('team_members.token')
+                            ->where('team_members.id', '=' ,$request->id)
+                            ->first();
+                    $teamMemberToken=$teamMember->token;
+                    $to = explode(',', str_replace(';', ',', str_replace(' ', ',', $request->email)));
+                            foreach ($to as $receipt) {
+                                Mail::send('event.solicitationformmember', $data, function ($message) use ($receipt, $request) {
+                                    $message->from('juniorachievement.midlands@gmail.com');
+                                    $message->bcc($receipt, 'Junior Achievement of Midlands, Inc')->subject('Family and Friends with Junior Achievement');;
+                                    //$message->to($receipt,'AJ')->subject('Family and Friends with Junior Achievement');
+                                });
+                            }
+                    \Session::flash('flash_message', 'Your solicitation request has been sent successfully!');
+                    return redirect()->action('CampaignController@teammember', ['id' =>$teamMemberToken]);
+                      }
 
     protected function getTeamMemberToken() {
       do {

@@ -65,7 +65,7 @@
             <ul class="nav navbar-nav">
                 <!--<li><a href="{{ url('/home') }}">Home</a></li>-->
                 {{-- Menu for Users with Administration Role Only --}}
-                @role(['admin', 'superadmin'])
+                @role('admin')
 
                 <li class="dropdown">
                     <a href="#" id="ja_nav_getinv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -85,7 +85,23 @@
                         {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn"></i>Files</a></li>--}}
                     </ul>
                 </li>
-                @endrole 
+                @endrole
+                @role('superadmin')
+                 <li class="dropdown">
+                    <a href="#" id="ja_nav_getinv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                       Administration<span class="caret"></span></a>
+                    <ul class="dropdown-menu multi level" role="menu">
+                        <li><a id="ja_nav_users" href="{{ url('/users') }}">Users</a></li>
+                        <li><a id="ja_nav_roles" href="{{ url('/roles') }}">Roles</a></li>
+                        <li><a id="ja_nav_educator_form" href="{{ url('/admin/educatorform') }}">Educator Forms</a></li>
+                        <li><a id="ja_nav_volunteer_form" href="{{ url('/admin/volunteerform') }}">Volunteer Forms</a></li>
+                        <li><a id="ja_reports_donation" href="{{ url('/reports/donation') }}">Donation Reports</a></li>
+                        {{--<li class="divider"></li>--}}
+                        {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn"></i>Files</a></li>--}}
+
+                    </ul>
+                </li>
+                @endrole
             </ul>
           
             <!-- Right Side Of Navbar -->

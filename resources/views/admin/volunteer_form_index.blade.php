@@ -18,25 +18,20 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead>
-                                    <th>Form Id</th><th>Volunteer Name</th><th>Email</th><th>Action</th>
+                                   <th>Volunteer Name</th><th>Email</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($volunteerInterestForms as $volunteerInterestForm)
                                         <tr>
-                                            <td class="table-text"><div>{{ $volunteerInterestForm->id }}</div></td>
-                                            <td class="table-text"><div>{{ $volunteerInterestForm->first_name }} {{$volunteerInterestForm->last_name}}</div></td>
+                                            <td class="table-text"><div><a href="{{ url('/admin/volunteerform/'. $volunteerInterestForm->id)}}">{{ $volunteerInterestForm->first_name }} {{$volunteerInterestForm->last_name }}</a></div></td>
                                             <td class="table-text"><div>{{ $volunteerInterestForm->email }}</div></td>
-                                            <td>
-                                                <a href="{{ action('AdminController@showVolunteerDetails', $volunteerInterestForm->id) }}" class="btn btn-default btn-small">View
-                                                    Details</a>
-                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         @else
-                            <div class="panel-body"><h4>No Volunteer Form Records Found</h4></div>
+                            <div class="panel-body"><h4>Volunteer Reccord Not Found</h4></div>
                         @endif
                     </div>
                 </div>
