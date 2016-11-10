@@ -27,7 +27,7 @@ class SolicitationRequest extends Request
             'teamname' => 'required',
             //'email' => 'required|max:50|email',
             //'phone_number' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
-            'message' => 'max:1000'
+            'message' => 'max:2000'
         ];
        /* foreach($this->request->get('email') as $key => $value)
         {

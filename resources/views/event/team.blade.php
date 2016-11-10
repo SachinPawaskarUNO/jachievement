@@ -135,8 +135,14 @@
             right: -15px;
             z-index: 30;
         }
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 900px) {
             #myModal1 .modal-dialog  {width:900px;}
+        }
+        .note
+        {
+            font-size: 12px;
+            font-weight:200;
+            color: red;
         }
     </style>
     <div class="container-fluid">
@@ -196,9 +202,8 @@
                                 <p align="center"><span style="font-size:1.5em;color:white;"><b>Family & Friends with Junior Achievement</b></span></p>
                             </div>
                             <div class="modal-body">
-                                {!! Form::open(['url' => '/campaign/team', 'class' => 'form-horizontal']) !!}
+                                {!! Form::open(['url' => '/event/team', 'class' => 'form-horizontal']) !!}
                                 @include('common.errors')
-                                @include('common.flash')
                                 <div class="hidden-sm clear"> &nbsp;</div>
                                 <div class="form-group{{ $errors->has('teamname') ? ' has-error' : '' }}">
                                     {!! Form::label('teamname', 'Team Name:', ['class' => 'col-md-4 control-label']) !!}
@@ -216,7 +221,7 @@
                                     {!! Form::label('email', 'E-Mail:', ['class' => 'col-md-4 control-label']) !!}
                                     <span style="color:red;">*</span>
                                     <div class="col-md-6">
-                                        {!! Form::text('email', null, ['id'=> 'email', 'class' => 'col-md-6 form-control', 'required' => 'required']) !!}
+                                        {!! Form::email('email', null, ['id'=> 'email','placeholder' =>'Please separate your email list using a comma (,)','class' => 'col-md-6 form-control', 'required' => 'required','multiple']) !!}
                                         @if ($errors->has('email'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('email') }}</strong>
@@ -228,12 +233,17 @@
                                     {!! Form::label('message', 'Message:', ['class' => 'col-md-4 control-label']) !!}
                                     <span style="color:red;">*</span>
                                     <div class="col-md-6">
-                                        {!! Form::textarea('user_message',$team->content, ['id'=> 'user_message', 'class' => 'col-md-6 form-control', 'required' => 'required', 'maxLength' => '1000']) !!}
+                                        {!! Form::textarea('user_message',$team->content, ['id'=> 'user_message', 'class' => 'col-md-6 form-control', 'required' => 'required', 'maxLength' => '2000']) !!}
                                         @if ($errors->has('user_message'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('user_message') }}</strong>
                                             </span>
                                         @endif
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('user_message') ? ' has-error' : '' }}">
+                                    <div class="col-md-4"></div>
+                                    <div class="note">{!! Form::label('note', 'NOTE: Your Message will be sent with a System generated Signature', ['class' => 'col-md-6']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
