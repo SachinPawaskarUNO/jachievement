@@ -125,6 +125,14 @@ window.onclick = function(event) {
 
 // Bar Chart for Donations
 $(function () {
+
+    var processed_json = new Array();   
+    $.getJSON($donation_sum, function(data) {
+                    // Populate series
+                    for (i = 0; i < data.length; i++){
+                        processed_json.push([data[i].key, data[i].value]);
+                    }
+                 
     var chart = Highcharts.chart('container', {
 
         title: {
@@ -140,10 +148,12 @@ $(function () {
         },
 
         series: [{
-            type: 'column',
-            colorByPoint: true,
-            data: [34, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
-            showInLegend: false
+             data: processed_json
+
+            // type: 'column',
+            // colorByPoint: true,
+            // data: [34, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+            // showInLegend: false
         }]
 
     });
