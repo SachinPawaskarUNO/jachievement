@@ -30,16 +30,18 @@ class ReportsController extends Controller
         //     ->select(DB::raw('SUM(donations.amount) as sum,month(donations.created_at) as month'))
         //     // ->where('year(donations.created_at)','=','2016')
         //       // ->where('year(donations.created_at)','=','2016')
-        //     ->whereMonth('donations.created_at','=','10')
+        
         //     ->groupBy('month')
 
         //     ->get();
 
-          
 
 
 
-        return view('reports.donation',compact('donors','donation_sum'));
+
+
+
+        return view('reports.donation',compact('donors'));
     }
 
 

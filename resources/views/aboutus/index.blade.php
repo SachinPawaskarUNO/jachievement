@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row">
             <br>
-            <h2 class="text-center"><b>JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</b></h2>
+            <h2 class="text-center">JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h2>
             <br>
             <div class="col-md-6">
                 <img class="img-responsive" alt="JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES" src="http://lyderis.eu/wp-content/uploads/2011/05/junior-achievement.jpg" width="100%" height="auto">
