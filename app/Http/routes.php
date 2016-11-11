@@ -89,6 +89,12 @@ Route::post('/event/team/create', 'CampaignController@createTeamStore');
 Route::get('/event/current', 'CampaignController@eventMarketing');
 Route::get('/event/eventdetail/{campaignId}', 'CampaignController@eventDetail');
 
+Route::get('/event/create', 'CampaignController@create');
+Route::get('/event/edit/{id}', 'CampaignController@edit');
+Route::get('/event/index', 'CampaignController@index');
+
+Route::get('/event/eventdetail/{campaignId}', 'CampaignController@eventDetail');
+
 Route::get('/event/team/view', 'CampaignController@teamview');
 
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
@@ -100,7 +106,7 @@ Route::get('/aboutus/index', 'AboutUsController@aboutus');
 Route::get('/aboutus/map', 'MapController@map');
 
 Route::get('/programs/index', 'ProgramController@program');
-Route::get('/contributors', 'ContributorController@index');
+Route::get('/donors', 'ContributorController@index');
 
 Route::get('/admin/educatorform', 'AdminController@listEducatorForm');
 Route::get('/admin/volunteerform', 'AdminController@listVolunteerForm');

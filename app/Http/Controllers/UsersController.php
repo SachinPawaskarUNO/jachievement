@@ -33,7 +33,7 @@ class UsersController extends Controller
 //        $this->middleware('administrator', ['only' => ['create', 'edit', 'destroy', 'update']]);
 //        $this->middleware('administrator');
 //        $this->middleware('role:admin|root');
-        $this->middleware('role:admin');
+        $this->middleware('role:admin|superadmin');
 
         $this->user = Auth::user();
         $this->users = User::all();
@@ -90,7 +90,7 @@ class UsersController extends Controller
         $object = $users;
         Log::info('UsersController.edit: '.$object->id.'|'.$object->name);
         $this->viewData['user'] = $object;
-        $this->viewData['heading'] = "Edit User: ".$object->name;
+        $this->viewData['heading'] = "Edit User: ".$object->first_name;
 
         return view('users.edit', $this->viewData);
     }

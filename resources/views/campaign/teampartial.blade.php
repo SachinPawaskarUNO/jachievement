@@ -1,11 +1,11 @@
 
 <div class="form-group">
-    {!! Form::label('campaign', 'Campaign:', ['class' => 'col-md-3 control-label']) !!}
+    {!! Form::label('campaign', 'Event:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
     @if ($action == 'join')
-    <label class="control-label" style="font-weight: normal !important;">{{ $teamInfo->campName }}</label>
+    <label class="control-label" style="font-weight: normal !important; text-align:left;">{{ $teamInfo->campName }}</label>
     @else
-    <label class="control-label" style="font-weight: normal !important;">{{ $campaignInfo->campName }}</label>
+    <label class="control-label" style="font-weight: normal !important; text-align:left;">{{ $campaignInfo->campName }}</label>
     @endif
     </div>
 </div>
@@ -13,7 +13,7 @@
     {!! Form::label('organization', 'Organization:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
     @if ($action == 'join')
-    <label class="control-label" style="font-weight: normal !important;">{{ $teamInfo->orgName }}</label>
+    <label class="control-label" style="font-weight: normal !important; text-align:left;">{{ $teamInfo->orgName }}</label>
     @else
     {!! Form::select('organization_id', $organizationList, null, ['id' => 'organization_id', 'class' => 'col-md-7 form-control', 'required' => 'required', 'placeholder' => 'Select an organization...']) !!}
     @endif
@@ -23,7 +23,7 @@
     {!! Form::label('team', 'Team Name:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
     @if ($action == 'join')
-    <label class="control-label" style="font-weight: normal !important;">{{ $teamInfo->teamName }}</label>
+    <label class="control-label" style="font-weight: normal !important; text-align:left;">{{ $teamInfo->teamName }}</label>
     @else
     {!! Form::text('name', null, ['id' => 'name', 'class' => 'col-md-7 form-control', 'required' => 'required']) !!}
     @endif
@@ -41,7 +41,11 @@
 <div class="form-group">
     {!! Form::label('pageContent', 'Page Content:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
+        @if ($action == 'join')
+        {!! Form::textarea('content', $teamInfo->campCont, ['id' => 'content','class' => 'col-md-7 form-control', 'required' => 'required']) !!}
+        @else
         {!! Form::textarea('content', $campaignInfo->campCont, ['id' => 'content','class' => 'col-md-7 form-control', 'required' => 'required']) !!}
+        @endif
     </div>
 </div>
 <div class="form-group">
@@ -50,7 +54,7 @@
         <input type="range" id="fundraisingGoalRange" min="0" max="10000" step="50" value="500" onChange="changeGoalText()">
     </div>
     <div class="col-md-3">
-        {!! Form::text('formatGoal', '$500.00', ['id' => 'formatGoal', 'class' => 'col-md-3 form-control', 'required' => 'required', 'onChange' => 'changeGoalSlider()', 'data-prefix' => '$']) !!}
+        {!! Form::text('formatGoal', '$500', ['id' => 'formatGoal', 'class' => 'col-md-3 form-control', 'required' => 'required', 'onChange' => 'changeGoalSlider()', 'data-prefix' => '$', 'data-precision' => '0']) !!}
     </div>
 </div>
 
@@ -82,10 +86,10 @@
         <input type="range" id="personalFundraisingGoalRange" min="0" max="10000" step="50" value="500" onChange="changePersonalGoalText()">
     </div>
     <div class="col-md-3">
-        {!! Form::text('personalFormatGoal', '$500.00', ['id' => 'personalFormatGoal', 'class' => 'col-md-3 form-control', 'onChange' => 'changePersonalGoalSlider()', 'data-prefix' => '$']) !!}
+        {!! Form::text('personalFormatGoal', '$500', ['id' => 'personalFormatGoal', 'class' => 'col-md-3 form-control', 'onChange' => 'changePersonalGoalSlider()', 'data-prefix' => '$', 'data-precision' => '0']) !!}
     </div>
 </div>
-{!! Form::hidden('personalGoal', '500.00', ['id' => 'personalGoal']) !!}
+{!! Form::hidden('personalGoal', '500', ['id' => 'personalGoal']) !!}
 @endif
 
 @if ($action == 'join')
@@ -93,7 +97,7 @@
 @else
 {!! Form::hidden('campaign_id', $campaignId) !!}
 @endif
-{!! Form::hidden('goal', '500.00', ['id' => 'goal']) !!}
+{!! Form::hidden('goal', '500', ['id' => 'goal']) !!}
 
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">

@@ -25,8 +25,8 @@
                                     @foreach ($campaigns as $campaign)
                                         <tr>
                                             <td class="table-text"><div><a href="{{ url('/events/'.$campaign->id.'/edit') }}">{{ $campaign->campaign_name }}</a></div></td>
-                                            <td class="table-text"><div>{{ $campaign->campaign_address }}, {{ $campaign->campaign_city }}</div></td>
-                                            @if ($campaign->active)<td class="table-text"><div>Active</div></td>@else<td class="table-text"><div>Inactive</div></td>@endif
+                                            <td class="table-text"><div>{{ $campaign->event_date }}</div></td>
+                                            <td class="table-text"><div>{{ $campaign->venue }}</div></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
