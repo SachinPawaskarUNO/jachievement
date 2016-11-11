@@ -26,25 +26,20 @@ class ReportsController extends Controller
             ->orderBy('donations.created_at', 'DESC')
             ->get();
 
-        // $donation_sum= DB::table('donations')
-        //     ->select(DB::raw('SUM(donations.amount) as sum,month(donations.created_at) as month'))
-        //     // ->where('year(donations.created_at)','=','2016')
-        //       // ->where('year(donations.created_at)','=','2016')
-        
-        //     ->groupBy('month')
+         $chart_results= DB::table('donations')
+             ->select(DB::raw('SUM(donations.amount) as sum,month(donations.created_at) as month'))
+             // ->where('year(donations.created_at)','=','2016')
+               // ->where('year(donations.created_at)','=','2016')
+             ->whereMonth('donations.created_at','=','10')
+             ->groupBy('month')
 
-        //     ->get();
-
-
-
-
+             ->get();
+             $chart_results = array_column($chart_results, 'sum');
+//            $chart_data = json_encode($chart_results);
 
 
-
-        return view('reports.donation',compact('donors'));
+        return view('reports.donation',compact('donors'))->with('chart_results',json_encode($chart_results,JSON_NUMERIC_CHECK));
     }
-
-
 }
 
 
