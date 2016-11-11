@@ -9,11 +9,10 @@
                         <div>{{ $heading }}</div>
                     </div>
                     <div class="panel-body">
-                        {!! Form::open(['url' => 'schools', 'class' => 'form-horizontal']) !!}
+                        {!! Form::open(['url' => 'event', 'class' => 'form-horizontal']) !!}
                         @include('common.errors')
                         @include('common.flash')
-
-                        @include ('schools.partial', ['CRUD_Action' => 'Create'])
+                        @include ('event.partialevent', ['CRUD_Action' => 'Create'])
                         {!! Form::close() !!}
                     </div>
                 </div>
