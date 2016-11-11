@@ -19,7 +19,7 @@ class SchoolController extends Controller
 {
 	public function __construct()
     {
-        $this->middleware('role:admin');
+        $this->middleware('role:admin|superadmin');
 
         $this->user = Auth::user();
         $this->schools = School::all();
