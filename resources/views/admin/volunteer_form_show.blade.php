@@ -90,8 +90,21 @@
                                 <p id="school_zip" >{{ $volunteerInterestForm->mode_of_contact }}</p>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6">
+                                <label for="school_zip">Program Preference</label>
+                                <p id="program_preference" >
+                                    @foreach($volunteer_programs as $volunteer_program)
+                                       - {{ $volunteer_program->name }}
+                                        <br>
+                                    @endforeach
+                                </p>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="pull-left">
+                        <br>
                         <a href="{{ action('AdminController@listVolunteerForm') }}" class="btn btn-default">Back</a>
                     </div>
                 </div>
