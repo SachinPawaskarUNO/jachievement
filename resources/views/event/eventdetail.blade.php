@@ -14,40 +14,62 @@
 	
         <div class="container" id="div-container">
 			
-            <h2 class="text-center" id="pageHeading" >Bowling Classic</h2>
+			@foreach($details as $detail)
+            <h2 class="text-center" id="pageHeading" >{{$detail->name}}</h2>
+			
             <br>
 			<div class="row" id="div-row">
+				<div class="col-md-12 col-md-offset-10"  id="button">
+					@if ($detail->id == 1)
+				<a class="btn btn-success btn-lg" style="font-size: 14px" id="button-create_team"> Register Now </a>
+			@else
+				<a href= "{{action('CampaignController@createTeam', [$detail->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-create_team"> Create Team </a>
+			@endif
+				</div>
 				<div class="col-md-4" id="eventImage"> 
-					<img src="http://nebula.wsimg.com/4da4544b93841f3d4cad23fa034e3b9a?AccessKeyId=388728B8D19B522E4A80&disposition=0&alloworigin=1" width="100%", height="auto"/>
-					
-					<h4 style=" color:green; margin-top:0px; margin-bottom:0px">Contact</h4>
-					<p class="text-justify" style="font-size: 18px; line-height: 1.4em;">John Healey</p>
-					
+					<img src="{{$detail->image}}" width="100%", height="auto"/>
+					<div class="col-md-12">
+						<span style=" font-size: 18px; color:green; margin-top:0px; margin-bottom:0px">Contact :</span>
+						<span style="font-size: 18px">John Healey</span>
+					</div>
+					<br>
 					<span class="glyphicon glyphicon-earphone"></span> 
-					<p class="text-justify" style="font-size: 16px; line-height: 1.4em;"> 402-333-6410</p> 
-					
+					<p class="text-justify" style="font-size: 18px"> {{$detail->phone}}</p> 
 					<span class="glyphicon glyphicon-envelope"></span>
-					<a href="mailto:healey@jaomaha.net" style="font-size: 16px;"> healey@jaomaha.net</a>
+					<a href="mailto:healey@jaomaha.net" style="font-size: 18px"> {{$detail->email}}</a>
 					
 					<br>
 				</div>
 				<div class="col-md-8" id="eventInfo"> 
-					<div id="map"></div>
 					
 					<div class="allDesc collapse in" id="eventDesc">
 						<h4 style=" color:green; margin-top:0px; margin-bottom:0px">Description</h4>
 						<p class="text-justify" style="font-size: 16px; line-height: 1.4em;">
-							Bowling Classic is a special event targeted to reach individual contributors for Junior Achievement. Teams of five individuals secure pledges based on per pin or a set amount and bowl two games during a specific time.  Each bowler is asked to raise $110 in pledges. Bowlers receive gift certificates based on the money raised. Many companies view this as a fun, team building experience for employees for a worthwhile organization. Each board member is asked to identify an individual from their company to coordinate their teams. Ideally, the board member would also put together a team and bowl.
+							{{$detail->description}}
 						</p> 
-						<h4 style=" color:green; margin-top:0px; margin-bottom:0px">Event Start Date</h4>
-						<span class="glyphicon glyphicon-time"></span> 
-						<p class="text-justify" style="font-size: 16px; line-height: 1.4em;">05/14/2016</p> 
-						<h4 style=" color:green; margin-top:0px; margin-bottom:0px">Event Venue</h4>
-						<span class="glyphicon glyphicon-map-marker"></span> 
-						<p class="text-justify" style="font-size: 16px; line-height: 1.4em;">
-							Mockingbird Lanes, South 96th & L, Omaha, Nebraska
-						</p> 
-						
+						<br>
+						<div id="map">
+							<div id="google-maps-canvas" style="height:100%; width:100%;">
+							@if($detail->id == 2)
+								<iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Mockingbird+lanes,+south+96th+and+L,+Omaha,+Nebraska&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+							@elseif($detail->id == 1)
+								<iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=champions+run,+13800+eagle+run+drive,+Omaha,+Nebraska&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+							@endif
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-4">
+								<span class="glyphicon glyphicon-time"></span>
+								<h4 style=" color:green; margin-top:0px; margin-bottom:0px">Event Start Date</h4>
+								<p class="text-justify" style="font-size: 16px; line-height: 1.4em;">{{$detail->event_date}}</p> 
+							</div>
+							<div class="col-md-8">
+								<span class="glyphicon glyphicon-map-marker"></span> 
+								<h4 style=" color:green; margin-top:0px; margin-bottom:0px">Event Venue</h4>
+								<p class="text-justify" style="font-size: 16px; line-height: 1.4em;">{{$detail->venue}}</p> 
+							</div>
+						</div>
 						<!--<ul>
 							<li>
 								Event Start Date
@@ -67,6 +89,7 @@
 					</div>
 				</div>
 			</div>
+			@endforeach
         </div>
 	</div>
 

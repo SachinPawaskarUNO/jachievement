@@ -81,12 +81,13 @@ Route::get('/donation/cancel', 'DonationController@cancel');
 Route::get('/event/team/join/{teamId}', 'CampaignController@joinTeam');
 Route::post('/event/team/join', 'CampaignController@joinTeamStore');
 Route::post('/event/team', 'CampaignController@sendmail');
+Route::post('/event/teammember', 'CampaignController@sendmailmember');
 
 Route::get('/event/team/create/{campaignId}', 'CampaignController@createTeam');
 Route::post('/event/team/create', 'CampaignController@createTeamStore');
 
 Route::get('/event/current', 'CampaignController@eventMarketing');
-Route::get('/event/eventdetail', 'CampaignController@eventDetail');
+Route::get('/event/eventdetail/{campaignId}', 'CampaignController@eventDetail');
 
 Route::get('/event/team/view', 'CampaignController@teamview');
 

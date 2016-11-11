@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <script type="text/javascript" src="{{ URL::asset('js/goalProgress.js') }}"></script> 
+    <script type="text/javascript" src="{{ URL::asset('js/goalProgress.js') }}"></script>
     <link rel="stylesheet" href="{{ URL::asset('css/goalProgress.css') }}" />
     <style>
         .fa_custom {
@@ -48,7 +48,7 @@
         /*style for table*/
         table{
             border: 1px solid darkgrey;
-             width: 100%;
+            width: 100%;
             margin-left: 0%;
             margin-right: 0%;
         }
@@ -65,7 +65,7 @@
         td{
             height: 50px;
             vertical-align: bottom;
-             padding: 15px;
+            padding: 15px;
             border-bottom: 1px solid #ddd;
         }
         tr:nth-child(even){background-color: #f2f2f2}
@@ -135,6 +135,15 @@
             right: -15px;
             z-index: 30;
         }
+        @media screen and (min-width: 900px) {
+            #myModal1 .modal-dialog  {width:900px;}
+        }
+        .note
+        {
+            font-size: 12px;
+            font-weight:200;
+            color: red;
+        }
     </style>
     <div class="container-fluid">
         <div class="container">
@@ -186,6 +195,103 @@
                         <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal" href="#myModal1">Invite friends for donation </a>
                     @endif
                 </div>
+                    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color:#5cb85c !important;">
+                                <a class="close" data-dismiss="modal">×</a>
+                                <p align="center"><span style="font-size:1.5em;color:white;"><b>Family & Friends with Junior Achievement</b></span></p>
+                            </div>
+                            <div class="modal-body">
+                                {!! Form::open(['url' => '/event/teammember', 'class' => 'form-horizontal']) !!}
+                                @include('common.errors')
+                                <div class="hidden-sm clear"> &nbsp;</div>
+                                <div class="form-group{{ $errors->has('teamname') ? ' has-error' : '' }}">
+                                    {!! Form::label('teamname', 'Team Name:', ['class' => 'col-md-4 control-label']) !!}
+                                    <span style="color:red;">*</span>
+                                    <div class="col-md-6">
+                                        {!! Form::text('teamname', $team->title, ['id'=> 'teamname','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
+                                        @if ($errors->has('teamname'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('teamname') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                    {!! Form::label('email', 'E-Mail:', ['class' => 'col-md-4 control-label']) !!}
+                                    <span style="color:red;">*</span>
+                                    <div class="col-md-6">
+                                        {!! Form::email('email', null, ['id'=> 'email','placeholder' =>'Please separate your email list using a comma (,)','class' => 'col-md-6 form-control', 'required' => 'required','multiple']) !!}
+                                        @if ($errors->has('email'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                             </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('user_message') ? ' has-error' : '' }}">
+                                    {!! Form::label('message', 'Message:', ['class' => 'col-md-4 control-label']) !!}
+                                    <span style="color:red;">*</span>
+                                    <div class="col-md-6">
+                                        {!! Form::textarea('user_message',$team->content, ['id'=> 'user_message', 'class' => 'col-md-6 form-control', 'required' => 'required', 'maxLength' => '2000']) !!}
+                                        @if ($errors->has('user_message'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('user_message') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('user_message') ? ' has-error' : '' }}">
+                                    <div class="col-md-4"></div>
+                                    <div class="note">{!! Form::label('note', 'NOTE: Your Message will be sent with a System generated Signature', ['class' => 'col-md-6']) !!}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-4">
+                                        {!! Form::button('<i class="fa fa-btn fa-save"></i>Submit', ['type' => 'submit', 'id'=>'submit', 'class' => 'btn btn-success']) !!}
+                                        {!! Form::button('<i class="fa fa-btn fa-window-close-o"></i>Cancel', ['type' => 'submit', 'id'=>'close', 'class' => 'btn btn-success', 'data-dismiss' => 'modal']) !!}
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
+                                    {!! Form::hidden('url', 'URL:', ['class' => 'col-md-4 control-label']) !!}
+                                    <div class="col-md-6">
+                                        {!! Form::hidden('url',URL::current(), ['id'=> 'url','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
+                                        @if ($errors->has('url'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('url') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('token') ? ' has-error' : '' }}">
+                                    {!! Form::hidden('token', 'TOKEN:', ['class' => 'col-md-4 control-label']) !!}
+                                    <div class="col-md-6">
+                                        {!! Form::hidden('token',$team->token, ['id'=> 'token','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
+                                        @if ($errors->has('token'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('token') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('id') ? ' has-error' : '' }}">
+                                    {!! Form::hidden('id', 'ID:', ['class' => 'col-md-4 control-label']) !!}
+                                    <div class="col-md-6">
+                                        {!! Form::hidden('id',$teamMember->id, ['id'=> 'id','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
+                                        @if ($errors->has('id'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('id') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                {!! Form::close() !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <br>
                 <br>
                 <h4><u>Team Members in my Team - {{$team->name}}</u></h4>
