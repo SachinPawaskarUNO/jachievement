@@ -33,7 +33,7 @@
                     <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_nav_educator" href="{{ url('/educators/introduction') }}">Educators</a></li>
                             <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/introduction') }}">Volunteers</a></li>
-                            <li><a id="ja_nav_contribute" href="{{ url('/contributors') }}">Donors</a></li>
+                            <li><a id="ja_nav_contribute" href="{{ url('/donors') }}">Donors</a></li>
                             <li><a id="ja_nav_contribute" href="{{ url('/event/current') }}">Events</a></li>
                     </ul>
                 </li>
