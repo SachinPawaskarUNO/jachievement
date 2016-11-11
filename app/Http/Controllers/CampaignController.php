@@ -82,7 +82,7 @@ class CampaignController extends Controller
         }
         $data['team_token'] = $teamToken;
         $data['action'] = 'join';
-        $data['heading'] = 'Join a Campaign Team';
+        $data['heading'] = 'Join an Event Team';
         $teamInfo = DB::table('teams')
             ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
             ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
@@ -102,7 +102,7 @@ class CampaignController extends Controller
         }
         $data['campaignId'] = $campaignId;
         $data['action'] = 'create';
-        $data['heading'] = 'Create a Campaign Team';
+        $data['heading'] = 'Create an Event Team';
         $campaignInfo = DB::table('campaigns')
             ->select('campaigns.name as campName', 'campaigns.default_content as campCont')
             ->where('campaigns.id', '=', $data['campaignId'])

@@ -90,7 +90,7 @@ class UsersController extends Controller
         $object = $users;
         Log::info('UsersController.edit: '.$object->id.'|'.$object->name);
         $this->viewData['user'] = $object;
-        $this->viewData['heading'] = "Edit User: ".$object->name;
+        $this->viewData['heading'] = "Edit User: ".$object->first_name;
 
         return view('users.edit', $this->viewData);
     }
