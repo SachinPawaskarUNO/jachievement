@@ -1,6 +1,6 @@
 
 <div class="form-group">
-    {!! Form::label('campaign', 'Campaign:', ['class' => 'col-md-3 control-label']) !!}
+    {!! Form::label('campaign', 'Event:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
     @if ($action == 'join')
     <label class="control-label" style="font-weight: normal !important;">{{ $teamInfo->campName }}</label>
