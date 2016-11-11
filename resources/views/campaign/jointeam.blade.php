@@ -56,28 +56,28 @@
 	function changeGoalSlider(){
 		var goalText = $('#formatGoal').maskMoney('unmasked')[0];
 
-		document.getElementById("fundraisingGoalRange").value = goalText;
-		$('#goal').val(goalText);
+		document.getElementById("fundraisingGoalRange").value = goalText*1000;
+		$('#goal').val(goalText*1000);
 	}
 
 	function changeGoalText(){
 		var goalSlider = document.getElementById("fundraisingGoalRange").value;
 
-		$('#formatGoal').val(goalSlider + '.00').maskMoney('mask','1,999.99');
+		$('#formatGoal').val(goalSlider).maskMoney('mask','1,999');
 		$('#goal').val(goalSlider);
 	}
 
 	function changePersonalGoalSlider(){
 		var goalText = $('#personalFormatGoal').maskMoney('unmasked')[0];
 
-		document.getElementById("personalFundraisingGoalRange").value = goalText;
-		$('#personalGoal').val(goalText);
+		document.getElementById("personalFundraisingGoalRange").value = goalText*1000;
+		$('#personalGoal').val(goalText*1000);
 	}
 
 	function changePersonalGoalText(){
 		var goalSlider = document.getElementById("personalFundraisingGoalRange").value;
 
-		$('#personalFormatGoal').val(goalSlider + '.00').maskMoney('mask','1,999.99');
+		$('#personalFormatGoal').val(goalSlider).maskMoney('mask','1,999');
 		$('#personalGoal').val(goalSlider);
 	}
 </script>
