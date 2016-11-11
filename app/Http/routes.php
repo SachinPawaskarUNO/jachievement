@@ -68,8 +68,8 @@ Route::get('/educators/introduction', 'EducatorsController@index');
 Route::get('/educators/interestform', 'EducatorsController@interestform');
 Route::post('/educators/interestform', 'EducatorsController@store');
 
-Route::get('/campaign/teammember/view/{id}', 'CampaignController@teammember');
-Route::get('/campaign/team/view/{id}', 'CampaignController@team');
+Route::get('/event/teammember/view/{id}', 'CampaignController@teammember');
+Route::get('/event/team/view/{id}', 'CampaignController@team');
 
 Route::get('/donation/donate', 'DonationController@donationform');
 Route::post('/donation/donate', 'DonationController@store');
@@ -78,15 +78,24 @@ Route::get('/donation/notification', 'DonateController@notification');
 Route::get('/donation/thankyou', 'DonationController@thankyou');
 Route::get('/donation/cancel', 'DonationController@cancel');
 
-Route::get('/campaign/team/join/{teamId}', 'CampaignController@joinTeam');
-Route::post('/campaign/team/join', 'CampaignController@joinTeamStore');
-Route::post('/campaign/team', 'CampaignController@sendmail');
+Route::get('/event/team/join/{teamId}', 'CampaignController@joinTeam');
+Route::post('/event/team/join', 'CampaignController@joinTeamStore');
+Route::post('/event/team', 'CampaignController@sendmail');
+Route::post('/event/teammember', 'CampaignController@sendmailmember');
 
-Route::get('/campaign/team/create/{campaignId}', 'CampaignController@createTeam');
-Route::post('/campaign/team/create', 'CampaignController@createTeamStore');
+Route::get('/event/team/create/{campaignId}', 'CampaignController@createTeam');
+Route::post('/event/team/create', 'CampaignController@createTeamStore');
 
-Route::get('/campaign/activecampaign', 'CampaignController@active');
-Route::get('/campaign/team/view', 'CampaignController@teamview');
+Route::get('/event/current', 'CampaignController@eventMarketing');
+Route::get('/event/eventdetail/{campaignId}', 'CampaignController@eventDetail');
+
+Route::get('/event/create', 'CampaignController@create');
+Route::get('/event/edit/{id}', 'CampaignController@edit');
+Route::get('/event/index', 'CampaignController@index');
+
+Route::get('/event/eventdetail/{campaignId}', 'CampaignController@eventDetail');
+
+Route::get('/event/team/view', 'CampaignController@teamview');
 
 Route::get('/get_Involved/getinvolved', 'EducatorsController@getInvolved');
 
@@ -97,7 +106,7 @@ Route::get('/aboutus/index', 'AboutUsController@aboutus');
 Route::get('/aboutus/map', 'MapController@map');
 
 Route::get('/programs/index', 'ProgramController@program');
-Route::get('/contributors', 'ContributorController@index');
+Route::get('/donors', 'ContributorController@index');
 
 Route::get('/admin/educatorform', 'AdminController@listEducatorForm');
 Route::get('/admin/volunteerform', 'AdminController@listVolunteerForm');
@@ -106,8 +115,12 @@ Route::post('/admin/educatorform/{id}/delete', 'AdminController@destroyEducatorF
 Route::get('/admin/volunteerform/{id}', 'AdminController@showVolunteerDetails');
 Route::post('/admin/volunteerform/{id}/delete', 'AdminController@destroyVolunteerForm');
 Route::get('/admin/download/volunteerreport', 'AdminController@downloadVolunteerReport');
-
+Route::get('/admin/download/educatorreport', 'AdminController@downloadEducatorReport');
 Route::get('/reports/donation', 'ReportsController@DonationReporting');
+
+Route::resource('schools', 'SchoolController');
+
+
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');

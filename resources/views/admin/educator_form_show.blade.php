@@ -5,9 +5,9 @@
  <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading clearfix" style="background-color:#5cb85c !important;">
-                        <p class="panel-title pull-left"><span style="font-size:1.2em;color:white;">Educator Form Information - Educator Name: {{ $educatorInterestForm->first_name }}</span> </p>
+                        <p class="panel-title pull-left"><span style="font-size:1.2em;color:white;">Educator Information of {{ $educatorInterestForm->first_name }} {{$educatorInterestForm->last_name}}</span> </p>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -42,67 +42,58 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-xs-6">
+                                <label for="school_address">School State</label>
+                                <p id="school_address" >{{ $educatorInterestForm->school_state }}</p>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
                                 <label for="school_zip">School Zip</label>
                                 <p id="school_zip" >{{ $educatorInterestForm->school_zip }}</p>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <label for="school_phone">Email</label>
                                 <p id="school_phone" >{{ $educatorInterestForm->email }}</p>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <label for="school_zip">Grade</label>
                                 <p id="school_zip" >{{ $educatorInterestForm->grade }}</p>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <label for="school_phone">Program Theme</label>
                                 <p id="school_phone" >{{ $educatorInterestForm->program_theme }}</p>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <label for="school_zip">Planning Time</label>
                                 <p id="school_zip" >{{ $educatorInterestForm->planning_time }}</p>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <label for="school_phone">Cell Phone</label>
                                 <p id="school_phone" >{{ $educatorInterestForm->cell_phone }}</p>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <label for="school_zip">Comments/Requests</label>
                                 <p id="school_zip" >{{ $educatorInterestForm->comments_requests }}</p>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <label for="school_phone">No of Classes</label>
                                 <p id="school_phone" >{{ $educatorInterestForm->no_of_classes }}</p>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6 col-xs-6">
                                 <label for="school_zip">No of Students Per Class</label>
                                 <p id="school_zip" >{{ $educatorInterestForm->no_of_students_per_class }}</p>
                             </div>
                         </div>
-
                     </div>
-
-                    <div class="">
-                        <div class="pull-left">
-                            {!! Form::model($educatorInterestForm, [
-                            'method' => 'DELETE',
-                            'action' => [
-                            'AdminController@destroyEducatorForm',
-                            $educatorInterestForm->id
-                            ]
-                            ]) !!}
-                            <a href="{{ action('AdminController@destroyEducatorForm', [$educatorInterestForm->id]) }}"><button type="button" class="btn btn-danger"> Delete</button></a>
-                            <a href="{{ action('AdminController@listEducatorForm') }}" class="btn btn-default">Back</a>
-                            {!! Form::close() !!}
-
-                        </div>
+                    <br>
+                    <div class="pull-left">
+                        <a href="{{ action('AdminController@listEducatorForm') }}" class="btn btn-default">Back</a>
                     </div>
                 </div>
             </div>

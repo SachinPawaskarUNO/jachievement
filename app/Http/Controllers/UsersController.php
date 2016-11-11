@@ -82,7 +82,7 @@ class UsersController extends Controller
         $this->syncRoles($object, $request->input('rolelist'));
         Session::flash('flash_message', 'User successfully added!');
         Log::info('UsersController.store - End: '.$object->id.'|'.$object->name);
-        return redirect()->back();
+        return redirect('/users');
     }
 
     public function edit(User $users)
@@ -90,7 +90,7 @@ class UsersController extends Controller
         $object = $users;
         Log::info('UsersController.edit: '.$object->id.'|'.$object->name);
         $this->viewData['user'] = $object;
-        $this->viewData['heading'] = "Edit User: ".$object->name;
+        $this->viewData['heading'] = "Edit User: ".$object->first_name;
 
         return view('users.edit', $this->viewData);
     }
@@ -107,7 +107,7 @@ class UsersController extends Controller
         $this->syncRoles($object, $request->input('rolelist'));
         Session::flash('flash_message', 'User successfully updated!');
         Log::info('UsersController.update - End: '.$object->id.'|'.$object->name);
-        return redirect('users');
+        return redirect('/users');
     }
 
     /**

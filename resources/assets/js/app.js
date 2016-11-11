@@ -46,7 +46,8 @@ $.ajaxSetup({
 //});
 
 $(document).ready(function(){
-    $('table.cds-datatable').DataTable({
+   $('table.cds-datatable').DataTable({
+        retrieve: true,
         "columnDefs": [ {
             "targets"  : 'no-sort',
             "orderable": false

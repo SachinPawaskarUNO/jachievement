@@ -4,9 +4,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\TeamRequest;
 use App\Http\Requests\TeamMemberRequest;
+use App\Http\Requests\CampaignRequest;
 use App\TeamMember;
 use App\Team;
 use App\User;
+use App\Campaign;
 use Log;
 use DB;
 use JavaScript;
@@ -19,10 +21,11 @@ class CampaignController extends Controller
 {
     public function teammember($id)
     {
+//        dd($id);
         Log::info('CampaignController.teammember: ');
       //$teamMember = TeamMember::where('token','=',$id)->firstOrFail();
       $teamMember= DB::table('team_members')
-          ->select('team_members.id','team_members.team_id','team_members.title','team_members.goal','team_members.content','users.first_name as first_name','team_members.user_id')
+          ->select('team_members.id','team_members.team_id','team_members.title','team_members.goal','team_members.content','users.first_name as first_name','team_members.user_id','team_members.token')
           ->join('users', 'users.id', '=', 'team_members.user_id')
           ->where('team_members.token', '=' ,$id)
           ->first();
@@ -67,8 +70,9 @@ class CampaignController extends Controller
             'memberRaised' => ($teammemberDonation->donation_amount == null ? 0 : $teammemberDonation->donation_amount),
             'memberGoal' => $teamMember->goal
         ]);
-        return view('campaign.teammember', compact('teamMember', 'teamMembers', 'teammemberDonation', 'data', 'team'));
+        return view('event.teammember', compact('teamMember', 'teamMembers', 'teammemberDonation', 'data', 'team'));
     }
+
     public function joinTeam($teamToken)
     {
         Log::info('CampaignController.joinTeam: ');
@@ -78,16 +82,17 @@ class CampaignController extends Controller
         }
         $data['team_token'] = $teamToken;
         $data['action'] = 'join';
-        $data['heading'] = 'Join a Campaign Team';
+        $data['heading'] = 'Join an Event Team';
         $teamInfo = DB::table('teams')
             ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
             ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
-            ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName')
+            ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName', 'campaigns.default_content as campCont')
             ->where('teams.token', '=', $teamToken)
             ->first();
         $data['teamInfo'] = $teamInfo;
         return view('campaign.jointeam', $data);
     }
+
     public function createTeam($campaignId)
     {
         Log::info('CampaignController.createTeam: ');
@@ -97,9 +102,9 @@ class CampaignController extends Controller
         }
         $data['campaignId'] = $campaignId;
         $data['action'] = 'create';
-        $data['heading'] = 'Create a Campaign Team';
+        $data['heading'] = 'Create an Event Team';
         $campaignInfo = DB::table('campaigns')
-            ->select('campaigns.name as campName')
+            ->select('campaigns.name as campName', 'campaigns.default_content as campCont')
             ->where('campaigns.id', '=', $data['campaignId'])
             ->first();
         $data['campaignInfo'] = $campaignInfo;
@@ -151,7 +156,7 @@ class CampaignController extends Controller
             'raised' => ($teamDonation->donation_amount == null ? 0 : $teamDonation->donation_amount),
             'totalGoal' => $team->goal
         ]);
-        return view('campaign.team', compact('teamMembers', 'team', 'teamDonation', 'data'));
+        return view('event.team', compact('teamMembers', 'team', 'teamDonation', 'data'));
     }
     public function joinTeamStore(TeamMemberRequest $request)
     {
@@ -213,25 +218,55 @@ class CampaignController extends Controller
       return redirect()->action('CampaignController@team', ['id' => $object->token]);
   }
   
-  public function active()
+  public function eventMarketing()
   {
-		Log::info('CampaignController.active: ');
+		Log::info('CampaignController.eventMarketing: ');
 		
-		//$currentdate= date("d-m-Y");
 		
-		$activecampaigns = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.start_date as start_date, campaigns.end_date as end_date'))
-					//->where('active', '=','1')
-					//->where('$currentdate','<=','campaigns.end_date])
-					//->where('campaigns.end_date', '>=', 'date(y-m-d)')
+		$activeevents = DB::table('campaigns')
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.image as image, campaigns.event_date as event_date, campaigns.venue as venue, campaigns.default_content as content'))
 					->get();
-					
-			
-		//$this->viewData['heading'] = "Active Campaigns";
-       return view('campaign.activecampaign',compact('activecampaigns'));
-		//return view('campaign.activecampaign', $this->viewData);
-  
+
+
+//
+//      $data = DB::table('teams')
+//            ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
+//            ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
+//            ->select('teams.id as id')
+//           //->where('teams.token', '=', $teamToken)
+//            ->get();
+
+      return view('event.eventmarketing',compact('activeevents'));
+	 // return redirect()->action('CampaignController@eventDetail', ['id' => $campaignid]);
   }
+
+   public function eventDetail($campaignId)
+   {
+        Log::info('CampaignController.eventDetail: ');
+		$data['campaignId'] = $campaignId;
+		//$data['action'] = 'eventDetail';
+		$details = DB::table('campaigns')
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue,campaigns.default_content as content'))
+					->where('campaigns.id', '=', $data['campaignId'])
+					->get();
+		//$data['details'] = $details;
+		return view('event.eventdetail',compact('details'));
+		
+		
+ //       $data['campaignId'] = $campaignId;
+ //       $data['action'] = 'create';
+ //       $data['heading'] = 'Create a Campaign Team';
+ //       $campaignInfo = DB::table('campaigns')
+ //           ->select('campaigns.name as campName', 'campaigns.default_content as campCont')
+ //           ->where('campaigns.id', '=', $data['campaignId'])
+ //           ->first();
+ //       $data['campaignInfo'] = $campaignInfo;
+ //       $organizationList = DB::table('organizations')
+ //           ->whereNull('organizations.deleted_at')
+ //           ->lists('name', 'id');
+ //       $data['organizationList'] = $organizationList;
+ //       return view('campaign.jointeam', $data);
+   }
    public function teamView()
   {
       Log::info('CampaignController.teamView: ');
@@ -289,23 +324,54 @@ class CampaignController extends Controller
             'id' => $request->id,
             'user' => Auth::user(),
             'firstname' => Auth::user()->first_name,
-            'lastname' => Auth::user()->last_name
+            'lastname' => Auth::user()->last_name,
+            'verifyTeam' => $request->verifyTeam
         );
-        $to=explode(',',$request->email);
-       // dd(Auth::user()->last_name);
-        foreach($to as $receipt)
-        {
-           // print $receipt;
-            Mail::send('campaign.solicitationform', $data, function ($message) use ($receipt,$request) {
-                $message->from('juniorachievement.midlands@gmail.com');
-                $message->bcc($receipt, 'Junior Achievement of Midlands, Inc')->subject('Family and Friends with Junior Achievement');;
-                //$message->to($receipt,'AJ')->subject('Family and Friends with Junior Achievement');
-            });
+        $to = explode(',', str_replace(';', ',', str_replace(' ', ',', $request->email)));
+            foreach ($to as $receipt) {
+                // print $receipt;
+                Mail::send('event.solicitationform', $data, function ($message) use ($receipt, $request) {
+                    $message->from('juniorachievement.midlands@gmail.com');
+                    $message->bcc($receipt, 'Junior Achievement of Midlands, Inc')->subject('Family and Friends with Junior Achievement');;
+                    //$message->to($receipt,'AJ')->subject('Family and Friends with Junior Achievement');
+                });
+            }
+            \Session::flash('flash_message', 'Your solicitation request has been sent successfully!');
+            return redirect()->action('CampaignController@team', ['id' => $request->token]);
         }
-        \Session::flash('flash_message', 'Your solicitation request has been sent successfully!');
-        return redirect()->action('CampaignController@team', ['id' =>$request->token]);
-    }
 
+    public function sendmailmember(SolicitationRequest $request)
+    {
+        $teamMemberToken=null;
+        $data = array(
+            'teamname' => $request->teamname,
+            'email' => $request->email,
+            'user_message' => $request->user_message,
+            'url' => $request->url,
+            'token' => $request->token,
+            'id' => $request->id,
+            'user' => Auth::user(),
+            'firstname' => Auth::user()->first_name,
+            'lastname' => Auth::user()->last_name,
+            'verifyTeam' => $request->verifyTeam
+        );
+
+                    $teamMember=DB::table('team_members')
+                            ->select('team_members.token')
+                            ->where('team_members.id', '=' ,$request->id)
+                            ->first();
+                    $teamMemberToken=$teamMember->token;
+                    $to = explode(',', str_replace(';', ',', str_replace(' ', ',', $request->email)));
+                            foreach ($to as $receipt) {
+                                Mail::send('event.solicitationformmember', $data, function ($message) use ($receipt, $request) {
+                                    $message->from('juniorachievement.midlands@gmail.com');
+                                    $message->bcc($receipt, 'Junior Achievement of Midlands, Inc')->subject('Family and Friends with Junior Achievement');;
+                                    //$message->to($receipt,'AJ')->subject('Family and Friends with Junior Achievement');
+                                });
+                            }
+                    \Session::flash('flash_message', 'Your solicitation request has been sent successfully!');
+                    return redirect()->action('CampaignController@teammember', ['id' =>$teamMemberToken]);
+                      }
 
     protected function getTeamMemberToken() {
       do {
@@ -319,4 +385,79 @@ class CampaignController extends Controller
         return $teamMemberToken;
     }
 
+//    public function __construct()
+//    {
+//        $this->middleware('role:admin');
+//
+//        $this->user = Auth::user();
+//        $this->campaigns = Campaign::all();
+//        $this->heading = "Events";
+//
+//        $this->viewData = [ 'user' => $this->user, 'events' => $this->events, 'heading' => $this->heading ];
+//    }
+
+    public function index() {
+        Log::info('CampaignController.index: Start -');
+
+        $campaigns = Campaign::all();
+        $this->viewData['events'] = $campaigns;
+
+        return view('event.indexevent', $this->viewData);
+    }
+
+    public function create()
+    {
+        Log::info('CampaignController.create: ');
+        $this->viewData['heading'] = "New School";
+
+        return view('event.createevent', $this->viewData);
+    }
+
+    public function edit(Campaign $campaigns)
+    {
+        $object = $campaigns;
+        Log::info('CampaignController.edit: '.$object->id.'|'.$object->name);
+        $this->viewData['event'] = $object;
+        $this->viewData['heading'] = "Edit Event: ".$object->name;
+
+        return view('event.editevent', $this->viewData);
+    }
+
+    public function update(Campaign $campaigns, CampaignRequest $request)
+    {
+        $object = $campaigns;
+        Log::info('CampaignController.update - Start: '.$object->id.'|'.$object->name);
+        $this->populateUpdateFields($request);
+        $request['active'] = $request['active'] == '' ? false : true;
+
+        $object->update($request->all());
+        Session::flash('flash_message', 'Event successfully updated!');
+        Log::info('CampaignController.update - End: '.$object->id.'|'.$object->name);
+        return redirect('/event');
+    }
+    public function store(CampaignRequest $request)
+    {
+        Log::info('CampaignController.store - Start: ');
+        $input = $request->all();
+        $this->populateCreateFields($input);
+        $input['active'] = $request['active'] == '' ? false : true;
+        $object = Campaign::create($input);
+        Session::flash('flash_message', 'Event successfully added!');
+        Log::info('CampaignController.store - End: '.$object->id.'|'.$object->name);
+        return redirect('/event');
+    }
+
+    public function destroy(Request $request, Campaign $campaigns)
+    {
+        $object = $campaigns;
+        Log::info('CampaignController.destroy: Start: '.$object->id.'|'.$object->name);
+        if ($this->authorize('destroy', $object))
+        {
+            Log::info('Authorization successful');
+            $object->delete();
+            Session::flash('flash_message', 'Event successfully deleted!');
+        }
+        Log::info('CampaignController.destroy: End: ');
+        return redirect('/event');
+    }
 }

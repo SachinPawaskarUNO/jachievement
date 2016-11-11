@@ -15,8 +15,8 @@ class ReportsController extends Controller
     }
 
 
-	public function DonationReporting()
-	{
+    public function DonationReporting()
+    {
       Log::info('ReportsController: ');
       $donors= DB::table('donors')
             ->join('donations','donors.id','=','donations.donor_id')

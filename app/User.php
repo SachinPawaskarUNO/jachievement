@@ -25,9 +25,12 @@ use Log;
  */
 class User extends Authenticatable
 {
-    // ToDo: This needs to checked to remove the below SoftDelete comment once the traits clash is fixed.
-//    use SoftDeletes;
-    use EntrustUserTrait; // Entrust Package requires this trait
+    use SoftDeletes, EntrustUserTrait {
+
+        SoftDeletes::restore insteadof EntrustUserTrait;
+        EntrustUserTrait::restore insteadof SoftDeletes;
+
+    }
 
     /**
      * The attributes that should be mutated to dates.

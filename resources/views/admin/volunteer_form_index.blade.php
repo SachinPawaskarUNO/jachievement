@@ -6,35 +6,32 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
-                        <div><h4><b>Volunteer Interest Form</b></h4></div>
-                        <a href="{{ action('AdminController@downloadVolunteerReport')}}" class="btn btn-default btn-small">Download</a>
-
-
+                        <div class="pull-right">
+                            <form action="{{ url('/admin/download/volunteerreport') }}" method="GET">
+                                <button type="submit" id="download_report" class="btn btn-default">Export To Excel</button>
+                            </form>
+                        </div>
+                        <div style="font-size:1.2em;color:white;"><b>Volunteer Information</b></div>
                     </div>
                     <div class="panel-body">
                         @if (count($volunteerInterestForms) > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead>
-                                    <th>Form Id</th><th>Name</th><th>Email</th><th>Action</th>
+                                   <th>Volunteer Name</th><th>Email</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($volunteerInterestForms as $volunteerInterestForm)
                                         <tr>
-                                            <td class="table-text"><div>{{ $volunteerInterestForm->id }}</div></td>
-                                            <td class="table-text"><div>{{ $volunteerInterestForm->first_name }}</div></td>
+                                            <td class="table-text"><div><a href="{{ url('/admin/volunteerform/'. $volunteerInterestForm->id)}}">{{ $volunteerInterestForm->first_name }} {{$volunteerInterestForm->last_name }}</a></div></td>
                                             <td class="table-text"><div>{{ $volunteerInterestForm->email }}</div></td>
-                                            <td>
-                                                <a href="{{ action('AdminController@showVolunteerDetails', $volunteerInterestForm->id) }}" class="btn btn-default btn-small">View
-                                                    Details</a>
-                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         @else
-                            <div class="panel-body"><h4>No Volunteer Form Records Found</h4></div>
+                            <div class="panel-body"><h4>Volunteer Reccord Not Found</h4></div>
                         @endif
                     </div>
                 </div>

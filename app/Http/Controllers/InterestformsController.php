@@ -54,7 +54,7 @@ class InterestformsController extends Controller
         }
         $user = Auth::user();
         if($user) {
-            $input['user_id'] = $user;
+            $input['user_id'] = $user->id;
         }
         $this->populateCreateFields($input);
 
