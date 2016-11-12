@@ -408,7 +408,7 @@ class CampaignController extends Controller
     public function create()
     {
         Log::info('CampaignController.create: ');
-        $this->viewData['heading'] = "New School";
+        $this->viewData['heading'] = "New Event";
 
         return view('event.createevent', $this->viewData);
     }
@@ -440,7 +440,6 @@ class CampaignController extends Controller
         Log::info('CampaignController.store - Start: ');
         $input = $request->all();
         $this->populateCreateFields($input);
-        $input['active'] = $request['active'] == '' ? false : true;
         $object = Campaign::create($input);
         Session::flash('flash_message', 'Event successfully added!');
         Log::info('CampaignController.store - End: '.$object->id.'|'.$object->name);
