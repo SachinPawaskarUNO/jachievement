@@ -95,7 +95,7 @@ class AdminController extends Controller
        Log::info('AdminController.downloadVolunteerReport: ');
 
         $data = array();
-        $volunteerInterestForms =  DB::table('volunteer_interest_forms')
+       $volunteerInterestForms =  DB::table('volunteer_interest_forms')
             ->select('volunteer_interest_forms.school_preference','volunteer_interest_forms.first_name',
                 'volunteer_interest_forms.last_name','volunteer_interest_forms.company_name',
                 'volunteer_interest_forms.company_address','volunteer_interest_forms.company_city',
@@ -107,6 +107,32 @@ class AdminController extends Controller
             ->join('states as states2', 'states2.id', '=', 'volunteer_interest_forms.home_state_id')
             ->get();
 
+       /* $volunteerInterestForms = DB::table('volunteer_programs')
+            ->select(DB::raw('volunteer_interest_forms.school_preference','volunteer_interest_forms.first_name',
+                'volunteer_interest_forms.last_name','volunteer_interest_forms.company_name',
+                'volunteer_interest_forms.company_address','volunteer_interest_forms.company_city',
+                'states1.name as company_state','volunteer_interest_forms.company_zip','volunteer_interest_forms.company_phone',
+                'volunteer_interest_forms.home_phone','volunteer_interest_forms.home_address','volunteer_interest_forms.home_city',
+                'states2.name as home_state','volunteer_interest_forms.home_zip','volunteer_interest_forms.email',
+                'volunteer_interest_forms.created_at','volunteer_interest_forms.mode_of_contact', 'GROUP_CONCAT(programs.name)'))
+            ->join('volunteer_interest_forms', 'volunteer_interest_forms.id','=','volunteer_programs.volunteerform_id')
+            ->join('programs', 'volunteer_programs.program_id', '=', 'programs.id')
+            ->join('states as states1', 'states1.id','=','volunteer_interest_forms.company_state_id')
+            ->join('states as states2', 'states2.id', '=', 'volunteer_interest_forms.home_state_id')
+            ->groupBy('volunteer_interest_forms.school_preference','volunteer_interest_forms.first_name',
+                'volunteer_interest_forms.last_name','volunteer_interest_forms.company_name',
+                'volunteer_interest_forms.company_address','volunteer_interest_forms.company_city',
+                'states1.name as company_state','volunteer_interest_forms.company_zip','volunteer_interest_forms.company_phone',
+                'volunteer_interest_forms.home_phone','volunteer_interest_forms.home_address','volunteer_interest_forms.home_city',
+                'states2.name as home_state','volunteer_interest_forms.home_zip','volunteer_interest_forms.email',
+                'volunteer_interest_forms.created_at','volunteer_interest_forms.mode_of_contact')
+            ->get();*/
+
+
+       /* Select vf.first_name, vf.last_name, GROUP_CONCAT(p.name)
+        from volunteer_programs vp inner join volunteer_interest_forms vf
+        on vf.id = vp.volunteerform_id inner join programs p
+        on vp.program_id = p.id group by vf.first_name, vf.last_name*/
 
         foreach ($volunteerInterestForms as $volunteerInterestForm) {
             $data[] = (array)$volunteerInterestForm;
