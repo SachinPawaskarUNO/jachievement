@@ -374,22 +374,22 @@ class CampaignController extends Controller
         return $teamMemberToken;
     }
 
-//    public function __construct()
-//    {
-//        $this->middleware('role:admin|superadmin');
-//
-//        $this->user = Auth::user();
-//        $this->campaigns = Campaign::all();
-//        $this->heading = "Events";
-//
-//        $this->viewData = [ 'user' => $this->user, 'events' => $this->events, 'heading' => $this->heading ];
-//    }
+   public function __construct()
+    {
+       $this->middleware('role:admin|superadmin');
+
+        $this->user = Auth::user();
+        $this->campaigns = Campaign::all();
+        $this->heading = "Events";
+
+        $this->viewData = [ 'user' => $this->user, 'events' => $this->campaigns, 'heading' => $this->heading ];
+    }
 
     public function index() {
         Log::info('CampaignController.index: Start -');
 
         $campaigns = Campaign::all();
-        $this->viewData['events'] = $campaigns;
+        $this->viewData['campaigns'] = $campaigns;
 
         return view('event.indexevent', $this->viewData);
     }
