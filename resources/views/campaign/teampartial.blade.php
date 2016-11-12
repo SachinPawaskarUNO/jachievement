@@ -54,7 +54,7 @@
         <input type="range" id="fundraisingGoalRange" min="0" max="10000" step="50" value="500" onChange="changeGoalText()">
     </div>
     <div class="col-md-3">
-        {!! Form::text('formatGoal', '$500.00', ['id' => 'formatGoal', 'class' => 'col-md-3 form-control', 'required' => 'required', 'onChange' => 'changeGoalSlider()', 'data-prefix' => '$']) !!}
+        {!! Form::text('formatGoal', '$500', ['id' => 'formatGoal', 'class' => 'col-md-3 form-control', 'required' => 'required', 'onChange' => 'changeGoalSlider()', 'data-prefix' => '$', 'data-precision' => '0']) !!}
     </div>
 </div>
 
@@ -86,10 +86,10 @@
         <input type="range" id="personalFundraisingGoalRange" min="0" max="10000" step="50" value="500" onChange="changePersonalGoalText()">
     </div>
     <div class="col-md-3">
-        {!! Form::text('personalFormatGoal', '$500.00', ['id' => 'personalFormatGoal', 'class' => 'col-md-3 form-control', 'onChange' => 'changePersonalGoalSlider()', 'data-prefix' => '$']) !!}
+        {!! Form::text('personalFormatGoal', '$500', ['id' => 'personalFormatGoal', 'class' => 'col-md-3 form-control', 'onChange' => 'changePersonalGoalSlider()', 'data-prefix' => '$', 'data-precision' => '0']) !!}
     </div>
 </div>
-{!! Form::hidden('personalGoal', '500.00', ['id' => 'personalGoal']) !!}
+{!! Form::hidden('personalGoal', '500', ['id' => 'personalGoal']) !!}
 @endif
 
 @if ($action == 'join')
@@ -97,7 +97,7 @@
 @else
 {!! Form::hidden('campaign_id', $campaignId) !!}
 @endif
-{!! Form::hidden('goal', '500.00', ['id' => 'goal']) !!}
+{!! Form::hidden('goal', '500', ['id' => 'goal']) !!}
 
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
