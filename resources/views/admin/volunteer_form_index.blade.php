@@ -18,13 +18,15 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead>
-                                   <th>Volunteer Name</th><th>Email</th>
+                                   <th>Volunteer Name</th><th>Email</th><th>Company Name</th><th>Created Date</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($volunteerInterestForms as $volunteerInterestForm)
                                         <tr>
                                             <td class="table-text"><div><a href="{{ url('/admin/volunteerform/'. $volunteerInterestForm->id)}}">{{ $volunteerInterestForm->first_name }} {{$volunteerInterestForm->last_name }}</a></div></td>
                                             <td class="table-text"><div>{{ $volunteerInterestForm->email }}</div></td>
+                                            <td class="table-text"><div>{{ $volunteerInterestForm->company_name }}</div></td>
+                                            <td class="table-text"><div>{{ $volunteerInterestForm->created_at->format('m/d/Y') }}</div></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

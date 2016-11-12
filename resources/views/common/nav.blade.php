@@ -44,6 +44,8 @@
 				
                         <li><a id="ja_nav_educator" href="{{ url('/event/eventdetail/{campaignId}') }}">Golf Challenge</a></li>
                         <li><a id="ja_nav_volunteer" href="{{ url('/event/eventdetail/{campaignId}') }}">Bowling Classic</a></li>
+						
+						
 					
                     </ul>
                 </li>

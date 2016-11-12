@@ -251,22 +251,11 @@ class CampaignController extends Controller
 					->get();
 		//$data['details'] = $details;
 		return view('event.eventdetail',compact('details'));
-		
-		
- //       $data['campaignId'] = $campaignId;
- //       $data['action'] = 'create';
- //       $data['heading'] = 'Create a Campaign Team';
- //       $campaignInfo = DB::table('campaigns')
- //           ->select('campaigns.name as campName', 'campaigns.default_content as campCont')
- //           ->where('campaigns.id', '=', $data['campaignId'])
- //           ->first();
- //       $data['campaignInfo'] = $campaignInfo;
- //       $organizationList = DB::table('organizations')
- //           ->whereNull('organizations.deleted_at')
- //           ->lists('name', 'id');
- //       $data['organizationList'] = $organizationList;
- //       return view('campaign.jointeam', $data);
+		    
    }
+   
+   
+	
    public function teamView()
   {
       Log::info('CampaignController.teamView: ');
@@ -387,7 +376,7 @@ class CampaignController extends Controller
 
 //    public function __construct()
 //    {
-//        $this->middleware('role:admin');
+//        $this->middleware('role:admin|superadmin');
 //
 //        $this->user = Auth::user();
 //        $this->campaigns = Campaign::all();
