@@ -19,12 +19,12 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead> <!-- Table Headings -->
-                                    <th>Event Name</th><th>Event Address</th><th>Status</th>
+                                    <th>Event Name</th><th>Event Date</th><th>Venue</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($campaigns as $campaign)
                                         <tr>
-                                            <td class="table-text"><div><a href="{{ url('/events/'.$campaign->id.'/edit') }}">{{ $campaign->campaign_name }}</a></div></td>
+                                            <td class="table-text"><div><a href="{{ url('/event/'.$campaign->id.'/edit') }}">{{ $campaign->name }}</a></div></td>
                                             <td class="table-text"><div>{{ $campaign->event_date }}</div></td>
                                             <td class="table-text"><div>{{ $campaign->venue }}</div></td>
                                         </tr>
