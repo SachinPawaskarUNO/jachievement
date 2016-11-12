@@ -18,7 +18,6 @@
                         {!! Form::model($campaign, ['class' => 'form-horizontal', 'method' => 'PATCH', 'action' => ['CampainController@update', $campaign->id]]) !!}
                         @include('common.errors')
                         @include('common.flash')
-
                         @include ('event.partialevent', ['CRUD_Action' => 'Update'])
                         {!! Form::close() !!}
                     </div>
