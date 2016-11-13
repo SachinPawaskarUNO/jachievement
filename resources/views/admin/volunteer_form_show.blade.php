@@ -95,7 +95,7 @@
                                 <label for="school_zip">Program Preference</label>
                                 <p id="program_preference" >
                                     @foreach($volunteer_programs as $volunteer_program)
-                                       - {{ $volunteer_program->name }}
+                                        {{ $volunteer_program->name }}
                                         <br>
                                     @endforeach
                                 </p>
