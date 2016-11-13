@@ -382,7 +382,7 @@ class CampaignController extends Controller
         $this->campaigns = Campaign::all();
         $this->heading = "Events";
 
-        $this->viewData = [ 'user' => $this->user, 'events' => $this->campaigns, 'heading' => $this->heading ];
+        $this->viewData = [ 'user' => $this->user, 'campaigns' => $this->campaigns, 'heading' => $this->heading ];
     }
 
     public function index() {
