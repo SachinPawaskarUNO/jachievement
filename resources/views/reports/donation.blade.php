@@ -127,6 +127,7 @@ window.onclick = function(event) {
 $(function () {
     var chart_results = {{$chart_results}};
       var chart_months = {{$chart_months}};
+
     var chart = Highcharts.chart('container', {
 
         title: {
@@ -138,8 +139,8 @@ $(function () {
         },
 
         xAxis: {
-            // categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            categories: chart_months
+             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            //categories: chart_months
         },
 
         series: [{

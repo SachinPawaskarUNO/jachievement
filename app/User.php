@@ -76,4 +76,17 @@ class User extends Authenticatable
     {
         return $this->active;
     }
+
+    public function is($roleName)
+    {
+        foreach ($this->roles->lists('name')->all() as $role)
+        {
+            if ($role == $roleName)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

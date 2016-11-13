@@ -36,8 +36,17 @@ class UsersController extends Controller
         $this->middleware('role:admin|superadmin');
 
         $this->user = Auth::user();
-        $this->users = User::all();
-        $this->list_role = Role::lists('display_name', 'id');
+        if ($this->user->is('superadmin')){
+            $this->users = User::all();
+        } else {
+            $this->users = DB::select("SELECT * FROM users left join role_user on users.id = role_user.user_id WHERE role_id not in (select id from roles where name = 'superadmin')");
+        }
+
+        if ($this->user->is('superadmin')){
+            $this->list_role = Role::lists('display_name', 'id');
+        } else {
+            $this->list_role = Role::where('name', '!=', 'superadmin')->pluck('display_name', 'id');
+        }
         $this->heading = "Users";
 
         $this->viewData = [ 'user' => $this->user, 'users' => $this->users, 'list_role' => $this->list_role, 'heading' => $this->heading ];
@@ -46,8 +55,6 @@ class UsersController extends Controller
     public function index()
     {
         Log::info('UsersController.index: ');
-        $users = User::all();
-        $this->viewData['users'] = $users;
 
         return view('users.index', $this->viewData);
     }
