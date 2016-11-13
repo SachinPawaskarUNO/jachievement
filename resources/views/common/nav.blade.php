@@ -25,7 +25,7 @@
                             <li><a id="ja_nav_programs" href="{{ url('/programs/index') }}">Programs</a></li>
                             <li><a id="ja_nav_map" href="{{ url('/aboutus/map') }}">Schools We're In</a></li>
                             <li><a id="ja_nav_faq" href="{{ url('/') }}">FAQs</a></li>
-                            <li><a id="ja_nav_goingon" href="{{ url('/') }}">What's Going On?</a></li>
+                           <!-- <li><a id="ja_nav_goingon" href="{{ url('/') }}">What's Going On?</a></li> -->
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -34,22 +34,11 @@
                             <li><a id="ja_nav_educator" href="{{ url('/educators/introduction') }}">Educators</a></li>
                             <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/introduction') }}">Volunteers</a></li>
                             <li><a id="ja_nav_contribute" href="{{ url('/donors') }}">Donors</a></li>
-                            <li><a id="ja_nav_contribute" href="{{ url('/event/current') }}">Events</a></li>
+                            
                     </ul>
                 </li>
-
-                <li class="dropdown">
-                    <a id="ja_nav_events" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Events <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
 				
-                        <li><a id="ja_nav_educator" href="{{ url('/event/eventdetail/{campaignId}') }}">Golf Challenge</a></li>
-                        <li><a id="ja_nav_volunteer" href="{{ url('/event/eventdetail/{campaignId}') }}">Bowling Classic</a></li>
-						
-						
-					
-                    </ul>
-                </li>
-
+				
                 <li class="dropdown">
                         <a id="ja_nav_getinv" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign Up <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -59,6 +48,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav">
+				<li><a id="ja_nav_contribute" href="{{ url('/event/current') }}">Events</a></li>
                 <li><a id="ja_nav_contact" href="{{ url('/contactus') }}">Contact Us</a></li>
                 <li><a id="ja_nav_contribute" href="{{ url('/donation/donate') }}">Donate Now</a></li>
 

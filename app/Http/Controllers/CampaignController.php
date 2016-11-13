@@ -224,11 +224,9 @@ class CampaignController extends Controller
 		
 		
 		$activeevents = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.image as image, campaigns.event_date as event_date, campaigns.venue as venue, campaigns.default_content as content'))
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.image as image, campaigns.event_date as event_date, campaigns.venue as venue'))
 					->get();
 
-
-//
 //      $data = DB::table('teams')
 //            ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
 //            ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
@@ -244,17 +242,16 @@ class CampaignController extends Controller
    {
         Log::info('CampaignController.eventDetail: ');
 		$data['campaignId'] = $campaignId;
-		//$data['action'] = 'eventDetail';
+		
 		$details = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue,campaigns.default_content as content'))
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue'))
 					->where('campaigns.id', '=', $data['campaignId'])
 					->get();
-		//$data['details'] = $details;
+		
 		return view('event.eventdetail',compact('details'));
 		    
    }
-   
-   
+     
 	
    public function teamView()
   {
