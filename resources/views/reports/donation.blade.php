@@ -130,7 +130,7 @@ $(function () {
     var chart = Highcharts.chart('container', {
 
         title: {
-            text: 'Donation Chart'
+            text: ['Donation Chart']
         },
 
         subtitle: {
