@@ -66,6 +66,7 @@ class UsersController extends Controller
         $this->viewData['user'] = $object;
         $this->viewData['heading'] = "View User: ".$object->name;
 
+       
         return view('users.show', $this->viewData);
     }
 
@@ -96,9 +97,17 @@ class UsersController extends Controller
     {
         $object = $users;
         Log::info('UsersController.edit: '.$object->id.'|'.$object->name);
+        if($object->is('superadmin') || ($object->is('admin'))){
+    
+            $show_delete = 'false';
+        } else {
+             $show_delete = 'true';
+        }
+      
         $this->viewData['user'] = $object;
         $this->viewData['heading'] = "Edit User: ".$object->first_name;
 
+         $this->viewData['show_delete'] =$object->show_delete;
         return view('users.edit', $this->viewData);
     }
 

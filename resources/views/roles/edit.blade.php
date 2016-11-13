@@ -8,7 +8,13 @@
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div class="pull-right">
                             <form action="{{ url('roles/'.$role->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
+                             {{$show_delete}}
+                            @if($show_delete == 'true') {
+
+
                                 <button type="submit" id="delete" class="btn btn-default">Delete</button>
+                            }
+                            @endIf
                             </form>
                         </div>
                         <div style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></div>
