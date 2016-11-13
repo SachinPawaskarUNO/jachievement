@@ -114,7 +114,7 @@ class AdminController extends Controller
                 states1.name as company_state,volunteer_interest_forms.company_zip,volunteer_interest_forms.company_phone,
                 volunteer_interest_forms.home_phone,volunteer_interest_forms.home_address,volunteer_interest_forms.home_city,
                 states2.name as home_state,volunteer_interest_forms.home_zip,volunteer_interest_forms.email,
-                volunteer_interest_forms.created_at,volunteer_interest_forms.mode_of_contact, GROUP_CONCAT(programs.name) as program_preference'))
+                volunteer_interest_forms.created_at,volunteer_interest_forms.mode_of_contact, string_agg(programs.name) as program_preference'))
             ->join('volunteer_interest_forms', 'volunteer_interest_forms.id','=','volunteer_programs.volunteerform_id')
             ->join('programs', 'volunteer_programs.program_id', '=', 'programs.id')
             ->join('states as states1', 'states1.id','=','volunteer_interest_forms.company_state_id')
