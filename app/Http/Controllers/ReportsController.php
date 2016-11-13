@@ -46,7 +46,7 @@ foreach($chart_data as $chart_values)
 }
              $chart_results = array_column($data, 'sum');
             $chart_months = array_column($data, 'mon');    
-
+return $chart_months;
 
         return view('reports.donation',compact('donors'))->with('chart_results',json_encode($chart_results,JSON_NUMERIC_CHECK))->with('chart_months',json_encode($chart_months,JSON_NUMERIC_CHECK));
 
