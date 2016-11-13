@@ -57,6 +57,7 @@ Route::get('laravel-version', function()
     Route::get( 'change-password', 'Auth\AuthController@viewPage');
 
     Route::get('/home', 'HomeController@index');
+	//Route::get('/home', 'CampaignController@eventsDropdown');
 
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
@@ -89,11 +90,7 @@ Route::post('/event/team/create', 'CampaignController@createTeamStore');
 Route::get('/event/current', 'CampaignController@eventMarketing');
 Route::get('/event/eventdetail/{campaignId}', 'CampaignController@eventDetail');
 
-Route::get('/event/create', 'CampaignController@create');
-Route::get('/event/edit/{id}', 'CampaignController@edit');
-Route::get('/event/index', 'CampaignController@index');
-
-Route::get('/event/eventdetail/{campaignId}', 'CampaignController@eventDetail');
+//Route::get('/event/eventdetail/{campaignId}', 'CampaignController@eventDetail');
 
 Route::get('/event/team/view', 'CampaignController@teamview');
 
@@ -120,7 +117,7 @@ Route::get('/reports/donation', 'ReportsController@DonationReporting');
 
 Route::resource('schools', 'SchoolController');
 
-
+Route::resource('events', 'CampaignController');
 
 //    Route::delete('/comments/{comment}', 'CommentsController@destroy');
 //    Route::resource('comments', 'CommentsController');

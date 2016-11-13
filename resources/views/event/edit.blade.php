@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="pull-right">
-                            <form action="{{ url('event/'.$campaign->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
+                            <form action="{{ url('events/'.$campaign->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
                                 <button type="submit" id="delete" class="btn btn-default btn-danger"><i class="fa fa-btn fa-trash"></i>Delete</button>
                             </form>
                         </div>
@@ -15,11 +15,10 @@
                     </div>
 
                     <div class="panel-body">
-                        {!! Form::model($campaign, ['class' => 'form-horizontal', 'method' => 'PATCH', 'action' => ['CampainController@update', $campaign->id]]) !!}
+                        {!! Form::model($campaign, ['class' => 'form-horizontal', 'method' => 'PATCH', 'action' => ['CampaignController@update', $campaign->id]]) !!}
                         @include('common.errors')
                         @include('common.flash')
-
-                        @include ('event.partialevent', ['CRUD_Action' => 'Update'])
+                        @include ('event.partial', ['CRUD_Action' => 'Update'])
                         {!! Form::close() !!}
                     </div>
                 </div>
