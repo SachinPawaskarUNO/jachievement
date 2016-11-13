@@ -61,7 +61,7 @@
 <div class="form-group{{ $errors->has('event_date') ? ' has-error' : '' }}">
     {!! Form::label('event_date', 'Date of Event:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('event_date', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('event_date', null, ['data-provide'=>'datepicker','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('event_date'))
             <span class="help-block">
                 <strong>{{ $errors->first('event_date') }}</strong>
