@@ -68,9 +68,9 @@ class AdminController extends Controller
             ->join('states as states2', 'states2.id', '=', 'volunteer_interest_forms.home_state_id')
             ->where('volunteer_interest_forms.id', '=' ,$id)
             ->first();
-
+        array_to_string(array_agg(programs.name), \',\') as program_preference'))
         $volunteer_programs = DB::table('volunteer_programs')
-            ->select(DB::raw('array_to_string(array_agg(programs.name), \', \') as program_preference'))
+            ->select(DB::raw('array_to_string(array_agg(programs.name), \', \') as name'))
             ->join('programs','volunteer_programs.program_id','=','programs.id')
             ->where('volunteer_programs.volunteerform_id','=',$id)
             ->get();
