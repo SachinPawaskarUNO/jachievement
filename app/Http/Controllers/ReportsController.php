@@ -27,8 +27,8 @@ class ReportsController extends Controller
             ->get();
 
          $chart_data= DB::table('donations')
-             // ->select(DB::raw('SUM(donations.amount) as sum,month(donations.created_at) as month'))
-                ->select(DB::raw('SUM(donations.amount) as sum, to_char(donations.created_at,\'Mon\') as mon'))
+             ->select(DB::raw('SUM(donations.amount) as sum,month(donations.created_at) as mon'))
+                // ->select(DB::raw('SUM(donations.amount) as sum, to_char(donations.created_at,\'Mon\') as mon'))
              // ->where('year(donations.created_at)','=','2016')
                // ->where('year(donations.created_at)','=','2016')
            
@@ -46,7 +46,7 @@ foreach($chart_data as $chart_values)
 }
              $chart_results = array_column($data, 'sum');
             $chart_months = array_column($data, 'mon');    
-return $chart_months;
+ // return $chart_months;
 
         return view('reports.donation',compact('donors'))->with('chart_results',json_encode($chart_results,JSON_NUMERIC_CHECK))->with('chart_months',json_encode($chart_months,JSON_NUMERIC_CHECK));
 
