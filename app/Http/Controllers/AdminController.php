@@ -168,7 +168,7 @@ class AdminController extends Controller
                 'educator_interest_forms.last_name','educator_interest_forms.school_name',
                 'educator_interest_forms.school_phone','educator_interest_forms.school_address',
                 'educator_interest_forms.school_city',
-                'states.name as school_state','educator_interest_forms.email','educator_interest_forms.grade',
+                'states.name as school_state','educator_interest_forms.school_zip','educator_interest_forms.email','educator_interest_forms.grade',
                 'educator_interest_forms.program_theme','educator_interest_forms.planning_time','educator_interest_forms.cell_phone',
                 'educator_interest_forms.comments_requests','educator_interest_forms.no_of_classes','educator_interest_forms.no_of_students_per_class',
                 'educator_interest_forms.created_at')
