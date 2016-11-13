@@ -23,5 +23,14 @@ class CampaignRequest extends Request
      */
     public function rules()
     {
+        $rules = [
+            'name' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
+            'image' => 'required',
+            'email' => 'required|max:50|email',
+            'phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
+            'event_date' => 'required|date',
+            'venue' => 'required'
+        ];
+        return $rules;
     }
 }
