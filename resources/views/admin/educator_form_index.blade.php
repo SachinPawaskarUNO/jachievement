@@ -11,14 +11,14 @@
                                 <button type="submit" id="download" class="btn btn-default">Export To Excel</button>
                             </form>
                         </div>
-                        <p style="font-size:1.2em;color:white;"><b>Educator Information</b></p>
+                        <div style="font-size:1.2em;color:white;"><b>Educator Information</b></div>
                     </div>
                     <div class="panel-body">
                         @if (count($educatorInterestForms) > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead>
-                                    <th>Educator Name</th><th>School Name</th><th>Email</th>
+                                    <th>Educator Name</th><th>School Name</th><th>Email<th>Created Date</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($educatorInterestForms as $educatorInterestForm)
@@ -26,6 +26,7 @@
                                             <td class="table-text"><div><a href="{{ url('/admin/educatorform/'. $educatorInterestForm->id)}}">{{ $educatorInterestForm->first_name }} {{$educatorInterestForm->last_name }}</a></div></td>
                                             <td class="table-text"><div>{{ $educatorInterestForm->school_name }}</div></td>
                                             <td class="table-text"><div>{{ $educatorInterestForm->email }}</div></td>
+                                            <td class="table-text"><div>{{ $educatorInterestForm->created_at->format('m/d/Y') }}</div></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

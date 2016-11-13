@@ -70,7 +70,7 @@ class AdminController extends Controller
             ->first();
 
         $volunteer_programs = DB::table('volunteer_programs')
-            ->select('programs.name')
+            ->select(DB::raw('array_to_string(array_agg(programs.name), \', \') as name'))
             ->join('programs','volunteer_programs.program_id','=','programs.id')
             ->where('volunteer_programs.volunteerform_id','=',$id)
             ->get();
@@ -95,7 +95,7 @@ class AdminController extends Controller
        Log::info('AdminController.downloadVolunteerReport: ');
 
         $data = array();
-        $volunteerInterestForms =  DB::table('volunteer_interest_forms')
+       /*$volunteerInterestForms =  DB::table('volunteer_interest_forms')
             ->select('volunteer_interest_forms.school_preference','volunteer_interest_forms.first_name',
                 'volunteer_interest_forms.last_name','volunteer_interest_forms.company_name',
                 'volunteer_interest_forms.company_address','volunteer_interest_forms.company_city',
@@ -105,26 +105,40 @@ class AdminController extends Controller
                 'volunteer_interest_forms.created_at','volunteer_interest_forms.mode_of_contact')
             ->join('states as states1', 'states1.id','=','volunteer_interest_forms.company_state_id')
             ->join('states as states2', 'states2.id', '=', 'volunteer_interest_forms.home_state_id')
+            ->get();*/
+
+       $volunteerInterestForms = DB::table('volunteer_programs')
+            ->select(DB::raw('volunteer_interest_forms.school_preference,volunteer_interest_forms.first_name,
+                volunteer_interest_forms.last_name,volunteer_interest_forms.company_name,
+                volunteer_interest_forms.company_address,volunteer_interest_forms.company_city,
+                states1.name as company_state,volunteer_interest_forms.company_zip,volunteer_interest_forms.company_phone,
+                volunteer_interest_forms.home_phone,volunteer_interest_forms.home_address,volunteer_interest_forms.home_city,
+                states2.name as home_state,volunteer_interest_forms.home_zip,volunteer_interest_forms.email,
+                volunteer_interest_forms.created_at,volunteer_interest_forms.mode_of_contact, array_to_string(array_agg(programs.name), \',\') as program_preference'))
+            ->join('volunteer_interest_forms', 'volunteer_interest_forms.id','=','volunteer_programs.volunteerform_id')
+            ->join('programs', 'volunteer_programs.program_id', '=', 'programs.id')
+            ->join('states as states1', 'states1.id','=','volunteer_interest_forms.company_state_id')
+            ->join('states as states2', 'states2.id', '=', 'volunteer_interest_forms.home_state_id')
+            ->groupBy('volunteer_interest_forms.school_preference','volunteer_interest_forms.first_name',
+                'volunteer_interest_forms.last_name','volunteer_interest_forms.company_name',
+                'volunteer_interest_forms.company_address','volunteer_interest_forms.company_city',
+                'states1.name','volunteer_interest_forms.company_zip','volunteer_interest_forms.company_phone',
+                'volunteer_interest_forms.home_phone','volunteer_interest_forms.home_address','volunteer_interest_forms.home_city',
+                'states2.name','volunteer_interest_forms.home_zip','volunteer_interest_forms.email',
+                'volunteer_interest_forms.created_at','volunteer_interest_forms.mode_of_contact')
             ->get();
 
-
+       /* Select vf.first_name, vf.last_name, GROUP_CONCAT(p.name)
+        from volunteer_programs vp inner join volunteer_interest_forms vf
+        on vf.id = vp.volunteerform_id inner join programs p
+        on vp.program_id = p.id group by vf.first_name, vf.last_name*/
+        //h:i:sa
         foreach ($volunteerInterestForms as $volunteerInterestForm) {
+            $created_date = $volunteerInterestForm->created_at;
+            $timestamp = strtotime($created_date);
+            $volunteerInterestForm->created_at = date('m/d/Y',$timestamp );
             $data[] = (array)$volunteerInterestForm;
         }
-       /* foreach($volunteerInterestForms as $volunteerInterestForm) {
-           $home_state_id =  $volunteerInterestForm->home_state_id;
-           $company_state_id =  $volunteerInterestForm->home_state_id;
-           if($home_state_id != null) {
-               $state1 = State::where('id', "=" , $home_state_id)->firstOrFail();
-               $volunteerInterestForm->home_state = $state1->name;
-           }
-
-           if($company_state_id != null) {
-               $state2 = State::where('id', "=" , $company_state_id)->firstOrFail();
-               $volunteerInterestForm->company_state = $state2->name;
-           }
-
-       }*/
        Excel::create('report', function($excel) use($data) {
             $excel->sheet('Volunteer Records', function($sheet) use($data) {
                 $sheet->fromArray($data);
@@ -142,16 +156,19 @@ class AdminController extends Controller
                 'educator_interest_forms.last_name','educator_interest_forms.school_name',
                 'educator_interest_forms.school_phone','educator_interest_forms.school_address',
                 'educator_interest_forms.school_city',
-                'states.name as school_state','educator_interest_forms.email','educator_interest_forms.grade',
+                'states.name as school_state','educator_interest_forms.school_zip','educator_interest_forms.email','educator_interest_forms.grade',
                 'educator_interest_forms.program_theme','educator_interest_forms.planning_time','educator_interest_forms.cell_phone',
                 'educator_interest_forms.comments_requests','educator_interest_forms.no_of_classes','educator_interest_forms.no_of_students_per_class',
                 'educator_interest_forms.created_at')
             ->join('states', 'states.id','=','educator_interest_forms.school_state_id')
             ->get();
 
-
         foreach ($educatorInterestForms as $educatorInterestForm) {
+            $created_date = $educatorInterestForm->created_at;
+            $timestamp = strtotime($created_date);
+            $educatorInterestForm->created_at = date('m/d/Y',$timestamp );
             $data[] = (array)$educatorInterestForm;
+
         }
 
         Excel::create('report', function($excel) use($data) {

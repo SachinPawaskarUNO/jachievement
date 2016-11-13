@@ -37,7 +37,7 @@
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
     {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::select('email', null,  ['id'=> 'email','class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('email', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('email'))
             <span class="help-block">
                 <strong>{{ $errors->first('email') }}</strong>
@@ -61,7 +61,7 @@
 <div class="form-group{{ $errors->has('event_date') ? ' has-error' : '' }}">
     {!! Form::label('event_date', 'Date of Event:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('event_date', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('event_date', null, ['data-provide'=>'datepicker','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('event_date'))
             <span class="help-block">
                 <strong>{{ $errors->first('event_date') }}</strong>
@@ -83,7 +83,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('default_content') ? ' has-error' : '' }}">
-    {!! Form::label('default_content', 'Default Content::', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('default_content', 'Default Content:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('default_content', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('default_content'))

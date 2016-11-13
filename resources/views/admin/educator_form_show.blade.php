@@ -93,6 +93,7 @@
                     </div>
                     <br>
                     <div class="pull-left">
+                        <br>
                         <a href="{{ action('AdminController@listEducatorForm') }}" class="btn btn-default">Back</a>
                     </div>
                 </div>

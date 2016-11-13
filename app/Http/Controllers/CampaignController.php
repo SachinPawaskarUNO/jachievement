@@ -371,70 +371,72 @@ class CampaignController extends Controller
         return $teamMemberToken;
     }
 
-//    public function __construct()
-//    {
-//        $this->middleware('role:admin|superadmin');
-//
-//        $this->user = Auth::user();
-//        $this->campaigns = Campaign::all();
-//        $this->heading = "Events";
-//
-//        $this->viewData = [ 'user' => $this->user, 'events' => $this->events, 'heading' => $this->heading ];
-//    }
+   public function __construct()
+    {
+        $this->user = Auth::user();
+        $this->campaigns = Campaign::all();
+        $this->heading = "Events";
+
+        $this->viewData = [ 'user' => $this->user, 'campaigns' => $this->campaigns, 'heading' => $this->heading ];
+    }
 
     public function index() {
+        $this->middleware('role:admin|superadmin');
         Log::info('CampaignController.index: Start -');
 
         $campaigns = Campaign::all();
-        $this->viewData['events'] = $campaigns;
+        $this->viewData['campaigns'] = $campaigns;
 
-        return view('event.indexevent', $this->viewData);
+        return view('event.index', $this->viewData);
     }
 
     public function create()
     {
+        $this->middleware('role:admin|superadmin');
         Log::info('CampaignController.create: ');
-        $this->viewData['heading'] = "New School";
+        $this->viewData['heading'] = "New Event";
 
-        return view('event.createevent', $this->viewData);
+        return view('event.create', $this->viewData);
     }
 
     public function edit(Campaign $campaigns)
     {
+        $this->middleware('role:admin|superadmin');
         $object = $campaigns;
         Log::info('CampaignController.edit: '.$object->id.'|'.$object->name);
-        $this->viewData['event'] = $object;
+        $this->viewData['campaign'] = $object;
         $this->viewData['heading'] = "Edit Event: ".$object->name;
 
-        return view('event.editevent', $this->viewData);
+        return view('event.edit', $this->viewData);
     }
 
     public function update(Campaign $campaigns, CampaignRequest $request)
     {
+        $this->middleware('role:admin|superadmin');
         $object = $campaigns;
         Log::info('CampaignController.update - Start: '.$object->id.'|'.$object->name);
         $this->populateUpdateFields($request);
-        $request['active'] = $request['active'] == '' ? false : true;
-
         $object->update($request->all());
         Session::flash('flash_message', 'Event successfully updated!');
         Log::info('CampaignController.update - End: '.$object->id.'|'.$object->name);
-        return redirect('/event');
+        return redirect('/events');
     }
+
     public function store(CampaignRequest $request)
     {
+        $this->middleware('role:admin|superadmin');
         Log::info('CampaignController.store - Start: ');
         $input = $request->all();
         $this->populateCreateFields($input);
-        $input['active'] = $request['active'] == '' ? false : true;
         $object = Campaign::create($input);
         Session::flash('flash_message', 'Event successfully added!');
         Log::info('CampaignController.store - End: '.$object->id.'|'.$object->name);
-        return redirect('/event');
+        return redirect('/events');
     }
 
     public function destroy(Request $request, Campaign $campaigns)
     {
+        $this->middleware('role:admin|superadmin');
         $object = $campaigns;
         Log::info('CampaignController.destroy: Start: '.$object->id.'|'.$object->name);
         if ($this->authorize('destroy', $object))
@@ -444,6 +446,6 @@ class CampaignController extends Controller
             Session::flash('flash_message', 'Event successfully deleted!');
         }
         Log::info('CampaignController.destroy: End: ');
-        return redirect('/event');
+        return redirect('/events');
     }
 }

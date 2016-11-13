@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Campaign extends Model
 {
-    protected $table = 'campaigns';
+    use SoftDeletes;
+    //protected $table = 'campaigns';
     protected $fillable = [
-							'id', 'name','description', 'goal', 'image','email','phone', 'event_date','venue', 'default_content'
+							 'name','description', 'goal', 'image','email','phone', 'event_date','venue', 'default_content'
 						  ];
 }

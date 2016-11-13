@@ -68,6 +68,7 @@
                             <li><a id="ja_nav_roles" href="{{ url('/roles') }}">Manage Roles</a></li>
                         @endrole
                         <li><a id="ja_nav_schools" href="{{ url('/schools') }}">Manage Schools</a></li>
+                        <li><a id="ja_nav_schools" href="{{ url('/events') }}">Manage Events</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a id="ja_nav_educator_form" href="{{ url('/admin/educatorform') }}">View Educators</a></li>
                         <li><a id="ja_nav_volunteer_form" href="{{ url('/admin/volunteerform') }}">View Volunteers</a></li>

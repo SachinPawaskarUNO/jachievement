@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="pull-right">
-                            <form action="{{ url('event/create') }}" method="GET">{{ csrf_field() }}
+                            <form action="{{ url('events/create') }}" method="GET">{{ csrf_field() }}
                                 <button type="submit" id="create-event" class="btn btn-primary"><i class="fa fa-btn fa-file-o"></i>Create</button>
                             </form>
                         </div>
@@ -19,12 +19,12 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead> <!-- Table Headings -->
-                                    <th>Event Name</th><th>Event Address</th><th>Status</th>
+                                    <th>Event Name</th><th>Event Date</th><th>Venue</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($campaigns as $campaign)
                                         <tr>
-                                            <td class="table-text"><div><a href="{{ url('/events/'.$campaign->id.'/edit') }}">{{ $campaign->campaign_name }}</a></div></td>
+                                            <td class="table-text"><div><a href="{{ url('/events/'.$campaign->id.'/edit') }}">{{ $campaign->name }}</a></div></td>
                                             <td class="table-text"><div>{{ $campaign->event_date }}</div></td>
                                             <td class="table-text"><div>{{ $campaign->venue }}</div></td>
                                         </tr>
