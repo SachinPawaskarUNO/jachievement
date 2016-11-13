@@ -70,7 +70,7 @@ class AdminController extends Controller
             ->first();
 
         $volunteer_programs = DB::table('volunteer_programs')
-            ->select('programs.name')
+            ->select(DB::raw('array_to_string(array_agg(programs.name), \', \') as program_preference'))
             ->join('programs','volunteer_programs.program_id','=','programs.id')
             ->where('volunteer_programs.volunteerform_id','=',$id)
             ->get();
