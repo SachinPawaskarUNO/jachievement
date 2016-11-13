@@ -28,11 +28,11 @@ class ReportsController extends Controller
 
          $chart_data= DB::table('donations')
              // ->select(DB::raw('SUM(donations.amount) as sum,month(donations.created_at) as month'))
-                ->select(DB::raw('SUM(donations.amount) as sum,EXTRACT(MONTH FROM TIMESTAMP \'donations.created_at\') as month'))
+                ->select(DB::raw('SUM(donations.amount) as sum'))
              // ->where('year(donations.created_at)','=','2016')
                // ->where('year(donations.created_at)','=','2016')
            
-             ->groupBy(DB::raw('month'))
+             ->groupBy(DB::raw('EXTRACT(MONTH FROM TIMESTAMP \'donations.created_at\')')
              ->get();
 // return $chart_data;
 $data=array();
