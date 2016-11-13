@@ -32,7 +32,7 @@ class ReportsController extends Controller
              // ->where('year(donations.created_at)','=','2016')
                // ->where('year(donations.created_at)','=','2016')
            
-             ->groupBy(DB::raw('month(donations.created_at)'))
+             ->groupBy(DB::raw('month'))
 
              ->get();
 // return $chart_data;
