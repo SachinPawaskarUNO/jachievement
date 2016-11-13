@@ -376,8 +376,6 @@ class CampaignController extends Controller
 
    public function __construct()
     {
-       $this->middleware('role:admin|superadmin');
-
         $this->user = Auth::user();
         $this->campaigns = Campaign::all();
         $this->heading = "Events";
@@ -386,6 +384,7 @@ class CampaignController extends Controller
     }
 
     public function index() {
+        $this->middleware('role:admin|superadmin');
         Log::info('CampaignController.index: Start -');
 
         $campaigns = Campaign::all();
@@ -396,6 +395,7 @@ class CampaignController extends Controller
 
     public function create()
     {
+        $this->middleware('role:admin|superadmin');
         Log::info('CampaignController.create: ');
         $this->viewData['heading'] = "New Event";
 
@@ -404,6 +404,7 @@ class CampaignController extends Controller
 
     public function edit(Campaign $campaigns)
     {
+        $this->middleware('role:admin|superadmin');
         $object = $campaigns;
         Log::info('CampaignController.edit: '.$object->id.'|'.$object->name);
         $this->viewData['campaign'] = $object;
@@ -414,6 +415,7 @@ class CampaignController extends Controller
 
     public function update(Campaign $campaigns, CampaignRequest $request)
     {
+        $this->middleware('role:admin|superadmin');
         $object = $campaigns;
         Log::info('CampaignController.update - Start: '.$object->id.'|'.$object->name);
         $this->populateUpdateFields($request);
@@ -422,8 +424,10 @@ class CampaignController extends Controller
         Log::info('CampaignController.update - End: '.$object->id.'|'.$object->name);
         return redirect('/events');
     }
+
     public function store(CampaignRequest $request)
     {
+        $this->middleware('role:admin|superadmin');
         Log::info('CampaignController.store - Start: ');
         $input = $request->all();
         $this->populateCreateFields($input);
@@ -435,6 +439,7 @@ class CampaignController extends Controller
 
     public function destroy(Request $request, Campaign $campaigns)
     {
+        $this->middleware('role:admin|superadmin');
         $object = $campaigns;
         Log::info('CampaignController.destroy: Start: '.$object->id.'|'.$object->name);
         if ($this->authorize('destroy', $object))
