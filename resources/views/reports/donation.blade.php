@@ -130,7 +130,7 @@ $(function () {
     var chart = Highcharts.chart('container', {
 
         title: {
-            text: ['Donation Chart']
+            text: 'Donation Chart'
         },
 
         subtitle: {
@@ -139,7 +139,7 @@ $(function () {
 
         xAxis: {
             // categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            categories: 'chart_months'
+            categories: ['chart_months']
         },
 
         series: [{
