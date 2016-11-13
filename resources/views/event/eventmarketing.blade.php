@@ -27,7 +27,7 @@
 						<br>
 					
 						<a href= "{{ action('CampaignController@eventDetail', [$activeevent->id])}}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-learn_more"> Learn More </a>
-						@if ($activeevent->name == 'Junior Achievement Omaha Golf Campaign - 2016')
+						@if ($activeevent->id == 1)
 							<a href= "{{action('CampaignController@createTeam', [$activeevent->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-register_now"> Register Now </a>
 						@else
 							<a href= "{{action('CampaignController@createTeam', [$activeevent->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-create_team"> Create Team </a>
