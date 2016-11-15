@@ -63,10 +63,10 @@
                     <a href="#" id="ja_nav_getinv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         Administration <span class="caret"></span></a>
                     <ul class="dropdown-menu multi level" role="menu">
-                        <li><a id="ja_nav_users" href="{{ url('/users') }}">Manage Users</a></li>
                         @role('superadmin')
                             <li><a id="ja_nav_roles" href="{{ url('/roles') }}">Manage Roles</a></li>
                         @endrole
+                        <li><a id="ja_nav_users" href="{{ url('/users') }}">Manage Users</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/schools') }}">Manage Schools</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/events') }}">Manage Events</a></li>
                         <li role="separator" class="divider"></li>

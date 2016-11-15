@@ -94,21 +94,13 @@ class UsersController extends Controller
     }
 
     public function edit(User $users)
-    {
+    { 
         $object = $users;
-        Log::info('UsersController.edit: '.$object->id.'|'.$object->name);
-        if($object->is('superadmin') || ($object->is('admin'))){
-    
-            $show_delete = 'false';
-        } else {
-             $show_delete = 'true';
-        }
-      
-        $this->viewData['user'] = $object;
-        $this->viewData['heading'] = "Edit User: ".$object->first_name;
+       Log::info('UsersController.edit: '.$object->id.'|'.$object->first_name);
+       $this->viewData['user'] = $object;
+       $this->viewData['heading'] = "Edit User: ".$object->first_name;
 
-         $this->viewData['show_delete'] =$object->show_delete;
-        return view('users.edit', $this->viewData);
+       return view('users.edit', $this->viewData);
     }
 
     public function update(User $users, UserRequest $request)
