@@ -130,8 +130,8 @@ window.onclick = function(event) {
 
 // Bar Chart for Donations
 $(function () {
-    var chart_results = {{$chart_results}};
-      var chart_months = {{$chart_months}};
+    // var chart_results = {{$chart_results}};
+    //   var chart_months = {{$chart_months}};
 
     var chart = Highcharts.chart('container', {
 
