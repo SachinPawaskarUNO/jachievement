@@ -114,6 +114,7 @@ Route::post('/admin/volunteerform/{id}/delete', 'AdminController@destroyVoluntee
 Route::get('/admin/download/volunteerreport', 'AdminController@downloadVolunteerReport');
 Route::get('/admin/download/educatorreport', 'AdminController@downloadEducatorReport');
 Route::get('/reports/donation', 'ReportsController@DonationReporting');
+Route::get('/reports/download/donation', 'ReportsController@downloadDonations');
 
 Route::resource('schools', 'SchoolController');
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Log;
 use DB;
+use Excel;
 use App\Http\Requests;
 use DateTime;
 
@@ -56,6 +57,31 @@ class ReportsController extends Controller
 
         return view('reports.donation',compact('donors'))->with('chart_results',json_encode($chart_results))->with('chart_months',json_encode($chart_months));
 
+    }
+
+     public function downloadDonations()
+    {
+        Log::info('ReportsController.downloadDonationReports: ');
+
+        $data = array();
+        $donationReports =  DB::table('donors')
+            ->select('donors.last_name','donors.first_name','donors.email', 'donations.amount',  'donations.status',  'donations.created_at')
+            ->join('donations','donors.id','=','donations.donor_id')
+            ->get();
+
+
+        foreach ($donationReports as $donationReport) {
+            $created_date = $donationReport->created_at;
+            $timestamp = strtotime($created_date);
+            $donationReport->created_at = date('m/d/Y',$timestamp );
+            $data[] = (array)$donationReport;
+        }
+
+        Excel::create('donation_report', function($excel) use($data) {
+            $excel->sheet('Donation Records', function($sheet) use($data) {
+                $sheet->fromArray($data);
+            });
+        })->export('xls');
     }
 }
 

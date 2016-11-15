@@ -9,7 +9,7 @@
         <div class="col-md-12">
 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
-                        <div><h4><b>Donation Summary</b></h4></div>
+                        <div style="font-size:1.2em;color:white;"><b>Donation Summary</b></div>
                     </div>
 
                      <div class="panel-body">
@@ -40,7 +40,12 @@
              <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
-                        <div><h4><b>Donation Report</b></h4></div>
+                    <div class="pull-right">
+                            <form action="{{ url('/reports/download/donation') }}" method="GET">
+                                <button type="submit" id="download" class="btn btn-default">Export To Excel</button>
+                            </form>
+                        </div>
+                        <div style="font-size:1.2em;color:white;"><b>Donation Report</b></div>
                     </div>
                     <br>
                  
@@ -65,7 +70,7 @@
                                             <td class="table-text"><div>{{$donor->firstname}} {{$donor->lastname}}</div></td>
                                             <td class="table-text"><div>${{number_format($donor->amount,2)}}</div></td>
                                             <td class="table-text"><div>{{$donor->status}}</div></td>
-                                            <td class="table-text"><div>{{$donor->created_at}}</div></td>
+                                            <td class="table-text"><div>{{ date('F d, Y', strtotime($donor->created_at)) }}</div></td>
                                         </tr>
 
                   @endforeach
@@ -147,7 +152,8 @@ $(function () {
             type: 'column',
             colorByPoint: true,
             name: 'Donations',
-            data: chart_results,
+            // data: chart_results,
+            data: [71,42,53,34,65,56,37,78,59,98,12,12],
             showInLegend: false
         }]
 
