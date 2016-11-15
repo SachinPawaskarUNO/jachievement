@@ -24,7 +24,8 @@
                                     <tbody> <!-- Table Body -->
                                     @foreach ($campaigns as $campaign)
                                         <tr>
-                                            <td class="table-text"><div><a href="{{ url('/events/'.$campaign->id.'/edit') }}">{{ $campaign->name }}</a></div></td>
+                                           {{-- <td class="table-text"><div><a href="{{ url('/events/'.$campaign->id.'/edit') }}">{{ $campaign->name }}</a></div></td>--}}
+                                            <td class="table-text"><div>{{ $campaign->name }}</div></td>
                                             <td class="table-text"><div>{{ $campaign->event_date }}</div></td>
                                             <td class="table-text"><div>{{ $campaign->venue }}</div></td>
                                         </tr>
