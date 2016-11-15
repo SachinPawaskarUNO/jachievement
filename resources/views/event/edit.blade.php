@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="panel-body">
-                        {!! Form::model($campaign, ['class' => 'form-horizontal', 'method' => 'PATCH', 'action' => ['CampaignController@update', $campaign->id]]) !!}
+                        {!! Form::model($campaign, ['class' => 'form-horizontal', 'method' => 'POST', 'action' => ['CampaignController@update', $campaign->id]]) !!}
                         @include('common.errors')
                         @include('common.flash')
                         @include ('event.partial', ['CRUD_Action' => 'Update'])
