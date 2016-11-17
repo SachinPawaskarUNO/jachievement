@@ -10,11 +10,8 @@
                     <div class="col-lg-1">{!! Form::label('text', 'Comment', ['class' => 'control-label']) !!}</div>
                     <div class="col-lg-12">{!! Form::textarea('text', null, ['class' => 'form-control', 'required' => 'required']) !!}</div>
                     <div>
-                        {{ Form::hidden('user_id', $user->id, ['id'=>'user_id']) }}
-                        @if($commentfor == "SkeletalElement")
-                            {{ Form::hidden('commentfor', 'SkeletalElement', ['id'=>'commentfor']) }}
-                            {{ Form::hidden('skeletalelement_id', $skeletalelement->id, ['id'=>'skeletalelement_id']) }}
-                        @endif
+                       
+                       
 
                     </div>
                 </div></td>

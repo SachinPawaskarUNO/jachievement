@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\CommentRequest;
-
+use DB;
 use App\Comment;
 use App\SkeletalElement;
 use Session;
@@ -42,8 +42,15 @@ class CommentsController extends Controller
 
     public function index()
     {
-        $comments = Comment::all();
-        return view('comments.index', compact('comments'));
+        // $comments = Comment::all();
+
+        $comments_data= DB::table('comments')
+            ->select(DB::raw('comments.*'))
+            ->get();
+            
+
+
+        return view('comments.index', compact('comments_data'));
     }
 
     public function show($id)
