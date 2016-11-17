@@ -14,6 +14,8 @@
                         <div style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></div>
                     </div>
                     <div class="panel-body">
+                        @include('common.flash')
+
                         @if (count($roles) > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
