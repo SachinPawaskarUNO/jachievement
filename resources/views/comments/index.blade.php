@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-@if (count($comments) > 0)
+@if (count($comments_data) > 0)
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="pull-right">
@@ -15,12 +15,11 @@
             <table class="table table-striped cds-datatable">
                 <thead><th>Type</th><th>Comment</th><th>Date</th><th>User</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
                 <tbody> <!-- Table Body -->
-                @foreach ($comments as $comment)
+                @foreach ($comments_data as $comment)
                     <tr>
-                        <td class="table-text"><div><a href="{{ url('/comments', $comment->id) }}">{{ $comment->type() }}</a></div></td>
+                        <td class="table-text"><div><a href="{{ url('/comments', $comment->id) }}"></a></div></td>
                         <td class="table-text"><div>{{ $comment->text }}</div></td>
-                        <td class="table-text"><div>{{ $comment->created_at }}</div></td>
-                        <td class="table-text"><div>{{ $comment->user->name }}</div></td>
+                        <td class="table-text"><div>{{ $comment->id }}</div></td>
                         <td>
                             @if($comment->id != 1 && $comment->id != 2) <!-- Administrator and Advisor Comment -->
                             <div class="pull-right" style="height: 25px;">

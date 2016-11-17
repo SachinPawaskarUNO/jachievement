@@ -120,11 +120,14 @@ Route::resource('schools', 'SchoolController');
 
 Route::resource('events', 'CampaignController');
 
-//    Route::delete('/comments/{comment}', 'CommentsController@destroy');
-//    Route::resource('comments', 'CommentsController');
-//    Route::get('comments/{student}/addforstudent', ['as' => 'comments.addforstudent',
-//        'uses' => 'CommentsController@addforstudent']);
-//    Route::get('comments/{planofstudy}/addforplanofstudy', ['as' => 'comments.addforplanofstudy',
-//        'uses' => 'CommentsController@addforplanofstudy']);
+   Route::delete('/comments/{comment}', 'CommentsController@destroy');
+   // Route::resource('comments', 'CommentsController');
+   Route::get('comments/{student}/addforstudent', ['as' => 'comments.addforstudent',
+       'uses' => 'CommentsController@addforstudent']);
+   Route::get('comments/{planofstudy}/addforplanofstudy', ['as' => 'comments.addforplanofstudy',
+       'uses' => 'CommentsController@addforplanofstudy']);
+
+
+   Route::resource('comments', 'CommentsController');
 
 //});
