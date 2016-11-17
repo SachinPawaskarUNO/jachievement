@@ -16,7 +16,9 @@
         "omnipay/paypal": "~2.0",
 	    "laracasts/utilities": "~2.0",
         "components/jquery": "^3.1",
-        "maatwebsite/excel": "~2.1.0"
+        "maatwebsite/excel": "~2.1.0",
+        "pragmarx/tracker": "^3.0",
+        "geoip/geoip": "~1.14"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
