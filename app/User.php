@@ -89,4 +89,17 @@ class User extends Authenticatable
 
         return false;
     }
+
+    public function getIsAdminAttribute()
+    {
+        foreach ($this->roles->lists('name')->all() as $role)
+        {
+            if ($role == 'admin' || $role == 'superadmin')
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
