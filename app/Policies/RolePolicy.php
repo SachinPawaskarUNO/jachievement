@@ -41,6 +41,10 @@ class RolePolicy
      */
     public function destroy(User $user, Role $role)
     {
-        return $user->hasRole('admin');
+        if ($user->hasRole('admin') || $user->hasRole('superadmin')) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

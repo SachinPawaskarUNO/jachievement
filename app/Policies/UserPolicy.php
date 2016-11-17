@@ -40,7 +40,11 @@ class UserPolicy
      */
     public function destroy(User $user, User $userrecord)
     {
-        return $user->hasRole('admin');
+        if ($user->hasRole('admin') || $user->hasRole('superadmin')) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
