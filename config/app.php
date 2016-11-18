@@ -171,6 +171,7 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
+        'PragmaRX\Tracker\Vendor\Laravel\ServiceProvider',
 
     ],
 
@@ -231,6 +232,8 @@ return [
          */
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
+
+        'Tracker' => 'PragmaRX\Tracker\Vendor\Laravel\Facade',
 
     ],
 
