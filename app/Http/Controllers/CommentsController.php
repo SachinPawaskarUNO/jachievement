@@ -45,11 +45,12 @@ class CommentsController extends Controller
         // $comments = Comment::all();
 
         $comments_data= DB::table('comments')
-            ->select(DB::raw('comments.*'))
+            ->select('comments.*')
+			join('programs','comments.program_id','=','programs.id')
+            ->join('users','user.id','=','comments.user_id')
+            ->join('role_user','role_user.role_id','=','user.id')
             ->get();
-            
-
-
+        
         return view('comments.index', compact('comments_data'));
     }
 

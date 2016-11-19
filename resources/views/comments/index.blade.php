@@ -13,7 +13,7 @@
         </div>
         <div class="panel-body">
             <table class="table table-striped cds-datatable">
-                <thead><th>Type</th><th>Comment</th><th>Date</th><th>User</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
+                <thead><th>User Name</th><th>Comment</th><th>Date</th><th>User</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
                 <tbody> <!-- Table Body -->
                 @foreach ($comments_data as $comment)
                     <tr>
@@ -21,13 +21,13 @@
                         <td class="table-text"><div>{{ $comment->text }}</div></td>
                         <td class="table-text"><div>{{ $comment->id }}</div></td>
                         <td>
-                            @if($comment->id != 1 && $comment->id != 2) <!-- Administrator and Advisor Comment -->
+                           @if($comment->id != 1 && $comment->id != 2)  <!--  Administrator and Advisor Comment -->
                             <div class="pull-right" style="height: 25px;">
                                 <form action="{{ url('comments/'.$comment->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('delete') }}
                                     <button type="submit" id="delete-comment-{{ $comment->id }}" class="btn btn-default"></button>
                                 </form>
-                            </div>
-                            @endif
+                            </div> 
+                            @endif  
                         </td>
                     </tr>
                 @endforeach
