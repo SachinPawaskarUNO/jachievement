@@ -64,6 +64,14 @@ class CommentsController extends Controller
 
     public function create()
     {
+        $user = Auth::user;
+
+       /* $comments = DB::table('comments')
+            ->select('comments.*')
+            ->join('programs','comments.program_id','=','programs.id')
+            ->join('users','user.id','=','comments.user_id')
+            ->where('role_user','role_user.role_id','=',$role_id)
+            ->get();*/
         return view('comments.create');
     }
 
@@ -74,13 +82,13 @@ class CommentsController extends Controller
 
         $comment = new Comment($input);
 //        dd([$request, $input]);
-        if ($input['commentfor'] == "SkeletalElement") {
-            $skeletalelement = SkeletalElement::findOrfail($request['se_id']);
-            $skeletalelement->comments()->save($comment);
-        }
 
-        Session::flash('flash_message', 'Comment successfully added!');
-        return redirect()->back();
+        $object = Comment::create($input);
+
+        $object->save($comment);
+        return view('comments.create');
+
+        //return redirect()->back();
     }
 
     public function edit($id)
