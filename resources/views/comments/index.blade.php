@@ -5,9 +5,9 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="pull-right">
-                <form action="{{ url('comments/create') }}" method="GET">{{ csrf_field() }}
+        <!--       <form action="{{ url('comments/create') }}" method="GET">{{ csrf_field() }}
                     <button type="submit" id="create-comment" class="btn btn-primary">Create</button>
-                </form>
+                </form>  -->
             </div>
             <div><h2 style="text-align:center;">Comments</h2></div>
         </div>
