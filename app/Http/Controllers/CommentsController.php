@@ -46,13 +46,34 @@ class CommentsController extends Controller
 
         $comments_data= DB::table('comments')
             ->select('comments.*')
-			join('programs','comments.program_id','=','programs.id')
-            ->join('users','user.id','=','comments.user_id')
-            ->join('role_user','role_user.role_id','=','user.id')
+			->join('programs','comments.program_id','=','programs.id')
+            ->join('users','users.id','=','comments.user_id')
+            ->join('role_user','role_user.user_id','=','users.id')
             ->get();
         
         return view('comments.index', compact('comments_data'));
-    }
+		
+	}
+	
+	public function action($id, Request $request)
+	{
+		if ($request->approve == 'true')
+		{
+			$comment = Comment::findOrfail($id);
+			$comment->active = 1;
+			$this->populateUpdateFields($request);
+
+			$comment->update($request->all());
+			return redirect()->back()->withInput();
+		} else {
+			$comment = Comment::findOrfail($id);
+			$comment->active = 0;
+			$this->populateUpdateFields($request);
+
+			$comment->update($request->all());
+			return redirect()->back()->withInput();
+		}
+	}
 
     public function show($id)
     {
