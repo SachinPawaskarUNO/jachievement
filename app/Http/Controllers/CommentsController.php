@@ -66,12 +66,12 @@ class CommentsController extends Controller
     {
         $user = Auth::user;
 
-       /* $comments = DB::table('comments')
-            ->select('comments.*')
+        $comments = DB::table('comments')
+            ->select('comments.*,users.first_name')
             ->join('programs','comments.program_id','=','programs.id')
             ->join('users','user.id','=','comments.user_id')
             ->where('role_user','role_user.role_id','=',$role_id)
-            ->get();*/
+            ->get();
         return view('comments.create');
     }
 
@@ -158,5 +158,20 @@ class CommentsController extends Controller
 //                $this->commentData['planofstudy'] = Planofstudy::findOrfail($comment->commentable_id);
             }
         }
+    }
+
+    public function view()
+    {
+        
+        $comments_data1 = DB::table('comments')
+            ->join('users','comments.user_id','=','users.id')
+            ->join('programs','comments.program_id','=','programs.id')            
+            ->select('comments.*','users.first_name','programs.name')
+
+            ->get();
+
+
+
+        return view('comments.view',compact('comments_data1'));
     }
 }
