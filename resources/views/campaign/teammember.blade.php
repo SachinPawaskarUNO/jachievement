@@ -183,7 +183,7 @@
                     @endif
                     <a class="btn btn-lg btn-success" href="{{ url('/donation/donate')}}" id="member_donate">Donate to my goal</a>
                     @if($data['link_show']=='show')
-                        <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal" href="#myModal1">Invite friends for donation </a>
+                        <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal" href="#myModal1">Invite friends to Join or Donate </a>
                     @endif
                 </div>
                 <br>

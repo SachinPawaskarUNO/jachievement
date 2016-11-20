@@ -130,7 +130,7 @@
                     @endif
                     <a class="btn btn-lg btn-success" href="{{ url('/donation/donate')}}" id="member_donate">Donate to my goal</a>
                     @if($data['link_show']=='show')
-                        <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal" href="#myModal1">Invite friends for donation </a>
+                        <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal" href="#myModal1">Invite Friends to Join or Donate </a>
                     @endif
                 </div>
                     <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
@@ -138,7 +138,7 @@
                         <div class="modal-content">
                             <div class="modal-header" style="background-color:#5cb85c !important;">
                                 <a class="close" data-dismiss="modal">×</a>
-                                <p align="center"><span style="font-size:1.5em;color:white;"><b>Family & Friends with Junior Achievement</b></span></p>
+                                <p align="center"><span style="font-size:1.5em;color:white;"><b>Family & Friends of Junior Achievement</b></span></p>
                             </div>
                             <div class="modal-body">
                                 {!! Form::open(['url' => '/event/teammember', 'class' => 'form-horizontal']) !!}
