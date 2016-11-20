@@ -28,7 +28,7 @@
         <p class="description">{{ $url }}</p>
         <p class="description">Once again, I would like to welcome you to my personal page and support me.</p>
         <br>
-        <p class="description">Thanking You</p>
+        <p class="description">Thank You</p>
         <p class="description"><b>{{$firstname}} {{$lastname}}</b></p>
         <p class="description"><b>Junior Achievement of Midlands, Inc.</b></p>
     </div>
