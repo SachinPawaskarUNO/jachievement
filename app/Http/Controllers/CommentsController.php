@@ -45,35 +45,39 @@ class CommentsController extends Controller
         // $comments = Comment::all();
 
         $comments_data= DB::table('comments')
-            ->select('comments.*')
+            ->select('comments.*','users.first_name','programs.name as program_name', 'roles.name as role_name')
 			->join('programs','comments.program_id','=','programs.id')
             ->join('users','users.id','=','comments.user_id')
             ->join('role_user','role_user.user_id','=','users.id')
+            ->join('roles','roles.id','=','role_user.role_id')
             ->get();
-        
+       //
         return view('comments.index', compact('comments_data'));
 		
 	}
 	
-	public function action($id, Request $request)
+	public function accept($id)
 	{
-		if ($request->approve == 'true')
-		{
 			$comment = Comment::findOrfail($id);
 			$comment->active = 1;
-			$this->populateUpdateFields($request);
 
-			$comment->update($request->all());
-			return redirect()->back()->withInput();
-		} else {
-			$comment = Comment::findOrfail($id);
-			$comment->active = 0;
-			$this->populateUpdateFields($request);
 
-			$comment->update($request->all());
-			return redirect()->back()->withInput();
-		}
+			$comment->update();
+			//return view('comments.index');
+        return redirect()->back();
+
 	}
+
+    public function reject($id)
+    {
+
+        $comment = Comment::findOrfail($id);
+        $comment->active = 0;
+
+        $comment->update();
+        //return view('comments.index');
+        return redirect()->back();
+    }
 
     public function show($id)
     {
@@ -99,11 +103,12 @@ class CommentsController extends Controller
 
     public function store(CommentRequest $request)
     {
+        $user = Auth::user();
         $input = $request->all();
         $this->populateCreateFields($input);
 
         $comment = new Comment($input);
-//        dd([$request, $input]);
+        $comment->user_id = $user->id;
 
         $object = Comment::create($input);
 
