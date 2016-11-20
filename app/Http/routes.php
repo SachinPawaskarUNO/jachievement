@@ -115,7 +115,8 @@ Route::get('/admin/download/volunteerreport', 'AdminController@downloadVolunteer
 Route::get('/admin/download/educatorreport', 'AdminController@downloadEducatorReport');
 Route::get('/reports/donation', 'ReportsController@DonationReporting');
 Route::get('/reports/download/donation', 'ReportsController@downloadDonations');
-
+Route::get('/admin/comments/{id}/apt', 'CommentsController@accept');
+Route::get('/admin/comments/{id}/rjt', 'CommentsController@reject');
 Route::resource('schools', 'SchoolController');
 
 Route::resource('events', 'CampaignController');
@@ -129,5 +130,6 @@ Route::resource('events', 'CampaignController');
 
 
    Route::resource('comments', 'CommentsController');
-
+Route::get('/hints/view', 'CommentsController@view');
+\Sukohi\Maven\Maven::route();
 //});

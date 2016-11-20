@@ -45,12 +45,38 @@ class CommentsController extends Controller
         // $comments = Comment::all();
 
         $comments_data= DB::table('comments')
-            ->select(DB::raw('comments.*'))
+            ->select('comments.*','users.first_name','programs.name as program_name', 'roles.name as role_name')
+			->join('programs','comments.program_id','=','programs.id')
+            ->join('users','users.id','=','comments.user_id')
+            ->join('role_user','role_user.user_id','=','users.id')
+            ->join('roles','roles.id','=','role_user.role_id')
             ->get();
-            
-
-
+       //
         return view('comments.index', compact('comments_data'));
+		
+	}
+	
+	public function accept($id)
+	{
+			$comment = Comment::findOrfail($id);
+			$comment->active = 1;
+
+
+			$comment->update();
+			//return view('comments.index');
+        return redirect()->back();
+
+	}
+
+    public function reject($id)
+    {
+
+        $comment = Comment::findOrfail($id);
+        $comment->active = 0;
+
+        $comment->update();
+        //return view('comments.index');
+        return redirect()->back();
     }
 
     public function show($id)
@@ -64,22 +90,31 @@ class CommentsController extends Controller
 
     public function create()
     {
+        $user = Auth::user;
+
+        $comments = DB::table('comments')
+            ->select('comments.*,users.first_name')
+            ->join('programs','comments.program_id','=','programs.id')
+            ->join('users','user.id','=','comments.user_id')
+            ->where('role_user','role_user.role_id','=',$role_id)
+            ->get();
         return view('comments.create');
     }
 
     public function store(CommentRequest $request)
     {
+
+        Log::info('CommentsController.store - Start: ');
         $input = $request->all();
+        $user = Auth::user();
+
+
+        $input['user_id'] = $user->id;
+
         $this->populateCreateFields($input);
 
-        $comment = new Comment($input);
-//        dd([$request, $input]);
-        if ($input['commentfor'] == "SkeletalElement") {
-            $skeletalelement = SkeletalElement::findOrfail($request['se_id']);
-            $skeletalelement->comments()->save($comment);
-        }
-
-        Session::flash('flash_message', 'Comment successfully added!');
+        Session::flash('flash_message', 'Comment succesfully added. It has to be approved by admin first to show in the page!');
+        $object = Comment::create($input);
         return redirect()->back();
     }
 
@@ -150,5 +185,20 @@ class CommentsController extends Controller
 //                $this->commentData['planofstudy'] = Planofstudy::findOrfail($comment->commentable_id);
             }
         }
+    }
+
+    public function view()
+    {
+        
+        $comments_data1 = DB::table('comments')
+            ->join('users','comments.user_id','=','users.id')
+            ->join('programs','comments.program_id','=','programs.id')            
+            ->select('comments.*','users.first_name','programs.name')
+
+            ->get();
+
+
+
+        return view('comments.view',compact('comments_data1'));
     }
 }
