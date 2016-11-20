@@ -103,19 +103,19 @@ class CommentsController extends Controller
 
     public function store(CommentRequest $request)
     {
-        $user = Auth::user();
+
+        Log::info('CommentsController.store - Start: ');
         $input = $request->all();
+        $user = Auth::user();
+
+
+        $input['user_id'] = $user->id;
+
         $this->populateCreateFields($input);
 
-        $comment = new Comment($input);
-        $comment->user_id = $user->id;
-
+        Session::flash('flash_message', 'Comment succesfully added. It has to be approved by admin first to show in the page!');
         $object = Comment::create($input);
-
-        $object->save($comment);
-        return view('comments.create');
-
-        //return redirect()->back();
+        return redirect()->back();
     }
 
     public function edit($id)
