@@ -20,7 +20,7 @@
                             <tr>
                                 <td class="table-text"><div>{{ $comment->first_name }}</div></td>
                                 <td class="table-text"><div>{{ $comment->text }}</div></td>
-                                <td class="table-text"><div>{{ $comment->created_at }}</div></td>
+                                <td class="table-text"><div>{{ date('F d, Y', strtotime($comment->created_at)) }}</div></td>
                                 <td class="table-text"><div>{{ $comment->program_name}}</div></td>
                                 <td class="table-text"><div>{{ $comment->role_name}}</div></td>
                                 <td class="table-text">
