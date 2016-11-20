@@ -6,7 +6,8 @@
         <div class="col-md-8 col-md-offset-2">
         @include('common.flash')
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <!--<div class="panel-heading">Login</div>-->
+                <div class="panel-heading" style="background-color:#5cb85c !important;"> <span style="font-size:1.2em;color:white;"><b>Login</b></span></div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -51,7 +52,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button id="ja_loginsubmit" type="submit" class="btn btn-primary">
+                                <button id="ja_loginsubmit" type="submit" class="btn btn-success">
                                    Login
                                 </button>
 
