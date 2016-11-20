@@ -33,7 +33,7 @@
                                 </table>
                             </div>
                         @else
-                            <div class="panel-body"><h4>Volunteer Record Not Found</h4></div>
+                            <div class="panel-body"><h4>Volunteer Records Not Found</h4></div>
                         @endif
                     </div>
                 </div>

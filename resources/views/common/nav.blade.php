@@ -11,21 +11,23 @@
             </button>
 
             <!-- Branding Image -->
-            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('images/ja_nav_logo.png') }}" style="height: 60px;"></a></div>
+            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('images/ja_nav_logo.png') }}" style="height: 80px;"></a></div>
 
         </div>
 
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+        <div class="collapse navbar-collapse" id="app-navbar-collapse" >
                     <!-- Left Side Of Navbar --> 
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                        <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Us <span class="caret"></span></a>
+                        <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >About Us <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
+                        
                             <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}">Mission</a></li>
                             <li><a id="ja_nav_programs" href="{{ url('/programs/index') }}">Programs</a></li>
                             <li><a id="ja_nav_map" href="{{ url('/aboutus/map') }}">Schools We're In</a></li>
                             <li><a id="ja_nav_faq" href="{{ url('/') }}">FAQs</a></li>
                            <!-- <li><a id="ja_nav_goingon" href="{{ url('/') }}">What's Going On?</a></li> -->
+                           
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -69,6 +71,7 @@
                         <li><a id="ja_nav_users" href="{{ url('/users') }}">Manage Users</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/schools') }}">Manage Schools</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/events') }}">Manage Events</a></li>
+                        <li><a id="ja_nav_schools" href="{{ url('/comments') }}">Manage Comments</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a id="ja_nav_educator_form" href="{{ url('/admin/educatorform') }}">View Educators</a></li>
                         <li><a id="ja_nav_volunteer_form" href="{{ url('/admin/volunteerform') }}">View Volunteers</a></li>

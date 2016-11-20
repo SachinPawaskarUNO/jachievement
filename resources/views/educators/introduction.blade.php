@@ -32,7 +32,7 @@
     }
 
 </style>
-    <div align="right"><a href= "{{ url('/educators/interestform') }}" class="button" ID="SignUp">Sign up as an Educator</a></div>
+    <div align="center"><a href= "{{ url('/educators/interestform') }}" class="button" ID="SignUp">Sign up as an Educator</a></div>
 <div class="container-fluid" ID="1" style="background-color:rgb(245,245,245)">
         <div class="container"  ID="2">
        

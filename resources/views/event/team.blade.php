@@ -69,72 +69,7 @@
             border-bottom: 1px solid #ddd;
         }
         tr:nth-child(even){background-color: #f2f2f2}
-        /*style for thermometer*/
-        body {
-            font-family: Helvetica;
-        }
 
-        .donation-meter {
-            margin-left: 30px;
-            width: 100px;
-        }
-        .glass {
-            background: #b3b3b3;
-            border-radius: 100px 100px 0 0;
-            display: block;
-            height: 300px;
-            margin: 0 35px 10px;
-            padding: 5px;
-            position: relative;
-            width: 20px;
-        }
-        .amount {
-            background: #9ACD50;
-            border-radius: 100px;
-            display: block;
-            width: 20px;
-            position: absolute;
-            bottom: 5px;
-        }
-        strong { display: block; text-align: center; }
-        .goal {
-            font-size: 30px;
-        }
-        .total {
-            font-size: 16px;
-            position: absolute;
-            right: 35px;
-        }
-        .bulb {
-            background: #9ACD50;
-            border-radius: 100px;
-            display: block;
-            height: 50px;
-            margin: 0 35px 10px;
-            padding: 5px;
-            position: relative;
-            top: -20px;
-            right: 15px;
-            width: 50px;
-        }
-        .red-circle {
-            background: #9ACD50;
-            border-radius: 100px;
-            display: block;
-            height: 50px;
-            width: 50px;
-        }
-        .filler {
-            background: #9ACD50;
-            border-radius: 100px 100px 0 0;
-            display: block;
-            height: 30px;
-            width: 20px;
-            position: relative;
-            top: -65px;
-            right: -15px;
-            z-index: 30;
-        }
         @media screen and (min-width: 900px) {
             #myModal1 .modal-dialog  {width:900px;}
         }
@@ -144,6 +79,7 @@
             font-weight:200;
             color: red;
         }
+
     </style>
     <div class="container-fluid">
         <div class="container">
@@ -163,8 +99,8 @@
                     });
                 </script>
 
-                <div class="form-group">
-                    <h3>{{$team->name}} Page  </h3>
+                <div align="center" class="form-group">
+                    <h2>Team: {{$team->name}}</h2>
                     <div id="raised"></div>
                 </div>
 
@@ -176,7 +112,7 @@
 
                 <div class="panel panel-default">
                     <h2 class="team-title text-center" id = "member_title">{{$team->title}}</h2>
-                    <p style="color: #9d9d9d" align="center">_________________________________________________________</p>
+                    <p style="color: #9d9d9d" align="center">________________________________________________________________________________________</p>
                     <p class="team-description">{{$team->content}}</p>
                 </div>
 
@@ -248,8 +184,8 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
-                                        {!! Form::button('<i class="fa fa-btn fa-save"></i>Submit', ['type' => 'submit', 'id'=>'submit', 'class' => 'btn btn-success']) !!}
-                                        {!! Form::button('<i class="fa fa-btn fa-window-close-o"></i>Cancel', ['type' => 'submit', 'id'=>'close', 'class' => 'btn btn-success', 'data-dismiss' => 'modal']) !!}
+                                        {!! Form::button('<i class="fa fa-submit"></i>Submit', ['type' => 'submit', 'id'=>'submit', 'class' => 'btn btn-success']) !!}
+                                        {!! Form::button('<i class="fa fa-default"></i>Cancel', ['type' => 'default', 'id'=>'close', 'class' => 'btn btn-default', 'data-dismiss' => 'modal']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
@@ -292,12 +228,13 @@
                 </div>
                 <br>
                 <br>
-                <h4><u>Current Team Members in Team - {{$team->name}}</u></h4>
+                <h4>Current Members of Team: {{$team->name}}</h4>
                 <div align="center">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>
-                            <th>Name</th><th>Goal</th><th>Total Donated Amount</th><th>% Raised</th>
+                            <!--<th>Name</th><th>Goal</th><th>Total Donated Amount</th><th>% Raised</th> -->
+                            <th>Name</th><th>Goal</th><th> Amount Raised</th><th>% Raised</th>
                             </thead>
                             <tbody> <!-- Table Body -->
                             @foreach ($teamMembers as $teamMember)

@@ -64,7 +64,7 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => false,
-            'engine'    => null,
+            'engine'    => null
         ],
 
         // Local Development setup
@@ -81,7 +81,7 @@ return [
         ],
 
         'tracker' => [
-            'driver'    => 'mysql',
+            'driver'    => env('DB_DRIVER', 'mysql'),
             'host'      => env('DB_HOST', 'localhost'),
             'port'      => env('DB_PORT', '3306'),
             'database'  => env('DB_DATABASE', 'jachievement'),
@@ -91,7 +91,7 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => false,
-            'engine'    => null,
+            'engine'    => null
         ],
 
         'sqlsrv' => [
