@@ -130,5 +130,7 @@ Route::resource('events', 'CampaignController');
 
    Route::resource('comments', 'CommentsController');
 Route::get('/hints/view', 'CommentsController@view');
+Route::post('/hints/view', 'CommentsController@store');
+
 
 //});

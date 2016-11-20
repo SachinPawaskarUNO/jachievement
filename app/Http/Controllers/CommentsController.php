@@ -20,6 +20,7 @@ use App\Http\Requests;
 use App\Http\Requests\CommentRequest;
 use DB;
 use App\Comment;
+use App\Program;
 use App\SkeletalElement;
 use Session;
 use Auth;
@@ -86,9 +87,9 @@ class CommentsController extends Controller
         $object = Comment::create($input);
 
         $object->save($comment);
-        return view('comments.create');
+        // return view('comments.create');
 
-        //return redirect()->back();
+        return redirect()->back();
     }
 
     public function edit($id)
@@ -169,9 +170,12 @@ class CommentsController extends Controller
             ->select('comments.*','users.first_name','programs.name')
 
             ->get();
+        $defaultSelection = [''=>'Please Select Programs'];
+        $programs = Program::lists('name', 'id')->toArray();
+        $programs =  $defaultSelection + $programs;
 
 
 
-        return view('comments.view',compact('comments_data1'));
+        return view('comments.view',compact('comments_data1','programs'));
     }
 }

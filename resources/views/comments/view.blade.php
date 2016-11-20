@@ -52,6 +52,27 @@ comments .commentTable {
 
     }
 }
+
+div.namebox {
+    
+    
+    border: 1px solid black;
+
+}
+
+div.bigbox {
+    
+    
+    border: 2px solid black;
+
+}
+
+div.smallbox {
+    
+    
+    border: 1px;
+
+}
 </style>
 
 
@@ -66,19 +87,40 @@ comments .commentTable {
                         <div style="font-size:1.2em;color:white;"><b>Hints and Tips</b></div>
                     </div>
                      </div>
-                    <br>
+               
 
     <div class="commentAdd">
         <div class="col-sm-1">
             <img class="img-rounded"/>
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-6">
             <input type="text" class="form-control" placeholder="Type your message here..." />
         </div>
-        <div class="col-sm-2">
-            <button class="btn btn-cons" title="Add Comment">Add Comment</button>
+
+             <div class="form-group{{ $errors->has('company_state_id') ? ' has-error' : '' }}">
+       {!! Form::open() !!}
+    <div class="col-md-3">
+        {!! Form::select('company_state_id', $programs, null,  ['id'=> 'company_state_id','class' => 'col-sm-3 form-control']) !!}
+        @if ($errors->has('company_state_id'))
+            <span class="help-block"><strong>{{ $errors->first('company_state_id') }}</strong></span>
+        @endif
+      
         </div>
+</div>
+
+        <div class="col-sm-2">
+            <!-- <button class="btn btn-cons" title="Add Comment">Add Comment</button> -->
+            {!! Form::button('Add Comment', ['type' => 'submit','id'=>'save', 'class' => 'btn btn-success']) !!}
+            {!! Form::close() !!}  
+        </div>
+
+   
+
     </div>
+
+
+
+
      
     
 @if (count($comments_data1) > 0)
@@ -88,26 +130,26 @@ comments .commentTable {
             
         </div>
         <div class="panel-body">
-            <table class="table table-striped cds-datatable">
-                <thead><th>Comment</th><th>User</th><th>Date</th><th>Program</th></thead><!-- Table Headings -->
-                <tbody> <!-- Table Body -->
+         
+       
+<br>
+            <div class="panel-body bigbox">
                 @foreach ($comments_data1 as $comment)
-                    <tr>
-                        
-                        <td class="table-text"><div>{{ $comment->text }}</div></td>
-                        <td class="table-text"><div>{{ $comment->first_name }}</div></td>
-                        <td class="table-text"><div>{{ $comment->created_at }}</div></td>
-                        <td class="table-text"><div>{{ $comment->name}}</div></td>
+                    
+<div class="panel-body smallbox">
+     <div class="col-md-2 namebox"  ><div>{{ $comment->first_name }}</div></div>
+
+       <div class="col-md-7">{{ $comment->text }} <br>{{ $comment->created_at }}</div>
 
 
-                   
-                    </tr>
+    <div class="col-md-3">{{ $comment->name}}</div>  </div>
                 @endforeach
-                </tbody>
-            </table>
-        </div>
+            </div>
     </div>
+     </div>
           </div>
-    </div>
+
+          </div>
 @endif
 @stop
+
