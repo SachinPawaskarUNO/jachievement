@@ -26,7 +26,7 @@
     }
 
     </style>
-<div align="right"><a href= "{{ url('/volunteers/interestform') }}" class="button" ID="SignUP">Sign up as a Volunteer</a></div>
+<div align="center"><a href= "{{ url('/volunteers/interestform') }}" class="button" ID="SignUP">Sign up as a Volunteer</a></div>
     <div class="container-fluid" ID="1" style="background-color:rgb(245,245,245)">
         <div class="container" ID="2">
           
@@ -40,13 +40,13 @@
                 <div class="col-md-6" ID="7">
 
 
-                    <p style="font-size: 16px" ID="8"> A want versus a need. How to balance a checkbook. Don't you wish that someone had taught you those things as you were growing up? Now there is someone. YOU. All we need is your enthusiasm, life experience, and a willingness to teach children about how you took chances and shot for the stars. Junior Achievement provides the training, curriculum, and a classroom ready to meet you!</p>
+                    <p style="font-size: 16px" ID="8"> A want versus a need. How to balance a checkbook. Don't you wish that someone had taught you those things as you were growing up? Now there is someone. YOU. All we need is your enthusiasm, life experience, and a willingness to teach children about how you took chances and shoot for the stars. Junior Achievement provides the training, curriculum, and a classroom ready to meet you!</p>
 
                     <br>
                     <div>
                         <div class="col-md-1"><span class="glyphicon glyphicon-home" ID="9"></span></div>
                         <div class="col-md-11"  ID="10"><h4>MAKE A DIFFERENCE IN YOUR COMMUNITY</h4>
-                            <p style="font-size: 16px"> By being a Junior Achievement volunteer and sharing your personal and professional experiences and skills with students from your community, you help them make the connection between what they are learning in school and what they will need to succeed in work and life.</p>
+                            <p style="font-size: 16px"> By being a Junior Achievement volunteer and sharing your personal and professional experiences and skills with students from our community, you help them make the connection between what they are learning in school and what they will need to succeed in work and life.</p>
                             <br></div>
                     </div>
 
@@ -55,7 +55,7 @@
                     <div>
                         <div class="col-md-1"  ID="12"><span class="glyphicon glyphicon-thumbs-up" ID="13"></span> </div>
                         <div class="col-md-11"  ID="14"> <h4>INSPIRE A FUTURE GENERATION</h4>
-                            <p style="font-size: 16px"> For a time investment of only an hour each day in one week, you may be the difference between a young person in your community just making ends meet or getting a more fulfilling career and life.</p>
+                            <p style="font-size: 16px"> For a time investment of only an hour a week, you may be the difference between a young person just making ends meet or getting a more fulfilling career and life.</p>
                             <br></div>
                     </div>
 
@@ -64,7 +64,7 @@
 
                         <div class="col-md-1"  ID="15"><span class="glyphicon glyphicon-user"></span> </div>
                         <div class="col-md-11"  ID="16"> <h4>JUNIOR ACHIEVEMENT PROVIDES AN AMAZING AND REWARDING VOLUNTEER EXPERIENCE</h4>
-                            <p style="font-size: 16px" ID="17"> Junior Achievement gives you an opportunity through your employer's volunteer program (or on your own) to impact young people in your community in a positive way with simple to implement programs on financial literacy, work readiness, and entrepreneurship. This will empower young people to own their economic success.</p>
+                            <p style="font-size: 16px" ID="17"> Junior Achievement gives you an opportunity through your employer's volunteer program (or on your own) to impact young people in our community in a positive way with simple to implement programs on financial literacy, work readiness, and entrepreneurship. This will empower young people to own their economic success.</p>
                         </div>
                     </div>
 

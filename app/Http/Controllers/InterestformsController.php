@@ -113,7 +113,7 @@ class InterestformsController extends Controller
 
         Session::flash('flash_message', 'Thank you for registering as a Volunteer! We will contact you soon');
        // Log::info('InterestformsController.store - End: '.$object->id);
-        return redirect()->back();
+        return view('volunteers.thankyou');
 
     }
 
