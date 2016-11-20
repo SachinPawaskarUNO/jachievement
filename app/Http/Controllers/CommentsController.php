@@ -65,7 +65,9 @@ class CommentsController extends Controller
 
 			$comment->update($request->all());
 			return redirect()->back()->withInput();
-		} else {
+		} 
+		else 
+		{
 			$comment = Comment::findOrfail($id);
 			$comment->active = 0;
 			$this->populateUpdateFields($request);

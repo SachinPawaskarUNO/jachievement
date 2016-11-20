@@ -23,7 +23,7 @@
 						<td class="table-text"><div>{{ $comment->program_id }}</div></td>
                         <td>
 						
-						<form action="{{ url('admincomments/action'.$comment->id) }}" method="POST">      <button type="submit" id="delete" class="btn btn-success">Approve</button>
+						<form action="{{ url('admincomments/action/'.$comment->id) }}" method="POST">      <button type="submit" id="delete" class="btn btn-success">Approve</button>
 								{!!Form::hidden('approve','true')!!}
                         </form>
 						
