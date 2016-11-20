@@ -24,11 +24,11 @@
         <br>
         <p class="description">Hello,</p>
         <p class="description">{{ $user_message }}</p>
-        <p class="description">For more information, I would like you to click on the below link.</p>
+        <p class="description">For more information, please click on the below link.</p>
         <p class="description">{{ $url }}</p>
         <p class="description">Once again, I would like to welcome you to my personal page and support me.</p>
         <br>
-        <p class="description">Thanking You</p>
+        <p class="description">Thank You</p>
         <p class="description"><b>{{$firstname}} {{$lastname}}</b></p>
         <p class="description"><b>Junior Achievement of Midlands, Inc.</b></p>
     </div>

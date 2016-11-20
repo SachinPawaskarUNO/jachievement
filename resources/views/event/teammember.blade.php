@@ -187,8 +187,8 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
-                                        {!! Form::button('<i class="fa fa-btn fa-save"></i>Submit', ['type' => 'submit', 'id'=>'submit', 'class' => 'btn btn-success']) !!}
-                                        {!! Form::button('<i class="fa fa-btn fa-window-close-o"></i>Cancel', ['type' => 'submit', 'id'=>'close', 'class' => 'btn btn-success', 'data-dismiss' => 'modal']) !!}
+                                        {!! Form::button('<i class="fa fa-submit"></i>Submit', ['type' => 'submit', 'id'=>'submit', 'class' => 'btn btn-success']) !!}
+                                        {!! Form::button('<i class="fa fa-default"></i>Cancel', ['type' => 'cancel', 'id'=>'close', 'class' => 'btn btn-default', 'data-dismiss' => 'modal']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
