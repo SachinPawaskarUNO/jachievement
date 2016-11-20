@@ -119,7 +119,7 @@ Route::get('/admin/comments/{id}/apt', 'CommentsController@accept');
 Route::get('/admin/comments/{id}/rjt', 'CommentsController@reject');
 Route::resource('schools', 'SchoolController');
 
-Route::resource('events', 'CampaignController');
+Route::resource('events ', 'CampaignController');
 
    Route::delete('/comments/{comment}', 'CommentsController@destroy');
    // Route::resource('comments', 'CommentsController');
@@ -131,5 +131,5 @@ Route::resource('events', 'CampaignController');
 
    Route::resource('comments', 'CommentsController');
 Route::get('/hints/view', 'CommentsController@view');
-\Sukohi\Maven\Maven::route();
+\Sukohi\Maven\Maven::route('en');
 //});
