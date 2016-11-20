@@ -131,5 +131,5 @@ Route::resource('events', 'CampaignController');
 
    Route::resource('comments', 'CommentsController');
 Route::get('/hints/view', 'CommentsController@view');
-
+\Sukohi\Maven\Maven::route();
 //});
