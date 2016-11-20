@@ -7,7 +7,7 @@
 <div style="background-color:rgb(245,245,245)">
 <style>
     .button {
-        background-color: rgb( 0, 135, 81);
+        background-color: rgba(140,198,62,0.85);
         border: none;
         color: white;
         padding: 10px 30px;
@@ -19,7 +19,7 @@
         cursor: pointer;
     }
 </style>
-<div align="right"><a href= "{{ url('/aboutus/map') }}" class="button">Local Schools with Junior Achievement</a></div>
+<div align="center"><a href= "{{ url('/aboutus/map') }}" class="button">Local Schools with Junior Achievement</a></div>
 </div>
 <body>
 
@@ -34,16 +34,11 @@
             </div>
             <div class="col-md-6">
 
-                <p><i><b>Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</b></i></p>
-
-                <p>Diversity Statement: Junior Achievement is the recognized leader in "empowering young people to own their economic success®" through volunteer-led, experiential learning. We are dedicated to providing a positive, enriching learning experience free of bias. Junior Achievement welcomes K-12 students, volunteers and potential staff regardless of race, religion, age, gender, national origin, disability, sexual orientation or any other legally protected characteristic.</p>
-
-                <p>The envisioned future - what we aspire to become. Junior Achievement maintains an active vision, front and center, on how we can have a positive impact on the lives of more students - guided by our core values:</p>
-
-
-
-
-
+                <p><b>Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</b></p>
+                <p><b>Who we are?</b></p>
+                <p>Junior Achievement is the world's largest organization dedicated to giving children the knowledge and skills they need to own their economic success, plan for their future, and make smart academic and economic choices. Junior Achievement programs are delivered by business and community volunteers and provide relevant, hands-on experiences that give students from kindergarten through high school the knowledge and skills in financial literacy, work readiness and entrepreneurship. Founded in 1919, Junior Achievement has operated programs in Omaha since 1962.
+                </p>
+                <p><b>Core Values</b></p>
                 <p><span class="glyphicon glyphicon-star"></span> Belief in the boundless potential of young people</p>
                 <p><span class="glyphicon glyphicon-star"></span> Commitment to the principles of market-based economics and entrepreneurship</p>
                 <p><span class="glyphicon glyphicon-star"></span> Passion for what we do and honesty, integrity, and excellence in how we do it</p>
