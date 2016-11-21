@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 return [
     'code'                     => 'Code',
@@ -48,5 +48,5 @@ return [
     'last_activity'            => 'Last Activity',
     'log'                      => 'Log',
     'page_views_summary'       => 'Page Views Summary',
-    'livefeed'                 => 'Live Traffic Feed'
+    'livefeed'                 => 'Live Site Traffic',
 ];
