@@ -30,7 +30,7 @@ class ProgramController extends Controller
     public function index()
     {
             $this->middleware('role:admin|superadmin');
-            Log::info('ProgramController.view: Start -');
+            Log::info('ProgramController.index: Start -');
             $programs = Program::all();
             $this->viewData['programs'] = $programs;
     

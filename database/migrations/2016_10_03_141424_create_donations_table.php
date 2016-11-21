@@ -17,8 +17,8 @@ class CreateDonationsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->float('amount');
-            $table->date('date');
-            $table->string('anonymous');
+            //$table->date('date');
+            $table->string('anonymous')->nullable();
             $table->string('status');
             $table->string('created_by')->default('System');
             $table->string('updated_by')->default('System');

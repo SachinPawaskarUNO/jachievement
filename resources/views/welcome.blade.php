@@ -10,10 +10,14 @@
   <div class="container">
     <br>
     <br>
-    <div class="text-center">
-      <img alt='' id="IMG_1" src="images/rochester2016.jpg">
-    </div>
+    <div>
+        <div class="col-lg-2 box"></div>
+            <div class="col-lg-8 box">
+              <img  alt='' id="IMG_1" height="auto" width="auto\9"  max-width="500px"  src="images/rochester2016.jpg">
+            </div>
+        <div class="col-lg-2 box"></div>
   </div>
+    </div>
   <br>
   <br>
   <div class="container">
