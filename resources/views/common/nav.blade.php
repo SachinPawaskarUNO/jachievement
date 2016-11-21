@@ -11,34 +11,31 @@
             </button>
 
             <!-- Branding Image -->
-            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('images/ja_nav_logo.png') }}" style="height: 60px;"></a></div>
+            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('images/ja_nav_logo.png') }}" style="height: 80px;"></a></div>
 
         </div>
 
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+        <div class="collapse navbar-collapse" id="app-navbar-collapse" >
                     <!-- Left Side Of Navbar --> 
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                        <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About Us <span class="caret"></span></a>
+                        <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >About Us <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}">Mission</a></li>
                             <li><a id="ja_nav_programs" href="{{ url('/programs/index') }}">Programs</a></li>
                             <li><a id="ja_nav_map" href="{{ url('/aboutus/map') }}">Schools We're In</a></li>
                             <li><a id="ja_nav_faq" href="{{ url('/') }}">FAQs</a></li>
-                           <!-- <li><a id="ja_nav_goingon" href="{{ url('/') }}">What's Going On?</a></li> -->
                     </ul>
                 </li>
                 <li class="dropdown">
                         <a id="ja_nav_getinv" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Get Involved <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
+							<li><a id="ja_nav_learn_more" href="{{ url('/get_Involved/getinvolved') }}">Learn More</a></li>
                             <li><a id="ja_nav_educator" href="{{ url('/educators/introduction') }}">Educators</a></li>
                             <li><a id="ja_nav_volunteer" href="{{ url('/volunteers/introduction') }}">Volunteers</a></li>
                             <li><a id="ja_nav_contribute" href="{{ url('/donors') }}">Donors</a></li>
-                            
                     </ul>
-                </li>
-				
-				
+                </li>			
                 <li class="dropdown">
                         <a id="ja_nav_getinv" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sign Up <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -51,7 +48,6 @@
 				<li><a id="ja_nav_contribute" href="{{ url('/event/current') }}">Events</a></li>
                 <li><a id="ja_nav_contact" href="{{ url('/contactus') }}">Contact Us</a></li>
                 <li><a id="ja_nav_contribute" href="{{ url('/donation/donate') }}">Donate Now</a></li>
-
             </ul>
 
             <ul class="nav navbar-nav">
@@ -60,8 +56,7 @@
                 @role(['admin','superadmin'])
 
                 <li class="dropdown">
-                    <a href="#" id="ja_nav_getinv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        Administration <span class="caret"></span></a>
+                    <a href="#" id="ja_nav_getinv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administration <span class="caret"></span></a>
                     <ul class="dropdown-menu multi level" role="menu">
                         @role('superadmin')
                             <li><a id="ja_nav_roles" href="{{ url('/roles') }}">Manage Roles</a></li>
@@ -75,8 +70,8 @@
                         <li><a id="ja_nav_volunteer_form" href="{{ url('/admin/volunteerform') }}">View Volunteers</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a id="ja_reports_donation" href="{{ url('/reports/donation') }}">Donation Reports</a></li>
-                        {{--<li class="divider"></li>--}}
-                        {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn"></i>Files</a></li>--}}
+				<!--		{{--<li class="divider"></li>--}}
+                        {{--<li><a href="{{ url('/files') }}"><i class="fa fa-btn"></i>Files</a></li>--}}   -->
                     </ul>
                 </li>
                 @endrole

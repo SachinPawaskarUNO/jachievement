@@ -48,16 +48,6 @@
 							{{$detail->description}}
 						</p> 
 						<br>
-						<div id="map">
-							<div id="google-maps-canvas" style="height:100%; width:100%;" id="div-mapCondition">
-							@if($detail->id == 2)
-								<iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Mockingbird+lanes,+south+96th+and+L,+Omaha,+Nebraska&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
-							@elseif($detail->id == 1)
-								<iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=champions+run,+13800+eagle+run+drive,+Omaha,+Nebraska&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
-							@endif
-							</div>
-						</div>
-						<br>
 						<div class="row" id="div-row_eventDesc">
 							<div class="col-md-4" id="div-col-eventDate">
 								<span class="glyphicon glyphicon-time" id="clockIcon"></span>
@@ -70,6 +60,17 @@
 								<p class="text-justify" style="font-size: 16px; line-height: 1.4em;" id="eventVenue">{{$detail->venue}}</p> 
 							</div>
 						</div>
+						<br>
+						<div id="map">
+							<div id="google-maps-canvas" style="height:100%; width:100%;" id="div-mapCondition">
+							@if($detail->id == 2)
+								<iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Mockingbird+lanes,+south+96th+and+L,+Omaha,+Nebraska&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+							@elseif($detail->id == 1)
+								<iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=champions+run,+13800+eagle+run+drive,+Omaha,+Nebraska&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+							@endif
+							</div>
+						</div>
+						<br>
 					</div>
 				</div>
 			</div>

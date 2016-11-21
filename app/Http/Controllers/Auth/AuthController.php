@@ -56,10 +56,10 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'first_name' => 'required|max:50',
+            'last_name' => 'required|max:50',
+            'email' => 'required|email|max:50|unique:users|confirmed',
+            'password' => 'required|min:6|max:16|confirmed',
         ]);
     }
 
@@ -104,8 +104,8 @@ class AuthController extends Controller
             $user = Auth::user();
             $rules = array(
                 'current_password' => 'required',
-                'new_password' => 'required|min:6',
-                'password_confirmation' => 'required|min:6|same:new_password'
+                'new_password' => 'required|min:6|max:16',
+                'password_confirmation' => 'required|min:6|max:16|same:new_password'
             );
 
             $validator = Validator::make(Input::all(), $rules);

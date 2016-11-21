@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4e83d2e0b66009c2c4322d03c070b3c6",
-    "content-hash": "bb4b6869d9933d8e2948ff4b2f5ead7e",
+    "hash": "949ae8ee5e5f09b8c75f1edb76aff746",
+    "content-hash": "c607301f5c07cbf31065f8605f4f06d5",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -4089,6 +4089,151 @@
             ],
             "description": "Snowplow Refer(r)er parser for PHP",
             "time": "2016-01-29 16:43:00"
+        },
+        {
+            "name": "sukohi/cahen",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SUKOHI/Cahen.git",
+                "reference": "53028ac4b57ab973689e7139f17700d054219185"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SUKOHI/Cahen/zipball/53028ac4b57ab973689e7139f17700d054219185",
+                "reference": "53028ac4b57ab973689e7139f17700d054219185",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sukohi\\Cahen\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sukohi",
+                    "email": "capilano.sukohi@gmail.com"
+                }
+            ],
+            "description": "A PHP package mainly developed for Laravel to manage sort values of DB table automatically.",
+            "time": "2015-08-12 01:27:07"
+        },
+        {
+            "name": "sukohi/maven",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SUKOHI/Maven.git",
+                "reference": "11542a9a0ed1d7440f5fce81db126d9d32b225c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SUKOHI/Maven/zipball/11542a9a0ed1d7440f5fce81db126d9d32b225c5",
+                "reference": "11542a9a0ed1d7440f5fce81db126d9d32b225c5",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.2",
+                "laravelcollective/html": "~5.2",
+                "sukohi/cahen": "2.*",
+                "sukohi/neatness": "~4.0.2",
+                "sukohi/smoothness": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sukohi\\Maven\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sukohi",
+                    "email": "capilano.sukohi@gmail.com"
+                }
+            ],
+            "description": "A Laravel package to manage FAQ.",
+            "time": "2016-10-03 18:54:10"
+        },
+        {
+            "name": "sukohi/neatness",
+            "version": "4.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SUKOHI/Neatness.git",
+                "reference": "2c1e0d487f12809f15f4c8e297f6cdd2d5eb76de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SUKOHI/Neatness/zipball/2c1e0d487f12809f15f4c8e297f6cdd2d5eb76de",
+                "reference": "2c1e0d487f12809f15f4c8e297f6cdd2d5eb76de",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sukohi\\Neatness\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sukohi",
+                    "email": "capilano.sukohi@gmail.com"
+                }
+            ],
+            "description": "A Laravel package to automatically add sorting system for DB query and provide URLs to switch between ASC and DESC.",
+            "time": "2016-09-21 16:50:30"
+        },
+        {
+            "name": "sukohi/smoothness",
+            "version": "4.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SUKOHI/Smoothness.git",
+                "reference": "cce20efb9c32e95aa04f8564ff6b3b979e635657"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SUKOHI/Smoothness/zipball/cce20efb9c32e95aa04f8564ff6b3b979e635657",
+                "reference": "cce20efb9c32e95aa04f8564ff6b3b979e635657",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sukohi\\Smoothness\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Sukohi",
+                    "email": "test@example.com"
+                }
+            ],
+            "description": "Your package description here.",
+            "time": "2016-07-14 10:28:50"
         },
         {
             "name": "swiftmailer/swiftmailer",

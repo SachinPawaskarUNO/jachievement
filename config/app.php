@@ -172,6 +172,9 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
         'PragmaRX\Tracker\Vendor\Laravel\ServiceProvider',
+        Collective\Html\HtmlServiceProvider::class,
+        Sukohi\Cahen\CahenServiceProvider::class,
+        Sukohi\Maven\MavenServiceProvider::class,
 
     ],
 
@@ -234,6 +237,10 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
 
         'Tracker' => 'PragmaRX\Tracker\Vendor\Laravel\Facade',
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Cahen'   => Sukohi\Cahen\Facades\Cahen::class,
+        'Maven'   => Sukohi\Maven\Facades\Maven::class,
 
     ],
 
