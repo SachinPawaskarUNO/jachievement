@@ -115,7 +115,7 @@
                     <div class="row">
                         <h2 class="team-title text-center" id = "member_title">{{$teamMember->title}}</h2>
                         <p style="color: #9d9d9d" align="center">_________________________________________________________________________</p>
-                        <p class="team-description">{{$teamMember->content}}</p>
+                        <div class="team-description">{{$teamMember->content}}</div>
                     </div>
                 </div>
 
@@ -126,7 +126,7 @@
                     @if($data['button_show'] == 'true')
                         <a class="btn btn-lg btn-success" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join My Team</a>
                     @else
-                        <a class="btn btn-lg btn-success" disabled="disabled" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join My Team</a>
+                        <a class="btn btn-lg btn-success" disabled="disabled" id="member_join">Join My Team</a>
                     @endif
                     <a class="btn btn-lg btn-success" href="{{ url('/donation/donate')}}" id="member_donate">Donate to my goal</a>
                     @if($data['link_show']=='show')
