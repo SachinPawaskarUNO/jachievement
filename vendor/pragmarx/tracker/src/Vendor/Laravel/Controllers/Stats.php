@@ -183,7 +183,7 @@ class Stats extends Controller
             ->with('username_column', Tracker::getConfig('authenticated_user_username_column'));
     }
 
-    /* live traffic feed using feedjit plugin*/
+    /* live traffic feed from feedjit plugin*/
     public function livefeed(Session $session)
     {
         return View::make('pragmarx/tracker::livefeed')

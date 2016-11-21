@@ -42,7 +42,7 @@
                     <ul class="nav" id="side-menu">
                         <li>
                             <a href="{{route('tracker.stats.index')}}?page=livefeed" class="{{ Session::get('tracker.stats.page') =='livefeed' ? 'active' : '' }}" > @lang("tracker::tracker.livefeed")<span class="{{ Session::get('tracker.stats.page') =='livefeed' ? 'fa arrow' : '' }}"></span></a>
-                        </li> 
+                        </li>
                         <li>
                             <a href="{{route('tracker.stats.index')}}?page=visits" class="{{ Session::get('tracker.stats.page') =='visits' ? 'active' : '' }}" ><i class="fa fa-dashboard fa-fw"></i> @lang("tracker::tracker.visits") <span class="{{ Session::get('tracker.stats.page') =='visits' ? 'fa arrow' : '' }}"></span></a>
                         </li>
