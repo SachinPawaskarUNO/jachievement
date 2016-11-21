@@ -101,8 +101,8 @@ Route::post('/contactus', 'ContactController@sendmail');
 
 Route::get('/aboutus/index', 'AboutUsController@aboutus');
 Route::get('/aboutus/map', 'MapController@map');
+Route::get('/programs/view', 'AboutUsController@program');
 
-Route::get('/programs/index', 'ProgramController@program');
 Route::get('/donors', 'ContributorController@index');
 
 Route::get('/admin/educatorform', 'AdminController@listEducatorForm');
@@ -116,8 +116,9 @@ Route::get('/admin/download/educatorreport', 'AdminController@downloadEducatorRe
 Route::get('/reports/donation', 'ReportsController@DonationReporting');
 Route::get('/reports/download/donation', 'ReportsController@downloadDonations');
 
-Route::resource('schools', 'SchoolController');
 
+Route::resource('schools', 'SchoolController');
+Route::resource('programs', 'ProgramController');
 Route::resource('events', 'CampaignController');
 
    Route::delete('/comments/{comment}', 'CommentsController@destroy');
