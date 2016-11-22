@@ -25,6 +25,7 @@ class CommentsController extends Controller
     public function __construct()
     {
 //        $this->middleware('advisor');
+        $this->middleware('role:admin|superadmin');
         $this->commentfor = "SkeletalElement";
         $this->skeletalelement = null;
         $this->user = Auth::user();
@@ -127,12 +128,19 @@ class CommentsController extends Controller
      * @param  Comment  $comment
      * @return Response
      */
-    public function destroy(Request $request, Comment $comment)
-    {
-        if ($this->authorize('destroy', $comment))
-        {
-            $comment->delete();
-        }
+    public function destroy($id)
+    {DB::table('comments')
+            ->select('comments.*')
+            ->where('comments.id', '=', $id)
+            ->delete();
+
+        Session::flash('flash_message', 'Comment got deleted!');
+        //$comment = Comment::where('id','=',$id)->first();
+
+       // if ($this->authorize('destroy', $comment))
+       // {
+
+       // }
         return redirect()->back()->withInput();
     }
     public function addforskeletalelement($se_id)
@@ -167,32 +175,4 @@ class CommentsController extends Controller
         }
     }
 
-    // public function view()
-    // {
-        
-    //     $comments_data1 = DB::table('comments')
-    //         ->join('users','comments.user_id','=','users.id')
-    //         ->join('programs','comments.program_id','=','programs.id')            
-    //         ->select('comments.*','users.first_name','programs.name')
-
-    //         ->get();
-    //     $defaultSelection = [''=>'Please Select Programs'];
-    //     $programs = Program::lists('name', 'id')->toArray();
-    //     $programs =  $defaultSelection + $programs;
-
-
-
-    //     return view('comments.view',compact('comments_data1','programs'));
-    // }
-
-    // public function view()
-    // {
-        
-    //     $comments_data1 = DB::table('comments')
-    //         ->join('users','comments.user_id','=','users.id')
-    //         ->join('programs','comments.program_id','=','programs.id')            
-    //         ->select('comments.*','users.first_name','programs.name')
-    //         ->get();
-    //     return view('comments.view',compact('comments_data1'));
-    // }
 }

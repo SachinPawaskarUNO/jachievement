@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading"  style="background-color:#5cb85c !important;">
 
@@ -27,7 +27,7 @@
                                 <td class="table-text">
                                     <div>
                                         @if($comment->active == 0)
-                                           <span style="color:red"><b>Rejected </b></span>
+                                           <span style="color:#f0ad4e"><b>Rejected </b></span>
                                         @else
                                           <span style="color:green"> <b>Accepted </b></span>
                                         @endif
@@ -35,7 +35,10 @@
                                 </td>
                                 <td class="table-text">
                                     <a href="{{action('CommentsController@accept', [$comment->id])}}" class="btn btn-success">Accept</a>
-                                    <a href="{{action('CommentsController@reject', [$comment->id])}}" class="btn btn-danger">Reject</a>
+                                    <a href="{{action('CommentsController@reject', [$comment->id])}}" class="btn btn-warning">Reject</a>
+                                    <a href="{{action('CommentsController@destroy', [$comment->id])}}" class="btn btn-danger">Delete</a>
+
+
                                 </td>
                             </tr>
                         @endforeach
@@ -50,3 +53,8 @@
         </div>
     </div>
 @stop
+<script type="text/javascript">
+    $(document).on('submit', '.delete-form', function () {
+        return confirm('Are you sure you want to delete this trainee?  If you do so, all evaluation records for the trainee will be lost.');
+    });
+</script>

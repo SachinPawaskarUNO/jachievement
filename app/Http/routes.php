@@ -122,22 +122,25 @@ Route::resource('schools', 'SchoolController');
 Route::resource('programs', 'ProgramController');
 Route::resource('events', 'CampaignController');
 
-Route::get('/admin/comments/{id}/apt', 'CommentsController@accept');
-Route::get('/admin/comments/{id}/rjt', 'CommentsController@reject');
+
 Route::resource('schools', 'SchoolController');
 
 Route::resource('events ', 'CampaignController');
 
 
-   Route::delete('/comments/{comment}', 'CommentsController@destroy');
-   // Route::resource('comments', 'CommentsController');
+
+
    Route::get('comments/{student}/addforstudent', ['as' => 'comments.addforstudent',
        'uses' => 'CommentsController@addforstudent']);
    Route::get('comments/{planofstudy}/addforplanofstudy', ['as' => 'comments.addforplanofstudy',
        'uses' => 'CommentsController@addforplanofstudy']);
 
 
-   Route::resource('comments', 'CommentsController');
+   //Route::resource('comments', 'CommentsController');
+Route::get('/admin/comments/index', 'CommentsController@index');
+Route::get('/admin/comments/{id}/del', 'CommentsController@destroy');
+Route::get('/admin/comments/{id}/apt', 'CommentsController@accept');
+Route::get('/admin/comments/{id}/rjt', 'CommentsController@reject');
 
 Route::get('/hints/view', 'HintsController@view');
 Route::post('/hints/view', 'HintsController@store');

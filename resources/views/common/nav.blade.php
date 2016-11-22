@@ -68,7 +68,7 @@
 
 
 
-                        <li><a id="ja_nav_schools" href="{{ url('/comments') }}">Manage Comments</a></li>
+                        <li><a id="ja_nav_schools" href="{{ url('/admin/comments/index') }}">Manage Comments</a></li>
 
                         <li role="separator" class="divider"></li>
                         <li><a id="ja_nav_educator_form" href="{{ url('/admin/educatorform') }}">View Educators</a></li>
