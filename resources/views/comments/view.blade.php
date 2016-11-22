@@ -1,28 +1,17 @@
 @extends('layouts.app')
 @section('content')
 <style>
-comments .commentAdd {
-    display: table;
-    height: 100%;
-    width: 100%;
-    margin: 0 1.5rem 1rem 1.5rem;
-    div[class^='col-sm'] {
-        display: table-cell;
-        height: 100%;
-        float: none;
-    }
-    img {
-    }
-    input {
-        width: 100%;
-        max-width: none;
-    }
-    button {
-        color: #FFFFFF;
-    }
+.comment-text{
+    font-size: 1.2em;
 }
 
-comments .commentTable {
+.commentAdd {
+    
+    width: 100%;
+    margin: 2rem 1.5rem 1rem 1.5rem;
+    }
+    
+    comments .commentTable {
     font-family: Calibri, sans-serif;
     font-size: 1.3214em;
     font-weight: 100;
@@ -109,27 +98,31 @@ div.smallbox {
 
         {!! Form::close() !!}  
 
+
+<div class="panel-body">
+                    @include('common.flash')
+                    @if (count($comments_data1) > 0)
+                    <table class="table table-striped cds-datatable">
+                        <thead><th>User Name</th><th>Comment</th><th>Program Name</th></thead><!-- Table Headings -->
+                        <tbody> <!-- Table Body -->
+                        @foreach ($comments_data1 as $comment)
+                            <tr>
+                                <td class="table-text"><div>{{ $comment->first_name }}</div></td>
+                                <td class="table-text"><div><span class="comment-text"><b>{{ $comment->text }}</b></span><br>
+                                <span><i>{{ date('F d, Y', strtotime($comment->created_at)) }}</i></span></div>
+                                </td>
+                                <td class="table-text"><div>{{ $comment->name}}</div></td>
+
+                                
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    @else
+                        <div class="panel-body"><h4>No Comment Records found</h4></div>
+                    @endif
+                </div> 
      
-    
-        @if (count($comments_data1) > 0)
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <br>
-              
-               
-                        <div class="panel-body bigbox">
-                            @foreach ($comments_data1 as $comment)
-                            <div class="panel-body smallbox">
-                                <div class="col-md-2 namebox"  ><div>{{ $comment->first_name }}</div></div>
-                                <div class="col-md-7">{{ $comment->text }} <br>{{ $comment->created_at }}</div>
-                                <div class="col-md-3">{{ $comment->name}}</div>  
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-        @endif
     </div>
 </div>
 @stop
-
