@@ -129,13 +129,17 @@ class CommentsController extends Controller
      * @return Response
      */
     public function destroy($id)
-    {
-        return $id;
-        $comment = Comment::findOrfail($id);
-        return $comment;
+    {DB::table('comments')
+            ->select('comments.*')
+            ->where('comments.id', '=', $id)
+            ->delete();
+
+        Session::flash('flash_message', 'Comment got deleted!');
+        //$comment = Comment::where('id','=',$id)->first();
+
        // if ($this->authorize('destroy', $comment))
        // {
-            $comment->delete();
+
        // }
         return redirect()->back()->withInput();
     }
