@@ -36,8 +36,7 @@
                                 <td class="table-text">
                                     <a href="{{action('CommentsController@accept', [$comment->id])}}" class="btn btn-success btn-sm">Accept</a>
                                     <a href="{{action('CommentsController@reject', [$comment->id])}}" class="btn btn-warning btn-sm">Reject</a>
-                                    <a href="{{action('CommentsController@reject', [$comment->id])}}"  class="btn btn-danger btn-sm delete-form">Delete1</a>
-                                    {!! Form::open([
+                                   {!! Form::open([
                                         'method' => 'DELETE',
                                         'action' => ['CommentsController@destroy', $comment->id],
                                         'class' => 'delete-form',
@@ -49,18 +48,19 @@
                                     {!! Form::close() !!}
 
 
-</td>
-</tr>
-@endforeach
-</tbody>
-</table>
-@else
-<div class="panel-body"><h4>No Comment Records found</h4></div>
-@endif
-</div>
-</div>
-</div>
-@stop
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                @else
+                <div class="panel-body"><h4>No Comment Records found</h4></div>
+                @endif
+        </div>
+    </div>
+    </div>
+@endsection
+@section('footer')
 <script type="text/javascript">
     function confirmDelete() {
         var result = confirm('Are you sure you want to delete?');
@@ -72,3 +72,4 @@
         }
     }
 </script>
+@endsection
