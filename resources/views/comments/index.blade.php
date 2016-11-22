@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-11">
             <div class="panel panel-default">
                 <div class="panel-heading"  style="background-color:#5cb85c !important;">
 
@@ -14,7 +14,7 @@
                     @include('common.flash')
                     @if (count($comments_data) > 0)
                     <table class="table table-striped cds-datatable">
-                        <thead><th>User Name</th><th>Roles</th><th>Comment</th><th>Comment Date</th><th>Program Name</th><th>Status</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
+                        <thead><th>User Name</th><th>Role</th><th>Comment</th><th>Comment Date</th><th>Program Name</th><th>Status</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
                         <tbody> <!-- Table Body -->
                         @foreach ($comments_data as $comment)
                             <tr>
@@ -40,12 +40,14 @@
                                     {!! Form::open([
                                         'method' => 'DELETE',
                                         'action' => ['CommentsController@destroy', $comment->id],
-                                        'class' => 'delete-form'
+                                        'class' => 'delete-form',
+                                        'onsubmit' => 'return confirmDelete()'
                                         ]) !!}
 
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    <button type="submit" name="button" class="btn btn-danger btn-sm">Delete</button>
 
                                     {!! Form::close() !!}
+
 
 </td>
 </tr>
@@ -60,8 +62,13 @@
 </div>
 @stop
 <script type="text/javascript">
+    function confirmDelete() {
+        var result = confirm('Are you sure you want to delete?');
 
-$(document).on('submit', '.delete-form', function () {
-return confirm('Are you sure you want to delete this trainee?  If you do so, all evaluation records for the trainee will be lost.');
-});
+        if (result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 </script>
