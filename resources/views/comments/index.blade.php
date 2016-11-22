@@ -34,9 +34,9 @@
                                     </div>
                                 </td>
                                 <td class="table-text">
-                                    <a href="{{action('CommentsController@accept', [$comment->id])}}" class="btn btn-success">Accept</a>
-                                    <a href="{{action('CommentsController@reject', [$comment->id])}}" class="btn btn-warning">Reject</a>
-                                    <a href="{{action('CommentsController@destroy', [$comment->id])}}" class="btn btn-danger">Delete</a>
+                                    <a href="{{action('CommentsController@accept', [$comment->id])}}" class="btn btn-success btn-small">Accept</a>
+                                    <a href="{{action('CommentsController@reject', [$comment->id])}}" class="btn btn-warning btn-small">Reject</a>
+                                    <a href="{{action('CommentsController@destroy', [$comment->id])}}"  onsubmit="return ConfirmDelete();" class="btn btn-danger btn-small delete-form">Delete</a>
 
 
                                 </td>
@@ -50,10 +50,9 @@
                 </div>
             </div>
             </div>
-        </div>
-    </div>
 @stop
 <script type="text/javascript">
+
     $(document).on('submit', '.delete-form', function () {
         return confirm('Are you sure you want to delete this trainee?  If you do so, all evaluation records for the trainee will be lost.');
     });
