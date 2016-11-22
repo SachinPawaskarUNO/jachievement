@@ -56,7 +56,7 @@ class HintsController extends Controller
 
     public function store(HintsRequest $request)
     {
-        Log::info('HintsController.store - Start: ');
+        // Log::info('HintsController.store - Start: ');
         $input = $request->all();
         $user = Auth::user();
         // return $request;
@@ -65,11 +65,11 @@ class HintsController extends Controller
         $input['commentable_id'] = 0;
         $input['commentable_type'] = 'Test';
         $this->populateUpdateFields($request);
-         Log::info('HintsController.store - Input:'.implode('|',$input));
+         // Log::info('HintsController.store - Input:'.implode('|',$input));
 
         $object = Comment::create($input);
 
-         Log::info('HintsController.store - Object: '.$object->id);
+         // Log::info('HintsController.store - Object: '.$object->id);
 
 
         Session::flash('flash_message', 'Comment successfully saved! Comment has to be reviewed by admin before being displayed');
