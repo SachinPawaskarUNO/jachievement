@@ -69,6 +69,7 @@
                         <li><a id="ja_nav_users" href="{{ url('/users') }}">Manage Users</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/schools') }}">Manage Schools</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/events') }}">Manage Events</a></li>
+                        <li><a id="ja_nav_schools" href="{{ url('/comments') }}">Manage Comments</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a id="ja_nav_educator_form" href="{{ url('/admin/educatorform') }}">View Educators</a></li>
                         <li><a id="ja_nav_volunteer_form" href="{{ url('/admin/volunteerform') }}">View Volunteers</a></li>

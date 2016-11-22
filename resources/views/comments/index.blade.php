@@ -1,39 +1,51 @@
 @extends('layouts.app')
 @section('content')
 
-@if (count($comments_data) > 0)
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="pull-right">
-        <!--       <form action="{{ url('comments/create') }}" method="GET">{{ csrf_field() }}
-                    <button type="submit" id="create-comment" class="btn btn-primary">Create</button>
-                </form>  -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading"  style="background-color:#5cb85c !important;">
+
+                    <div style="font-size:1.2em;color:white;"><b>Comments</b></div>
+                </div>
+                <div class="panel-body">
+                    @include('common.flash')
+                    @if (count($comments_data) > 0)
+                    <table class="table table-striped cds-datatable">
+                        <thead><th>User Name</th><th>Comment</th><th>Comment Date</th><th>Program Name</th><th>Roles</th><th>Status</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
+                        <tbody> <!-- Table Body -->
+                        @foreach ($comments_data as $comment)
+                            <tr>
+                                <td class="table-text"><div>{{ $comment->first_name }}</div></td>
+                                <td class="table-text"><div>{{ $comment->text }}</div></td>
+                                <td class="table-text"><div>{{ date('F d, Y', strtotime($comment->created_at)) }}</div></td>
+                                <td class="table-text"><div>{{ $comment->program_name}}</div></td>
+                                <td class="table-text"><div>{{ $comment->role_name}}</div></td>
+                                <td class="table-text">
+                                    <div>
+                                        @if($comment->active == 0)
+                                           <span style="color:red"><b>Rejected </b></span>
+                                        @else
+                                          <span style="color:green"> <b>Accepted </b></span>
+                                        @endif
+                                    </div>
+                                </td>
+                                <td class="table-text">
+                                    <a href="{{action('CommentsController@accept', [$comment->id])}}" class="btn btn-success">Accept</a>
+                                    <a href="{{action('CommentsController@reject', [$comment->id])}}" class="btn btn-danger">Reject</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    @else
+                        <div class="panel-body"><h4>No Comment Records found</h4></div>
+                    @endif
+                </div>
             </div>
-            <div><h2 style="text-align:center;">Comments</h2></div>
-        </div>
-        <div class="panel-body">
-            <table class="table table-striped cds-datatable">
-                <thead><th>Type</th><th>Comment</th><th>Date</th><th>User</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
-                <tbody> <!-- Table Body -->
-                @foreach ($comments_data as $comment)
-                    <tr>
-                        <td class="table-text"><div><a href="{{ url('/comments', $comment->id) }}"></a></div></td>
-                        <td class="table-text"><div>{{ $comment->text }}</div></td>
-                        <td class="table-text"><div>{{ $comment->id }}</div></td>
-                        <td>
-                            @if($comment->id != 1 && $comment->id != 2) <!-- Administrator and Advisor Comment -->
-                            <div class="pull-right" style="height: 25px;">
-                                <form action="{{ url('comments/'.$comment->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('delete') }}
-                                    <button type="submit" id="delete-comment-{{ $comment->id }}" class="btn btn-default"></button>
-                                </form>
-                            </div>
-                            @endif
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+            </div>
         </div>
     </div>
-@endif
 @stop

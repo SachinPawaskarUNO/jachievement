@@ -33,15 +33,15 @@ class Comment extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'text', 'created_by', 'updated_by'];
+    protected $fillable = ['user_id','text','active','program_id','created_by','updated_by'];
 
     /**
      * Get all of the owning likeable models.
      */
-    public function commentable()
+    /*public function commentable()
     {
         return $this->morphTo();
-    }
+    } */
 
     public function user()
     {

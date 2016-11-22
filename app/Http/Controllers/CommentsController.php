@@ -46,12 +46,38 @@ class CommentsController extends Controller
         // $comments = Comment::all();
 
         $comments_data= DB::table('comments')
-            ->select(DB::raw('comments.*'))
+            ->select('comments.*','users.first_name','programs.name as program_name', 'roles.name as role_name')
+			->join('programs','comments.program_id','=','programs.id')
+            ->join('users','users.id','=','comments.user_id')
+            ->join('role_user','role_user.user_id','=','users.id')
+            ->join('roles','roles.id','=','role_user.role_id')
             ->get();
-            
-
-
+       //
         return view('comments.index', compact('comments_data'));
+		
+	}
+	
+	public function accept($id)
+	{
+			$comment = Comment::findOrfail($id);
+			$comment->active = 1;
+
+
+			$comment->update();
+			//return view('comments.index');
+        return redirect()->back();
+
+	}
+
+    public function reject($id)
+    {
+
+        $comment = Comment::findOrfail($id);
+        $comment->active = 0;
+
+        $comment->update();
+        //return view('comments.index');
+        return redirect()->back();
     }
 
     public function show($id)
@@ -76,21 +102,23 @@ class CommentsController extends Controller
         return view('comments.create');
     }
 
-    public function store(CommentRequest $request)
-    {
-        $input = $request->all();
-        $this->populateCreateFields($input);
+    // public function store(CommentRequest $request)
+    // {
+        
+    //     return 'hello';
+    //     Log::info('CommentsController.store - Start: ');
+    //     $input = $request->all();
+    //     $user = Auth::user();
+    //     return $request;
 
-        $comment = new Comment($input);
-//        dd([$request, $input]);
+    //     $input['user_id'] = $user->id;
 
-        $object = Comment::create($input);
 
-        $object->save($comment);
-        // return view('comments.create');
-
-        return redirect()->back();
-    }
+    //     $this->populateUpdateFields($request);
+    //     $object = Comment::create($input);
+    //     Session::flash('flash_message', 'Comment successfully saved! Comment has to be reviewed by admin before being displayed');
+    //     return redirect()->back();
+    // }
 
     public function edit($id)
     {
@@ -161,21 +189,21 @@ class CommentsController extends Controller
         }
     }
 
-    public function view()
-    {
+    // public function view()
+    // {
         
-        $comments_data1 = DB::table('comments')
-            ->join('users','comments.user_id','=','users.id')
-            ->join('programs','comments.program_id','=','programs.id')            
-            ->select('comments.*','users.first_name','programs.name')
+    //     $comments_data1 = DB::table('comments')
+    //         ->join('users','comments.user_id','=','users.id')
+    //         ->join('programs','comments.program_id','=','programs.id')            
+    //         ->select('comments.*','users.first_name','programs.name')
 
-            ->get();
-        $defaultSelection = [''=>'Please Select Programs'];
-        $programs = Program::lists('name', 'id')->toArray();
-        $programs =  $defaultSelection + $programs;
+    //         ->get();
+    //     $defaultSelection = [''=>'Please Select Programs'];
+    //     $programs = Program::lists('name', 'id')->toArray();
+    //     $programs =  $defaultSelection + $programs;
 
 
 
-        return view('comments.view',compact('comments_data1','programs'));
-    }
+    //     return view('comments.view',compact('comments_data1','programs'));
+    // }
 }
