@@ -72,7 +72,7 @@ class InterestformsController extends Controller
             $volunteerProgram->volunteerform_id = $lastInsertedForm->id;
             $choice = "program_choice_" .$program1->program_id;
             $volunteerProgram->program_id = $request->$choice * 1;
-            if(($volunteerProgram->program_id)!=0) {
+            if(($volunteerProgram->program_id)! =0) {
 
                 $volunteerProgram->save();
             }
