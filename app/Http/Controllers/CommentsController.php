@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Comments Controller
  *
@@ -11,11 +10,8 @@
  * @version    GIT: $Id$
  * @since      File available since Release 1.0.0
  */
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Requests\CommentRequest;
 use DB;
@@ -24,14 +20,11 @@ use App\Program;
 use App\SkeletalElement;
 use Session;
 use Auth;
-
-
 class CommentsController extends Controller
 {
     public function __construct()
     {
 //        $this->middleware('advisor');
-
         $this->commentfor = "SkeletalElement";
         $this->skeletalelement = null;
         $this->user = Auth::user();
@@ -40,11 +33,9 @@ class CommentsController extends Controller
         ];
         
     }
-
     public function index()
     {
         // $comments = Comment::all();
-
         $comments_data= DB::table('comments')
             ->select('comments.*','users.first_name','programs.name as program_name', 'roles.name as role_name')
 			->join('programs','comments.program_id','=','programs.id')
@@ -52,7 +43,7 @@ class CommentsController extends Controller
             ->join('role_user','role_user.user_id','=','users.id')
             ->join('roles','roles.id','=','role_user.role_id')
             ->get();
-       //
+     
         return view('comments.index', compact('comments_data'));
 		
 	}
@@ -61,38 +52,28 @@ class CommentsController extends Controller
 	{
 			$comment = Comment::findOrfail($id);
 			$comment->active = 1;
-
-
 			$comment->update();
 			//return view('comments.index');
         return redirect()->back();
-
 	}
-
     public function reject($id)
     {
-
         $comment = Comment::findOrfail($id);
         $comment->active = 0;
-
         $comment->update();
         //return view('comments.index');
         return redirect()->back();
     }
-
     public function show($id)
     {
         $comment = Comment::findOrfail($id);
         $this->identifyCommentType($comment);
-
         //dd([$this->commentData]);
         return view('comments.show', $this->commentData);
     }
-
     public function create()
     {
         $user = Auth::user;
-
         $comments = DB::table('comments')
             ->select('comments.*,users.first_name')
             ->join('programs','comments.program_id','=','programs.id')
@@ -101,6 +82,7 @@ class CommentsController extends Controller
             ->get();
         return view('comments.create');
     }
+
 
     // public function store(CommentRequest $request)
     // {
@@ -120,25 +102,22 @@ class CommentsController extends Controller
     //     return redirect()->back();
     // }
 
+
     public function edit($id)
     {
         $comment = Comment::findOrfail($id);
         $this->identifyCommentType($comment);
-
 //        dd([$this->commentData]);
         return view('comments.edit', $this->commentData);
     }
-
     public function update($id, CommentRequest $request)
     {
         $comment = Comment::findOrfail($id);
         $this->populateUpdateFields($request);
-
         $comment->update($request->all());
         Session::flash('flash_message', 'Comment successfully updated!');
         return redirect()->back()->withInput();
     }
-
     /**
      * Destroy the given comment.
      *
@@ -154,14 +133,12 @@ class CommentsController extends Controller
         }
         return redirect()->back()->withInput();
     }
-
     public function addforskeletalelement($se_id)
     {
         $skeletalelement = SkeletalElement::findOrfail($se_id);
         $this->commentData['commentfor'] = "SkeletalElement";
         $this->commentData['skeletalelement'] = $skeletalelement;
 //        $this->commentData['planofstudy'] = null;
-
         return view('comments.create', $this->commentData);
     }
 //    public function addforplanofstudy($planofstudy_id)
@@ -173,7 +150,6 @@ class CommentsController extends Controller
 //        //dd([$this->commentData]);
 //        return view('comments.create', $this->commentData);
 //    }
-
     public function identifyCommentType($comment) {
         if ($comment != null) {
             $this->commentData['comment'] = $comment;
@@ -205,5 +181,16 @@ class CommentsController extends Controller
 
 
     //     return view('comments.view',compact('comments_data1','programs'));
+    // }
+
+    // public function view()
+    // {
+        
+    //     $comments_data1 = DB::table('comments')
+    //         ->join('users','comments.user_id','=','users.id')
+    //         ->join('programs','comments.program_id','=','programs.id')            
+    //         ->select('comments.*','users.first_name','programs.name')
+    //         ->get();
+    //     return view('comments.view',compact('comments_data1'));
     // }
 }

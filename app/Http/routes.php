@@ -101,8 +101,8 @@ Route::post('/contactus', 'ContactController@sendmail');
 
 Route::get('/aboutus/index', 'AboutUsController@aboutus');
 Route::get('/aboutus/map', 'MapController@map');
+Route::get('/programs/view', 'AboutUsController@program');
 
-Route::get('/programs/index', 'ProgramController@program');
 Route::get('/donors', 'ContributorController@index');
 
 Route::get('/admin/educatorform', 'AdminController@listEducatorForm');
@@ -115,11 +115,19 @@ Route::get('/admin/download/volunteerreport', 'AdminController@downloadVolunteer
 Route::get('/admin/download/educatorreport', 'AdminController@downloadEducatorReport');
 Route::get('/reports/donation', 'ReportsController@DonationReporting');
 Route::get('/reports/download/donation', 'ReportsController@downloadDonations');
+
+
+
+Route::resource('schools', 'SchoolController');
+Route::resource('programs', 'ProgramController');
+Route::resource('events', 'CampaignController');
+
 Route::get('/admin/comments/{id}/apt', 'CommentsController@accept');
 Route::get('/admin/comments/{id}/rjt', 'CommentsController@reject');
 Route::resource('schools', 'SchoolController');
 
-Route::resource('events', 'CampaignController');
+Route::resource('events ', 'CampaignController');
+
 
    Route::delete('/comments/{comment}', 'CommentsController@destroy');
    // Route::resource('comments', 'CommentsController');
@@ -130,8 +138,8 @@ Route::resource('events', 'CampaignController');
 
 
    Route::resource('comments', 'CommentsController');
+
 Route::get('/hints/view', 'HintsController@view');
 Route::post('/hints/view', 'HintsController@store');
-
 
 //});

@@ -96,13 +96,16 @@ div.smallbox {
                         @endif
               
                     </div>
+
+                        <div class="col-sm-2">
+                            {!! Form::button('Add Comment', ['type' => 'submit','id'=>'save', 'class' => 'btn btn-success']) !!}
+                        </div>
+
                 </div>
 
         </div>
 
-             <div class="col-sm-2">
-                 {!! Form::button('Add Comment', ['type' => 'submit','id'=>'save', 'class' => 'btn btn-success']) !!}
-             </div>
+             
 
         {!! Form::close() !!}  
 

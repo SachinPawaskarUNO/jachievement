@@ -186,6 +186,7 @@
 </div>
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
-        {!! Form::button('Save', ['type' => 'submit','id'=>'save', 'class' => 'btn btn-success']) !!}
+        {!! Form::button('Submit', ['type' => 'submit','id'=>'save', 'class' => 'btn btn-success']) !!}
+        <a class="btn btn-default" href="/">Cancel</a>
     </div>
 </div>
