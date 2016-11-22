@@ -22,7 +22,7 @@
                         <a id="ja_nav_about" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >About Us <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}">Mission</a></li>
-                            <li><a id="ja_nav_programs" href="{{ url('/programs/index') }}">Programs</a></li>
+                            <li><a id="ja_nav_programs" href="{{ url('/programs/view') }}">Programs</a></li>
                             <li><a id="ja_nav_map" href="{{ url('/aboutus/map') }}">Schools We're In</a></li>
                             <li><a id="ja_nav_faq" href="{{ url('/') }}">FAQs</a></li>
                     </ul>
@@ -63,8 +63,13 @@
                         @endrole
                         <li><a id="ja_nav_users" href="{{ url('/users') }}">Manage Users</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/schools') }}">Manage Schools</a></li>
+                        <li><a id="ja_nav_programs" href="{{ url('/programs') }}">Manage Programs</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/events') }}">Manage Events</a></li>
+
+
+
                         <li><a id="ja_nav_schools" href="{{ url('/comments') }}">Manage Comments</a></li>
+
                         <li role="separator" class="divider"></li>
                         <li><a id="ja_nav_educator_form" href="{{ url('/admin/educatorform') }}">View Educators</a></li>
                         <li><a id="ja_nav_volunteer_form" href="{{ url('/admin/volunteerform') }}">View Volunteers</a></li>
