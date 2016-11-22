@@ -100,7 +100,7 @@ div.smallbox {
 
 
 <div class="panel-body">
-                    @include('common.flash')
+                    
                     @if (count($comments_data1) > 0)
                     <table class="table table-striped cds-datatable">
                         <thead><th>User Name</th><th>Comment</th><th>Program Name</th></thead><!-- Table Headings -->
