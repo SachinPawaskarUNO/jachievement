@@ -37,30 +37,31 @@
                                     <a href="{{action('CommentsController@accept', [$comment->id])}}" class="btn btn-success btn-sm">Accept</a>
                                     <a href="{{action('CommentsController@reject', [$comment->id])}}" class="btn btn-warning btn-sm">Reject</a>
                                     <a href="{{action('CommentsController@reject', [$comment->id])}}"  class="btn btn-danger btn-sm delete-form">Delete1</a>
-                                    {!! Form::model($trainee, [
+                                    {!! Form::open([
                                         'method' => 'DELETE',
-                                        'action' => ['CommentsController@destroy', [$comment->id],
+                                        'action' => ['CommentsController@destroy', $comment->id],
                                         'class' => 'delete-form'
                                         ]) !!}
 
                                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
 
 
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                    @else
-                        <div class="panel-body"><h4>No Comment Records found</h4></div>
-                    @endif
-                </div>
-            </div>
-            </div>
+
+</td>
+</tr>
+@endforeach
+</tbody>
+</table>
+@else
+<div class="panel-body"><h4>No Comment Records found</h4></div>
+@endif
+</div>
+</div>
+</div>
 @stop
 <script type="text/javascript">
 
-    $(document).on('submit', '.delete-form', function () {
-        return confirm('Are you sure you want to delete this trainee?  If you do so, all evaluation records for the trainee will be lost.');
-    });
+$(document).on('submit', '.delete-form', function () {
+return confirm('Are you sure you want to delete this trainee?  If you do so, all evaluation records for the trainee will be lost.');
+});
 </script>

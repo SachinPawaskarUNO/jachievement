@@ -138,7 +138,7 @@ Route::resource('events ', 'CampaignController');
 
    //Route::resource('comments', 'CommentsController');
 Route::get('/admin/comments/index', 'CommentsController@index');
-Route::get('/admin/comments/{id}/del', 'CommentsController@destroy');
+Route::delete('/admin/comments/{id}/del', 'CommentsController@destroy');
 Route::get('/admin/comments/{id}/apt', 'CommentsController@accept');
 Route::get('/admin/comments/{id}/rjt', 'CommentsController@reject');
 
