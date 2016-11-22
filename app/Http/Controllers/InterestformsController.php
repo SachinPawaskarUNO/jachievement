@@ -111,6 +111,18 @@ class InterestformsController extends Controller
             }
         }
 
+      /*  $data = array(
+            'name' => $request->first_name,
+            'email' => $request->email
+        );
+
+        Mail::send('educators.emails',$data, function($message)use($request)
+        {
+            $message->from('juniorachievement.midlands@gmail.com');
+            $message->bcc($request->email, $request->name);
+            $message->to('juniorachievement.midlands@gmail.com', 'Admin')->subject('Information from Educator Interest form');
+        });*/
+
         Session::flash('flash_message', 'Thank you for registering as a Volunteer! We will contact you soon');
        // Log::info('InterestformsController.store - End: '.$object->id);
         return view('volunteers.thankyou');
