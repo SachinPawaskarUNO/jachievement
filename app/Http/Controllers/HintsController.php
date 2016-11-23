@@ -19,7 +19,7 @@ class HintsController extends Controller
 	public function __construct()
     {
 //        $this->middleware('advisor');
-    	$this->middleware('role:volunteer');
+    	$this->middleware('role:volunteer||educator');
         $this->commentfor = "SkeletalElement";
         $this->skeletalelement = null;
         $this->user = Auth::user();
@@ -31,8 +31,21 @@ class HintsController extends Controller
 
 	public function view()
     {
+        $user = Auth::user();
+        $role_data=DB::table('roles')
+        ->join('role_user','roles.id','=','role_user.role_id')
+        ->join('users','role_user.user_id','=','users.id')
+        ->select('roles.name')
+        ->where('users.id','=',$user->id)
+         ->first();
+        // $user = Roles::all();
+        // $user = Auth::user();
+        // $user->roles();
+         // return $role_data;
+        //  $decoded= json_decode($role_data);
+        // return $decoded->name;
 
-        // $role = Role::user();
+
         $comments_data1 = DB::table('comments')
             ->join('users','comments.user_id','=','users.id')
             ->join('programs','comments.program_id','=','programs.id') 
@@ -40,7 +53,7 @@ class HintsController extends Controller
             ->join('roles','role_user.role_id','=','roles.id')           
             ->select('comments.*','users.first_name','programs.name')
             ->where('comments.active','=',1)
-            // ->where('roles.name','=','volunteer')
+            ->where('roles.name','=',$role_data->name)
             ->orderBy('comments.created_at','DESC')
 
             ->get();
