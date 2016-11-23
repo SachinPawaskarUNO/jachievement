@@ -48,7 +48,7 @@ class CommentsController extends Controller
             ->get();*/
 
         $comments_data= DB::table('comments')
-            ->select(DB::raw('comments.id, comments.text, comments.active,comments.created_at, users.first_name, programs.name as program_name ,array_to_string(array_agg(roles.name), \',\') as role_name)'))
+            ->select(DB::raw('comments.id, comments.text, comments.active,comments.created_at, users.first_name, programs.name as program_name ,array_to_string(array_agg(roles.name), \',\') as role_name'))
             ->join('programs','comments.program_id','=','programs.id')
             ->join('users','users.id','=','comments.user_id')
             ->join('role_user','role_user.user_id','=','users.id')
