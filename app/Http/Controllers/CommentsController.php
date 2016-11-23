@@ -48,7 +48,8 @@ class CommentsController extends Controller
             ->get();*/
 
         $comments_data= DB::table('comments')
-            ->select(DB::raw('comments.id, comments.text, comments.active,comments.created_at, users.first_name, programs.name as program_name ,array_to_string(array_agg(roles.name), \',\') as role_name'))
+            ->select(DB::raw('comments.id, comments.text, comments.active,comments.created_at, users.first_name,
+            programs.name as program_name ,array_to_string(array_agg(roles.name), \',\') as role_name'))
             ->join('programs','comments.program_id','=','programs.id')
             ->join('users','users.id','=','comments.user_id')
             ->join('role_user','role_user.user_id','=','users.id')
@@ -57,6 +58,14 @@ class CommentsController extends Controller
             ->orderBy('comments.created_at', 'desc')
             ->orderBy('users.id', 'desc')
             ->get();
+
+
+
+        /*select comments.id, comments.text, comments.active,comments.created_at, users.first_name, programs.name as program_name ,
+        GROUP_CONCAT(roles.name) from comments inner join programs on comments.program_id = programs.id inner join
+        users on users.id = comments.user_id inner join role_user on role_user.user_id = users.id inner join roles
+        on roles.id = role_user.role_id group by comments.id, comments.text,
+        comments.active, comments.created_at, users.first_name, program_name order by comments.created_at desc, users.id desc*/
 
         return view('comments.index', compact('comments_data'));
 		
