@@ -24,7 +24,6 @@ class CommentsController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('advisor');
         $this->middleware('role:admin|superadmin');
         $this->commentfor = "SkeletalElement";
         $this->skeletalelement = null;
@@ -58,14 +57,6 @@ class CommentsController extends Controller
             ->orderBy('comments.created_at', 'desc')
             ->get();
 
-
-
-        /*select comments.id, comments.text, comments.active,comments.created_at, users.first_name, programs.name as program_name ,
-        GROUP_CONCAT(roles.name) from comments inner join programs on comments.program_id = programs.id inner join
-        users on users.id = comments.user_id inner join role_user on role_user.user_id = users.id inner join roles
-        on roles.id = role_user.role_id group by comments.id, comments.text,
-        comments.active, comments.created_at, users.first_name, program_name order by comments.created_at desc, users.id desc*/
-
         return view('comments.index', compact('comments_data'));
 		
 	}
@@ -90,7 +81,6 @@ class CommentsController extends Controller
     {
         $comment = Comment::findOrfail($id);
         $this->identifyCommentType($comment);
-        //dd([$this->commentData]);
         return view('comments.show', $this->commentData);
     }
     public function create()
@@ -104,26 +94,6 @@ class CommentsController extends Controller
             ->get();
         return view('comments.create');
     }
-
-
-    // public function store(CommentRequest $request)
-    // {
-        
-    //     return 'hello';
-    //     Log::info('CommentsController.store - Start: ');
-    //     $input = $request->all();
-    //     $user = Auth::user();
-    //     return $request;
-
-    //     $input['user_id'] = $user->id;
-
-
-    //     $this->populateUpdateFields($request);
-    //     $object = Comment::create($input);
-    //     Session::flash('flash_message', 'Comment successfully saved! Comment has to be reviewed by admin before being displayed');
-    //     return redirect()->back();
-    // }
-
 
     public function edit($id)
     {
