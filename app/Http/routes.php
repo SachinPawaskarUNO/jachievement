@@ -127,7 +127,7 @@ Route::resource('schools', 'SchoolController');
 
 Route::resource('events ', 'CampaignController');
 
-
+Route::resource('static', 'StaticContentController');
 
 
    Route::get('comments/{student}/addforstudent', ['as' => 'comments.addforstudent',
