@@ -127,7 +127,7 @@ Route::resource('schools', 'SchoolController');
 
 Route::resource('events ', 'CampaignController');
 
-
+Route::resource('static', 'StaticContentController');
 
 
    Route::get('comments/{student}/addforstudent', ['as' => 'comments.addforstudent',
@@ -138,11 +138,11 @@ Route::resource('events ', 'CampaignController');
 
    //Route::resource('comments', 'CommentsController');
 Route::get('/admin/comments/index', 'CommentsController@index');
-Route::get('/admin/comments/{id}/del', 'CommentsController@destroy');
+Route::delete('/admin/comments/{id}/del', 'CommentsController@destroy');
 Route::get('/admin/comments/{id}/apt', 'CommentsController@accept');
 Route::get('/admin/comments/{id}/rjt', 'CommentsController@reject');
 
 Route::get('/hints/view', 'HintsController@view');
 Route::post('/hints/view', 'HintsController@store');
-
+\Sukohi\Maven\Maven::route('en');
 //});

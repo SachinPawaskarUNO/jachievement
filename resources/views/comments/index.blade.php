@@ -14,7 +14,7 @@
                     @include('common.flash')
                     @if (count($comments_data) > 0)
                     <table class="table table-striped cds-datatable">
-                        <thead><th>User Name</th><th>Roles</th><th>Comment</th><th>Comment Date</th><th>Program Name</th><th>Status</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
+                        <thead><th>User Name</th><th>Role</th><th>Comment</th><th>Comment Date</th><th>Program Name</th><th>Status</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
                         <tbody> <!-- Table Body -->
                         @foreach ($comments_data as $comment)
                             <tr>
@@ -34,27 +34,42 @@
                                     </div>
                                 </td>
                                 <td class="table-text">
-                                    <a href="{{action('CommentsController@accept', [$comment->id])}}" class="btn btn-success">Accept</a>
-                                    <a href="{{action('CommentsController@reject', [$comment->id])}}" class="btn btn-warning">Reject</a>
-                                    <a href="{{action('CommentsController@destroy', [$comment->id])}}" class="btn btn-danger">Delete</a>
+                                    <a href="{{action('CommentsController@accept', [$comment->id])}}" class="btn btn-success btn-sm">Accept</a>
+                                    <a href="{{action('CommentsController@reject', [$comment->id])}}" class="btn btn-warning btn-sm">Reject</a>
+                                   {!! Form::open([
+                                        'method' => 'DELETE',
+                                        'action' => ['CommentsController@destroy', $comment->id],
+                                        'class' => 'delete-form',
+                                        'onsubmit' => 'return confirmDelete()'
+                                        ]) !!}
+
+                                    <button type="submit" name="button" class="btn btn-danger btn-sm">Delete</button>
+
+                                    {!! Form::close() !!}
 
 
                                 </td>
                             </tr>
                         @endforeach
-                        </tbody>
-                    </table>
-                    @else
-                        <div class="panel-body"><h4>No Comment Records found</h4></div>
-                    @endif
-                </div>
-            </div>
-            </div>
+                    </tbody>
+                </table>
+                @else
+                <div class="panel-body"><h4>No Comment Records found</h4></div>
+                @endif
         </div>
     </div>
-@stop
+    </div>
+@endsection
+@section('footer')
 <script type="text/javascript">
-    $(document).on('submit', '.delete-form', function () {
-        return confirm('Are you sure you want to delete this trainee?  If you do so, all evaluation records for the trainee will be lost.');
-    });
+    function confirmDelete() {
+        var result = confirm('Are you sure you want to delete?');
+
+        if (result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 </script>
+@endsection
