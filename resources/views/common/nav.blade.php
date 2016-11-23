@@ -65,6 +65,7 @@
                         <li><a id="ja_nav_schools" href="{{ url('/schools') }}">Manage Schools</a></li>
                         <li><a id="ja_nav_programs" href="{{ url('/programs') }}">Manage Programs</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/events') }}">Manage Events</a></li>
+                        <li><a id="ja_nav_static" href="{{ url('/static') }}">Manage Static Content</a></li>
 
 
 
