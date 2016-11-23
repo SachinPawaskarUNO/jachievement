@@ -23,11 +23,4 @@ class UpdateFaqsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::table('maven_fags', function($table)
-        {
-            $table->dropColumn('draft_flag');
-        });
-    }
 }

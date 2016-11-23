@@ -95,7 +95,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_changepw" href="{{ url('/change-password') }}">Change Password</a></li>
                             <li><a id="ja_teamview" href="{{ url('/event/team/view') }}">View My Teams</a></li>
-                            @role(['volunteer','educator'])
+                            @role(['volunteer' , 'educator'])
                             <li><a id="ja_hints" href="{{ url('/hints/view') }}">Hints and Tips</a></li>
                             @endrole
                             <li role="separator" class="divider"></li>

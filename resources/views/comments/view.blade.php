@@ -119,7 +119,7 @@ div.smallbox {
                         </tbody>
                     </table>
                     @else
-                        <div class="panel-body"><h4>No Comment Records found</h4></div>
+                        <div class="panel-body"><h4>No Comments Found</h4></div>
                     @endif
                 </div> 
      
