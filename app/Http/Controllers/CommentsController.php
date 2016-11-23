@@ -37,7 +37,7 @@ class CommentsController extends Controller
     public function index()
     {
         // $comments = Comment::all();
-        $comments_data= DB::table('comments')
+       /* $comments_data= DB::table('comments')
             ->select('comments.*','users.first_name','programs.name as program_name', 'roles.name as role_name')
 			->join('programs','comments.program_id','=','programs.id')
             ->join('users','users.id','=','comments.user_id')
@@ -45,8 +45,19 @@ class CommentsController extends Controller
             ->join('roles','roles.id','=','role_user.role_id')
             ->orderBy('comments.created_at', 'desc')
             ->orderBy('users.id', 'desc')
+            ->get();*/
+
+        $comments_data= DB::table('comments')
+            ->select(DB::raw('comments.id, comments.text, comments.active,comments.created_at, users.first_name, programs.name as program_name ,array_to_string(array_agg(roles.name), \',\') as role_name)'))
+            ->join('programs','comments.program_id','=','programs.id')
+            ->join('users','users.id','=','comments.user_id')
+            ->join('role_user','role_user.user_id','=','users.id')
+            ->join('roles','roles.id','=','role_user.role_id')
+            ->groupBy('comments.id', 'comments.text', 'comments.active','comments.created_at', 'users.first_name','program_name')
+            ->orderBy('comments.created_at', 'desc')
+            ->orderBy('users.id', 'desc')
             ->get();
-     
+
         return view('comments.index', compact('comments_data'));
 		
 	}
