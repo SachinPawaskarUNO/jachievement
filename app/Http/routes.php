@@ -144,5 +144,8 @@ Route::get('/admin/comments/{id}/rjt', 'CommentsController@reject');
 
 Route::get('/hints/view', 'HintsController@view');
 Route::post('/hints/view', 'HintsController@store');
+Route::get('/faq/view', 'Maven\MavenController@view');
+
+
 \Sukohi\Maven\Maven::route('en');
 //});
