@@ -32,7 +32,25 @@ class MavenController extends \App\Http\Controllers\Controller
         ]);
 
     }
+    public function view() {
 
+        $message = '';
+        $maven_items = MavenUniqueKey::with('faq.tags')
+            ->neatness()
+            ->smoothness()
+            ->orderBy('sort')
+            ->paginate(config('maven.per_page'));
+
+        return view('maven.view', [
+            'page_title' => trans('maven.list'),
+            'maven_items' => $maven_items,
+            'sort_values' => [],
+            'tag_values' => [],
+            'message' => $message,
+            'current_locale' => Maven::getLocale()
+        ]);
+
+    }
     public function create() {
 
         $maven_item = new MavenUniqueKey;
