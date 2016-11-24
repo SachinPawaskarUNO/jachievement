@@ -73,7 +73,7 @@
 <div class="form-group{{ $errors->has('entrepreneurship') ? ' has-error' : '' }}">
     {!! Form::label('entrepreneurship', 'Entrepreneurship:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::select('entrepreneurship',[0 => 'Blank',1 => 'Half',2 => 'Full'], null, ['class' => 'col-md-6 form-control','placeholder'=>'Select one value:']) !!}
+        {!! Form::select('entrepreneurship',[0 => 'Blank Star',1 => 'Half Star',2 => 'Full Star'], null, ['class' => 'col-md-6 form-control','placeholder'=>'Select one value:']) !!}
         @if ($errors->has('entrepreneurship'))
             <span class="help-block">
                 <strong>{{ $errors->first('entrepreneurship') }}</strong>
@@ -85,7 +85,7 @@
 <div class="form-group{{ $errors->has('financial_readiness') ? ' has-error' : '' }}">
     {!! Form::label('financial_readiness', 'Financial Readiness:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::select('financial_readiness',[0 => 'Blank',1 => 'Half',2 => 'Full'], null, ['class' => 'col-md-6 form-control','placeholder'=>'Select one value:']) !!}
+        {!! Form::select('financial_readiness',[0 => 'Blank Star',1 => 'Half Star',2 => 'Full Star'], null, ['class' => 'col-md-6 form-control','placeholder'=>'Select one value:']) !!}
         @if ($errors->has('financial_readiness'))
             <span class="help-block">
                 <strong>{{ $errors->first('financial_readiness') }}</strong>
@@ -97,7 +97,7 @@
 <div class="form-group{{ $errors->has('work_readiness') ? ' has-error' : '' }}">
     {!! Form::label('work_readiness', 'Work Readiness:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::select('work_readiness',[0 => 'Blank',1 => 'Half',2 => 'Full'], null, ['class' => 'col-md-6 form-control','placeholder'=>'Select one value:']) !!}
+        {!! Form::select('work_readiness',[0 => 'Blank Star',1 => 'Half Star',2 => 'Full Star'], null, ['class' => 'col-md-6 form-control','placeholder'=>'Select one value:']) !!}
         @if ($errors->has('work_readiness'))
             <span class="help-block">
                 <strong>{{ $errors->first('work_readiness') }}</strong>
@@ -109,5 +109,6 @@
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
         {!! Form::button('Save', ['type' => 'submit', 'class' => 'btn btn-success']) !!}
+        <a class="btn btn-default" href="/programs">Cancel</a>
     </div>
 </div>

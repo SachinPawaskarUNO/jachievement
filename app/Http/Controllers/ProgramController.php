@@ -50,7 +50,7 @@ class ProgramController extends Controller
     {
             $this->middleware('role:admin|superadmin');
             $object = $programs;
-            Log::info('ProgramController.editS: '.$object->id.'|'.$object->name);
+            Log::info('ProgramController.edit: '.$object->id.'|'.$object->name);
             $this->viewData['program'] = $object;
             $this->viewData['heading'] = "Edit Program: ".$object->name;
 

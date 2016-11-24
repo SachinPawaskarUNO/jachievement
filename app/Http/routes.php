@@ -57,7 +57,6 @@ Route::get('laravel-version', function()
     Route::get( 'change-password', 'Auth\AuthController@viewPage');
 
     Route::get('/home', 'HomeController@index');
-	//Route::get('/home', 'CampaignController@eventsDropdown');
 
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
@@ -120,12 +119,8 @@ Route::get('/reports/download/donation', 'ReportsController@downloadDonations');
 
 Route::resource('schools', 'SchoolController');
 Route::resource('programs', 'ProgramController');
-Route::resource('events', 'CampaignController');
+Route::resource('events', 'EventController');
 
-
-Route::resource('schools', 'SchoolController');
-
-Route::resource('events ', 'CampaignController');
 
 Route::resource('static', 'StaticContentController');
 

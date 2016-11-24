@@ -8,33 +8,33 @@
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div class="pull-right">
                             <form action="{{ url('events/create') }}" method="GET">{{ csrf_field() }}
-                                <button type="submit" id="create-event" class="btn btn-default">Create</button>
+                                <button type="submit" id="create-school" class="btn btn-default">Create</button>
                             </form>
                         </div>
                         <div style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></div>
                     </div>
                     <div class="panel-body">
                         @include('common.flash')
-                        @if (count($campaigns) > 0)
+                        @if (count($events) > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead> <!-- Table Headings -->
-                                    <th>Event Name</th><th>Event Date</th><th>Venue</th>
+                                    <th>Event Name</th><th>Event Description</th><th>Event Date</th><th>Event Venue</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
-                                    @foreach ($campaigns as $campaign)
+                                    @foreach ($events as $event)
                                         <tr>
-                                           {{-- <td class="table-text"><div><a href="{{ url('/events/'.$campaign->id.'/edit') }}">{{ $campaign->name }}</a></div></td>--}}
-                                            <td class="table-text"><div>{{ $campaign->name }}</div></td>
-                                            <td class="table-text"><div>{{ $campaign->event_date }}</div></td>
-                                            <td class="table-text"><div>{{ $campaign->venue }}</div></td>
+                                            <td class="table-text"><div><a href="{{ url('/events/'.$event->id.'/edit') }}">{{ $event->name }}</a></div></td>
+                                            <td class="table-text"><div>{{ $event->description }}</div></td>
+                                            <td class="table-text"><div>{{$event->event_date}}</div></td>
+                                            <td class="table-text"><div>{{ $event->venue }}</div></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         @else
-                            <div class="panel-body"><h4>No event records found</h4></div>
+                            <div class="panel-body"><h4>No Event records found</h4></div>
                         @endif
                     </div>
                 </div>

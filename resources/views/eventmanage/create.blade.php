@@ -12,7 +12,8 @@
                         {!! Form::open(['url' => 'events', 'class' => 'form-horizontal']) !!}
                         @include('common.errors')
                         @include('common.flash')
-                        @include ('event.partial', ['CRUD_Action' => 'Create'])
+
+                        @include ('eventmanage.partial', ['CRUD_Action' => 'Create'])
                         {!! Form::close() !!}
                     </div>
                 </div>
