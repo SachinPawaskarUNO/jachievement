@@ -1,7 +1,6 @@
 @extends('maven.layout')
-
-@section('content')
     @include('common.nav')
+@section('content')
     @include('maven.header')
     <h1>{{ $page_title }}</h1>
     @if($maven_items->count() > 0)
