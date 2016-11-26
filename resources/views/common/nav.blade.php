@@ -58,6 +58,8 @@
                 <li class="dropdown">
                     <a href="#" id="ja_nav_getinv" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administration <span class="caret"></span></a>
                     <ul class="dropdown-menu multi level" role="menu">
+                        <li><a id="ja_nav_dashboard" href="{{ url('/dashboard') }}">Dashboard</a></li>
+                        <li role="separator" class="divider"></li>
                         @role('superadmin')
                             <li><a id="ja_nav_roles" href="{{ url('/roles') }}">Manage Roles</a></li>
                         @endrole

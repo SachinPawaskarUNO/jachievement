@@ -144,3 +144,7 @@ Route::get('/faq/view', 'Maven\MavenController@view');
 
 \Sukohi\Maven\Maven::route('en');
 //});
+
+
+Route::get('/dashboard', 'DashboardController@index');
+Route::get('/visitors', 'DashboardController@visitors');
