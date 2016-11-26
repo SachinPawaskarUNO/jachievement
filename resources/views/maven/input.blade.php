@@ -78,11 +78,11 @@
                 </div>
             </div>
         </div>
-        @if(!empty($maven_item->unique_key))
+{{--        @if(!empty($maven_item->unique_key))
             <div class="text-center">
                 <small>{{ trans('maven.unique_key') }}: {{ $maven_item->unique_key }}</small>
             </div>
-        @endif
+        @endif--}}
         <div class="text-right" style="margin-top:10px;">
             <a href="{{ route('maven.index') }}" class="btn icon-btn btn-default" type="button" data-dismiss="modal">{{ trans('maven.cancel') }}</a>
             <button class="btn icon-btn btn-primary" type="submit">{{ trans('maven.save') }}</button>
