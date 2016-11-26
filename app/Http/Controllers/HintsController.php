@@ -55,8 +55,8 @@ class HintsController extends Controller
             ->where('comments.active','=',1)
             ->where('roles.name','=',$role_data->name)
             ->orderBy('comments.created_at','DESC')
-
             ->get();
+
         $defaultSelection = [''=>'Please Select Programs'];
         $programs = Program::lists('name', 'id')->toArray();
         $programs =  $defaultSelection + $programs;
@@ -85,7 +85,7 @@ class HintsController extends Controller
          // Log::info('HintsController.store - Object: '.$object->id);
 
 
-        Session::flash('flash_message', 'Comment successfully saved! Comment has to be reviewed by admin before being displayed');
+        Session::flash('flash_message', 'Comment successfully saved and we are reviewing it before being displayed');
         return redirect()->back();
     }
 }

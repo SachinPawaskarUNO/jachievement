@@ -63,7 +63,7 @@ div.smallbox {
                 <div class="panel-heading" style="background-color:#5cb85c !important;">
                     <div style="font-size:1.2em;color:white;"><b>Hints and Tips</b></div>
                 </div>
-            </div>
+            
                
        {!! Form::open(['url' => '/hints/view', 'class' => 'form-horizontal', 'method' => 'POST']) !!}
             @include('common.errors')
@@ -124,5 +124,6 @@ div.smallbox {
                 </div> 
      
     </div>
+</div>
 </div>
 @stop
