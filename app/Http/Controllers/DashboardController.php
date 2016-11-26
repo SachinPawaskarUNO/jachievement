@@ -17,21 +17,21 @@ class DashboardController extends Controller
     }
 
     public function index() {
-    	$this->viewers = DB::select("SELECT COUNT(distinct client_ip) as viewersCount FROM tracker_sessions WHERE EXTRACT(WEEK FROM created_at) = EXTRACT(WEEK FROM NOW())");
+    	$this->viewers = DB::select("SELECT COUNT(distinct client_ip) as viewerscount FROM tracker_sessions WHERE EXTRACT(WEEK FROM created_at) = EXTRACT(WEEK FROM NOW())");
 
-    	$this->donations = DB::select("SELECT SUM(amount) as donateCount FROM donations WHERE EXTRACT(WEEK FROM created_at) = EXTRACT(WEEK FROM NOW())");
+    	$this->donations = DB::select("SELECT SUM(amount) as donatecount FROM donations WHERE EXTRACT(WEEK FROM created_at) = EXTRACT(WEEK FROM NOW())");
 
-    	$this->hintsCount = DB::select("SELECT COUNT(*) as hintsCount FROM comments WHERE EXTRACT(WEEK FROM created_at) = EXTRACT(WEEK FROM NOW())");
+    	$this->hintsCount = DB::select("SELECT COUNT(*) as hintscount FROM comments WHERE EXTRACT(WEEK FROM created_at) = EXTRACT(WEEK FROM NOW())");
 
-    	$this->volunteerFormCount = DB::select("SELECT COUNT(*) as interestForms FROM volunteer_interest_forms WHERE EXTRACT(WEEK FROM created_at) = EXTRACT(WEEK FROM NOW())");
+    	$this->volunteerFormCount = DB::select("SELECT COUNT(*) as interestforms FROM volunteer_interest_forms WHERE EXTRACT(WEEK FROM created_at) = EXTRACT(WEEK FROM NOW())");
 
-    	$this->educatorFormCount = DB::select("SELECT COUNT(*) as interestForms FROM educator_interest_forms WHERE EXTRACT(WEEK FROM created_at) = EXTRACT(WEEK FROM NOW())");
+    	$this->educatorFormCount = DB::select("SELECT COUNT(*) as interestforms FROM educator_interest_forms WHERE EXTRACT(WEEK FROM created_at) = EXTRACT(WEEK FROM NOW())");
 
     	$this->endDate = (new \DateTime())->format('Y-m-d');
 
     	$this->heading = "Administration Dashboard";
 
-    	$this->viewData = [ 'heading' => $this->heading, 'viewers' => $this->viewers[0]->viewersCount, 'donations' => $this->donations[0]->donateCount, 'hintsCount' => $this->hintsCount[0]->hintsCount, 'volunteerFormCount' => $this->volunteerFormCount[0]->interestForms, 'educatorFormCount' => $this->educatorFormCount[0]->interestForms ];
+    	$this->viewData = [ 'heading' => $this->heading, 'viewers' => $this->viewers[0]->viewerscount, 'donations' => $this->donations[0]->donatecount, 'hintsCount' => $this->hintsCount[0]->hintscount, 'volunteerFormCount' => $this->volunteerFormCount[0]->interestforms, 'educatorFormCount' => $this->educatorFormCount[0]->interestforms ];
 
     	return view('dashboard.index', $this->viewData);
     }
