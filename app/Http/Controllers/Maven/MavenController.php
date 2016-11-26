@@ -46,6 +46,11 @@ class MavenController extends \App\Http\Controllers\Controller
             ->select(DB::raw('maven_faqs.question as question,maven_faqs.answer as answer, maven_tags.tag as tag'))
             ->get();
 
+        $maven_tags = DB::table('maven_tags')
+            ->distinct()
+            ->select(DB::raw('maven_tags.tag as tag'))
+            ->get();
+
 /*        $maven_items = MavenUniqueKey::with('faq.tags')
             ->neatness()
             ->smoothness()
@@ -60,7 +65,7 @@ class MavenController extends \App\Http\Controllers\Controller
             'message' => $message,
             'current_locale' => Maven::getLocale()
         ]);*/
-        return view('maven.view',compact('maven_items'));
+        return view('maven.view',compact('maven_items','maven_tags'));
 
     }
     public function create() {
@@ -87,8 +92,8 @@ class MavenController extends \App\Http\Controllers\Controller
         $this->saveSubData($unique_key->id, $request);
 
         \Cahen::move($unique_key)->to('sort', $request->sort);
-        return redirect()->route('maven.edit', $unique_key->id)->with('success', trans('maven.complete'));
-
+        /*return redirect()->route('maven.edit', $unique_key->id)->with('success', trans('maven.complete'));*/
+        return redirect()->route('maven.index')->with('success', trans('maven.complete'));
     }
 
     public function edit($id) {
@@ -117,8 +122,8 @@ class MavenController extends \App\Http\Controllers\Controller
         $this->saveSubData($unique_key->id, $request);
 
         \Cahen::move($unique_key)->to('sort', $request->sort);
-        return back()->with('success', trans('maven.complete'));
-
+        /*return back()->with('success', trans('maven.complete'));*/
+        return redirect()->route('maven.index')->with('success', trans('maven.complete'));
     }
 
     public function destroy($id) {
@@ -128,7 +133,8 @@ class MavenController extends \App\Http\Controllers\Controller
         $maven_items = MavenUniqueKey::orderBy('sort')->get();
         \Cahen::align($maven_items, 'sort');
 
-        return back()->with('success', trans('maven.complete'));
+        /*return back()->with('success', trans('maven.complete'));*/
+        return redirect()->route('maven.index')->with('success', trans('maven.complete'));
 
     }
 
