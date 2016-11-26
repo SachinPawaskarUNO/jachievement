@@ -24,7 +24,7 @@
                             <li><a id="ja_nav_purpose" href="{{ url('/aboutus/index') }}">Mission</a></li>
                             <li><a id="ja_nav_programs" href="{{ url('/programs/view') }}">Programs</a></li>
                             <li><a id="ja_nav_map" href="{{ url('/aboutus/map') }}">Schools We're In</a></li>
-                            <li><a id="ja_nav_faq" href="{{ url('/') }}">FAQs</a></li>
+                            <li><a id="ja_nav_faq" href="{{ url('/faq/view') }}">FAQs</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
