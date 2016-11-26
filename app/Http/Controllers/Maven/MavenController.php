@@ -10,11 +10,16 @@ use Sukohi\Maven\MavenFaq;
 use Sukohi\Maven\MavenLocale;
 use Sukohi\Maven\MavenTag;
 use Sukohi\Maven\MavenUniqueKey;
+use DB;
 
 class MavenController extends \App\Http\Controllers\Controller
 {
-    public function index() {
+    public function __construct()
+    {
+        $this->middleware('role:admin|superadmin',['except' => 'view']);
+    }
 
+    public function index() {
         $message = '';
         $maven_items = MavenUniqueKey::with('faq.tags')
             ->neatness()
@@ -35,24 +40,30 @@ class MavenController extends \App\Http\Controllers\Controller
     public function view() {
 
         $message = '';
-        $maven_items = MavenUniqueKey::with('faq.tags')
+
+        $maven_items= DB::table('maven_faqs')
+            ->join('maven_tags','maven_faqs.id','=','maven_tags.faq_id')
+            ->select(DB::raw('maven_faqs.question as question,maven_faqs.answer as answer, maven_tags.tag as tag'))
+            ->get();
+
+/*        $maven_items = MavenUniqueKey::with('faq.tags')
             ->neatness()
             ->smoothness()
             ->orderBy('sort')
-            ->paginate(config('maven.per_page'));
+            ->paginate(config('maven.per_page'));*/
 
-        return view('maven.view', [
+/*        return view('maven.view', [
             'page_title' => trans('maven.list'),
             'maven_items' => $maven_items,
             'sort_values' => [],
             'tag_values' => [],
             'message' => $message,
             'current_locale' => Maven::getLocale()
-        ]);
+        ]);*/
+        return view('maven.view',compact('maven_items'));
 
     }
     public function create() {
-
         $maven_item = new MavenUniqueKey;
 
         return view('maven.input', [
@@ -68,7 +79,6 @@ class MavenController extends \App\Http\Controllers\Controller
     }
 
     public function store(Requests\MavenRequest $request) {
-
         $unique_key = new MavenUniqueKey;
         $unique_key->unique_key = $this->getUniqueKey();
         $unique_key->sort = $request->sort;
@@ -82,7 +92,6 @@ class MavenController extends \App\Http\Controllers\Controller
     }
 
     public function edit($id) {
-
         $maven_item = MavenUniqueKey::with('faqs')->find($id);
         $faqs = $maven_item->faqs->keyBy('locale');
 
@@ -100,7 +109,6 @@ class MavenController extends \App\Http\Controllers\Controller
     }
 
     public function update(Request $request, $id) {
-
         $unique_key = MavenUniqueKey::find($id);
         $unique_key->unique_key = $this->getUniqueKey();
         $unique_key->sort = $request->sort;
@@ -114,7 +122,6 @@ class MavenController extends \App\Http\Controllers\Controller
     }
 
     public function destroy($id) {
-
         $maven_item = MavenUniqueKey::find($id);
         $maven_item->delete();
 
