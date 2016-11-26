@@ -19,7 +19,7 @@
         <li><a class="selected" href="#basics">Basics</a></li>
     </ul> <!-- cd-faq-categories -->
 
-    <div class="cd-faq-items">
+{{--    <div class="cd-faq-items">
         <ul id="basics" class="cd-faq-group">
             <li class="cd-faq-title"><h2>Educator</h2></li>
             @foreach($maven_items as $maven_item)
@@ -31,8 +31,23 @@
             </li>
             @endforeach
         </ul> <!-- cd-faq-group -->
+    </div> <!-- cd-faq-items -->--}}
 
+    <div class="cd-faq-items">
+        <ul id="basics" class="cd-faq-group">
+            <li class="cd-faq-title"><h2>Educator</h2></li>
+            @foreach($maven_items as $maven_item)
+                <li>
+                    <a class="cd-faq-trigger" href="#0">{{$maven_item->question}}</a>
+                    <div class="cd-faq-content">
+                        <p>{{$maven_item->answer}}</p>
+                        <p>{{$maven_item->tag}}</p>
+                    </div> <!-- cd-faq-content -->
+                </li>
+            @endforeach
+        </ul> <!-- cd-faq-group -->
     </div> <!-- cd-faq-items -->
+
     <a href="#0" class="cd-close-panel">Close</a>
 </section> <!-- cd-faq -->
 <script type="text/javascript" src="{{ URL::asset('js/jquery-2.1.1.js') }}"></script>
