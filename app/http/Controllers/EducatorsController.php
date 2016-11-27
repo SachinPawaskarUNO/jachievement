@@ -60,9 +60,9 @@ class EducatorsController extends Controller
         );
         Mail::send('educators.email',$data, function($message)use($receipt,$request)
         {
-            $message->from('juniorachievement.midlands@gmail.com');
+            $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands, Inc');
             //$message->bcc($request->email, $request->first_name);
-            $message->to($receipt, 'Junior Achievement of Midlands, Inc')->subject('Educator request form submitted successfully');
+            $message->to($receipt)->subject('Educator request form submitted successfully');
         });
 
         return view('educators.thankyou');

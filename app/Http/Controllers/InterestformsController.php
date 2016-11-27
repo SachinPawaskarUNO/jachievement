@@ -129,9 +129,9 @@ class InterestformsController extends Controller
         );
         Mail::send('volunteers.email',$data, function($message)use($receipt,$request)
         {
-            $message->from('juniorachievement.midlands@gmail.com');
+            $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands, Inc');
             //$message->bcc($request->email, $request->first_name);
-            $message->to($receipt, 'Junior Achievement of Midlands, Inc')->subject('Volunteer request form submitted successfully');
+            $message->to($receipt)->subject('Volunteer request form submitted successfully');
         });
 
         Session::flash('flash_message', 'Thank you for registering as a Volunteer! We will contact you soon');
