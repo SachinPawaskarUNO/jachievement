@@ -25,6 +25,7 @@ class CampaignRequest extends Request
     {
         $rules = [
             'name' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
+            'description' => 'required',
             'image' => 'required',
             'email' => 'required|max:50|email',
             'phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',

@@ -33,13 +33,13 @@
 <br/>
 
 <div class="form-group">
-    {!! Form::label('pageTitle', 'Page Title:', ['class' => 'col-md-3 control-label']) !!}
+    {!! Form::label('pageTitle', 'Team Page Title:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
         {!! Form::text('title', null, ['id' => 'title','class' => 'col-md-7 form-control', 'required' => 'required', 'placeholder' => 'Welcome to My JA Fundraiser Page!']) !!}
     </div>
 </div>
 <div class="form-group">
-    {!! Form::label('pageContent', 'Page Content:', ['class' => 'col-md-3 control-label']) !!}
+    {!! Form::label('pageContent', 'Team Page Content:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
         @if ($action == 'join')
         {!! Form::textarea('content', $teamInfo->campCont, ['id' => 'content','class' => 'col-md-7 form-control', 'required' => 'required']) !!}
@@ -49,7 +49,7 @@
     </div>
 </div>
 <div class="form-group">
-    {!! Form::label('fundraisingGoal', 'Fundraising Goal:', ['class' => 'col-md-3 control-label']) !!}
+    {!! Form::label('fundraisingGoal', 'Team Fundraising Goal:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-4">
         <input type="range" id="fundraisingGoalRange" min="0" max="10000" step="50" value="500" onChange="changeGoalText()">
     </div>

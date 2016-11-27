@@ -57,7 +57,6 @@ Route::get('laravel-version', function()
     Route::get( 'change-password', 'Auth\AuthController@viewPage');
 
     Route::get('/home', 'HomeController@index');
-	//Route::get('/home', 'CampaignController@eventsDropdown');
 
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
@@ -101,8 +100,8 @@ Route::post('/contactus', 'ContactController@sendmail');
 
 Route::get('/aboutus/index', 'AboutUsController@aboutus');
 Route::get('/aboutus/map', 'MapController@map');
+Route::get('/programs/view', 'AboutUsController@program');
 
-Route::get('/programs/index', 'ProgramController@program');
 Route::get('/donors', 'ContributorController@index');
 
 Route::get('/admin/educatorform', 'AdminController@listEducatorForm');
@@ -116,18 +115,36 @@ Route::get('/admin/download/educatorreport', 'AdminController@downloadEducatorRe
 Route::get('/reports/donation', 'ReportsController@DonationReporting');
 Route::get('/reports/download/donation', 'ReportsController@downloadDonations');
 
+
+
 Route::resource('schools', 'SchoolController');
+Route::resource('programs', 'ProgramController');
+Route::resource('events', 'EventController');
 
-Route::resource('events', 'CampaignController');
 
-   Route::delete('/comments/{comment}', 'CommentsController@destroy');
-   // Route::resource('comments', 'CommentsController');
+Route::resource('static', 'StaticContentController');
+
+
    Route::get('comments/{student}/addforstudent', ['as' => 'comments.addforstudent',
        'uses' => 'CommentsController@addforstudent']);
    Route::get('comments/{planofstudy}/addforplanofstudy', ['as' => 'comments.addforplanofstudy',
        'uses' => 'CommentsController@addforplanofstudy']);
 
 
-   Route::resource('comments', 'CommentsController');
+   //Route::resource('comments', 'CommentsController');
+Route::get('/admin/comments/index', 'CommentsController@index');
+Route::delete('/admin/comments/{id}/del', 'CommentsController@destroy');
+Route::get('/admin/comments/{id}/apt', 'CommentsController@accept');
+Route::get('/admin/comments/{id}/rjt', 'CommentsController@reject');
 
+Route::get('/hints/view', 'HintsController@view');
+Route::post('/hints/view', 'HintsController@store');
+Route::get('/faq/view', 'Maven\MavenController@view');
+
+
+\Sukohi\Maven\Maven::route('en');
 //});
+
+
+Route::get('/dashboard', 'DashboardController@index');
+Route::get('/visitors', 'DashboardController@visitors');

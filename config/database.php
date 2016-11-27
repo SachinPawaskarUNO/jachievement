@@ -56,15 +56,16 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'port'      => env('DB_PORT', '3306'),
+            'port'      => env('DB_PORT', '8889'),
             'database'  => env('DB_DATABASE', 'jachievement'),
             'username'  => env('DB_USERNAME', 'root'),
-            'password'  => env('DB_PASSWORD', ''),
+            'password'  => env('DB_PASSWORD', 'root'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => false,
             'engine'    => null,
+            'unix_socket'   => '/Applications/MAMP/tmp/mysql/mysql.sock'
         ],
 
         // Local Development setup
@@ -83,15 +84,16 @@ return [
         'tracker' => [
             'driver'    => env('DB_DRIVER', 'mysql'),
             'host'      => env('DB_HOST', 'localhost'),
-            'port'      => env('DB_PORT', '3306'),
+            'port'      => env('DB_PORT', '8889'),
             'database'  => env('DB_DATABASE', 'jachievement'),
             'username'  => env('DB_USERNAME', 'root'),
-            'password'  => env('DB_PASSWORD', ''),
+            'password'  => env('DB_PASSWORD', 'root'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => false,
             'engine'    => null,
+            'unix_socket'   => '/Applications/MAMP/tmp/mysql/mysql.sock'
         ],
 
         'sqlsrv' => [

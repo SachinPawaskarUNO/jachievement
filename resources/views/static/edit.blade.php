@@ -7,18 +7,19 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div class="pull-right">
-                            <form action="{{ url('events/'.$campaign->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
+                            <form action="{{ url('content/'.$content->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
                                 <button type="submit" id="delete" class="btn btn-default">Delete</button>
                             </form>
                         </div>
-                        <div style="font-size:1.2em;color:white;"> <b>{{ $heading }}</b></div>
+                        <div style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></div>
                     </div>
 
                     <div class="panel-body">
-                        {!! Form::model($campaign, ['class' => 'form-horizontal', 'method' => 'POST', 'action' => ['CampaignController@update', $campaign->id]]) !!}
+                        {!! Form::model($content, ['class' => 'form-horizontal', 'method' => 'PATCH', 'action' => ['StaticContentController@update', $content->id]]) !!}
                         @include('common.errors')
                         @include('common.flash')
-                        @include ('event.partial', ['CRUD_Action' => 'Update'])
+
+                        @include ('static.partial', ['CRUD_Action' => 'Update'])
                         {!! Form::close() !!}
                     </div>
                 </div>

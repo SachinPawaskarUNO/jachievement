@@ -72,7 +72,7 @@ class InterestformsController extends Controller
             $volunteerProgram->volunteerform_id = $lastInsertedForm->id;
             $choice = "program_choice_" .$program1->program_id;
             $volunteerProgram->program_id = $request->$choice * 1;
-            if(($volunteerProgram->program_id)!=0) {
+            if(($volunteerProgram->program_id)! =0) {
 
                 $volunteerProgram->save();
             }
@@ -111,9 +111,21 @@ class InterestformsController extends Controller
             }
         }
 
+      /*  $data = array(
+            'name' => $request->first_name,
+            'email' => $request->email
+        );
+
+        Mail::send('educators.emails',$data, function($message)use($request)
+        {
+            $message->from('juniorachievement.midlands@gmail.com');
+            $message->bcc($request->email, $request->name);
+            $message->to('juniorachievement.midlands@gmail.com', 'Admin')->subject('Information from Educator Interest form');
+        });*/
+
         Session::flash('flash_message', 'Thank you for registering as a Volunteer! We will contact you soon');
        // Log::info('InterestformsController.store - End: '.$object->id);
-        return redirect()->back();
+        return view('volunteers.thankyou');
 
     }
 

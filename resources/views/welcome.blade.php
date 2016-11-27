@@ -6,11 +6,22 @@
     <br>
     <br>
     <br>
+<<<<<<< HEAD
     <div class="text-center">
       <a href="{{url('/get_Involved/getinvolved')}}" id="A_1">Get Involved</a>
     </div>
   </div>
 
+=======
+    <div>
+        <div class="col-lg-2 box"></div>
+            <div class="col-lg-8 box">
+              <img  alt='' id="IMG_1" height="auto" width="auto\9"  max-width="500px"  src="images/rochester2016.jpg">
+            </div>
+        <div class="col-lg-2 box"></div>
+  </div>
+    </div>
+>>>>>>> e31fd0e232cf6e2abba3451cccf0dbcba8072f3b
   <br>
   <br>
     <div class="container">
