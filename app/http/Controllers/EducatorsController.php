@@ -12,6 +12,7 @@ use App\EducatorInterestForm;
 use App\State;
 use Session;
 use Auth;
+use Mail;
 
 class EducatorsController extends Controller
 {
@@ -52,6 +53,18 @@ class EducatorsController extends Controller
 
         Session::flash('flash_message', 'Thank you for registering as  an Educator! We will contact you soon');
         Log::info('EducatorController.store - End: ' . $object->id);
+
+        $receipt= $request->email;
+        $data = array(
+            'first_name' => $request->first_name,
+        );
+        Mail::send('educators.email',$data, function($message)use($receipt,$request)
+        {
+            $message->from('juniorachievement.midlands@gmail.com');
+            //$message->bcc($request->email, $request->first_name);
+            $message->to($receipt, 'Junior Achievement of Midlands, Inc')->subject('Educator request form submitted successfully');
+        });
+
         return view('educators.thankyou');
     }
 
