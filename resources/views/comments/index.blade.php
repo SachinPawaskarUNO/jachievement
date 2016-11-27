@@ -14,14 +14,15 @@
                     @include('common.flash')
                     @if (count($comments_data) > 0)
                     <table class="table table-striped cds-datatable">
-                        <thead><th>User Name</th><th>Role</th><th>Comment</th><th>Comment Date</th><th>Program Name</th><th>Status</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
+                        <thead><th>Comment Date</th><th>User Name</th><th>Role</th><th>Comment</th><th>Program Name</th><th>Status</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
                         <tbody> <!-- Table Body -->
                         @foreach ($comments_data as $comment)
                             <tr>
-                                <td class="table-text"><div>{{ $comment->first_name }} {{ $comment->last_name }}</div></td>
+                                <td class="table-text"><div>{{ date('F d, Y', strtotime($comment->created_at)) }}</div></td>
+                                <td class="table-text"><div>{{ $comment->first_name }}  {{ $comment->last_name }}</div></td>
                                 <td class="table-text"><div>{{ $comment->role_name}}</div></td>
                                 <td class="table-text"><div>{{ $comment->text }}</div></td>
-                                <td class="table-text"><div>{{ date('F d, Y', strtotime($comment->created_at)) }}</div></td>
+                                
                                 <td class="table-text"><div>{{ $comment->program_name}}</div></td>
 
                                 <td class="table-text">
@@ -72,4 +73,5 @@
         }
     }
 </script>
+
 @endsection
