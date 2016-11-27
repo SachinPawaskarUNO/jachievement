@@ -12,6 +12,8 @@ use Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 
+use Mail;
+
 
 class AuthController extends Controller
 {
@@ -71,12 +73,27 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $receipt = $data['email'];
+
+        $request = array (
+            'first_name' => $data['first_name'],
+        );
+
+        Mail::send('/auth/registeremail',$data, function($message)use($receipt)
+        {
+            $message->from('juniorachievement.midlands@gmail.com');
+            //$message->bcc($request->email, $request->first_name);
+            $message->to($receipt, 'Junior Achievement of Midlands, Inc')->subject('Registered Successfully!');
+        });
+
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+
     }
 
 

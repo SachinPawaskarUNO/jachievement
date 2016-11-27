@@ -119,8 +119,9 @@
                                         <button id="ja_register_submit" type="submit" class="btn btn-success">
                                     Register
                                 </button>
+                                </div>
                             </div>
-                        </div>
+                         </div>
                     </form>
                 </div>
             </div>
