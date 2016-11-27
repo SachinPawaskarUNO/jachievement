@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
+<nav  style="position:fixed;top:0;left:0;right:0;height:90px;" class="navbar navbar-default navbar-static-top">
+    <div  class="container">
         <div class="navbar-header">
 
             <!-- Collapsed Hamburger -->
@@ -12,6 +12,7 @@
 
             <!-- Branding Image -->
             <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('images/ja_nav_logo.png') }}" style="height: 80px;"></a></div>   
+
 
         </div>
 
@@ -107,3 +108,6 @@
         </div>
     </div>
 </nav>
+
+
+

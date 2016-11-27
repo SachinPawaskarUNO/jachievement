@@ -53,7 +53,7 @@
                     @if($maven_item->faq->tags->count() > 0)
                         <div>
                             @foreach($maven_item->faq->tags as $maven_tag)
-                                <a href="?tag={{ urlencode($maven_tag->tag) }}" class="btn btn-xs btn-default">{{ strtoupper($maven_tag->tag) }}</a>
+                                <a href="?tag={{ urlencode($maven_tag->tag) }}" class="btn btn-xs btn-default">{{ $maven_tag->tag }}</a>
                             @endforeach
                         </div>
                     @endif
@@ -61,7 +61,7 @@
                 </td>
                 <td class="text-right">
                     <a href="{{ route('maven.edit', $maven_item->id) }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
-                    <button class="btn btn-danger btn-sm remove-button" data-id="{{ $maven_item->id }}"><i class="glyphicon glyphicon-remove"></i></button>
+                    <button class="btn btn-default btn-sm remove-button" data-id="{{ $maven_item->id }}"><i class="glyphicon glyphicon-remove"></i></button>
                 </td>
             </tr>
         @endforeach

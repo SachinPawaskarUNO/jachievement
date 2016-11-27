@@ -54,8 +54,7 @@ class CommentsController extends Controller
             ->join('role_user','role_user.user_id','=','users.id')
             ->join('roles','roles.id','=','role_user.role_id')
             ->groupBy('comments.id', 'comments.text', 'comments.active','comments.created_at', 'users.first_name','users.last_name','program_name')
-            // ->orderBy('comments.created_at', 'desc')
-            ->orderBy('comments.id', 'desc')
+            ->orderBy('comments.created_at', 'desc')
             ->get();
 
         return view('comments.index', compact('comments_data'));

@@ -25,7 +25,6 @@ class CreateMavenTagsTable extends Migration
                 ->onDelete('cascade');
             $table->string('tag');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

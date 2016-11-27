@@ -2,22 +2,14 @@
 @section('content')
 <div class="container-fluid">
   <div class="container">
-    <br>
+
+
     <div class="text-center">
       <a href="{{url('/get_Involved/getinvolved')}}" id="A_1">Get Involved</a>
     </div>
   </div>
-  <div class="container">
-    <br>
-    <br>
-    <div>
-        <div class="col-lg-2 box"></div>
-            <div class="col-lg-8 box">
-              <img  alt='' id="IMG_1" height="auto" width="auto\9"  max-width="500px"  src="images/rochester2016.jpg">
-            </div>
-        <div class="col-lg-2 box"></div>
-  </div>
-    </div>
+
+
   <br>
   <br>
   <div class="container">
@@ -30,13 +22,56 @@
                     experiential learning to inspire students to dream big and
                     reach their potential.</p>
       </div> 
+    <div class="container">
+        <br>
+        <br>
+  <div class="row" >
+
+      <div class="col-md-8" >
+          <img alt='' id="IMG_1" src="images/rochester2016.jpg">
+      </div>
+
+
+        <div class="col-md-4">
+            <div class="col-sm-12" style="background-color:rgb(255,255,255)">
+                <div class="program">
+                    <br>
+                    <br>
+
+                    <div class="hidden-sm clear"> &nbsp;
+                    </div>
+                    <br>
+                    <p class="program-description"><strong id="STRONG_2">Junior Achievement's volunteer-delivered, kindergarten-12th
+                        grade programs foster work-readiness,
+                            entrepreneurshipand financial literacy skills, and use
+                        experiential learning to inspire students to dream big and
+                        reach their potential.</strong>  </p>
+
+                    <br>
+
+                    <div class="hidden-sm clear"> &nbsp;
+                    </div>
+                    <div class="hidden-sm clear"> &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
   </div>
+   </div>
+<br>
+    <br>
+    <br>
+    <br>
+
+
   <div class="container">
   <br>
   <br>
     <div class="row" id="WHY_1">
-      <div class="col-md-6" id="WHY_2">
+      <div class="col-md-5" id="WHY_2">
         <h2 id="H2_6">Why Junior Achievement?</h2>
         <p id="P_7">Junior Achievement helps students realize that the
                         education they are getting today will help them to have
@@ -54,7 +89,7 @@
           <li id="LI_12">91% of millennials wish they had greater access to entrepreneurial education programs.</li>
         </ul>
       </div>
-      <div class="col-md-6" id="WHY_3">
+      <div class="col-md-7" id="WHY_3">
         <img alt='' id="IMG_1" src="images/two-cols-classroom_sm.jpg">
       </div>
       </div>

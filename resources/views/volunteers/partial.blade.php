@@ -66,7 +66,7 @@
 
 <div class="form-group">
     <div class="col-md-12">
-        <p><i>Each classroom is visited once-a-week with the teacher and the volunteer deciding a mutually convinient day and time.
+        <p><i>Each classroom is visited once-a-week with the teacher and the volunteer deciding a mutually convenient day and time.
                 The Junior Achievement staff will work with you in matching you to a school and grade level of your choice.</i></p>
     </div>
 </div>
