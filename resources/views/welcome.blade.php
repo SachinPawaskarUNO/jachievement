@@ -29,7 +29,7 @@
                     "STRONG_3">financial literacy skills,</strong> and use
                     experiential learning to inspire students to dream big and
                     reach their potential.</p>
-      </div>
+      </div> 
     </div>
   </div>
   <div class="container">
