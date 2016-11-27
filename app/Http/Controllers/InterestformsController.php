@@ -13,7 +13,7 @@ use App\State;
 use Session;
 use Auth;
 use DB;
-
+use Mail;
 class InterestformsController extends Controller
 {
     public function interestform()
@@ -72,7 +72,7 @@ class InterestformsController extends Controller
             $volunteerProgram->volunteerform_id = $lastInsertedForm->id;
             $choice = "program_choice_" .$program1->program_id;
             $volunteerProgram->program_id = $request->$choice * 1;
-            if(($volunteerProgram->program_id)! =0) {
+            if(($volunteerProgram->program_id)!=0) {
 
                 $volunteerProgram->save();
             }
@@ -122,6 +122,17 @@ class InterestformsController extends Controller
             $message->bcc($request->email, $request->name);
             $message->to('juniorachievement.midlands@gmail.com', 'Admin')->subject('Information from Educator Interest form');
         });*/
+
+        $receipt= $request->email;
+        $data = array(
+            'first_name' => $request->first_name,
+        );
+        Mail::send('volunteers.email',$data, function($message)use($receipt,$request)
+        {
+            $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands, Inc');
+            //$message->bcc($request->email, $request->first_name);
+            $message->to($receipt)->subject('Volunteer request form submitted successfully');
+        });
 
         Session::flash('flash_message', 'Thank you for registering as a Volunteer! We will contact you soon');
        // Log::info('InterestformsController.store - End: '.$object->id);

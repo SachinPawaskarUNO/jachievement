@@ -52,7 +52,7 @@
 							<div class="col-md-4" id="div-col-eventDate">
 								<span class="glyphicon glyphicon-time" id="clockIcon"></span>
 								<h4 style=" color:green; margin-top:0px; margin-bottom:0px" id="eventDateHeading">Event Date</h4>
-								<p class="text-justify" style="font-size: 16px; line-height: 1.4em;" id="eventDate">{{$detail->event_date}}</p> 
+								<p class="text-justify" style="font-size: 16px; line-height: 1.4em;" id="eventDate">{{date('F d, Y', strtotime($detail->event_date))}}</p> 
 							</div>
 							<div class="col-md-8" id="div-col-eventVenue">
 								<span class="glyphicon glyphicon-map-marker" id="locationIcon"></span> 
