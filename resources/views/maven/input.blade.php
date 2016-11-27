@@ -46,9 +46,9 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <div class="pull-right text-muted"><span class="bg-danger">&nbsp;{{ $locale }}&nbsp;</span>&nbsp;</div>
-                        {!! Form::label(trans('maven.tags')) !!} <br>
+                        {!! Form::label(trans('Categories')) !!} <br>
                         {!! Form::text('tags['. $locale .']', (isset($faqs[$locale])) ? $faqs[$locale]->tag_string : '', ['class' => 'form-control']) !!}
-                        &nbsp;<small>{{ trans('maven.tag_e_g', [], 'messages', $locale) }}</small>
+                        &nbsp;{{--<small>{{ trans('maven.tag_e_g', [], 'messages', $locale) }}</small>--}}
                     </div>
                     <div class="form-group col-md-6">
                         <div>
