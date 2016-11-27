@@ -47,7 +47,7 @@
                     <div class="form-group col-md-6">
                         <div class="pull-right text-muted"><span class="bg-danger">&nbsp;{{ $locale }}&nbsp;</span>&nbsp;</div>
                         {!! Form::label(trans('Categories')) !!} <br>
-                        {!! Form::text('tags['. $locale .']', (isset($faqs[$locale])) ? $faqs[$locale]->tag_string : '', ['class' => 'form-control']) !!}
+                        {!! Form::text('tags['. $locale .']', (isset($faqs[$locale])) ? $faqs[$locale]->tag_string : '', ['class' => 'form-control',]) !!}
                         &nbsp;{{--<small>{{ trans('maven.tag_e_g', [], 'messages', $locale) }}</small>--}}
                     </div>
                     <div class="form-group col-md-6">
@@ -85,7 +85,7 @@
         @endif--}}
         <div class="text-right" style="margin-top:10px;">
             <a href="{{ route('maven.index') }}" class="btn icon-btn btn-default" type="button" data-dismiss="modal">{{ trans('maven.cancel') }}</a>
-            <button class="btn icon-btn btn-primary" type="submit">{{ trans('maven.save') }}</button>
+            <button class="btn icon-btn btn-success" type="submit">{{ trans('maven.save') }}</button>
         </div>
     {!! Form::close() !!}
 
