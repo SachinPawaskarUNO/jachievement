@@ -23,7 +23,4 @@ class UpdateFaqsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-    }
 }

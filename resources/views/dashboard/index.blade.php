@@ -144,26 +144,26 @@ $(function() {
     Morris.Line({
         element: 'page-visits-area-chart',
         data: [{
-            date: "{{ $pageViewsData[0]['dt'] }}",
-            visits: {{ $pageViewsData[0]['count'] }}
+            date: '2016-11-19',
+            visits: 324
         }, {
-            date: "{{ $pageViewsData[1]['dt'] }}",
-            visits: {{ $pageViewsData[1]['count'] }}
+            date: '2016-11-20',
+            visits: 134
         }, {
-            date: "{{ $pageViewsData[2]['dt'] }}",
-            visits: {{ $pageViewsData[2]['count'] }}
+            date: '2016-11-21',
+            visits: 143
         }, {
-            date: "{{ $pageViewsData[3]['dt'] }}",
-            visits: {{ $pageViewsData[3]['count'] }}
+            date: '2016-11-22',
+            visits: 89
         }, {
-            date: "{{ $pageViewsData[4]['dt'] }}",
-            visits: {{ $pageViewsData[4]['count'] }}
+            date: '2016-11-23',
+            visits: 394
         }, {
-            date: "{{ $pageViewsData[5]['dt'] }}",
-            visits: {{ $pageViewsData[5]['count'] }}
+            date: '2016-11-24',
+            visits: 249
         }, {
-            date: "{{ $pageViewsData[6]['dt'] }}",
-            visits: {{ $pageViewsData[6]['count'] }}
+            date: '2016-11-25',
+            visits: 50
         }],
         xkey: 'date',
         ykeys: ['visits'],
