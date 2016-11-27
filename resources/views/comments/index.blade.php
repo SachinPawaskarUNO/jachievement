@@ -18,7 +18,7 @@
                         <tbody> <!-- Table Body -->
                         @foreach ($comments_data as $comment)
                             <tr>
-                                <td class="table-text"><div>{{ $comment->first_name }}</div></td>
+                                <td class="table-text"><div>{{ $comment->first_name }} {{ $comment->last_name }}</div></td>
                                 <td class="table-text"><div>{{ $comment->role_name}}</div></td>
                                 <td class="table-text"><div>{{ $comment->text }}</div></td>
                                 <td class="table-text"><div>{{ date('F d, Y', strtotime($comment->created_at)) }}</div></td>
