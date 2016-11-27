@@ -1,4 +1,4 @@
-<nav  style="position:fixed;top:0;left:0;right:0;height:90px;" class="navbar navbar-default navbar-static-top">
+<nav  style="position:fixed;top:0;left:0;right:0;height:80px;" class="navbar navbar-default navbar-static-top">
     <div  class="container">
         <div class="navbar-header">
 
@@ -11,7 +11,7 @@
             </button>
 
             <!-- Branding Image -->
-            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('images/ja_nav_logo.png') }}" style="height: 80px;"></a></div>   
+            <div class="pull-left"><a href="{{ url('/') }}" id="ja_nav_home"><img src="{{ url('images/ja_nav_logo.png') }}" style="height: 70px;"></a></div>   
 
 
         </div>
