@@ -31,6 +31,7 @@ class AddColumnsOnCommentsTable extends Migration
     {
         Schema::table('comments', function($table)
         {
+            $table->dropForeign(['program_id']);
             $table->dropColumn('program_id');
             $table->dropColumn('active');
         });

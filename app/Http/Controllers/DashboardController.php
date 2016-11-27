@@ -27,11 +27,37 @@ class DashboardController extends Controller
 
     	$this->educatorFormCount = DB::select("SELECT COUNT(*) as interestforms FROM educator_interest_forms WHERE EXTRACT(WEEK FROM created_at) = EXTRACT(WEEK FROM NOW())");
 
-    	$this->endDate = (new \DateTime())->format('Y-m-d');
+    	$this->endDate = date('Y-m-d');
+    	$this->startDate = date('Y-m-d', time() - 360 * 60 * 24);
 
+    	$this->pageViewsArray = array();
+
+    	for ($i = 6; $i >= 0; $i--) {
+    		$this->date = date('Y-m-d', time() - $i*60 * 60 * 24);
+
+    		$this->pageViews = DB::select("SELECT DATE(created_at) as dt, COUNT(*) as views FROM tracker_log WHERE DATE(created_at) = '".$this->date."' GROUP BY dt");
+
+    		if ($this->pageViews) {
+    			$this->tempArray = array();
+
+    			$this->tempArray['dt'] = $this->date;
+    			$this->tempArray['count'] = $this->pageViews[0]->views;
+
+    			array_push($this->pageViewsArray, $this->tempArray);
+    		} else {
+    			$this->tempArray = array();
+
+    			$this->tempArray['dt'] = $this->date;
+    			$this->tempArray['count'] = 0;
+
+    			array_push($this->pageViewsArray, $this->tempArray);
+    		}
+
+    	}
+    	
     	$this->heading = "Administration Dashboard";
 
-    	$this->viewData = [ 'heading' => $this->heading, 'viewers' => $this->viewers[0]->viewerscount, 'donations' => $this->donations[0]->donatecount, 'hintsCount' => $this->hintsCount[0]->hintscount, 'volunteerFormCount' => $this->volunteerFormCount[0]->interestforms, 'educatorFormCount' => $this->educatorFormCount[0]->interestforms ];
+    	$this->viewData = [ 'heading' => $this->heading, 'viewers' => $this->viewers[0]->viewerscount, 'donations' => $this->donations[0]->donatecount, 'hintsCount' => $this->hintsCount[0]->hintscount, 'volunteerFormCount' => $this->volunteerFormCount[0]->interestforms, 'educatorFormCount' => $this->educatorFormCount[0]->interestforms, 'pageViewsData' => $this->pageViewsArray ];
 
     	return view('dashboard.index', $this->viewData);
     }

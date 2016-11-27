@@ -21,7 +21,7 @@
 <section class="cd-faq">
     <ul class="cd-faq-categories">
         @foreach($maven_tags as $maven_tag)
-        <li><a href="#basics">{{$maven_tag->tag}}</a></li>
+        <li><a href="#basics">{{ strtoupper($maven_tag->tag)}}</a></li>
         @endforeach
     </ul> <!-- cd-faq-categories -->
 

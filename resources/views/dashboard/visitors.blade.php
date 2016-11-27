@@ -18,7 +18,13 @@
                                     <tr>
                                         <td class="table-text"><div>{{ $viewer->id }}</div></td>
                                         <td class="table-text"><div>{{ $viewer->client_ip }}</div></td>
-                                        <td class="table-text"><div>{{ $viewer->user }}</div></td>
+                                        <td class="table-text"><div>
+                                        @if ($viewer->user)
+                                            {{ $viewer->user }}
+                                        @else
+                                            guest
+                                        @endif
+                                            </div></td>
                                         <td class="table-text"><div>{{ $viewer->device_kind }} [{{ $viewer->device_model }}] [{{ $viewer->device_platform }} {{ $viewer->device_platform_model }}]</div></td>
                                         <td class="table-text"><div>{{ $viewer->agent_browser }} ({{ $viewer->agent_browser_version }}) </div></td>
                                         <td class="table-text"><div>{{ $viewer->updated_at }}</div></td>
