@@ -318,7 +318,7 @@ class CampaignController extends Controller
                 // print $receipt;
                 Mail::send('event.solicitationform', $data, function ($message) use ($receipt, $request) {
                     $message->from('juniorachievement.midlands@gmail.com');
-                    $message->bcc($receipt, 'Junior Achievement of Midlands, Inc')->subject('Family and Friends with Junior Achievement');;
+                    $message->bcc($receipt, 'Junior Achievement of Midlands, Inc')->subject('Family and Friends of Junior Achievement');;
                     //$message->to($receipt,'AJ')->subject('Family and Friends with Junior Achievement');
                 });
             }
@@ -351,7 +351,7 @@ class CampaignController extends Controller
                             foreach ($to as $receipt) {
                                 Mail::send('event.solicitationformmember', $data, function ($message) use ($receipt, $request) {
                                     $message->from('juniorachievement.midlands@gmail.com');
-                                    $message->bcc($receipt, 'Junior Achievement of Midlands, Inc')->subject('Family and Friends with Junior Achievement');;
+                                    $message->bcc($receipt, 'Junior Achievement of Midlands, Inc')->subject('Family and Friends of Junior Achievement');;
                                     //$message->to($receipt,'AJ')->subject('Family and Friends with Junior Achievement');
                                 });
                             }
