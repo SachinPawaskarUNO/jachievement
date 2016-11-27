@@ -18,10 +18,11 @@
 				<div class="col-md-9" id="div-eventDesc">
 					<h4 style=" color:green; margin-top:0px; margin-bottom:0px" id="eventName">
 						{{$activeevent->name}}
-					</h4>
+					 </h4>
+
 					<br>
 					<div class="allDesc collapse in" id="eventDesc">
-						<p style="font-size: 16px;"><b>When:</b>&nbsp;{{$activeevent->event_date}}
+						<p style="font-size: 16px;"><b>When:</b>&nbsp;{{date('F d, Y', strtotime($activeevent->event_date))}}
 						<br>
 						<b>Where:</b>&nbsp; {{$activeevent->venue}}</p>
 						<br>
