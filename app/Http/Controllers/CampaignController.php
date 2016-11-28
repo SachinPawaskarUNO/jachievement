@@ -53,7 +53,7 @@ class CampaignController extends Controller
           }
       }
         $teammemberDonation = DB::table('donations')
-            ->select(DB::raw('substring(COALESCE(sum(donations.amount),0),1,strpos(COALESCE(sum(donations.amount),0),".")-1) AS donation_amount'))
+            ->select(DB::raw('COALESCE(sum(donations.amount),0) AS donation_amount'))
             ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
             ->where('team_members.id', '=', $teamMember->id)
             ->first();
@@ -144,9 +144,10 @@ class CampaignController extends Controller
             }
         }
         $teamDonation = DB::table('donations')
-            ->select(DB::raw('substring(COALESCE(sum(donations.amount),0),1,strpos(COALESCE(sum(donations.amount),0),".")-1) AS donation_amount'))
+            ->select(DB::raw('COALESCE(sum(donations.amount),0) AS donation_amount'))
             ->where('donations.team_id', '=', $team->id)
             ->first();
+
         $teamMembers = DB::table('team_members')
             ->select('users.first_name', 'users.last_name', 'team_members.goal', 'team_members.id', 'team_members.token', DB::raw(
                 'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
