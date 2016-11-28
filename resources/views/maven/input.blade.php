@@ -27,7 +27,7 @@
                 <br>
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <div class="pull-right text-muted"><span class="bg-danger">&nbsp;{{ $locale }}&nbsp;</span>&nbsp;</div>
+                        <div class="pull-right text-muted">{{--<span class="bg-danger">&nbsp;{{ $locale }}&nbsp;</span>--}}&nbsp;</div>
                         {!! Form::label(trans('maven.question')) !!}<br>
                         {!! Form::textarea('questions['. $locale .']', (isset($faqs[$locale])) ? $faqs[$locale]->raw_question : '', ['class' => 'form-control', 'rows' => 7]) !!}
                         @if($errors->has('questions.'. $locale))
@@ -35,7 +35,7 @@
                         @endif
                     </div>
                     <div class="form-group col-md-6">
-                        <div class="pull-right text-muted"><span class="bg-danger">&nbsp;{{ $locale }}&nbsp;</span>&nbsp;</div>
+                        <div class="pull-right text-muted">{{--<span class="bg-danger">&nbsp;{{ $locale }}&nbsp;</span>--}}&nbsp;</div>
                         {!! Form::label(trans('maven.answer')) !!}<br>
                         {!! Form::textarea('answers['. $locale .']', (isset($faqs[$locale])) ? $faqs[$locale]->raw_answer : '', ['class' => 'form-control', 'rows' => 7]) !!}
                         @if($errors->has('answers.'. $locale))
@@ -45,7 +45,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <div class="pull-right text-muted"><span class="bg-danger">&nbsp;{{ $locale }}&nbsp;</span>&nbsp;</div>
+                        <div class="pull-right text-muted">{{--<span class="bg-danger">&nbsp;{{ $locale }}&nbsp;</span>&nbsp;--}}</div>
                         {!! Form::label(trans('Categories')) !!} <br>
                         {!! Form::text('tags['. $locale .']', (isset($faqs[$locale])) ? $faqs[$locale]->tag_string : '', ['class' => 'form-control']) !!}
                         &nbsp;{{--<small>{{ trans('maven.tag_e_g', [], 'messages', $locale) }}</small>--}}
@@ -71,11 +71,11 @@
                         <div class="text-danger">{{ $errors->first('sort') }}</div>
                     @endif
                 </div>
-                <div class="form-group col-md-6">
+       {{--         <div class="form-group col-md-6">
                     <label>
                         {!! Form::checkbox('draft_flag', '1', $maven_item->draft_flag) !!} {{ trans('maven.save_as_draft') }}
                     </label>
-                </div>
+                </div>--}}
             </div>
         </div>
 {{--        @if(!empty($maven_item->unique_key))
@@ -85,7 +85,7 @@
         @endif--}}
         <div class="text-right" style="margin-top:10px;">
             <a href="{{ route('maven.index') }}" class="btn icon-btn btn-default" type="button" data-dismiss="modal">{{ trans('maven.cancel') }}</a>
-            <button class="btn icon-btn btn-primary" type="submit">{{ trans('maven.save') }}</button>
+            <button class="btn icon-btn btn-success" type="submit">{{ trans('maven.save') }}</button>
         </div>
     {!! Form::close() !!}
 
