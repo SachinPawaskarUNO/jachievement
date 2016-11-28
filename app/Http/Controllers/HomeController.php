@@ -14,6 +14,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Auth;
@@ -27,7 +28,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -49,6 +50,30 @@ class HomeController extends Controller
         }
     }
 	
-	
+    public function home()
+    {
+        /*
+        $staticcontents= collect(DB::table('static_contents')
+            ->select(DB::raw('item, content'))
+            ->where('page','=','Home Page')
+            ->get())->keyBy('item');
+*/
+            $staticcontents= DB::table('static_contents')
+            ->select(DB::raw('item, content'))
+            ->where('page','=','Home Page')
+            ->get();
+
+            $contents = array();
+
+            $content_1 = '';
+
+            foreach($staticcontents as $static) {
+                $contents[$static->item] = $static->content;
+                $content_1 = $content_1 . $static->content;
+            }
+
+
+      return view('welcome', compact('contents'));
+    }
 
 }

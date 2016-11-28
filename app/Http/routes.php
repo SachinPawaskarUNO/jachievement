@@ -18,15 +18,6 @@
  * @version    GIT: $Id$
  * @since      File available since Release 1.0.0
  */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('foo', function () {
-    return 'Hello World';
-});
-
 Route::get('php-version', function()
 {
     return phpinfo();
@@ -51,6 +42,8 @@ Route::get('laravel-version', function()
 |
 */
 
+
+Route::get('/', 'HomeController@home');
 //Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::post('change-password', 'Auth\AuthController@updatePassword');
