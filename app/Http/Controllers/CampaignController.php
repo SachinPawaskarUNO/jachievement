@@ -53,7 +53,7 @@ class CampaignController extends Controller
           }
       }
         $teammemberDonation = DB::table('donations')
-            ->select(DB::raw('substring(COALESCE(sum(donations.amount),0),1,INSTR(COALESCE(sum(donations.amount),0),".")-1) AS donation_amount'))
+            ->select(DB::raw('substring(COALESCE(sum(donations.amount),0),1,strpos(COALESCE(sum(donations.amount),0),".")-1) AS donation_amount'))
             ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
             ->where('team_members.id', '=', $teamMember->id)
             ->first();
@@ -144,7 +144,7 @@ class CampaignController extends Controller
             }
         }
         $teamDonation = DB::table('donations')
-            ->select(DB::raw('substring(COALESCE(sum(donations.amount),0),1,INSTR(COALESCE(sum(donations.amount),0),".")-1) AS donation_amount'))
+            ->select(DB::raw('substring(COALESCE(sum(donations.amount),0),1,strpos(COALESCE(sum(donations.amount),0),".")-1) AS donation_amount'))
             ->where('donations.team_id', '=', $team->id)
             ->first();
         $teamMembers = DB::table('team_members')
