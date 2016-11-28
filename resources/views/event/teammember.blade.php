@@ -115,12 +115,11 @@
             <p style="color: #9d9d9d"  align="center">________________</p>
             <br>
             <div class="row">
-                <!-- Program 1 Donor.  -->
 
                 <div class="col-sm-7">
                     <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/ice_person.jpg') }}" height="500px">
                 </div>
-                <!-- Program 2 Volunteer. -->
+
                 <div class="col-sm-5">
                     <div class="col-sm-12" style="background-color:rgb(255,255,255)">
                         <div class="program">
