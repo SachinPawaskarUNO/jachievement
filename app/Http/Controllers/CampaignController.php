@@ -86,7 +86,7 @@ class CampaignController extends Controller
         $teamInfo = DB::table('teams')
             ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
             ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
-            ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName', 'campaigns.default_content as campCont')
+            ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName', 'campaigns.team_member_default_content as campCont')
             ->where('teams.token', '=', $teamToken)
             ->first();
         $data['teamInfo'] = $teamInfo;
@@ -104,7 +104,7 @@ class CampaignController extends Controller
         $data['action'] = 'create';
         $data['heading'] = 'Create an Event Team';
         $campaignInfo = DB::table('campaigns')
-            ->select('campaigns.name as campName', 'campaigns.default_content as campCont')
+            ->select('campaigns.name as campName', 'campaigns.team_default_content as campCont', 'campaigns.team_member_default_content as campPersCont')
             ->where('campaigns.id', '=', $data['campaignId'])
             ->first();
         $data['campaignInfo'] = $campaignInfo;

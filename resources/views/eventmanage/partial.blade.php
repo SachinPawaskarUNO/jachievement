@@ -82,13 +82,25 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('default_content') ? ' has-error' : '' }}">
-    {!! Form::label('default_content', 'Default Content:', ['class' => 'col-md-4 control-label']) !!}
+<div class="form-group{{ $errors->has('team_default_content') ? ' has-error' : '' }}">
+    {!! Form::label('team_default_content', 'Create Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('default_content', null, ['class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('default_content'))
+        {!! Form::text('team_default_content', null, ['class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('team_default_content'))
             <span class="help-block">
-                <strong>{{ $errors->first('default_content') }}</strong>
+                <strong>{{ $errors->first('team_default_content') }}</strong>
+            </span>
+        @endif
+    </div>
+</div>
+
+<div class="form-group{{ $errors->has('team_member_default_content') ? ' has-error' : '' }}">
+    {!! Form::label('team_member_default_content', 'Join Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::text('team_member_default_content', null, ['class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('team_member_default_content'))
+            <span class="help-block">
+                <strong>{{ $errors->first('team_member_default_content') }}</strong>
             </span>
         @endif
     </div>
