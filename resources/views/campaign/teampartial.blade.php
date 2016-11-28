@@ -77,7 +77,7 @@
 <div class="form-group" style="display:none" id="div2">
     {!! Form::label('personalPageContent', 'My Page Content:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
-        {!! Form::textarea('personalContent', $campaignInfo->campCont, ['id' => 'personalContent','class' => 'col-md-7 form-control']) !!}
+        {!! Form::textarea('personalContent', $campaignInfo->campPersCont, ['id' => 'personalContent','class' => 'col-md-7 form-control']) !!}
     </div>
 </div>
 <div class="form-group" style="display:none" id="div3">

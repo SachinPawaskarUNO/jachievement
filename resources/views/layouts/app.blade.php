@@ -25,7 +25,7 @@
     @yield('styles')
 
     <style>
-        body { font-family: 'Lato'; }
+        body { font-family: 'Lato'; padding-top: 100px; }
         .fa-btn { margin-right: 6px; }
     </style>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>

@@ -11,6 +11,6 @@ class Campaign extends Model
     protected $table = 'campaigns';
 //    protected $dates = ['deleted_at'];
     protected $fillable = [
-							 'name','description','image','email','phone', 'event_date','venue', 'default_content', 'created_by', 'updated_by'
+							 'name','description','image','email','phone', 'event_date','venue', 'team_default_content', 'team_member_default_content', 'created_by', 'updated_by'
 						  ];
 }

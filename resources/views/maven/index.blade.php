@@ -1,14 +1,19 @@
 @extends('maven.layout')
     @include('common.nav')
 @section('content')
+    <br>
+    <br>
+    <br>
+    <br>
     @include('maven.header')
-    <h1>{{ $page_title }}</h1>
+    {{--<h1>{{ $page_title }}</h1>--}}
     @if($maven_items->count() > 0)
         <table class="table">
             <thead>
                 <tr>
                     <th>#</th>
                     <th><nobr>@lang('maven.question_and_answer')</nobr></th>
+                    <th>Date of Creation</th>
                     <th class="text-right">
                         <div class="dropdown">
                             <button class="btn btn-info btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -42,7 +47,7 @@
                 <td><label>{{ $maven_item->sort_id }}</label></td>
                 <td style="line-height: 1.8em;">
                 @if(!is_null($maven_item->faq))
-                    <span class="label label-danger">Q</span> <span style="text-decoration: underline;background:#eee;">{{ str_limit($maven_item->faq->raw_question, 100) }}</span><br>
+                    <span class="label label-success">Q</span> <span style="text-decoration: underline;background:#eee;">{{ str_limit($maven_item->faq->raw_question, 100) }}</span><br>
                     <span class="label label-default">A</span> {{ str_limit($maven_item->faq->raw_answer, 140) }}
                     <div class="clearfix"></div>
                     <div class="pull-right">
@@ -59,9 +64,10 @@
                     @endif
                 @endif
                 </td>
+                <td>{{date_format($maven_item->faq->created_at,"Y/m/d")}}</td>
                 <td class="text-right">
                     <a href="{{ route('maven.edit', $maven_item->id) }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
-                    <button class="btn btn-default btn-sm remove-button" data-id="{{ $maven_item->id }}"><i class="glyphicon glyphicon-remove"></i></button>
+                    <button class="btn btn-danger btn-sm remove-button" data-id="{{ $maven_item->id }}"><i class="glyphicon glyphicon-remove"></i></button>
                 </td>
             </tr>
         @endforeach
