@@ -14,21 +14,23 @@
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped cds-datatable">
                                 <thead>
-                                <th>Description</th><th>Web Page</th><th>Content</th>
+                                <th>Description</th><th>Web Page</th><th>Type</th><th>Content</th><th>Default</th>
                                 </thead>
                                 <tbody>
                                 @foreach ($static as $content)
                                     <tr>
-                                        <td class="table-text"><div><a href="{{ url('/static/'.$content->id.'/edit') }}">{{ $content->item }}</a></div>
+                                        <td class="table-text"><div><a href="{{ url('/staticcontents/'.$content->id.'/edit') }}">{{ $content->item }}</a></div>
                                         <td class="table-text"><div>{{ $content->page }}</div></td>
+                                        <td class="table-text"><div>{{ $content->type}}</div></td>
                                         <td class="table-text"><div>{{ $content->content}}</div></td>
+                                        <td class="table-text"><div>{{ $content->default_content}}</div></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
                         @else
-                            <div class="panel-body"><h4>No Static Conten found</h4></div>
+                            <div class="panel-body"><h4>No Static Content found</h4></div>
                         @endif
                     </div>
                 </div>

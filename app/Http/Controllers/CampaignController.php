@@ -53,7 +53,7 @@ class CampaignController extends Controller
           }
       }
         $teammemberDonation = DB::table('donations')
-            ->select(DB::raw('sum(donations.amount) as donation_amount'))
+            ->select(DB::raw('COALESCE(sum(donations.amount),0) AS donation_amount'))
             ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
             ->where('team_members.id', '=', $teamMember->id)
             ->first();
@@ -66,6 +66,10 @@ class CampaignController extends Controller
             ->groupBy('users.last_name', 'users.first_name', 'team_members.goal', 'team_members.id', 'team_members.token')
             ->orderBy('per_raised')
             ->get();
+
+        $teamMember->goalNoDecimal = substr($teamMember->goal,0,strpos($teamMember->goal,'.'));
+        $teamMember->current=($teammemberDonation->donation_amount/$teamMember->goalNoDecimal)*100;
+
         JavaScript::put([
             'memberRaised' => ($teammemberDonation->donation_amount == null ? 0 : $teammemberDonation->donation_amount),
             'memberGoal' => $teamMember->goal
@@ -140,9 +144,10 @@ class CampaignController extends Controller
             }
         }
         $teamDonation = DB::table('donations')
-            ->select(DB::raw('sum(donations.amount) as donation_amount'))
+            ->select(DB::raw('COALESCE(sum(donations.amount),0) AS donation_amount'))
             ->where('donations.team_id', '=', $team->id)
             ->first();
+
         $teamMembers = DB::table('team_members')
             ->select('users.first_name', 'users.last_name', 'team_members.goal', 'team_members.id', 'team_members.token', DB::raw(
                 'SUM(donations.amount) as amount,(SUM(donations.amount)/team_members.goal) * 100 as per_raised'))
@@ -152,6 +157,10 @@ class CampaignController extends Controller
             ->groupBy('users.last_name', 'users.first_name', 'team_members.goal', 'team_members.id', 'team_members.token')
             ->orderBy('per_raised')
             ->get();
+
+        $team->goalNoDecimal = substr($team->goal,0,strpos($team->goal,'.'));
+        $team->current=($teamDonation->donation_amount/$team->goalNoDecimal)*100;
+
         JavaScript::put([
             'raised' => ($teamDonation->donation_amount == null ? 0 : $teamDonation->donation_amount),
             'totalGoal' => $team->goal

@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div class="pull-right">
-                            <form action="{{ url('content/'.$content->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
+                            <form action="{{ url('staticcontents/'.$content->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
                                 <button type="submit" id="delete" class="btn btn-default">Delete</button>
                             </form>
                         </div>
@@ -19,7 +19,7 @@
                         @include('common.errors')
                         @include('common.flash')
 
-                        @include ('static.partial', ['CRUD_Action' => 'Update'])
+                        @include ('staticcontents.partial', ['CRUD_Action' => 'Update'])
                         {!! Form::close() !!}
                     </div>
                 </div>
