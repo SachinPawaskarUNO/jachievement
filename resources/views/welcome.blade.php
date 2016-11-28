@@ -10,18 +10,10 @@
   </div>
 
 
-  <br>
-  <br>
+
   <div class="container">
     <div class="text-center">
-      <div class="panel panel-default">
-        <p id="P_1">Junior Achievement's volunteer-delivered, kindergarten-12th
-                    grade programs foster <strong id="STRONG_2">work-readiness,
-                    entrepreneurship</strong> and <strong id=
-                    "STRONG_3">financial literacy skills,</strong> and use
-                    experiential learning to inspire students to dream big and
-                    reach their potential.</p>
-      </div> 
+    
     <div class="container">
         <br>
         <br>
