@@ -122,8 +122,7 @@ Route::resource('programs', 'ProgramController');
 Route::resource('events', 'EventController');
 
 
-Route::resource('static', 'StaticContentController');
-
+Route::resource('staticcontents', 'StaticContentController');
 
    Route::get('comments/{student}/addforstudent', ['as' => 'comments.addforstudent',
        'uses' => 'CommentsController@addforstudent']);

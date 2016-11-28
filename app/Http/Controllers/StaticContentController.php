@@ -7,8 +7,8 @@ use Session;
 use Auth;
 use DB;
 
-use App\StaticContent;
-use App\State;
+use App\Staticcontent;
+use App\Http\Requests\StaticcontentRequest;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -22,11 +22,10 @@ class StaticContentController extends Controller
 
         $this->user = Auth::user();
 
-        $this->list_states = State::lists('name', 'id')->prepend('Select a State','')->toArray();
-        $this->static = StaticContent::all();
+        $this->static = Staticcontent::all();
         $this->heading = "Static Content Management";
 
-        $this->viewData = [ 'user' => $this->user, 'states' => $this->list_states, 'heading' => $this->heading, 'static' => $this->static ];
+        $this->viewData = [ 'user' => $this->user, 'heading' => $this->heading, 'static' => $this->static ];
     }
 
     public function index() {
@@ -41,32 +40,38 @@ class StaticContentController extends Controller
         //$static = StaticContent::all();
         $this->viewData['static'] = $static;
 
-        return view('static.index', $this->viewData);
+        return view('staticcontents.index', $this->viewData);
     }
 
 
-    public function edit(StaticContent $contents)
+    public function edit(Staticcontent $staticcontents)
     {
-        $object = $contents;
+        $object = $staticcontents;
         Log::info('StaticContentController.editS: '.$object->id);
         $this->viewData['content'] = $object;
-        $this->viewData['heading'] = "Edit Static Content" . $object->id;
+        $this->viewData['heading'] = "Edit Static Content";
 
-        return view('static.edit', $this->viewData);
+        return view('staticcontents.edit', $this->viewData);
     }
 
-    public function update(StaticContent $contents, StaticContentRequest $request)
+    public function update(Staticcontent $staticcontents, StaticcontentRequest $request)
     {
-        $object = $contents;
+        $object = $staticcontents;
         Log::info('StaticContentController.update - Start: '.$object->id);
         $this->populateUpdateFields($request);
-        $request['active'] = $request['active'] == '' ? false : true;
+        $reset = $request['resetdefault'] == '' ? false : true;
 
-
-        $object->update($request->all());
-        Session::flash('flash_message', 'Static Content successfully updated!');
+        $flashMessage = 'Content successfully updated!';
+        if ($reset) {
+            $flashMessage = 'Content successfully reset to default value';
+            $object->content = $object->default_content;
+            $object->update();
+        } else {
+            $object->update($request->all());
+        }
+        Session::flash('flash_message', $flashMessage);
         Log::info('StaticContentController.update - End: '.$object->id);
-        return redirect('/static');
+        return redirect('/staticcontents');
     }
 
 

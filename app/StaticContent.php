@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class StaticContent extends Model
+class Staticcontent extends Model
 {
 
 
