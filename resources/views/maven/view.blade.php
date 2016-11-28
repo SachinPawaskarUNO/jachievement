@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     <title>Frequent Asked Questions</title>
+    <style>
+        h1 {
+            background-color: #5cb85c;
+        }
+
+    </style>
 </head>
 <body>
 <header>
