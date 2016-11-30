@@ -72,7 +72,7 @@ class CommentsController extends Controller
     public function reject($id)
     {
         $comment = Comment::findOrfail($id);
-        $comment->active = 0;
+        $comment->active = 2;
         $comment->update();
         //return view('comments.index');
         return redirect()->back();

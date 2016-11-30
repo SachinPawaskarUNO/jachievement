@@ -27,9 +27,11 @@
                                 <td class="table-text">
                                     <div>
                                         @if($comment->active == 0)
-                                           <span style="color:#f0ad4e"><b>Rejected </b></span>
-                                        @else
+                                           <span style="color:#f0ad4e"><b>Pending </b></span>
+                                        @elseif($comment->active == 1)
                                           <span style="color:green"> <b>Accepted </b></span>
+                                        @else
+                                            <span style="color:#f0ad4e"><b>Rejected </b></span>
                                         @endif
                                     </div>
                                 </td>
