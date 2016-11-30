@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="col-xs-9 text-right">
                                             <div class="huge">{{ number_format($hintsCount) }}</div>
-                                            <div>Hits/Tips this Week!</div>
+                                            <div>Hints/Tips this Week!</div>
                                         </div>
                                     </div>
                                 </div>
