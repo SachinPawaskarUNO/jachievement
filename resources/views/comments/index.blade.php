@@ -14,7 +14,7 @@
                     @include('common.flash')
                     @if (count($comments_data) > 0)
                     <table class="table table-striped cds-datatable">
-                        <thead><th>User Name</th><th>Role</th><th>Comment</th><th>Comment Date</th><th>Program Name</th><th>Status</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
+                        <thead><th>User Name</th><th>Role(s)</th><th>Comment</th><th>Comment Date</th><th>Program Name</th><th>Status</th><th class="no-sort">Actions</th></thead><!-- Table Headings -->
                         <tbody> <!-- Table Body -->
                         @foreach ($comments_data as $comment)
                             <tr>
@@ -26,12 +26,12 @@
 
                                 <td class="table-text">
                                     <div>
-                                        @if($comment->active == 0)
-                                           <span style="color:#f0ad4e"><b>Pending </b></span>
-                                        @elseif($comment->active == 1)
+                                        @if($comment->status == 3)
+                                           <span style="color:#f0ad4e"><b>Rejected </b></span>
+                                        @elseif($comment->status == 2)
                                           <span style="color:green"> <b>Accepted </b></span>
                                         @else
-                                            <span style="color:#f0ad4e"><b>Rejected </b></span>
+                                            <span style="color:#f0ad4e"><b>Pending </b></span>
                                         @endif
                                     </div>
                                 </td>
