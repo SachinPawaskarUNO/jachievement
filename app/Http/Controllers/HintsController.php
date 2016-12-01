@@ -52,7 +52,7 @@ class HintsController extends Controller
             ->join('role_user','comments.user_id','=','role_user.user_id')  
             ->join('roles','role_user.role_id','=','roles.id')           
             ->select('comments.*','users.first_name','programs.name')
-            ->where('comments.active','=',1)
+            ->where('comments.status','=',2)
             ->where('roles.name','=',$role_data->name)
             ->orderBy('comments.created_at','DESC')
             ->get();
@@ -75,8 +75,6 @@ class HintsController extends Controller
         // return $request;
 
         $input['user_id'] = $user->id;
-        $input['commentable_id'] = 0;
-        $input['commentable_type'] = 'Test';
         $this->populateUpdateFields($request);
          // Log::info('HintsController.store - Input:'.implode('|',$input));
 
