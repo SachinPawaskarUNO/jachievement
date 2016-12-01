@@ -24,7 +24,7 @@ class CampaignRequest extends Request
     public function rules()
     {
         $rules = [
-            'name' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
+            'name' => 'required|max:100',
             'description' => 'required',
             'image' => 'required',
             'email' => 'required|max:50|email',
