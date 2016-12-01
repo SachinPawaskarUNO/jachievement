@@ -3,6 +3,7 @@
 <head>
     <title>{{ $page_title or 'Maven' }}</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
     @yield('style')
 </head>
 <body>
@@ -18,5 +19,9 @@
 <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 @yield('script')
+    <!-- Footer -->
+    @yield('footer')
+    <br><br>
+    @include('common.footer') 
 </body>
 </html>
