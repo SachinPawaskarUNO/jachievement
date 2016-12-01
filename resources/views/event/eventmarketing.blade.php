@@ -10,7 +10,7 @@
 			@foreach($activeevents as $activeevent)
 			<div class="row" id="div-row">
 				<div class="col-md-3" id="div-eventImage">
-					<img src="{{ $activeevent->image }}" width="100%", height="auto" id="image"/>
+					<img src="{{ $activeevent->image }}" width="280", height="240" id="image"/>
 					<br>
 					<br>
 				</div>
