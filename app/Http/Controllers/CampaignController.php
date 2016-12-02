@@ -233,18 +233,11 @@ class CampaignController extends Controller
 		
 		
 		$activeevents = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.image as image, campaigns.event_date as event_date, campaigns.venue as venue'))
-					->get();
-
-//      $data = DB::table('teams')
-//            ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
-//            ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
-//            ->select('teams.id as id')
-//           //->where('teams.token', '=', $teamToken)
-//            ->get();
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.image as image, campaigns.event_date as event_date, campaigns.venue as venue, campaigns.deleted_at as deleted_at'))
+                    ->whereNull('campaigns.deleted_at')
+                    ->get();
 
       return view('event.eventmarketing',compact('activeevents'));
-	 // return redirect()->action('CampaignController@eventDetail', ['id' => $campaignid]);
   }
 
    public function eventDetail($campaignId)

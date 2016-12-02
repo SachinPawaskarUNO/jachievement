@@ -49,7 +49,7 @@ class SchoolController extends Controller
     public function edit(School $schools)
     {
         $object = $schools;
-        Log::info('SchoolController.editS: '.$object->id.'|'.$object->school_name);
+        Log::info('SchoolController.edit: '.$object->id.'|'.$object->school_name);
         $this->viewData['school'] = $object;
         $this->viewData['heading'] = "Edit School: ".$object->school_name;
 
