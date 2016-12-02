@@ -1,5 +1,6 @@
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     {!! Form::label('name', 'Program Name:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('name', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('name'))
@@ -12,6 +13,7 @@
 
 <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
     {!! Form::label('description', 'Description:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('description', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('description'))
@@ -24,6 +26,7 @@
 
 <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
     {!! Form::label('image', 'Image Link:', ['class' => 'col-md-4 control-label']) !!}
+	
     <div class="col-md-6">
         {!! Form::text('image', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('image'))
@@ -36,6 +39,7 @@
 
 <div class="form-group{{ $errors->has('program_url') ? ' has-error' : '' }}">
     {!! Form::label('program_url', 'Program url:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('program_url', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('program_url'))
@@ -48,6 +52,7 @@
 
 <div class="form-group{{ $errors->has('implementation') ? ' has-error' : '' }}">
     {!! Form::label('implementation', 'Implementation:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('implementation', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('implementation'))
@@ -60,6 +65,7 @@
 
 <div class="form-group{{ $errors->has('grade_id') ? ' has-error' : '' }}">
     {!! Form::label('grade_id', 'Grade Level:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::select('grade_id',[1 => 'Elementary School',2 => 'Middle School',3 => 'High School'], null, ['class' => 'col-md-6 form-control','placeholder'=>'Select one value:']) !!}
         @if ($errors->has('grade_id'))

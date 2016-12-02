@@ -16,8 +16,7 @@
 			
 			@foreach($details as $detail)
             <h2 class="text-center" id="pageHeading" >{{$detail->name}}</h2>
-			
-            <br>
+			<br>
 			<div class="row" id="div-row">
 				<div class="col-md-12 col-md-offset-10"  id="button">
 					@if ($detail->id == 1)
@@ -26,21 +25,26 @@
 				<a href= "{{action('CampaignController@createTeam', [$detail->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-create_team"> Create Team </a>
 			@endif
 				</div>
-				<div class="col-md-4" id="div-eventImage"> 
-					<img src="{{$detail->image}}" width="100%", height="auto" id="image"/>
-					<div class="col-md-12" id="div-contact">
-						<span style=" font-size: 18px; color:green; margin-top:0px; margin-bottom:0px" id="contact">Contact :</span>
-						<span style="font-size: 18px" id="contactName">John Healey</span>
+				<br>
+				<div class="col-md-3" id="div-eventImage">
+					<img src="{{$detail->image}}" width="280" height="240" id="image"/>
+					<div id="div-contact">
+						<span class style=" font-size: 18px; color:green; margin-top:0px; margin-bottom:0px" id="contact">Contact Us:</span>
+
+						<br>
+						<span class="glyphicon glyphicon-earphone" id="phoneIcon"></span>
+						<p class="text-justify" style="font-size: 18px" id="phoneNumber"> {{$detail->phone}}</p>
+						<span class="glyphicon glyphicon-envelope" id="mailIcon"></span>
+						<a href="mailto:" style="font-size: 18px" id="emailAddress"> {{$detail->email}}</a>
+
+						<br>
+						<br>
+
+
 					</div>
-					<br>
-					<span class="glyphicon glyphicon-earphone" id="phoneIcon"></span> 
-					<p class="text-justify" style="font-size: 18px" id="phoneNumber"> {{$detail->phone}}</p> 
-					<span class="glyphicon glyphicon-envelope" id="mailIcon"></span>
-					<a href="mailto:healey@jaomaha.net" style="font-size: 18px" id="emailAddress"> {{$detail->email}}</a>
-					
-					<br>
+
 				</div>
-				<div class="col-md-8" id="eventInfo"> 
+				<div class="col-md-9" id="eventInfo">
 					
 					<div class="allDesc collapse in" id="eventDesc">
 						<h4 style=" color:green; margin-top:0px; margin-bottom:0px" id="descHeading">Description</h4>

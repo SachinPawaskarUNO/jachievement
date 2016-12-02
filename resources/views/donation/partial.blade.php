@@ -22,26 +22,33 @@
                 {!! Form::radio('amount', 5000.00, ['id'=> 'amount1','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$5,000',['class' => 'btn']) !!}
             </div>
-            <div class="form-group">
-                {!! Form::radio('amount', 1250.00, ['id'=> 'amount2','class' => 'col-md-6 form-control']) !!}
-                {!! Form::label('lb_1','$1,250',['class' => 'btn']) !!}
-            </div>
+            
             <div class="form-group">
                 {!! Form::radio('amount', 500.00, ['id'=> 'amount3','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$500',['class' => 'btn']) !!}
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                {!! Form::radio('amount', 26.00, ['id'=> 'amount4','class' => 'col-md-6 form-control']) !!}
-                {!! Form::label('lb_1','$26',['class' => 'btn']) !!}
-            </div>
-            <div class="form-group">
+			<div class="form-group">
                 {!! Form::radio('amount', null, ['id'=> 'amount5','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','Other:',['class' => 'btn']) !!}
                 {!! Form::text('amount_actual', null, ['id'=> 'amount_actual','class' => 'form-control', 'maxLength' => 7]) !!}
             </div>
+			
         </div>
+        <div class="col-md-6">
+			<div class="form-group">
+                {!! Form::radio('amount', 1000.00, ['id'=> 'amount2','class' => 'col-md-6 form-control']) !!}
+                {!! Form::label('lb_1','$1,000',['class' => 'btn']) !!}
+            </div>
+			
+			<div class="form-group">
+                {!! Form::radio('amount', 100.00, ['id'=> 'amount4','class' => 'col-md-6 form-control']) !!}
+                {!! Form::label('lb_1','$100',['class' => 'btn']) !!}
+            </div>
+		            
+        </div>
+			
+			
+		
         @if ($errors->has('amount'))
             <span class="help-block">
                     <strong>{{ $errors->first('amount') }}</strong>

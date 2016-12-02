@@ -29,9 +29,10 @@ class ContactController extends Controller
 		
 		Mail::send('contactus.emails',$data, function($message)use($request)
     {
-        $message->from('juniorachievement.midlands@gmail.com');
-		$message->bcc($request->email, $request->name);
-        $message->to('juniorachievement.midlands@gmail.com', 'Admin')->subject('Information from Contact Us Page');
+        $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands, Inc.');
+		$message->bcc('juniorachievement.midlands@gmail.com', 'Admin');
+		$message->to($request->email, $request->name)->subject('Information from Contact Us Page');
+        
     });
 
 	//return Redirect::route('contactus.contactus')->with('message', 'Thanks for contacting us!');
