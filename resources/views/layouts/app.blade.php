@@ -101,6 +101,6 @@
     <!-- Footer -->
     @yield('footer')
     <br><br>
-    @include('common.footer');
+    @include('common.footer')
 </body>
 </html>

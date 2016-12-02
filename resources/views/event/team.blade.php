@@ -167,8 +167,6 @@
                         <br>
                         @if($data['button_show'] == 'true')
                             <a class="btn btn-sm btn-success" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join Our Team</a>
-                        @else
-                            <a class="btn btn-sm btn-success" disabled="disabled" id="member_join">Join Our Team</a>
                         @endif
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         @if($data['link_show']=='show')
