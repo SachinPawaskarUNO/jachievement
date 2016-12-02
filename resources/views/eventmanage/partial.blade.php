@@ -15,7 +15,7 @@
     {!! Form::label('description', 'Description:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('description', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::textarea('description', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('description'))
             <span class="help-block">
                 <strong>{{ $errors->first('description') }}</strong>
@@ -28,7 +28,7 @@
     {!! Form::label('image', 'Image:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('image', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::textarea('image', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('image'))
             <span class="help-block">
                 <strong>{{ $errors->first('image') }}</strong>
@@ -39,7 +39,7 @@
 
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
     {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
-	
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('email', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('email'))
@@ -52,6 +52,7 @@
 
 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
     {!! Form::label('phone', 'Phone:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('phone', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('phone'))
@@ -79,7 +80,7 @@
     {!! Form::label('venue', 'Venue:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('venue', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::textarea('venue', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('venue'))
             <span class="help-block">
                 <strong>{{ $errors->first('venue') }}</strong>
@@ -90,9 +91,9 @@
 
 <div class="form-group{{ $errors->has('team_default_content') ? ' has-error' : '' }}">
     {!! Form::label('team_default_content', 'Create Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
-	
+	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('team_default_content', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::textarea('team_default_content', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('team_default_content'))
             <span class="help-block">
                 <strong>{{ $errors->first('team_default_content') }}</strong>
@@ -103,9 +104,9 @@
 
 <div class="form-group{{ $errors->has('team_member_default_content') ? ' has-error' : '' }}">
     {!! Form::label('team_member_default_content', 'Join Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
-	
+	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('team_member_default_content', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::textarea('team_member_default_content', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('team_member_default_content'))
             <span class="help-block">
                 <strong>{{ $errors->first('team_member_default_content') }}</strong>
@@ -117,6 +118,6 @@
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
         {!! Form::button('Save', ['type' => 'submit', 'class' => 'btn btn-success']) !!}
-        <a class="btn btn-default" href="/events">Cancel</a>
+        <a class="btn btn-default" href="{{ action('EventController@index') }}">Cancel</a>
     </div>
 </div>
