@@ -1,5 +1,6 @@
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     {!! Form::label('name', 'Event Name:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('name', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('name'))
@@ -12,6 +13,7 @@
 
 <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
     {!! Form::label('description', 'Description:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('description', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('description'))
@@ -24,6 +26,7 @@
 
 <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
     {!! Form::label('image', 'Image:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('image', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('image'))
@@ -36,6 +39,7 @@
 
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
     {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
+	
     <div class="col-md-6">
         {!! Form::text('email', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('email'))
@@ -60,8 +64,9 @@
 
 <div class="form-group{{ $errors->has('event_date') ? ' has-error' : '' }}">
     {!! Form::label('event_date', 'Event Date:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('event_date', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::date('event_date', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('event_date'))
             <span class="help-block">
                 <strong>{{ $errors->first('event_date') }}</strong>
@@ -72,6 +77,7 @@
 
 <div class="form-group{{ $errors->has('venue') ? ' has-error' : '' }}">
     {!! Form::label('venue', 'Venue:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('venue', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('venue'))
@@ -84,6 +90,7 @@
 
 <div class="form-group{{ $errors->has('team_default_content') ? ' has-error' : '' }}">
     {!! Form::label('team_default_content', 'Create Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
+	
     <div class="col-md-6">
         {!! Form::text('team_default_content', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('team_default_content'))
@@ -96,6 +103,7 @@
 
 <div class="form-group{{ $errors->has('team_member_default_content') ? ' has-error' : '' }}">
     {!! Form::label('team_member_default_content', 'Join Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
+	
     <div class="col-md-6">
         {!! Form::text('team_member_default_content', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('team_member_default_content'))
