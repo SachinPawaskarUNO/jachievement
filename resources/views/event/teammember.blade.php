@@ -166,7 +166,7 @@
                         @if($data['button_show'] == 'true')
                             <a class="btn btn-sm btn-success" href="{{ action('CampaignController@joinTeam', [$teamMember->token]) }}" id="member_join">Join Our Team</a>
                         @endif
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         @if($data['link_show']=='show')
                             <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal" href="#myModal1">Invite Friends to Join or Donate </a>
                         @endif
