@@ -26,6 +26,7 @@ class TeamRequest extends Request
         $rules = [
             'organization_id' => 'required',
             'name' => 'required|max:100',
+            'orgName' => 'max:100',
             'title' => 'required|max:100',
             'content' => 'required|max:4000',
             'goal' => 'required|numeric|min:1',

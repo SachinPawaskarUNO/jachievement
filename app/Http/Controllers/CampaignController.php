@@ -9,6 +9,7 @@ use App\TeamMember;
 use App\Team;
 use App\User;
 use App\Campaign;
+use App\Organization;
 use Log;
 use DB;
 use JavaScript;
@@ -201,20 +202,36 @@ class CampaignController extends Controller
     }
     public function createTeamStore(TeamRequest $request)
     {
-        Log::info('CampaignController.createTeamStore - Start: ');
-        $input = $request->all();
-        $user = Auth::user();
-        do {
-            $teamToken = str_random(15);
-            $tokenCheck = DB::table('teams')
-                ->select(DB::raw('count(*) as count'))
-                ->where('teams.token', '=', $teamToken)
-                ->first();
-        } while ($tokenCheck->count > 0);
-        $input['token'] = $teamToken;
+      Log::info('CampaignController.createTeamStore - Start: ');
+      $input = $request->all();
+      $user = Auth::user();
+      
+      do {
+          $teamToken = str_random(15);
+          $tokenCheck = DB::table('teams')
+              ->select(DB::raw('count(*) as count'))
+              ->where('teams.token', '=', $teamToken)
+              ->first();
+      } while ($tokenCheck->count > 0);
+      
+      $input['token'] = $teamToken;
+      
       if ($user) {
           $input['user_id'] = $user->id;
       }
+
+      if ($input['organization_id'] == 'other') {
+        $orgInput['name'] = $input['orgName'];
+        $orgInput['url'] = '';
+
+        $this->populateCreateFields($orgInput);
+        $orgObject = Organization::create($orgInput);
+
+        Log::info('CampaignController.createTeamStore - Creating New Organization: ' . $orgObject->id);
+
+        $input['organization_id'] = $orgObject->id;
+      }
+
       $this->populateCreateFields($input);
       $object = Team::create($input);
       Session::flash('flash_message', 'Your team has been created successfully!');
