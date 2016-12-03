@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CampaignRequest extends Request
+class OrganizationRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,10 @@ class CampaignRequest extends Request
     public function rules()
     {
         $rules = [
-            'name' => 'required|max:100',
-            'description' => 'required',
-            'image' => 'required',
-            'email' => 'max:50|email',
-            'phone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/|max:10',
-            'event_date' => 'required|date',
-            'venue' => 'required'
+            'name' => 'required|max:200',
+            'url' => 'required'
         ];
+
         return $rules;
     }
 }

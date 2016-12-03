@@ -80,42 +80,58 @@ class CampaignController extends Controller
     public function joinTeam($teamToken)
     {
         Log::info('CampaignController.joinTeam: ');
+
         if (Auth::guest()) {
             Session::flash('warn_flash_message', 'Account Required: Before joining a team, please login or register.');
             return redirect()->guest('login');
         }
+
         $data['team_token'] = $teamToken;
+
         $data['action'] = 'join';
-        $data['heading'] = 'Join an Event Team';
+
         $teamInfo = DB::table('teams')
             ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
             ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
             ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'campaigns.name as campName', 'campaigns.team_member_default_content as campCont')
             ->where('teams.token', '=', $teamToken)
             ->first();
+
         $data['teamInfo'] = $teamInfo;
+
+        $data['heading'] = 'Join Team '.$teamInfo->teamName;
+
         return view('campaign.jointeam', $data);
     }
 
     public function createTeam($campaignId)
     {
         Log::info('CampaignController.createTeam: ');
+
         if (Auth::guest()) {
             Session::flash('warn_flash_message', 'Account Required: Before creating a team, please login or register.');
             return redirect()->guest('login');
         }
+
         $data['campaignId'] = $campaignId;
+        
         $data['action'] = 'create';
-        $data['heading'] = 'Create an Event Team';
+        
         $campaignInfo = DB::table('campaigns')
             ->select('campaigns.name as campName', 'campaigns.team_default_content as campCont', 'campaigns.team_member_default_content as campPersCont')
             ->where('campaigns.id', '=', $data['campaignId'])
             ->first();
+        
         $data['campaignInfo'] = $campaignInfo;
+        
         $organizationList = DB::table('organizations')
             ->whereNull('organizations.deleted_at')
             ->lists('name', 'id');
+        
         $data['organizationList'] = $organizationList;
+
+        $data['heading'] = 'Create a Team for '.$campaignInfo->campName;
+        
         return view('campaign.jointeam', $data);
     }
     public function team($id)
@@ -233,18 +249,11 @@ class CampaignController extends Controller
 		
 		
 		$activeevents = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.image as image, campaigns.event_date as event_date, campaigns.venue as venue'))
-					->get();
-
-//      $data = DB::table('teams')
-//            ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
-//            ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
-//            ->select('teams.id as id')
-//           //->where('teams.token', '=', $teamToken)
-//            ->get();
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.image as image, campaigns.event_date as event_date, campaigns.venue as venue, campaigns.deleted_at as deleted_at'))
+                    ->whereNull('campaigns.deleted_at')
+                    ->get();
 
       return view('event.eventmarketing',compact('activeevents'));
-	 // return redirect()->action('CampaignController@eventDetail', ['id' => $campaignid]);
   }
 
    public function eventDetail($campaignId)

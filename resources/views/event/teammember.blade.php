@@ -31,6 +31,16 @@
             line-height:1.5;
         }
 
+        .content-description {
+            font-family: "Calibri Light";
+            font-size: 18px;
+            font-weight: 500;
+            text-align: left;
+            margin-left: 1.5%;
+            margin-right: 1.5%;
+            line-height:1.5;
+        }
+
         .raisedgoal {
             font-family: "Calibri";
             font-size: 42px;
@@ -155,7 +165,7 @@
             <div class="hidden-sm clear"> &nbsp;</div>
             <div class="row">
                 <div class="col-sm-12">
-                    <p class="program-description">{{$teamMember->content}}</p>
+                    <p class="content-description">{!! nl2br($teamMember->content) !!}</p>
                     <br>
                 </div>
             </div>
@@ -187,10 +197,10 @@
                             @include('common.errors')
                             <div class="hidden-sm clear"> &nbsp;</div>
                             <div class="form-group{{ $errors->has('teamname') ? ' has-error' : '' }}">
-                                {!! Form::label('teamname', 'Team Name:', ['class' => 'col-md-4 control-label']) !!}
+                                {!! Form::label('teamname', 'Team Member Title:', ['class' => 'col-md-4 control-label']) !!}
                                 <span style="color:red;">*</span>
                                 <div class="col-md-6">
-                                    {!! Form::text('teamname', $team->title, ['id'=> 'teamname','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
+                                    {!! Form::text('teamname',$teamMember->title, ['id'=> 'teamname','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
                                     @if ($errors->has('teamname'))
                                         <span class="help-block">
                                                 <strong>{{ $errors->first('teamname') }}</strong>

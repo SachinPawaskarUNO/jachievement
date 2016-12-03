@@ -22,9 +22,12 @@
     <p align="center"><img src="http://photo-host.org/images/2016/12/03/dLNtZweb.png" align="middle" style="width:200px;height:60px;"></p>
     <div class="text-center">
         <br>
-        <p class="description" >Hi {{$first_name }},</p>
-        <p class="description"> Your registration request has been processed successfully. </p>
-        <p class="description"> Please visit our website to learn more about Junior Achievement. </p>
+        <p class="description" >Hi Admin,</p>
+        <p class="description"> A new comment has been added by user {{$first_name}}, Please take necessary action. </p>
+        <p class="description"> Below are the post details: </p>
+        <p class="description"> User:  {{$first_name}} {{''}} {{$last_name}} </p>
+        <p class="description"> Comment:  {{$text}} </p>
+        <p class="description"> Created At:  {{$created_at}} </p>
         <br>
         <p class="description">Thank You</p>
         <p class="description"><b>Junior Achievement of Midlands, Inc.</b></p>

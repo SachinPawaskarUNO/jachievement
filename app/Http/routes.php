@@ -108,6 +108,9 @@ Route::get('/reports/download/donation', 'ReportsController@downloadDonations');
 Route::resource('schools', 'SchoolController');
 Route::resource('programs', 'ProgramController');
 Route::resource('events', 'EventController');
+Route::resource('organizations', 'OrganizationController');
+
+
 
 
 Route::resource('staticcontents', 'StaticContentController');

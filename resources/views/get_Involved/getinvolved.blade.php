@@ -80,11 +80,11 @@
                         <br>
                         <h4 class="program-title" align="center"> INDIVIDUAL DONOR</h4>
                         <br>
-                        <p class="program-description"> Not affiliated with a corporation partnered with Junior Achievement? You can make a donation directly to a Junior Achievement in your community!</p>
+                        <p class="program-description"> Not affiliated with a corporation partnered with Junior Achievement? You can make a donation directly to Junior Achievement of Midlands!</p>
                         <br>
                         <br>
                         <div class="closing-buttons" align="center" id="button-donate">
-                            <a class="btn btn-lg btn-primary" href="{{ url('/contributors') }}">Learn More</a>
+                            <a class="btn btn-lg btn-primary" href="{{ url('/donors') }}">Learn More</a>
                         </div>
                         <div class="hidden-sm clear"> &nbsp;
                         </div>
@@ -113,11 +113,11 @@
                             <br>
                             <h4 class="program-title" align="center"> INDIVIDUAL VOLUNTEER</h4>
                             <br>
-                            <p class="program-description"> Not affiliated with a corporation partnered with Junior Achievement? You can volunteer directly with a Junior Achievement in your community!</p>
+                            <p class="program-description"> Not affiliated with a corporation partnered with Junior Achievement? You can volunteer directly with Junior Achievement of Midlands!</p>
                             <br>
                             <br>
                             <div class="closing-buttons" align="center" id="button-volunteer">
-                                <a class="btn btn-lg btn-primary" href="/volunteers/introduction">Learn More</a>
+                                <a class="btn btn-lg btn-primary" href="{{ url('/volunteers/introduction') }}">Learn More</a>
                             </div>
                             <div class="hidden-sm clear"> &nbsp;
                             </div>
@@ -149,7 +149,7 @@
                         <br>
                         <br>
                         <div class="closing-buttons" align="center" id="button-educator">
-                            <a class="btn btn-lg btn-primary" href="/educators/introduction">Learn More</a>
+                            <a class="btn btn-lg btn-primary" href="{{ url('/educators/introduction') }}">Learn More</a>
                         </div>
                         <div class="hidden-sm clear"> &nbsp;</div>
                         <div class="hidden-sm clear"> &nbsp;</div>
