@@ -197,10 +197,10 @@
                             @include('common.errors')
                             <div class="hidden-sm clear"> &nbsp;</div>
                             <div class="form-group{{ $errors->has('teamname') ? ' has-error' : '' }}">
-                                {!! Form::label('teamname', 'Team Name:', ['class' => 'col-md-4 control-label']) !!}
+                                {!! Form::label('teamname', 'Team Member Title:', ['class' => 'col-md-4 control-label']) !!}
                                 <span style="color:red;">*</span>
                                 <div class="col-md-6">
-                                    {!! Form::text('teamname', $team->title, ['id'=> 'teamname','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
+                                    {!! Form::text('teamname',$teamMember->title, ['id'=> 'teamname','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
                                     @if ($errors->has('teamname'))
                                         <span class="help-block">
                                                 <strong>{{ $errors->first('teamname') }}</strong>
