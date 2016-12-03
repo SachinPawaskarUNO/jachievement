@@ -31,6 +31,15 @@
             line-height:1.5;
         }
 
+        .content-description {
+            font-family: "Calibri Light";
+            font-size: 18px;
+            font-weight: 500;
+            text-align: left;
+            margin-left: 1.5%;
+            margin-right: 1.5%;
+            line-height:1.5;
+        }
         .raisedgoal {
             font-family: "Calibri";
             font-size: 42px;
@@ -157,7 +166,7 @@
             <div class="hidden-sm clear"> &nbsp;</div>
             <div class="row">
                 <div class="col-sm-12">
-                    <p class="program-description">{{$team->content}}</p>
+                    <p class="content-description">{!! nl2br($team->content) !!}</p>
                 <br>
                 </div>
             </div>
