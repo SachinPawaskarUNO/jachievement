@@ -51,7 +51,7 @@ class EducatorsController extends Controller
 
         $object = EducatorInterestForm::create($input);
 
-        Session::flash('flash_message', 'Thank you for registering as  an Educator! We will contact you soon');
+        //Session::flash('flash_message', 'Thank you for registering as  an Educator! We will contact you soon');
         Log::info('EducatorController.store - End: ' . $object->id);
 
         $receipt= $request->email;
@@ -78,7 +78,7 @@ class EducatorsController extends Controller
             $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands');
             //$message->bcc($request->email, $request->first_name);
             $message->to($receipt)->subject('Educator request form submitted successfully');
-            $message->cc('juniorachievement.midlands@gmail.com')->subject('Educator request form submitted successfully');
+            $message->cc('juniorachievement.midlands@gmail.com');
         });
 
         return view('educators.thankyou');

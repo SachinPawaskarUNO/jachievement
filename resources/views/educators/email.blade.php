@@ -19,7 +19,7 @@
 <hr>
 <br />
 <div class="text-maincontent" style="background-color: #FFF; margin: auto; padding: 20px; width: 450px; border-top: 2px solid #27ae60;">
-    <p align="center"><img src="http://www.photo-host.org/images/2016/11/01/4eob.jpg" align="middle" style="width:200px;height:60px;"></p>
+    <p align="center"><img src="http://photo-host.org/images/2016/12/03/dLNtZweb.png" align="middle" style="width:200px;height:60px;"></p>
     <div class="text-center">
         <br>
         <p class="description" >Hi {{$first_name }},</p>
