@@ -20,8 +20,6 @@ class InterestformsController extends Controller
     {
 
         Log::info('InterestformsController.form: ');
-       //$this->viewData['heading'] = "Volunteer Interest Form";
-
 
         $grade_program1= DB::table('programs')
                     ->select(DB::raw('programs.id as program_id, programs.name as program_name'))

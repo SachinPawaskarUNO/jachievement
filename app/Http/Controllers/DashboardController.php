@@ -63,9 +63,6 @@ class DashboardController extends Controller
         $this->viewers = DB::select("SELECT tracker_sessions.id, tracker_sessions.uuid, (SELECT email from users where users.id = tracker_sessions.user_id) as user, tracker_sessions.client_ip, tracker_sessions.created_at, tracker_sessions.updated_at, tracker_devices.kind as device_kind, tracker_devices.model as device_model, tracker_devices.platform as device_platform, tracker_devices.platform_version as device_platform_model, tracker_devices.is_mobile as device_is_mobile, tracker_agents.name as agent_name, tracker_agents.browser as agent_browser, tracker_agents.browser_version as agent_browser_version FROM tracker_sessions LEFT JOIN tracker_devices on tracker_devices.id = tracker_sessions.device_id LEFT JOIN tracker_agents on tracker_agents.id = tracker_sessions.agent_id");
 
         $this->heading = "Visitor Details";
-
-        //dd($this->viewers);
-
         $this->viewData = [ 'heading' => $this->heading, 'viewers' => $this->viewers ];
 
         return view('dashboard.visitors', $this->viewData);

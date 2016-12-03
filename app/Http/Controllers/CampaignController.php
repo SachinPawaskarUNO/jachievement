@@ -22,9 +22,7 @@ class CampaignController extends Controller
 {
     public function teammember($id)
     {
-//        dd($id);
         Log::info('CampaignController.teammember: ');
-      //$teamMember = TeamMember::where('token','=',$id)->firstOrFail();
       $teamMember= DB::table('team_members')
           ->select('team_members.id','team_members.team_id','team_members.title','team_members.goal','team_members.content','users.first_name as first_name','team_members.user_id','team_members.token')
           ->join('users', 'users.id', '=', 'team_members.user_id')
@@ -291,26 +289,9 @@ class CampaignController extends Controller
    public function teamView()
   {
       Log::info('CampaignController.teamView: ');
-      
-      // $campaignInfo = DB::table('campaigns')
-      //                 ->select('campaigns.name as campName')
-      //                 ->where('campaigns.id', '=', $data['campaignId'])
-      //                 ->first();
-      // $data['campaignInfo'] = $campaignInfo;
-      // $organizationList = DB::table('organizations')
-      //                     ->whereNull('organizations.deleted_at')
-      //                     ->lists('name', 'id');
-      // $data['organizationList'] = $organizationList;
- // $team = Teams::where('token',$user_id)->firstOrFail();
-       
     $loginUser = Auth::user()->id;  
   
    if ($loginUser) {
-      // $teamInfo= DB::table('teams')
-      //       ->select(DB::raw('teams.name as teamname,teams.goal as teamgoal,teams.created_at as teamdate,teams.title as teamtitle,teams.token as teamtoken'))
-      //       ->where('teams.user_id', '=', $loginUser)
-      //       // ->orderBy('donations.created_at', 'DESC')
-      //       ->get();
             $teamIndividuals= DB::table('teams')
             ->join('team_members','teams.id','=','team_members.team_id')
             ->select(DB::raw('teams.name as teamname,teams.goal as teamgoal, teams.title as teamtitle,teams.token as teamtoken'))
@@ -321,14 +302,7 @@ class CampaignController extends Controller
             ->where('teams.user_id', '=', $loginUser)
             ->get();
       }
-      //   if ($user) {
-      // $teamInfo= DB::table('teams')
-            
-      //       ->select(DB::raw('teams.name as teamname,teams.goal as teamgoal,teams.created_at as teamdate,teams.title as teamtitle'))
-      //       ->where('teams.user_id', '=', $loginUser)
-      //       // ->orderBy('donations.created_at', 'DESC')
-      //       ->get();
-      // }
+
       return view('campaign.teamview',compact('teamInfo','teamIndividuals'));
       
   }
@@ -350,11 +324,10 @@ class CampaignController extends Controller
         );
         $to = explode(',', str_replace(';', ',', str_replace(' ', ',', $request->email)));
             foreach ($to as $receipt) {
-                // print $receipt;
+
                 Mail::send('event.solicitationform', $data, function ($message) use ($receipt, $request) {
                     $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands, Inc');
                     $message->bcc($receipt)->subject('Family and Friends of Junior Achievement');;
-                    //$message->to($receipt,'AJ')->subject('Family and Friends with Junior Achievement');
                 });
             }
             \Session::flash('flash_message', 'Your solicitation request has been sent successfully!');
@@ -387,7 +360,6 @@ class CampaignController extends Controller
                                 Mail::send('event.solicitationformmember', $data, function ($message) use ($receipt, $request) {
                                     $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands, Inc');
                                     $message->bcc($receipt)->subject('Family and Friends of Junior Achievement');;
-                                    //$message->to($receipt,'AJ')->subject('Family and Friends with Junior Achievement');
                                 });
                             }
                     \Session::flash('flash_message', 'Your solicitation request has been sent successfully!');
