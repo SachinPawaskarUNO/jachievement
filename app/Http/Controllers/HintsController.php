@@ -12,6 +12,7 @@ use Auth;
 use App\SkeletalElement;
 use Log;
 use App\Role;
+use Mail;
 
 
 class HintsController extends Controller
@@ -82,8 +83,21 @@ class HintsController extends Controller
 
          // Log::info('HintsController.store - Object: '.$object->id);
 
+        $data=array(
+            'first_name' => Auth::user()->first_name,
+            'text' => $request->text,
+            'last_name' => Auth::user()->last_name,
+            'created_at' => date('Y-m-d H:i:s'),
+        );
 
         Session::flash('flash_message', 'Comment successfully saved and we are reviewing it before being displayed');
+        Mail::send('comments.email',$data, function($message)use($request)
+        {
+            $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands');
+            //$message->bcc($request->email, $request->first_name);
+            $message->to('juniorachievement.midlands@gmail.com')->subject('New comment added');
+        });
+
         return redirect()->back();
     }
 }
