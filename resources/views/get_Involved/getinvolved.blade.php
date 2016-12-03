@@ -6,8 +6,6 @@
            .fa_custom {
             color: #9ACD40;
                    }
-
-
            .fa-4x     {
             font-size: 3.5em;
                    }
@@ -22,7 +20,6 @@
             margin-right: 3%;
             line-height:1.5;
                         }
-
 
            .program-title {
             font-family: Helvetica;
