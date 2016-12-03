@@ -57,12 +57,28 @@ class EducatorsController extends Controller
         $receipt= $request->email;
         $data = array(
             'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'school_name' => $request->school_name,
+            'school_phone' => $request->school_phone,
+            'school_address' => $request->school_address,
+            'school_city' => $request->school_city,
+            'school_state' => $request->school_state,
+            'school_zip' => $request->school_zip,
+            'email' => $request->email,
+            'grade' => $request->grade,
+            'program_theme' => $request->program_theme,
+            'planning_time' => $request->planning_time,
+            'cell_phone' => $request->cell_phone,
+            'comments_requests' => $request->comments_requests,
+            'no_of_classes' => $request->no_of_classes,
+            'no_of_students_per_class' => $request->no_of_students_per_class,
         );
         Mail::send('educators.email',$data, function($message)use($receipt,$request)
         {
-            $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands, Inc');
+            $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands');
             //$message->bcc($request->email, $request->first_name);
             $message->to($receipt)->subject('Educator request form submitted successfully');
+            $message->cc('juniorachievement.midlands@gmail.com')->subject('Educator request form submitted successfully');
         });
 
         return view('educators.thankyou');

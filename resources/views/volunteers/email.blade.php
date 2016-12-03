@@ -24,6 +24,23 @@
         <br>
         <p class="description" >Hi {{$first_name }},</p>
         <p class="description"> Thank you for registering as a Volunteer! We will contact you soon. </p>
+        <p class=""description">Please find below for your submitted information</p>
+        <p>
+            Name: {{ $name }}
+        </p>
+
+        <p>
+            Email: {{ $email }}
+        </p>
+
+        <p>
+            Phone Number: {{ $phone_number }}
+        </p>
+
+        <p>
+            Message: {{ $user_message }}
+        </p>
+
         <p class="description"> Please visit our website to learn more about Junior Achievement. </p>
         <br>
         <p class="description">Thank You</p>
