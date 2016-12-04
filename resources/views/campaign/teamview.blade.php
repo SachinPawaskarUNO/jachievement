@@ -43,7 +43,7 @@
                                 </table>
                             </div>
                         @else
-                            <div class="panel-body"><h4>No Created Team Information found</h4></div>
+                            <div class="panel-body"><h4>No Records found</h4></div>
                         @endif
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                                 </table>
                             </div>
                         @else
-                            <div class="panel-body"><h4>No Joined Team Information found</h4></div>
+                            <div class="panel-body"><h4>No Records found</h4></div>
                         @endif
                     </div>
                 </div>

@@ -9,7 +9,7 @@ return [
 	'sort' => 'Sort',
 	'save' => 'Save',
 	'cancel' => 'Cancel',
-	'add' => 'Add',
+	'add' => 'Add New FAQs',
 	'edit' => 'Edit',
 	'save_as_draft' => 'Save as Draft',
 	'tag_e_g' => 'e.g.) tag1,tag2,tag3',
