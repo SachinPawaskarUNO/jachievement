@@ -24,17 +24,15 @@
         }
 </style>
 
+			<div align="center">
+				<a href= "{{ url('/volunteers/interestform') }}" class="btn btn-success btn-lg">Become a Volunteer</a>
+			</div>
     <div class="container" id="pagecontainer">
         <div class="row" id="navrow">
             <h2 class="text-center">JUNIOR ACHIEVEMENT PROGRAMS</h2>
-			
 			<br>
-            <div align="center">
-				<a href= "{{ url('/volunteers/interestform') }}" class="btn btn-success btn-lg">Become a Volunteer</a>
-			</div>
-			<br>
-
-            <p class="text-left">Junior Achievement's unique delivery system provides the training, materials, and support necessary to bolster the chances for student success. The impact is measurable, too. Students who participate in Junior Achievement programs demonstrate a significant understanding of economics and business concepts. We invite you to take a closer look at our programs!</p>
+           
+			<p class="text-left">Junior Achievement's unique delivery system provides the training, materials, and support necessary to bolster the chances for student success. The impact is measurable, too. Students who participate in Junior Achievement programs demonstrate a significant understanding of economics and business concepts. We invite you to take a closer look at our programs!</p>
             <br>
         </div>
         <div class="responsive">

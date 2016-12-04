@@ -1,10 +1,6 @@
 @extends('layouts.app')
 @section('content')
-        <!DOCTYPE html>
-<html lang="en">
-<meta charset="utf-8">
-<title>Junior achievement Programs</title>
-<div style="background-color:rgb(245,245,245)">
+        
 <style>
     .button {
         background-color: rgba(140,198,62,0.85);
@@ -19,10 +15,11 @@
         cursor: pointer;
     }
 </style>
+
+
 <div align="center"><a href= "{{ url('/aboutus/map') }}" class="btn btn-success btn-lg">Local Schools with Junior Achievement</a></div>
 </div>
-<body>
-
+<br>
 <div class="container-fluid" style="background-color:rgb(245,245,245)">
     <div class="container">
         <div class="row">
@@ -67,8 +64,10 @@
 
 
 <div class="container-fluid" style="background-color: rgb(245,245,245)">
-    <div class="row" style="background-color: green">
+    <div class="row">
+		<div class="col-md-6 col-md-offset-3" style="background-color: green">
         <h2 class="text-center" style="color: white">Junior Achievement Facts</h2>
+		</div>
     </div>
 
     <div class="container">
@@ -130,7 +129,7 @@
     </div>
 </div>
 
-</body>
+
 </html>
 @endsection
 
