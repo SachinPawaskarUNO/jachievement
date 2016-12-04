@@ -16,7 +16,7 @@
 
         </div>
 
-        <div style="padding-top:10px; font-size:14px; background-color: #f3f3f5" class="collapse navbar-collapse" id="app-navbar-collapse" >
+        <div style="padding-top:10px; font-size:14px; background-color: #F8F8F8" class="collapse navbar-collapse" id="app-navbar-collapse" >
                     <!-- Left Side Of Navbar --> 
             <ul class="nav navbar-nav">
                 <li class="dropdown">
