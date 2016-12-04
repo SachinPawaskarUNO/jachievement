@@ -70,6 +70,7 @@
                         <li><a id="ja_nav_schools" href="{{ url('/events') }}">Manage Events</a></li>
                         <li><a id="ja_nav_programs" href="{{ url('/admin/maven') }}">Manage FAQs</a></li>
                         <li><a id="ja_nav_static" href="{{ url('/staticcontents') }}">Manage Static Content</a></li>
+                        <li><a id="ja_nav_programs" href="{{ url('/organizations') }}">Manage Organizations</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/admin/comments/index') }}">Manage Comments</a></li>
 
                         <li role="separator" class="divider"></li>

@@ -64,7 +64,7 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => false,
-            'engine'    => null
+            'engine'    => null,
         ],
 
         // Local Development setup
@@ -78,6 +78,7 @@ return [
             'charset'   => 'utf8',
             'prefix'    => '',
             'schema'    => 'public',
+            'timezone'  => 'America/Chicago',
         ],
 
         'tracker' => [
@@ -91,7 +92,7 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => false,
-            'engine'    => null
+            'engine'    => null,
         ],
 
         'sqlsrv' => [

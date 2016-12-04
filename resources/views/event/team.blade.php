@@ -31,6 +31,15 @@
             line-height:1.5;
         }
 
+        .content-description {
+            font-family: "Calibri Light";
+            font-size: 18px;
+            font-weight: 500;
+            text-align: left;
+            margin-left: 1.5%;
+            margin-right: 1.5%;
+            line-height:1.5;
+        }
         .raisedgoal {
             font-family: "Calibri";
             font-size: 42px;
@@ -157,7 +166,7 @@
             <div class="hidden-sm clear"> &nbsp;</div>
             <div class="row">
                 <div class="col-sm-12">
-                    <p class="program-description">{{$team->content}}</p>
+                    <p class="content-description">{!! nl2br($team->content) !!}</p>
                 <br>
                 </div>
             </div>
@@ -167,8 +176,6 @@
                         <br>
                         @if($data['button_show'] == 'true')
                             <a class="btn btn-sm btn-success" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join Our Team</a>
-                        @else
-                            <a class="btn btn-sm btn-success" disabled="disabled" id="member_join">Join Our Team</a>
                         @endif
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         @if($data['link_show']=='show')
@@ -191,7 +198,7 @@
                             @include('common.errors')
                             <div class="hidden-sm clear"> &nbsp;</div>
                             <div class="form-group{{ $errors->has('teamname') ? ' has-error' : '' }}">
-                                {!! Form::label('teamname', 'Team Name:', ['class' => 'col-md-4 control-label']) !!}
+                                {!! Form::label('teamname', 'Team Title:', ['class' => 'col-md-4 control-label']) !!}
                                 <span style="color:red;">*</span>
                                 <div class="col-md-6">
                                     {!! Form::text('teamname', $team->title, ['id'=> 'teamname','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}

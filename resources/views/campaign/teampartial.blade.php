@@ -15,10 +15,19 @@
     @if ($action == 'join')
     <label class="control-label" style="font-weight: normal !important; text-align:left;">{{ $teamInfo->orgName }}</label>
     @else
-    {!! Form::select('organization_id', $organizationList, null, ['id' => 'organization_id', 'class' => 'col-md-7 form-control', 'required' => 'required', 'placeholder' => 'Select an organization...']) !!}
+    {!! Form::select('organization_id', $organizationList + array('other' => 'Other'), null, ['id' => 'organization_id', 'class' => 'col-md-7 form-control', 'required' => 'required', 'placeholder' => 'Select an organization...', 'onChange' => 'showOrgInput()']) !!}
     @endif
     </div>
 </div>
+@if ($action == 'join')
+@else
+<div class="form-group" style="display:none;" id="orgNameDiv">
+    {!! Form::label('otherOrg', 'Organization Name:', ['class' => 'col-md-3 control-label']) !!}
+    <div class="col-md-7">
+    {!! Form::text('orgName', null, ['id' => 'orgName', 'class' => 'col-md-7 form-control']) !!}
+    </div>
+</div>
+@endif
 <div class="form-group">
     {!! Form::label('team', 'Team Name:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">

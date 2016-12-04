@@ -30,6 +30,7 @@ class AboutUsController extends Controller
         $allprograms= DB::table('programs')
             ->join('grades','programs.grade_id','=','grades.id')
             ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, programs.entrepreneurship as entrepreneurship, programs.financial_readiness as financial_readiness, programs.work_readiness as work_readiness, programs.program_url as program_url'))
+            ->whereNull('programs.deleted_at')
             ->orderBy ('grade_id','ASC')
             ->orderBy ('name','ASC')
             ->get();
@@ -37,6 +38,7 @@ class AboutUsController extends Controller
         $elementaryprograms = DB::table('programs')
             ->join('grades', 'programs.grade_id', '=', 'grades.id')
             ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, programs.entrepreneurship as entrepreneurship, programs.financial_readiness as financial_readiness, programs.work_readiness as work_readiness, programs.program_url as program_url'))
+            ->whereNull('programs.deleted_at')
             ->where('grade_id','=','1')
             ->orderBy ('name','ASC')
             ->get();
@@ -44,6 +46,7 @@ class AboutUsController extends Controller
         $middleprograms = DB::table('programs')
             ->join('grades', 'programs.grade_id', '=', 'grades.id')
             ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, programs.entrepreneurship as entrepreneurship, programs.financial_readiness as financial_readiness, programs.work_readiness as work_readiness, programs.program_url as program_url'))
+            ->whereNull('programs.deleted_at')
             ->where('grade_id','=','2')
             ->orderBy ('name','ASC')
             ->get();
@@ -51,6 +54,7 @@ class AboutUsController extends Controller
         $highprograms = DB::table('programs')
             ->join('grades', 'programs.grade_id', '=', 'grades.id')
             ->select(DB::raw('programs.name as name, programs.description as description, programs.image as image, programs.implementation as implementation, programs.entrepreneurship as entrepreneurship, programs.financial_readiness as financial_readiness, programs.work_readiness as work_readiness, programs.program_url as program_url'))
+            ->whereNull('programs.deleted_at')
             ->where('grade_id','=','3')
             ->orderBy ('name','ASC')
             ->get();

@@ -20,8 +20,6 @@ class InterestformsController extends Controller
     {
 
         Log::info('InterestformsController.form: ');
-       //$this->viewData['heading'] = "Volunteer Interest Form";
-
 
         $grade_program1= DB::table('programs')
                     ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
@@ -126,15 +124,30 @@ class InterestformsController extends Controller
         $receipt= $request->email;
         $data = array(
             'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'school_preference' => $request->school_preference,
+            'company_name' => $request->company_name,
+            'company_address' => $request->company_address,
+            'company_city' => $request->company_city,
+            'company_state_id' => $request->company_state_id,
+            'company_zip' => $request->company_zip,
+            'work_phone' => $request->work_phone,
+            'home_phone' => $request->home_phone,
+            'home_address' => $request->home_address,
+            'home_city' => $request->home_city,
+            'home_state_id' => $request->home_state_id,
+            'home_zip' => $request->home_zip,
+            'email' => $request->email,
+            'mode_of_contact' => $request->mode_of_contact,
         );
         Mail::send('volunteers.email',$data, function($message)use($receipt,$request)
         {
-            $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands, Inc');
-            //$message->bcc($request->email, $request->first_name);
+            $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands');
+            $message->cc('juniorachievement.midlands@gmail.com');
             $message->to($receipt)->subject('Volunteer request form submitted successfully');
         });
 
-        Session::flash('flash_message', 'Thank you for registering as a Volunteer! We will contact you soon');
+        //Session::flash('flash_message', 'Thank you for registering as a Volunteer! We will contact you soon');
        // Log::info('InterestformsController.store - End: '.$object->id);
         return view('volunteers.thankyou');
 

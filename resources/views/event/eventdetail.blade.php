@@ -19,11 +19,13 @@
 			<br>
 			<div class="row" id="div-row">
 				<div class="col-md-12 col-md-offset-10"  id="button">
-					@if ($detail->id == 1)
-				<a href= "{{action('CampaignController@createTeam', [$detail->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-register_now"> Register Now </a>
-			@else
-				<a href= "{{action('CampaignController@createTeam', [$detail->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-create_team"> Create Team </a>
-			@endif
+					@if ($detail->active == 1)
+						@if ($detail->create_team == 0)
+							<a href= "{{action('CampaignController@createTeam', [$detail->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-register_now"> Register Now </a>
+						@else
+							<a href= "{{action('CampaignController@createTeam', [$detail->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-create_team"> Create Team </a>
+						@endif
+					@endif
 				</div>
 				<br>
 				<div class="col-md-3" id="div-eventImage">
