@@ -7,31 +7,33 @@
 			<br>
 			<h4 class="text-justify" id="pageDescription"><i>Junior Achievement hosts several signature events throughout the year to raise money to support our programs, as well as raise awareness about our mission.</i></h4>
 			<br>
-			@foreach($activeevents as $activeevent)
+			@foreach($events as $event)
 			<div class="row" id="div-row">
 				<div class="col-md-3" id="div-eventImage">
-					<img src="{{ $activeevent->image }}" width="280", height="240" id="image"/>
+					<img src="{{ $event->image }}" width="280", height="240" id="image"/>
 					<br>
 					<br>
 				</div>
 
 				<div class="col-md-9" id="div-eventDesc">
 					<h4 style=" color:green; margin-top:0px; margin-bottom:0px" id="eventName">
-						{{$activeevent->name}}
+						{{$event->name}}
 					 </h4>
 
 					<br>
 					<div class="allDesc collapse in" id="eventDesc">
-						<p style="font-size: 16px;"><b>When:</b>&nbsp;{{date('F d, Y', strtotime($activeevent->event_date))}}
+						<p style="font-size: 16px;"><b>When:</b>&nbsp;{{date('F d, Y', strtotime($event->event_date))}}
 						<br>
-						<b>Where:</b>&nbsp; {{$activeevent->venue}}</p>
+						<b>Where:</b>&nbsp; {{$event->venue}}</p>
 						<br>
 					
-						<a href= "{{ action('CampaignController@eventDetail', [$activeevent->id])}}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-learn_more"> Learn More </a>
-						@if ($activeevent->id == 1)
-							<a href= "{{action('CampaignController@createTeam', [$activeevent->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-register_now"> Register Now </a>
+						<a href= "{{ action('CampaignController@eventDetail', [$event->id])}}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-learn_more"> Learn More </a>
+						@if ($event->active == 1)
+						@if ($event->create_team == 0)
+							<a href= "{{action('CampaignController@createTeam', [$event->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-register_now"> Register Now </a>
 						@else
-							<a href= "{{action('CampaignController@createTeam', [$activeevent->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-create_team"> Create Team </a>
+							<a href= "{{action('CampaignController@createTeam', [$event->id])  }}" class="btn btn-success btn-lg" style="font-size: 14px" id="button-create_team"> Create Team </a>
+						@endif
 						@endif
 					</div>
 				</div>

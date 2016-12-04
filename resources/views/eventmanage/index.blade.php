@@ -19,7 +19,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead> <!-- Table Headings -->
-                                    <th>Event Name</th><th>Event Description</th><th>Event Date</th><th>Event Venue</th>
+                                    <th>Event Name</th><th>Event Description</th><th>Event Date</th><th>Event Venue</th><th>Status</th><th>Event Type</th
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($events as $event)
@@ -28,6 +28,8 @@
                                             <td class="table-text"><div>{{ $event->description }}</div></td>
                                             <td class="table-text"><div>{{$event->event_date}}</div></td>
                                             <td class="table-text"><div>{{ $event->venue }}</div></td>
+                                            @if ($event->active)<td class="table-text"><div>Active</div></td>@else<td class="table-text"><div>Inactive</div></td>@endif
+                                            @if ($event->create_team)<td class="table-text"><div>Other Event</div></td>@else<td class="table-text"><div>Golf Event</div></td>@endif
                                         </tr>
                                     @endforeach
                                     </tbody>

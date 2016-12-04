@@ -263,12 +263,12 @@ class CampaignController extends Controller
 		Log::info('CampaignController.eventMarketing: ');
 		
 		
-		$activeevents = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.image as image, campaigns.event_date as event_date, campaigns.venue as venue, campaigns.deleted_at as deleted_at'))
+		$events = DB::table('campaigns')
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.image as image, campaigns.event_date as event_date, campaigns.venue as venue, campaigns.deleted_at as deleted_at, campaigns.active as active, campaigns.create_team as create_team'))
                     ->whereNull('campaigns.deleted_at')
                     ->get();
 
-      return view('event.eventmarketing',compact('activeevents'));
+      return view('event.eventmarketing',compact('events'));
   }
 
    public function eventDetail($campaignId)
@@ -277,7 +277,7 @@ class CampaignController extends Controller
 		$data['campaignId'] = $campaignId;
 		
 		$details = DB::table('campaigns')
-					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue'))
+					->select(DB::raw('campaigns.id as id, campaigns.name as name, campaigns.description as description, campaigns.image as image, campaigns.email as email, campaigns.phone as phone, campaigns.event_date as event_date, campaigns.venue as venue, campaigns.active as active, campaigns.create_team as create_team'))
 					->where('campaigns.id', '=', $data['campaignId'])
 					->get();
 		

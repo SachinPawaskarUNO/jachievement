@@ -63,6 +63,8 @@ class EventController extends Controller
         $object = $events;
         Log::info('EventController.update - Start: '.$object->id.'|'.$object->name);
         $this->populateUpdateFields($request);
+        $request['active'] = $request['active'] == '' ? false : true;
+        $request['create_team'] = $request['create_team'] == '' ? false : true;
         $object->update($request->all());
         Session::flash('flash_message', 'Event successfully updated!');
         Log::info('EventController.update - End: '.$object->id.'|'.$object->name);
@@ -76,6 +78,8 @@ class EventController extends Controller
         Log::info('EventController.store - Start: ');
         $input = $request->all();
         $this->populateCreateFields($input);
+        $input['active'] = $request['active'] == '' ? false : true;
+        $input['create_team'] = $request['create_team'] == '' ? false : true;
         $object = Campaign::create($input);
         Session::flash('flash_message', 'Event successfully added!');
         Log::info('EventController.store - End: '.$object->id.'|'.$object->name);
