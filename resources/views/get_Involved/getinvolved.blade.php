@@ -65,7 +65,7 @@
                         <br>
                         <br>
                         <p align="center">
-                            <img src="../images/ja-triangle.jpeg" width="100", height="106"/> 
+                            <img src="../images/ja-triangle.jpeg" width="100" height="106"> 
 						</p>
                         <div class="hidden-sm clear"> &nbsp;
                         </div>
@@ -99,7 +99,7 @@
                             <br>
                             <br>
                             <p align="center">
-                                <img src="../images/ja-triangle.jpeg" width="100", height="106"/> 
+                                <img src="../images/ja-triangle.jpeg" width="100" height="106"> 
                             </p>
                             <br>
                             <h4 class="program-title" align="center"> CORPORATE VOLUNTEER</h4>
@@ -132,7 +132,7 @@
                         <br>
                         <br>
                         <p align="center">
-							<img src="../images/ja-triangle.jpeg" width="100", height="100"/> 
+							<img src="../images/ja-triangle.jpeg" width="100" height="100"> 
                         </p>
                         <br>
                         <h4 class="program-title" align="center"> EDUCATOR</h4>
