@@ -19,7 +19,7 @@
         cursor: pointer;
     }
 </style>
-<div align="center"><a href= "{{ url('/aboutus/map') }}" class="button">Local Schools with Junior Achievement</a></div>
+<div align="center"><a href= "{{ url('/aboutus/map') }}" class="btn btn-success btn-lg">Local Schools with Junior Achievement</a></div>
 </div>
 <body>
 
@@ -67,7 +67,7 @@
 
 
 <div class="container-fluid" style="background-color: rgb(245,245,245)">
-    <div class="row" style="background-color: rgba(140,198,62,0.85)">
+    <div class="row" style="background-color: green">
         <h2 class="text-center" style="color: white">Junior Achievement Facts</h2>
     </div>
 

@@ -1,15 +1,4 @@
 <?php
-/**
- * Comments Controller
- *
- * @category   Comments
- * @package    Basic-Controllers
- * @author     Sachin Pawaskar<spawaskar@unomaha.edu>
- * @copyright  2016-2017
- * @license    The MIT License (MIT)
- * @version    GIT: $Id$
- * @since      File available since Release 1.0.0
- */
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -55,7 +44,6 @@ class CommentsController extends Controller
 			$comment = Comment::findOrfail($id);
 			$comment->status = 2;
 			$comment->update();
-			//return view('comments.index');
         return redirect()->back();
 	}
     public function reject($id)
@@ -100,6 +88,4 @@ class CommentsController extends Controller
         Session::flash('flash_message', 'Comment was deleted!');
         return redirect()->back()->withInput();
     }
-
-
 }

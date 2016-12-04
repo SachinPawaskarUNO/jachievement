@@ -32,8 +32,11 @@
     }
 
 </style>
-    <div align="center"><a href= "{{ url('/educators/interestform') }}" class="button" ID="SignUp">Sign up as an Educator</a></div>
-<div class="container-fluid" ID="1" style="background-color:rgb(245,245,245)">
+    <div align="center">
+		<a href= "{{ url('/educators/interestform') }}" class="btn btn-success btn-lg" ID="SignUp">Sign up as an Educator</a>
+	</div>
+	<br>
+	<div class="container-fluid" ID="1" style="background-color:rgb(245,245,245)">
         <div class="container"  ID="2">
        
         <h2 class="text-center"  ID="3">BRING JUNIOR ACHIEVEMENT TO YOUR CLASSROOM!</h2>
@@ -72,38 +75,39 @@
         </div>
     </div>
 
-<div class="container-fluid" style="background-color:white"  ID="18">
+	<div class="container-fluid" style="background-color:white"  ID="18">
     <br>
     <br>
-<div class="col-md-4"  ID="19"></div>
-<div class="col-md-4"  ID="20">
- <h4 class="text-center" ID="21"><strong> Interesting, right? Would you like to have Junior Achievement in your classroom? Just reach out to your local Junior Achievement to sign up.</strong></h4>
+		<div class="col-md-4"  ID="19"></div>
+		<div class="col-md-4"  ID="20">
+			<h4 class="text-center" ID="21"><strong> Interesting, right? Would you like to have Junior Achievement in your classroom? Just reach out to Junior Achievement of Midlands to sign up.</strong></h4>
  
-</div>
-<div class="col-md-4" ID="24"></div>
+		</div>
+		<div class="col-md-4" ID="24"></div>
 
-</div>
+	</div>
+	<br>
+	<br>
 
 
-
-<div class="container-fluid" ID="25" style="background-color:rgb(245,245,245)">
-<br>
+	<div class="container-fluid" ID="25" style="background-color:rgb(245,245,245)">
+	
         <div class="container" ID="26">
-        <br>
-        <br>
-        <br>
-<h2 class="text-center" ID="27"> Watch the Video</h2>        
-        <br/>
-        <div align:"center"  class="col-md-3 style="align: center" ID="28"></div>
-            <div align:"center"  class="col-md-6 style="align: center" ID="29" >
-                <div class="embed-responsive embed-responsive-16by9 text-center" ID="30" >
-                    <div class="video-embed" style="text-align:center" ID="31"> 
-                      <iframe allowfullscreen="" frameborder="0" height="100" src="https://www.youtube.com/embed/XZLeBFNIUVo" width="300" ID="32"></iframe>
-                    </div>
-                  </div>
-                 <div align:"center"  class="col-md-3 style="align: center" ID="33"></div>
-                </div>
-            </div>
+        
+			<h2 class="text-center" ID="27"> Watch the Video</h2>        
+			<br>
+			<div align:"center"  class="col-md-2 style="align: center" ID="28"></div>
+			<div align:"center"  class="col-md-8 style="align: center" ID="29" >
+				<div class="embed-responsive embed-responsive-16by9 text-center" ID="30" >
+					<div class="video-embed" style="text-align:center" ID="31"> 
+						<iframe allowfullscreen="" frameborder="0" height="100" src="https://www.youtube.com/embed/XZLeBFNIUVo" width="300" ID="32">
+						</iframe>
+					</div>
+				</div>
+			</div>
+			<div align:"center"  class="col-md-2 style="align: center" ID="33"></div>
+                
         </div>
+    </div>
     
 @endsection

@@ -134,6 +134,7 @@
 
                 <!-- Program 1 Donor.  -->
                 <h2 class="text-center" ID="3">Donate</h2>
+                <p style="color: #9d9d9d"  align="center">________________</p>
                 <br>
                 <div align="center">
                     <div width="300px" height="50px" align="center" class="donate-box">
@@ -154,17 +155,12 @@
                             <div class="closing-buttons" align="center" id="button-donate">
                                 <a class="btn btn-lg btn-primary" href="{{ url('/donation/donate') }}">Donate Now</a>
                             </div>
-                            <div class="hidden-sm clear"> &nbsp;
-                            </div>
-                            <div class="hidden-sm clear"> &nbsp;
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
-                <br>
-
-
-                <div ID="26">
+              
+			  <div ID="26">
 
                     <h2 class="text-center" ID="27"> Watch the Video</h2>
                     <div class="video-box" ID="29">

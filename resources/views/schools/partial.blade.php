@@ -1,5 +1,6 @@
 <div class="form-group{{ $errors->has('school_name') ? ' has-error' : '' }}">
     {!! Form::label('school_name', 'School Name:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('school_name', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('school_name'))
@@ -107,6 +108,6 @@
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
         {!! Form::button('Save', ['type' => 'submit', 'class' => 'btn btn-success']) !!}
-        <a class="btn btn-default" href="/schools">Cancel</a>
+        <a class="btn btn-default" href="{{ action('SchoolController@index') }}">Cancel</a>
     </div>
 </div>

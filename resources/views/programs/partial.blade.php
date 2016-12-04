@@ -26,7 +26,7 @@
 
 <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
     {!! Form::label('image', 'Image Link:', ['class' => 'col-md-4 control-label']) !!}
-	
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('image', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('image'))
@@ -78,6 +78,7 @@
 
 <div class="form-group{{ $errors->has('entrepreneurship') ? ' has-error' : '' }}">
     {!! Form::label('entrepreneurship', 'Entrepreneurship:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::select('entrepreneurship',[0 => 'Blank Star',1 => 'Half Star',2 => 'Full Star'], null, ['class' => 'col-md-6 form-control','placeholder'=>'Select one value:']) !!}
         @if ($errors->has('entrepreneurship'))
@@ -90,6 +91,7 @@
 
 <div class="form-group{{ $errors->has('financial_readiness') ? ' has-error' : '' }}">
     {!! Form::label('financial_readiness', 'Financial Readiness:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::select('financial_readiness',[0 => 'Blank Star',1 => 'Half Star',2 => 'Full Star'], null, ['class' => 'col-md-6 form-control','placeholder'=>'Select one value:']) !!}
         @if ($errors->has('financial_readiness'))
@@ -102,6 +104,7 @@
 
 <div class="form-group{{ $errors->has('work_readiness') ? ' has-error' : '' }}">
     {!! Form::label('work_readiness', 'Work Readiness:', ['class' => 'col-md-4 control-label']) !!}
+	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::select('work_readiness',[0 => 'Blank Star',1 => 'Half Star',2 => 'Full Star'], null, ['class' => 'col-md-6 form-control','placeholder'=>'Select one value:']) !!}
         @if ($errors->has('work_readiness'))
@@ -115,6 +118,6 @@
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
         {!! Form::button('Save', ['type' => 'submit', 'class' => 'btn btn-success']) !!}
-        <a class="btn btn-default" href="/programs">Cancel</a>
+        <a class="btn btn-default" href="{{ action('ProgramController@index') }}">Cancel</a>
     </div>
 </div>
