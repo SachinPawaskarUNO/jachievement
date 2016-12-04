@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ \App::getLocale() }}">
 <head>
-    <title>{{ $page_title or 'Maven' }}</title>
+    <title>Frequently Asked Questions</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    
+
     @yield('style')
 </head>
 <body>
@@ -22,6 +22,7 @@
     <!-- Footer -->
     @yield('footer')
     <br><br>
-    @include('common.footer') 
+    
 </body>
+@include('common.footer') 
 </html>
