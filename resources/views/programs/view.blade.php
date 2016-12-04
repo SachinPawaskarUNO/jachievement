@@ -11,7 +11,7 @@
         height: auto!important;
     }
 	.button {
-            background-color: rgba(140,198,62,0.85);
+            background-color: green;
             border: none;
             color: white;
             padding: 10px 30px;
@@ -30,7 +30,7 @@
 			
 			<br>
             <div align="center">
-				<a href= "{{ url('/volunteers/interestform') }}" class="btn btn-success btn-lg">Become a volunteer</a>
+				<a href= "{{ url('/volunteers/interestform') }}" class="btn btn-success btn-lg">Become a Volunteer</a>
 			</div>
 			<br>
 
