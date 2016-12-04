@@ -115,6 +115,28 @@
     </div>
 </div>
 
+<div class="form-group{{ $errors->has('active') ? ' has-error' : '' }}">
+    {!! Form::label('active', 'Event Status:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        <div class="checkbox">
+            <label>
+                {{ Form::hidden('active', false) }}{{ Form::checkbox('active', true, old('active')) }} Active
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="form-group{{ $errors->has('create_team') ? ' has-error' : '' }}">
+    {!! Form::label('create_team', 'Event Category:', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        <div class="checkbox">
+            <label>
+                {{ Form::hidden('create_team', false) }}{{ Form::checkbox('create_team', true, old('create_team')) }} Create Team Button
+            </label>
+        </div>
+    </div>
+</div>
+
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
         {!! Form::button('Save', ['type' => 'submit', 'class' => 'btn btn-success']) !!}

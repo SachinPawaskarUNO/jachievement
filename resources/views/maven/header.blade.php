@@ -1,4 +1,4 @@
-{{--<div>
+        {{--<div>
     @if(count(config('maven.locales')) > 0)
         @foreach(config('maven.locales') as $locale => $locale_name)
             @if($locale == $current_locale)

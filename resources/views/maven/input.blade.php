@@ -1,5 +1,4 @@
 @extends('maven.layout')
-        @include('common.nav')
 
 @section('content')
 
@@ -89,7 +88,6 @@
             <button class="btn icon-btn btn-success" type="submit">{{ trans('maven.save') }}</button>
         </div>
     {!! Form::close() !!}
-
 
 @endsection
 

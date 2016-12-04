@@ -134,6 +134,7 @@
 
                 <!-- Program 1 Donor.  -->
                 <h2 class="text-center" ID="3">Donate</h2>
+                <p style="color: #9d9d9d"  align="center">________________</p>
                 <br>
                 <div align="center">
                     <div width="300px" height="50px" align="center" class="donate-box">

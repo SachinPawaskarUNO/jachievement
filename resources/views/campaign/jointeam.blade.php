@@ -53,6 +53,16 @@
 		}
 	}
 
+	function showOrgInput() {
+		if(document.getElementById('organization_id').value == "other") {
+			$("#orgNameDiv").show();
+			$("#orgName").attr('required', 'required');
+		} else {
+			$("#orgNameDiv").hide();
+			$("#orgName").removeAttr('required', 'required');
+		}
+	}
+
 	function changeGoalSlider(){
 		var goalText = $('#formatGoal').maskMoney('unmasked')[0];
 
