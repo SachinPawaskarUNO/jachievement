@@ -25,6 +25,6 @@ return [
     'list' => 'List',
     'created' => 'Created',
     'updated' => 'Updated',
-    'item_not_found' => 'Item Not Found',
+    'item_not_found' => 'No FAQs found',
     'search' => 'Search'
 ];
