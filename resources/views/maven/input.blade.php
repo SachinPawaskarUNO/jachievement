@@ -18,7 +18,7 @@
     @endif
         <ul class="nav nav-tabs">
         @foreach($locales as $locale => $locale_name)
-            <li{!! ($locale == $current_locale) ? ' class="active"' : '' !!}><a data-toggle="tab" href="#form-{{ $locale }}">{{ $locale_name }}</a></li>
+            <!-- <li{!! ($locale == $current_locale) ? ' class="active"' : '' !!}><a data-toggle="tab" href="#form-{{ $locale }}">{{ $locale_name }}</a></li> -->
         @endforeach
         </ul>
         <div class="tab-content">
@@ -111,5 +111,3 @@
     </script>
 
 @endsection
-
-@include('common.footer') 
