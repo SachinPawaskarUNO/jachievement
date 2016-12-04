@@ -1,5 +1,5 @@
 @extends('maven.layout')
-
+    @include('common.nav')
 @section('content')
 
     @include('maven.header')
@@ -111,3 +111,5 @@
     </script>
 
 @endsection
+
+@include('common.footer') 
