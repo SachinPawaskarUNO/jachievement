@@ -142,7 +142,8 @@
                             <br>
                             <br>
                             <p align="center">
-                                <span class="fa fa-lightbulb-o fa_custom fa-4x" data-animation="bounceIn"></span> 
+                                <img src="{{url('images/ja-triangle.jpeg')}}" width="100" height="106"/>
+
                             </p>
                             <div class="hidden-sm clear"> &nbsp;
                             </div>
