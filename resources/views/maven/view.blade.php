@@ -62,7 +62,7 @@ body.cd-overlay::after {
 }
 
 a {
-  color: #5cb85c;
+  color: #008751;
   text-decoration: none;
 }
 
@@ -190,7 +190,7 @@ header h1 {
     left: 0;
     height: 100%;
     width: 3px;
-    background-color: #5cb85c;
+    background-color: #008751;
     opacity: 0;
     -webkit-transition: opacity 0.2s;
     -moz-transition: opacity 0.2s;
@@ -556,7 +556,7 @@ table {
             @foreach($maven_items as $maven_item)
                 @if ($maven_item->tag == $maven_tag->tag)
                 <li>
-                    <a class="cd-faq-trigger" href="#0">{{$maven_item->question}}</a>
+                    <a class="cd-faq-trigger" href="#0"><strong>{{$maven_item->question}}</strong></a>
                     <div class="cd-faq-content">
                         <p>{{$maven_item->answer}}</p>
                     </div> <!-- cd-faq-content -->
