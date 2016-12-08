@@ -377,4 +377,74 @@ class CampaignController extends Controller
 
         return $teamMemberToken;
     }
+
+    public function editTeam($token) {
+      Log::info('CampaignController.editTeam: ');
+
+      $data['action'] = 'create';
+
+      $teamInfo = DB::table('teams')
+          ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
+          ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
+          ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'organizations.id as orgId', 'campaigns.name as campName', 'teams.title as title', 'teams.content as content', 'teams.goal as goal', 'campaigns.id as campId')
+          ->where('teams.token', '=', $token)
+          ->first();
+
+      $data['teamInfo'] = $teamInfo;
+      $data['token'] = $token;
+
+      $data['heading'] = 'Edit Team: '.$teamInfo->teamName;
+
+      return view('campaign.editTeam', $data);
+    }
+
+    public function editTeamMember($token) {
+      Log::info('CampaignController.editTeamMember: ');
+
+      $data['action'] = 'join';
+
+      $teamInfo = DB::table('team_members')
+          ->leftJoin('teams', 'team_members.team_id', '=', 'teams.id')
+          ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
+          ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
+          ->leftJoin('users', 'team_members.user_id', '=', 'users.id')
+          ->select('teams.id as teamId', 'teams.name as teamName', 'organizations.name as orgName', 'organizations.id as orgId', 'campaigns.name as campName', 'team_members.id as id', 'team_members.goal as goal', 'team_members.title as title', 'team_members.content as content', 'users.first_name as userFirstName', 'users.last_name as userLastName', 'campaigns.id as campId')
+          ->where('team_members.token', '=', $token)
+          ->first();
+
+      $data['teamInfo'] = $teamInfo;
+      $data['token'] = $token;
+
+      $data['heading'] = 'Edit Team Member: '.$teamInfo->teamName;
+
+      return view('campaign.editTeam', $data);
+    }
+
+    public function updateTeam(TeamRequest $request) {
+      $input = $request->all();
+
+      Log::info('CampaignController.updateTeam: '.$input['id'].'|'.$input['name']);
+
+      DB::table('teams')
+            ->where('id', $input['id'])
+            ->update(['name' => $input['name'], 'title' => $input['title'], 'content' => $input['content'], 'goal' => $input['goal'], 'updated_by' => Auth::user()->id, 'updated_at' => date_create()]);
+
+      Session::flash('flash_message', 'Team details updated successfully!');
+
+      return redirect()->action('CampaignController@team', ['id' => $input['token']]);
+    }
+
+    public function updateTeamMember(TeamMemberRequest $request) {
+      $input = $request->all();
+
+      Log::info('CampaignController.updateTeamMember: '.$input['id']);
+
+      DB::table('team_members')
+            ->where('id', $input['id'])
+            ->update(['title' => $input['title'], 'content' => $input['content'], 'goal' => $input['goal'], 'updated_by' => Auth::user()->id, 'updated_at' => date_create()]);
+
+      Session::flash('flash_message', 'Team Member details updated successfully!');
+
+      return redirect()->action('CampaignController@teammember', ['id' => $input['token']]);
+    }
 }
