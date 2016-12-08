@@ -34,7 +34,7 @@ class ContactController extends Controller
         
     });
 
-	Session::flash('flash_message', 'Thank you for contacting us! We will contact you soon');
+	Session::flash('flash_message', 'Thank you for contacting us. We will contact you soon');
 	return view('contactus.contactus');
 	}
 }
