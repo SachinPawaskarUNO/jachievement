@@ -26,7 +26,7 @@ class ContactRequest extends Request
         $rules = [
             'name' => 'required|regex:/^[a-z ,.\'-]+$/i',
 			'email' => 'required|max:50|email',
-			'phone_number' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
+			'phone_number' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/|max:10',
 			'message' => 'max:500'
         ];
 		
