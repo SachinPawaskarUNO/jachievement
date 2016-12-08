@@ -243,7 +243,7 @@ class CampaignController extends Controller
 
       $this->populateCreateFields($input);
       $object = Team::create($input);
-      Session::flash('flash_message', 'Your team was created successfully!');
+      Session::flash('flash_message', 'Your team was created successfully');
       Log::info('CampaignController.createTeamStore - End: ' . $object->id);
 
       // Create Team Member when requested on Create Team page
@@ -341,7 +341,7 @@ class CampaignController extends Controller
                     $message->bcc($receipt)->subject('Family and Friends of Junior Achievement');;
                 });
             }
-            \Session::flash('flash_message', 'Your solicitation request was sent successfully!');
+            \Session::flash('flash_message', 'Your solicitation request was sent successfully');
             return redirect()->action('CampaignController@team', ['id' => $request->token]);
         }
 
