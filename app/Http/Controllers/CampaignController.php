@@ -47,10 +47,14 @@ class CampaignController extends Controller
           if($user->id == $teamMember->user_id)
           {
               $data['link_show'] = 'show';
+              $data['editable'] = true;
           } else {
               $data['link_show'] = 'hide';
+              $data['editable'] = false;
           }
-      }
+      } else {
+          $data['editable'] = false;
+        }
         $teammemberDonation = DB::table('donations')
             ->select(DB::raw('COALESCE(sum(donations.amount),0) AS donation_amount'))
             ->join('team_members', 'donations.team_member_id', '=', 'team_members.id')
@@ -157,6 +161,13 @@ class CampaignController extends Controller
             } else {
                 $data['link_show'] = 'hide';
             }
+            if ($user->id == $team->created_by) {
+              $data['editable'] = true;
+            } else {
+              $data['editable'] = false;
+            }
+        } else {
+          $data['editable'] = false;
         }
         $teamDonation = DB::table('donations')
             ->select(DB::raw('COALESCE(sum(donations.amount),0) AS donation_amount'))
@@ -382,16 +393,24 @@ class CampaignController extends Controller
       Log::info('CampaignController.editTeam: ');
 
       $data['action'] = 'create';
+      $user = Auth::user()->id;
+
 
       $teamInfo = DB::table('teams')
           ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
           ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
-          ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'organizations.id as orgId', 'campaigns.name as campName', 'teams.title as title', 'teams.content as content', 'teams.goal as goal', 'campaigns.id as campId')
+          ->select('teams.id as id', 'teams.name as teamName', 'organizations.name as orgName', 'organizations.id as orgId', 'campaigns.name as campName', 'teams.title as title', 'teams.content as content', 'teams.goal as goal', 'campaigns.id as campId', 'teams.created_by as createdUser')
           ->where('teams.token', '=', $token)
           ->first();
 
       $data['teamInfo'] = $teamInfo;
       $data['token'] = $token;
+
+      if ($user == $teamInfo->createdUser) {
+        $data['authorized'] = true;
+      } else {
+        $data['authorized'] = false;
+      }
 
       $data['heading'] = 'Edit Team: '.$teamInfo->teamName;
 
@@ -402,18 +421,25 @@ class CampaignController extends Controller
       Log::info('CampaignController.editTeamMember: ');
 
       $data['action'] = 'join';
+      $user = Auth::user()->id;
 
       $teamInfo = DB::table('team_members')
           ->leftJoin('teams', 'team_members.team_id', '=', 'teams.id')
           ->leftJoin('organizations', 'teams.organization_id', '=', 'organizations.id')
           ->leftJoin('campaigns', 'teams.campaign_id', '=', 'campaigns.id')
           ->leftJoin('users', 'team_members.user_id', '=', 'users.id')
-          ->select('teams.id as teamId', 'teams.name as teamName', 'organizations.name as orgName', 'organizations.id as orgId', 'campaigns.name as campName', 'team_members.id as id', 'team_members.goal as goal', 'team_members.title as title', 'team_members.content as content', 'users.first_name as userFirstName', 'users.last_name as userLastName', 'campaigns.id as campId')
+          ->select('teams.id as teamId', 'teams.name as teamName', 'organizations.name as orgName', 'organizations.id as orgId', 'campaigns.name as campName', 'team_members.id as id', 'team_members.goal as goal', 'team_members.title as title', 'team_members.content as content', 'users.first_name as userFirstName', 'users.last_name as userLastName', 'campaigns.id as campId', 'team_members.user_id as createdUser')
           ->where('team_members.token', '=', $token)
           ->first();
 
       $data['teamInfo'] = $teamInfo;
       $data['token'] = $token;
+
+      if ($user == $teamInfo->createdUser) {
+        $data['authorized'] = true;
+      } else {
+        $data['authorized'] = false;
+      }
 
       $data['heading'] = 'Edit Team Member: '.$teamInfo->teamName;
 
