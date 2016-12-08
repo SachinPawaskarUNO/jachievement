@@ -243,7 +243,7 @@ class CampaignController extends Controller
 
       $this->populateCreateFields($input);
       $object = Team::create($input);
-      Session::flash('flash_message', 'Your team has been created successfully!');
+      Session::flash('flash_message', 'Your team was created successfully!');
       Log::info('CampaignController.createTeamStore - End: ' . $object->id);
 
       // Create Team Member when requested on Create Team page
