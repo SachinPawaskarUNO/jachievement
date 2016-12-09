@@ -4,7 +4,7 @@
     <div class="col-md-7">
     @if ($action == 'join')
     <label class="control-label" style="font-weight: normal !important; text-align:left;">{{ $teamInfo->campName }}</label>
-    @else
+    @elseif ($action == 'create')
     <label class="control-label" style="font-weight: normal !important; text-align:left;">{{ $campaignInfo->campName }}</label>
     @endif
     </div>
@@ -14,17 +14,26 @@
     <div class="col-md-7">
     @if ($action == 'join')
     <label class="control-label" style="font-weight: normal !important; text-align:left;">{{ $teamInfo->orgName }}</label>
-    @else
-    {!! Form::select('organization_id', $organizationList, null, ['id' => 'organization_id', 'class' => 'col-md-7 form-control', 'required' => 'required', 'placeholder' => 'Select an organization...']) !!}
+    @elseif ($action == 'create')
+    {!! Form::select('organization_id', $organizationList + array('other' => 'Other'), null, ['id' => 'organization_id', 'class' => 'col-md-7 form-control', 'required' => 'required', 'placeholder' => 'Select an organization...', 'onChange' => 'showOrgInput()']) !!}
     @endif
     </div>
 </div>
+@if ($action == 'join')
+@elseif ($action == 'create')
+<div class="form-group" style="display:none;" id="orgNameDiv">
+    {!! Form::label('otherOrg', 'Organization Name:', ['class' => 'col-md-3 control-label']) !!}
+    <div class="col-md-7">
+    {!! Form::text('orgName', null, ['id' => 'orgName', 'class' => 'col-md-7 form-control']) !!}
+    </div>
+</div>
+@endif
 <div class="form-group">
     {!! Form::label('team', 'Team Name:', ['class' => 'col-md-3 control-label']) !!}
     <div class="col-md-7">
     @if ($action == 'join')
     <label class="control-label" style="font-weight: normal !important; text-align:left;">{{ $teamInfo->teamName }}</label>
-    @else
+    @elseif ($action == 'create')
     {!! Form::text('name', null, ['id' => 'name', 'class' => 'col-md-7 form-control', 'required' => 'required']) !!}
     @endif
     </div>
@@ -33,23 +42,35 @@
 <br/>
 
 <div class="form-group">
+    @if ($action == 'join')
+    {!! Form::label('pageTitle', 'My Page Title:', ['class' => 'col-md-3 control-label']) !!}
+    @else
     {!! Form::label('pageTitle', 'Team Page Title:', ['class' => 'col-md-3 control-label']) !!}
+    @endif
     <div class="col-md-7">
         {!! Form::text('title', null, ['id' => 'title','class' => 'col-md-7 form-control', 'required' => 'required', 'placeholder' => 'Welcome to My JA Fundraiser Page!']) !!}
     </div>
 </div>
 <div class="form-group">
+    @if ($action == 'join')
+    {!! Form::label('pageContent', 'My Page Content:', ['class' => 'col-md-3 control-label']) !!}
+    @else
     {!! Form::label('pageContent', 'Team Page Content:', ['class' => 'col-md-3 control-label']) !!}
+    @endif
     <div class="col-md-7">
         @if ($action == 'join')
         {!! Form::textarea('content', $teamInfo->campCont, ['id' => 'content','class' => 'col-md-7 form-control', 'required' => 'required']) !!}
-        @else
+        @elseif ($action == 'create')
         {!! Form::textarea('content', $campaignInfo->campCont, ['id' => 'content','class' => 'col-md-7 form-control', 'required' => 'required']) !!}
         @endif
     </div>
 </div>
 <div class="form-group">
+    @if ($action == 'join')
+    {!! Form::label('fundraisingGoal', 'My Fundraising Goal:', ['class' => 'col-md-3 control-label']) !!}
+    @else
     {!! Form::label('fundraisingGoal', 'Team Fundraising Goal:', ['class' => 'col-md-3 control-label']) !!}
+    @endif
     <div class="col-md-4">
         <input type="range" id="fundraisingGoalRange" min="0" max="10000" step="50" value="500" onChange="changeGoalText()">
     </div>
@@ -59,7 +80,7 @@
 </div>
 
 @if ($action == 'join')
-@else
+@elseif ($action == 'create')
 <div class="form-group">
     <div class="col-md-6 col-md-offset-3">
         {!! Form::checkbox('createMember', 1, null, ['id' => 'createMember', 'onClick' => 'createAndJoin()']) !!}
@@ -94,7 +115,7 @@
 
 @if ($action == 'join')
 {!! Form::hidden('team_id', $teamInfo->id) !!}
-@else
+@elseif ($action == 'create')
 {!! Form::hidden('campaign_id', $campaignId) !!}
 @endif
 {!! Form::hidden('goal', '500', ['id' => 'goal']) !!}
@@ -103,7 +124,7 @@
         <div class="col-md-6 col-md-offset-4">
             @if ($action == 'join')
             {!! Form::button('Join Team', ['type' => 'submit','id' => 'joinTeam', 'class' => 'btn btn-success']) !!}
-            @else
+            @elseif ($action == 'create')
             {!! Form::button('Create Team', ['type' => 'submit','id' => 'createTeam', 'class' => 'btn btn-success']) !!}
             @endif
             <a class="btn btn-default" href="/">Cancel</a>

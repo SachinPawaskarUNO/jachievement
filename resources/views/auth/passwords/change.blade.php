@@ -10,7 +10,7 @@
                             <div class="alert alert-success alert-dismissible"> <strong>{!! Session::pull('flash_message') !!}</strong>
                             </div>
                         @endif
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/change-password') }}">{!! csrf_field() !!}
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/change-password') }}">{{ csrf_field() }}
                             <div class="form-group{{ Session::has('current_password') ? ' has-error' : '' }} {{ $errors->has('current_password') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">Current Password</label>
                                 <div class="col-md-6">

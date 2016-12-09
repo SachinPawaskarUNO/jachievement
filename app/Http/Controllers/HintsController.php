@@ -19,7 +19,6 @@ class HintsController extends Controller
 {
 	public function __construct()
     {
-//        $this->middleware('advisor');
     	$this->middleware('role:volunteer||educator');
         $this->commentfor = "SkeletalElement";
         $this->skeletalelement = null;

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <style xmlns:align="http://www.w3.org/1999/xhtml">
+    <style>
 
         .glyphicon {
             font-size: 30px;
@@ -17,7 +17,7 @@
         }
 
         .fa_custom {
-            color: #9ACD40;
+            color: green;
         }
 
         .fa-4x {
@@ -134,28 +134,27 @@
 
                 <!-- Program 1 Donor.  -->
                 <h2 class="text-center" ID="3">Donate</h2>
+                <p style="color: #9d9d9d"  align="center">________________</p>
                 <br>
                 <div align="center">
-                    <div width="300px" height="50px" align="center" class="donate-box">
-                        <div class="program">
+                    <div class="donate-box">
+                       
                             <br>
                             <br>
                             <p align="center">
-                                <span class="fa fa-lightbulb-o fa_custom fa-4x" data-animation="bounceIn"></span>
+                                <img src="{{url('images/ja-triangle.jpeg')}}" width="100" height="106"/>
+
                             </p>
                             <div class="hidden-sm clear"> &nbsp;
                             </div>
                             <br>
-                            <p class="program-description"> Every single dollar makes a difference. Donating to Junior
-                                Achievement will help to expand Junior Achievement's enriching curriculum to benefit
-                                more students.</p>
+                            <p class="program-description"> Every single dollar makes a difference. Donating to Junior Achievement will help to expand Junior Achievement's enriching curriculum to benefit more students.</p>
                             <br>
                             <br>
                             <div class="closing-buttons" align="center" id="button-donate">
-                                <a class="btn btn-lg btn-primary" href="{{ url('/donation/donate') }}">Donate Now</a>
+                                <a class="btn btn-success btn-lg" href="{{ url('/donation/donate') }}">Donate Now</a>
                             </div>
-                            
-                        </div>
+                        
                     </div>
                 </div>
               
@@ -175,9 +174,5 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-
-
 @endsection

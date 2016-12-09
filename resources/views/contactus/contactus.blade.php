@@ -10,6 +10,7 @@
 	
         <br>
         <br>
+     @include('common.flash')
         <div class="row">
 		
 			<!-- Embed a google map with The Junior Achievement of Midlands Inc. Address -->
@@ -44,7 +45,6 @@
 							{!! Form::open(['url' => '/contactus', 'class' => 'form-horizontal']) !!}
 							
 							@include('common.errors')
-							@include('common.flash')
 							@include ('contactus.partial')
 
 							{!! Form::close() !!}

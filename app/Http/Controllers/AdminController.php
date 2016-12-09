@@ -54,8 +54,6 @@ class AdminController extends Controller
     public function showVolunteerDetails($id)
     {
         Log::info('AdminController.showVolunteerDetails: ');
-        //$volunteerInterestForm =   VolunteerInterestForm::where('id', '=', $id)->firstOrFail();
-
         $volunteerInterestForm =  DB::table('volunteer_interest_forms')
             ->select('volunteer_interest_forms.school_preference','volunteer_interest_forms.first_name',
                 'volunteer_interest_forms.last_name','volunteer_interest_forms.company_name',
@@ -95,18 +93,6 @@ class AdminController extends Controller
        Log::info('AdminController.downloadVolunteerReport: ');
 
         $data = array();
-       /*$volunteerInterestForms =  DB::table('volunteer_interest_forms')
-            ->select('volunteer_interest_forms.school_preference','volunteer_interest_forms.first_name',
-                'volunteer_interest_forms.last_name','volunteer_interest_forms.company_name',
-                'volunteer_interest_forms.company_address','volunteer_interest_forms.company_city',
-                'states1.name as company_state','volunteer_interest_forms.company_zip','volunteer_interest_forms.company_phone',
-                'volunteer_interest_forms.home_phone','volunteer_interest_forms.home_address','volunteer_interest_forms.home_city',
-                'states2.name as home_state','volunteer_interest_forms.home_zip','volunteer_interest_forms.email',
-                'volunteer_interest_forms.created_at','volunteer_interest_forms.mode_of_contact')
-            ->join('states as states1', 'states1.id','=','volunteer_interest_forms.company_state_id')
-            ->join('states as states2', 'states2.id', '=', 'volunteer_interest_forms.home_state_id')
-            ->get();*/
-
        $volunteerInterestForms = DB::table('volunteer_programs')
             ->select(DB::raw('volunteer_interest_forms.school_preference,volunteer_interest_forms.first_name,
                 volunteer_interest_forms.last_name,volunteer_interest_forms.company_name,

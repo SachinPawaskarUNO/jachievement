@@ -70,7 +70,12 @@ Route::get('/donation/thankyou', 'DonationController@thankyou');
 Route::get('/donation/cancel', 'DonationController@cancel');
 
 Route::get('/event/teammember/view/{id}', 'CampaignController@teammember');
+Route::get('/event/teammember/edit/{id}', 'CampaignController@editTeamMember');
+Route::post('/event/teammember/update', 'CampaignController@updateTeamMember');
+
 Route::get('/event/team/view/{id}', 'CampaignController@team');
+Route::get('/event/team/edit/{id}', 'CampaignController@editTeam');
+Route::post('/event/team/update', 'CampaignController@updateTeam');
 Route::get('/event/team/join/{teamId}', 'CampaignController@joinTeam');
 Route::post('/event/team/join', 'CampaignController@joinTeamStore');
 Route::post('/event/team', 'CampaignController@sendmail');

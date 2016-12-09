@@ -6,8 +6,6 @@
            .fa_custom {
             color: #9ACD40;
                    }
-
-
            .fa-4x     {
             font-size: 3.5em;
                    }
@@ -22,7 +20,6 @@
             margin-right: 3%;
             line-height:1.5;
                         }
-
 
            .program-title {
             font-family: Helvetica;
@@ -68,8 +65,8 @@
                         <br>
                         <br>
                         <p align="center">
-                            <span class="fa fa-lightbulb-o fa_custom fa-4x" data-animation="bounceIn"></span>
-                        </p>
+                            <img src="../images/ja-triangle.jpeg" width="100" height="106"> 
+						</p>
                         <div class="hidden-sm clear"> &nbsp;
                         </div>
                         <h4 class="program-title" align="center"> CORPORATE DONOR</h4>
@@ -84,7 +81,7 @@
                         <br>
                         <br>
                         <div class="closing-buttons" align="center" id="button-donate">
-                            <a class="btn btn-lg btn-primary" href="{{ url('/donors') }}">Learn More</a>
+                            <a class="btn btn-success btn-lg" href="{{ url('/donors') }}">Learn More</a>
                         </div>
                         <div class="hidden-sm clear"> &nbsp;
                         </div>
@@ -102,7 +99,7 @@
                             <br>
                             <br>
                             <p align="center">
-                                <span class="fa fa-heart-o fa_custom fa-4x" data-animation="bounceIn"></span>
+                                <img src="../images/ja-triangle.jpeg" width="100" height="106"> 
                             </p>
                             <br>
                             <h4 class="program-title" align="center"> CORPORATE VOLUNTEER</h4>
@@ -117,7 +114,7 @@
                             <br>
                             <br>
                             <div class="closing-buttons" align="center" id="button-volunteer">
-                                <a class="btn btn-lg btn-primary" href="{{ url('/volunteers/introduction') }}">Learn More</a>
+                                <a class="btn btn-success btn-lg" href="{{ url('/volunteers/introduction') }}">Learn More</a>
                             </div>
                             <div class="hidden-sm clear"> &nbsp;
                             </div>
@@ -134,7 +131,8 @@
                     <div class="program">
                         <br>
                         <br>
-                        <p align="center"><span class="fa fa-graduation-cap fa_custom fa-4x" data-animation="bounceIn"></span>
+                        <p align="center">
+							<img src="../images/ja-triangle.jpeg" width="100" height="100"> 
                         </p>
                         <br>
                         <h4 class="program-title" align="center"> EDUCATOR</h4>
@@ -148,8 +146,9 @@
                         <p class="program-description"> Not an Educator? Find out how you can get Junior Achievement programs into your local community!</p>
                         <br>
                         <br>
+						<div class="hidden-sm clear"> &nbsp;</div>
                         <div class="closing-buttons" align="center" id="button-educator">
-                            <a class="btn btn-lg btn-primary" href="{{ url('/educators/introduction') }}">Learn More</a>
+                            <a class="btn btn-success btn-lg" href="/educators/introduction">Learn More</a>
                         </div>
                         <div class="hidden-sm clear"> &nbsp;</div>
                         <div class="hidden-sm clear"> &nbsp;</div>

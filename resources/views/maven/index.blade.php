@@ -64,15 +64,16 @@
                     @endif
                 @endif
                 </td>
-                <td>{{date_format($maven_item->faq->created_at,"Y/m/d")}}</td>
+                <td>{{ date('F d, Y', strtotime($maven_item->faq->created_at)) }} </td>
+                <!-- <td>{{date_format($maven_item->faq->created_at,"Y/m/d")}}</td> -->
                 <td class="text-right">
-                    <a href="{{ route('maven.edit', $maven_item->id) }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
-                    <button class="btn btn-danger btn-sm remove-button" data-id="{{ $maven_item->id }}"><i class="glyphicon glyphicon-remove"></i></button>
+                    <a href="{{ route('maven.edit', $maven_item->id) }}" class="btn btn-success btn-sm">Edit</a>
+                    <button class="btn btn-danger btn-sm remove-button" data-id="{{ $maven_item->id }}">Delete</button>
                 </td>
             </tr>
         @endforeach
         </table>
-        <div class="text-center">
+        <div class="text-center"> 
             {{ $maven_items
                 ->appends($smoothness->appends)
                 ->appends($neatness->appends)

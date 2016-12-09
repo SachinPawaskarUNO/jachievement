@@ -11,7 +11,6 @@ use Mail;
 
 class ContactController extends Controller
 {
-    //
     public function contactus()
     {
         $this->viewData['heading'] = "Contact Us";
@@ -35,8 +34,7 @@ class ContactController extends Controller
         
     });
 
-	//return Redirect::route('contactus.contactus')->with('message', 'Thanks for contacting us!');
-	Session::flash('flash_message', 'Thank you for contacting us! We will contact you soon');
+	Session::flash('flash_message', 'Thank you for contacting us. We will contact you soon');
 	return view('contactus.contactus');
 	}
 }
