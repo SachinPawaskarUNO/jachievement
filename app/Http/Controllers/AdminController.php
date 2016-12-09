@@ -55,7 +55,7 @@ class AdminController extends Controller
     {
         Log::info('AdminController.showVolunteerDetails: ');
         $volunteerInterestForm =  DB::table('volunteer_interest_forms')
-            ->select('volunteer_interest_forms.school_preference','volunteer_interest_forms.first_name',
+            ->select('schools.school_name','volunteer_interest_forms.first_name',
                 'volunteer_interest_forms.last_name','volunteer_interest_forms.company_name',
                 'volunteer_interest_forms.company_address','volunteer_interest_forms.company_city',
                 'states1.name as company_state','volunteer_interest_forms.company_zip','volunteer_interest_forms.company_phone',
@@ -64,6 +64,7 @@ class AdminController extends Controller
                 'volunteer_interest_forms.created_at','volunteer_interest_forms.mode_of_contact')
             ->join('states as states1', 'states1.id','=','volunteer_interest_forms.company_state_id')
             ->join('states as states2', 'states2.id', '=', 'volunteer_interest_forms.home_state_id')
+            ->join('schools','schools.id', '=', 'volunteer_interest_forms.school_preference_id')
             ->where('volunteer_interest_forms.id', '=' ,$id)
             ->first();
 
