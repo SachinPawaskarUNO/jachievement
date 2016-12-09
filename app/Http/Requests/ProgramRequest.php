@@ -25,14 +25,14 @@ class ProgramRequest extends Request
     {
         $rules = [
             'name' => 'required|max:255',
-            'image' => '',
+            'image' => 'required',
             'description' => 'required',
             'program_url' => 'required',
             'implementation' => 'required',
             'grade_id' => 'required',
-            'financial_readiness' => '',
-            'work_readiness' => '',
-            'entrepreneurship' => '',
+            'financial_readiness' => 'required',
+            'work_readiness' => 'required',
+            'entrepreneurship' => 'required',
         ];
 
         return $rules;

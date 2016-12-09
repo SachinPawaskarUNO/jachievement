@@ -191,7 +191,7 @@ class DonationController extends Controller
             $donation->anonymous = 'no';
         }
         $donation->status = 'paid';
-        $donation->date = date('Y-m-d');
+       // $donation->date = date('Y-m-d');
 
         $floatAmount = floatval(str_replace(',', '', $amount));
 

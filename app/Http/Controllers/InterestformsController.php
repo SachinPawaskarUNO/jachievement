@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\School;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -39,9 +40,10 @@ class InterestformsController extends Controller
         $defaultSelection = [''=>'Please Select'];
 
         $states = State::lists('name', 'id')->toArray();
+        $schools = School::lists('school_name','id')->toArray();
         $states =  $defaultSelection + $states;
-
-        return view('volunteers.interestform', compact('grade_program1', 'grade_program2', 'grade_program3', 'mode_of_contact', 'states'));
+        $schools = $defaultSelection + $schools;
+        return view('volunteers.interestform', compact('grade_program1', 'grade_program2', 'grade_program3', 'mode_of_contact', 'states', 'schools'));
     }
 
     public function store(VolunteerRequest $request) {
@@ -125,7 +127,7 @@ class InterestformsController extends Controller
         $data = array(
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
-            'school_preference' => $request->school_preference,
+            'school_preference_id' => $request->school_preference_id,
             'company_name' => $request->company_name,
             'company_address' => $request->company_address,
             'company_city' => $request->company_city,

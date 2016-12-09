@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div class="pull-right">
-                            <form action="{{ url('/admin/download/educatorreport') }}" method="GET">
+                            <form action="{{ url('/admin/download/educatorreport') }}" method="GET">{{ csrf_field() }}
                                 <button type="submit" id="download" class="btn btn-default">Export To Excel</button>
                             </form>
                         </div>

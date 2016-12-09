@@ -71,17 +71,28 @@
     </div>
 </div>
 
-<div class="form-group{{ $errors->has('school_preference') ? ' has-error' : '' }}">
-    {!! Form::label('school_preference', 'If possible, I would like to teach at the following school:', ['class' => 'col-md-4 control-label']) !!}
+{{--<div class="form-group{{ $errors->has('school_preference') ? ' has-error' : '' }}">--}}
+    {{--{!! Form::label('school_preference', 'If possible, I would like to teach at the following school:', ['class' => 'col-md-4 control-label']) !!}--}}
+    {{--<div class="col-md-6">--}}
+        {{--{!! Form::text('school_preference', null, ['class' => 'col-md-6 form-control']) !!}--}}
+        {{--@if ($errors->has('school_preference'))--}}
+            {{--<span class="help-block">--}}
+                    {{--<strong>{{ $errors->first('school_preference') }}</strong>--}}
+                {{--</span>--}}
+        {{--@endif--}}
+    {{--</div>--}}
+{{--</div>--}}
+
+<div class="form-group{{ $errors->has('school_preference_id') ? ' has-error' : '' }}">
+    {!! Form::label('school_preference_id', 'If possible, I would like to teach at the following school:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('school_preference', null, ['class' => 'col-md-6 form-control']) !!}
-        @if ($errors->has('school_preference'))
-            <span class="help-block">
-                    <strong>{{ $errors->first('school_preference') }}</strong>
-                </span>
+        {!! Form::select('school_preference_id', $schools, null,  ['id'=> 'school_preference_id','class' => 'col-md-6 form-control']) !!}
+        @if ($errors->has('school_preference_id'))
+            <span class="help-block"><strong>{{ $errors->first('school_preference_id') }}</strong></span>
         @endif
     </div>
 </div>
+
 <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 
     {!! Form::label('first_name', 'First Name:', ['class' => 'col-md-4 control-label']) !!}

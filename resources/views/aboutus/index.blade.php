@@ -42,10 +42,6 @@
                 <p><span class="glyphicon glyphicon-star"></span> Respect for the talents, creativity, perspectives, and backgrounds of all individuals</p>
                 <p><span class="glyphicon glyphicon-star"></span> Belief in the power of partnership and collaboration</p>
                 <p><span class="glyphicon glyphicon-star"></span> Conviction in the educational and motivational impact of relevant, hands-on learning</p>
-
-
-
-
             </div>
         </div>
     </div>
