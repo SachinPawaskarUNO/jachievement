@@ -15,7 +15,7 @@ class AddForeignKeyInVolunteerInterestFormsTable extends Migration
        Schema::table('volunteer_interest_forms', function (Blueprint $table) {
 
            $table->dropColumn('school_preference');
-           $table->integer('school_preference_id')->unsigned();
+           $table->integer('school_preference_id')->unsigned()->nullable();
            $table->foreign('school_preference_id')->references('id')->on('schools');
        });
     }

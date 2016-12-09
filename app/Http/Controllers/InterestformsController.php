@@ -52,6 +52,9 @@ class InterestformsController extends Controller
         if ($input['company_state_id'] == '') {
             $input['company_state_id'] = null;
         }
+        if ($input['school_preference_id'] == '') {
+            $input['school_preference_id'] = null;
+        }
         $user = Auth::user();
         if($user) {
             $input['user_id'] = $user->id;
