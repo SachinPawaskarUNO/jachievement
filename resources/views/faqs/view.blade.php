@@ -530,36 +530,20 @@ table {
                    
 <section class="cd-faq">
     <ul class="cd-faq-categories">
-        @foreach($maven_tags as $maven_tag)
-        <li><a href="#basics">{{strtoupper($maven_tag->tag)}}</a></li>
+        @foreach($categories as $category)
+        <li><a href="#basics">{{strtoupper($category->cat)}}</a></li>
         @endforeach
     </ul> <!-- cd-faq-categories -->
-
     <div class="cd-faq-items">
+        @foreach($categories as $category)
         <ul id="basics" class="cd-faq-group">
-            <li class="cd-faq-title"><h2>Educator</h2></li>
-            @foreach($maven_items as $maven_item)
-            <li>
-                <a class="cd-faq-trigger" href="#0">{{$maven_item->faq->raw_question}}</a>
-                <div class="cd-faq-content">
-                    <p>{{$maven_item->faq->raw_answer}}</p>
-                </div> <!-- cd-faq-content -->
-            </li>
-            @endforeach
-        </ul> <!-- cd-faq-group -->
-    </div> <!-- cd-faq-items -->
-
-
-    <div class="cd-faq-items">
-        @foreach($maven_tags as $maven_tag)
-        <ul id="basics" class="cd-faq-group">
-            <li class="cd-faq-title"><h2>{{$maven_tag->tag}}</h2></li>
-            @foreach($maven_items as $maven_item)
-                @if ($maven_item->tag == $maven_tag->tag)
+            <li class="cd-faq-title"><h2>{{$category->cat}}</h2></li>
+            @foreach($faqs as $faq)
+                @if ($faq->category == $category->cat)
                 <li>
-                    <a class="cd-faq-trigger" href="#0"><strong>{{$maven_item->question}}</strong></a>
+                    <a class="cd-faq-trigger" href="#0"><strong>{{$faq->question}}</strong></a>
                     <div class="cd-faq-content">
-                        <p>{{$maven_item->answer}}</p>
+                        <p>{{$faq->answer}}</p>
                     </div> <!-- cd-faq-content -->
                 </li>
                 @endif
