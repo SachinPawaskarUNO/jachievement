@@ -153,7 +153,7 @@
                                 <a class="btn btn-sm btn-success" href="{{ url('/donation/donate')}}" id="member_donate">Donate to my goal</a>
                                 <br><br><br>
                             </div>
-                            <div class="donor-link" align="center"><a class="donor-link" href="{{url('/donors')}}">Learn More about donation</a></div>
+                            <div class="donor-link" align="center"><a class="donor-link" href="{{url('/donors')}}">Learn More About Donating</a></div>
                             <div class="hidden-sm clear"> &nbsp;</div>
                             <div class="hidden-sm clear"> &nbsp;</div>
                             <div class="hidden-sm clear"> &nbsp;</div>
@@ -176,9 +176,13 @@
                         @if($data['button_show'] == 'true')
                             <a class="btn btn-sm btn-success" href="{{ action('CampaignController@joinTeam', [$teamMember->token]) }}" id="member_join">Join Our Team</a>
                         @endif
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         @if($data['link_show']=='show')
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal" href="#myModal1">Invite Friends to Join or Donate </a>
+                        @endif
+                        @if($data['editable'])
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a class="btn btn-sm btn-success" href="{{ action('CampaignController@editTeamMember', [$teamMember->token]) }}" id="editLink">Edit Page Contents</a>
                         @endif
                         <br><br><br><br>
                     </div>
