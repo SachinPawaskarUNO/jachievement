@@ -10,10 +10,7 @@
                     </div>
                     <br>
                  
-     
 
-
-    
                     <div class="panel-body">
                         @if (count($teamInfo) > 0)
                             <div class="table-responsive">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{!! Form::open(['url' => 'comments']) !!}
+{!! Form::open(['url' => 'comments']) !!}{!! csrf_field() !!}
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="pull-left">

@@ -27,7 +27,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;"><span style="font-size:1.2em;"><b> &nbsp;</b></span></div>
                     <div class="panel-body">
-                        {!! Form::open(['url' => '/donation/donate', 'class' => 'form-horizontal', 'method' => 'POST']) !!}
+                        {!! Form::open(['url' => '/donation/donate', 'class' => 'form-horizontal', 'method' => 'POST']) !!}{!! csrf_field() !!}
                         @include('common.errors')
                         @include('common.flash')
                         @include ('donation.partial')

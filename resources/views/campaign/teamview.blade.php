@@ -93,8 +93,6 @@
                 </div>
                 </div>
                 </div>
-
-
                 </div>
 @endsection
 
@@ -102,9 +100,6 @@
     <style>
         .table td { border: 0px !important; }
         .tooltip-inner { white-space:pre-wrap; max-width: 400px; }
-
-
-   
     </style>
 
     @endsection

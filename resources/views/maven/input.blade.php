@@ -14,7 +14,7 @@
     @if($mode == 'store')
     {!! Form::open(['route' => 'maven.store']) !!}
     @elseif($mode == 'update')
-    {!! Form::open(['route' => ['maven.update', $maven_item->id], 'method' => 'put']) !!}
+    {!! Form::open(['route' => ['maven.update', $maven_item->id], 'method' => 'put']) !!}{!! csrf_field() !!}
     @endif
         <ul class="nav nav-tabs">
         @foreach($locales as $locale => $locale_name)
