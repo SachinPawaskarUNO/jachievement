@@ -61,6 +61,8 @@
         </div>
     </div>
     </div>
+     </div>
+    </div>
 @endsection
 @section('footer')
 <script type="text/javascript">

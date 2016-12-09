@@ -16,7 +16,7 @@
 
         </div>
 
-        <div class="collapse navbar-collapse" id="app-navbar-collapse" >
+        <div style="padding-top:10px; font-size:14px; background-color: #F8F8F8" class="collapse navbar-collapse" id="app-navbar-collapse" >
                     <!-- Left Side Of Navbar --> 
             <ul class="nav navbar-nav">
                 <li class="dropdown">
@@ -93,7 +93,9 @@
                     <li><a id="ja_register" href="{{ url('/register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Welcome, {{ Auth::user()->first_name }} <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style=" white-space: nowrap; 
+    width: 12em; 
+    overflow: ;text-overflow: ellipsis; ">Welcome,&nbsp; {{ Auth::user()->first_name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a id="ja_changepw" href="{{ url('/change-password') }}">Change Password</a></li>
                             <li><a id="ja_teamview" href="{{ url('/event/team/view') }}">View My Teams</a></li>

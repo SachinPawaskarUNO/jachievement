@@ -53,7 +53,7 @@
 
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
-        {!! Form::button('<i class="fa fa-btn"></i>Submit!', ['type' => 'submit', 'id'=>'submit', 'class' => 'btn btn-success']) !!}
+        {!! Form::button('<i class="fa fa-btn"></i>Submit', ['type' => 'submit', 'id'=>'submit', 'class' => 'btn btn-success']) !!}
     </div>
 </div>
 

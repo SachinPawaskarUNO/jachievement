@@ -15,7 +15,7 @@
     {!! Form::label('description', 'Description:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::textarea('description', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::textarea('description', null, ['class' => 'col-md-6 form-control', 'rows' => '5']) !!}
         @if ($errors->has('description'))
             <span class="help-block">
                 <strong>{{ $errors->first('description') }}</strong>
@@ -28,7 +28,7 @@
     {!! Form::label('image', 'Image:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::textarea('image', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::text('image', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('image'))
             <span class="help-block">
                 <strong>{{ $errors->first('image') }}</strong>
@@ -80,7 +80,7 @@
     {!! Form::label('venue', 'Venue:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::textarea('venue', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::textarea('venue', null, ['class' => 'col-md-6 form-control', 'rows' => '2']) !!}
         @if ($errors->has('venue'))
             <span class="help-block">
                 <strong>{{ $errors->first('venue') }}</strong>
@@ -93,7 +93,7 @@
     {!! Form::label('team_default_content', 'Create Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::textarea('team_default_content', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::textarea('team_default_content', null, ['class' => 'col-md-6 form-control', 'rows' => '5']) !!}
         @if ($errors->has('team_default_content'))
             <span class="help-block">
                 <strong>{{ $errors->first('team_default_content') }}</strong>
@@ -106,7 +106,7 @@
     {!! Form::label('team_member_default_content', 'Join Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::textarea('team_member_default_content', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::textarea('team_member_default_content', null, ['class' => 'col-md-6 form-control', 'rows' => '5']) !!}
         @if ($errors->has('team_member_default_content'))
             <span class="help-block">
                 <strong>{{ $errors->first('team_member_default_content') }}</strong>

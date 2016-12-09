@@ -43,7 +43,7 @@
                                 </table>
                             </div>
                         @else
-                            <div class="panel-body"><h4>No Created Team Information found</h4></div>
+                            <div class="panel-body"><h4>No Records found</h4></div>
                         @endif
                     </div>
                 </div>
@@ -87,14 +87,12 @@
                                 </table>
                             </div>
                         @else
-                            <div class="panel-body"><h4>No Joined Team Information found</h4></div>
+                            <div class="panel-body"><h4>No Records found</h4></div>
                         @endif
                     </div>
                 </div>
                 </div>
                 </div>
-
-
                 </div>
 @endsection
 
@@ -102,9 +100,6 @@
     <style>
         .table td { border: 0px !important; }
         .tooltip-inner { white-space:pre-wrap; max-width: 400px; }
-
-
-   
     </style>
 
     @endsection

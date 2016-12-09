@@ -15,7 +15,7 @@
     {!! Form::label('description', 'Description:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
-        {!! Form::text('description', null, ['class' => 'col-md-6 form-control']) !!}
+        {!! Form::textarea('description', null, ['class' => 'col-md-6 form-control', 'rows' => '5']) !!}
         @if ($errors->has('description'))
             <span class="help-block">
                 <strong>{{ $errors->first('description') }}</strong>
@@ -38,7 +38,7 @@
 </div>
 
 <div class="form-group{{ $errors->has('program_url') ? ' has-error' : '' }}">
-    {!! Form::label('program_url', 'Program url:', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('program_url', 'Program URL:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('program_url', null, ['class' => 'col-md-6 form-control']) !!}

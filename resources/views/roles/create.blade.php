@@ -9,7 +9,7 @@
                         <div style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></div>
                     </div>
                     <div class="panel-body">
-                        {!! Form::open(['class' => 'form-horizontal', 'route' => 'roles.store', 'onsubmit' => 'return validateOnSave();']) !!}
+                        {!! Form::open(['class' => 'form-horizontal', 'route' => 'roles.store', 'onsubmit' => 'return validateOnSave();']) !!}{{ csrf_field() }}
                         @include('common.errors')
                         @include('common.flash')
 

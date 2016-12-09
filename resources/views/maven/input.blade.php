@@ -1,6 +1,5 @@
 @extends('maven.layout')
-        @include('common.nav')
-
+    @include('common.nav')
 @section('content')
 
     @include('maven.header')
@@ -15,11 +14,11 @@
     @if($mode == 'store')
     {!! Form::open(['route' => 'maven.store']) !!}
     @elseif($mode == 'update')
-    {!! Form::open(['route' => ['maven.update', $maven_item->id], 'method' => 'put']) !!}
+    {!! Form::open(['route' => ['maven.update', $maven_item->id], 'method' => 'put']) !!}{!! csrf_field() !!}
     @endif
         <ul class="nav nav-tabs">
         @foreach($locales as $locale => $locale_name)
-            <li{!! ($locale == $current_locale) ? ' class="active"' : '' !!}><a data-toggle="tab" href="#form-{{ $locale }}">{{ $locale_name }}</a></li>
+            <!-- <li{!! ($locale == $current_locale) ? ' class="active"' : '' !!}><a data-toggle="tab" href="#form-{{ $locale }}">{{ $locale_name }}</a></li> -->
         @endforeach
         </ul>
         <div class="tab-content">
@@ -89,7 +88,6 @@
             <button class="btn icon-btn btn-success" type="submit">{{ trans('maven.save') }}</button>
         </div>
     {!! Form::close() !!}
-
 
 @endsection
 
