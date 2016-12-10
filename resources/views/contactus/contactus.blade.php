@@ -6,7 +6,7 @@
 	<br>
 	<br>
 	<h2 class="text-center"> Have Questions? </h2>
-	<h4 class="text-center"> Please check out our Junior Achievement's <a href="">FAQ</a>s Document</h4>
+	<h4 class="text-center"> Please check out our Junior Achievement's <a href="{{ url('/faq/view') }}">FAQ</a>s Document</h4>
 	
         <br>
         <br>

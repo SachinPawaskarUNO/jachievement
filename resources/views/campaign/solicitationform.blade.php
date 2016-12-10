@@ -30,7 +30,7 @@
         <br>
         <p class="description">Thanking You</p>
         <p class="description"><b>{{$firstname}} {{$lastname}}</b></p>
-        <p class="description"><b>Junior Achievement of Midlands, Inc.</b></p>
+
     </div>
 </div>
 <br>
