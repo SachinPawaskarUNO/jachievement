@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\FAQ;
 
 class FAQsTableSeeder extends Seeder
 {
@@ -12,17 +13,17 @@ class FAQsTableSeeder extends Seeder
     public function run()
     {
         DB::table('faqs')->delete();
-        Donor::create(['id'=>'1','question' => '','answer' => '','category' => '']);
-        Donor::create(['id'=>'2','question' => '','answer' => '','category' => '']);
-        Donor::create(['id'=>'3','question' => '','answer' => '','category' => '']);
-        Donor::create(['id'=>'4','question' => '','answer' => '','category' => '']);
-        Donor::create(['id'=>'5','question' => '','answer' => '','category' => '']);
-        Donor::create(['id'=>'6','question' => '','answer' => '','category' => '']);
-        Donor::create(['id'=>'7','question' => '','answer' => '','category' => '']);
-        Donor::create(['id'=>'8','question' => '','answer' => '','category' => '']);
-        Donor::create(['id'=>'9','question' => '','answer' => '','category' => '']);
-        Donor::create(['id'=>'10','question' => '','answer' => '','category' => '']);
-        Donor::create(['id'=>'11','question' => '','answer' => '','category' => '']);
-        Donor::create(['id'=>'12','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'1','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'2','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'3','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'4','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'5','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'6','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'7','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'8','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'9','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'10','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'11','question' => '','answer' => '','category' => '']);
+        FAQ::create(['id'=>'12','question' => '','answer' => '','category' => '']);
     }
 }
