@@ -167,3 +167,10 @@
         {!! Form::button('<i></i>Donate', ['type' => 'submit','id' => 'save', 'class' => 'btn btn-success']) !!}
     </div>
 </div>
+<div class="form-group">
+    <div class=""col-md-6 col-md-offset-4">
+    @if (isset($_GET['team']))
+        {!! Form::hidden('team',$_GET['team'], ['id'=> 'team','class' => 'col-md-6 form-control']) !!}
+    @endif
+    </div>
+</div>
