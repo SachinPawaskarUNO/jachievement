@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Log;
 use App\School;
-use App\Location;
 
 
 class MapController extends Controller
