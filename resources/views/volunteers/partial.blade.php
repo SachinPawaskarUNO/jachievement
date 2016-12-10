@@ -71,18 +71,6 @@
     </div>
 </div>
 
-{{--<div class="form-group{{ $errors->has('school_preference') ? ' has-error' : '' }}">--}}
-    {{--{!! Form::label('school_preference', 'If possible, I would like to teach at the following school:', ['class' => 'col-md-4 control-label']) !!}--}}
-    {{--<div class="col-md-6">--}}
-        {{--{!! Form::text('school_preference', null, ['class' => 'col-md-6 form-control']) !!}--}}
-        {{--@if ($errors->has('school_preference'))--}}
-            {{--<span class="help-block">--}}
-                    {{--<strong>{{ $errors->first('school_preference') }}</strong>--}}
-                {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--</div>--}}
-
 <div class="form-group{{ $errors->has('school_preference_id') ? ' has-error' : '' }}">
     {!! Form::label('school_preference_id', 'If possible, I would like to teach at the following school:', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">

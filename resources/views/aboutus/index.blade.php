@@ -33,7 +33,7 @@
 
                 <p><b>{{$contents['Purpose']}}</b></p>
                 <p><b>Who we are?</b></p>
-                <p>Junior Achievement is the world's largest organization dedicated to giving children the knowledge and skills they need to own their economic success, plan for their future, and make smart academic and economic choices. Junior Achievement programs are delivered by business and community volunteers and provide relevant, hands-on experiences that give students from kindergarten through high school the knowledge and skills in financial literacy, work readiness and entrepreneurship. Founded in 1919, Junior Achievement has operated programs in Omaha since 1962.
+                <p>{{$contents['Who We Are']}}
                 </p>
                 <p><b>Core Values</b></p>
                 <p><span class="glyphicon glyphicon-star"></span> {{$contents['Core Value 1']}}</p>
