@@ -44,30 +44,30 @@
         <br>
             <div class="row"  ID="4">
                 <div class="col-md-6"  ID="5">
-                <img class="img-responsive" src="../images/EducatorsPage.jpg" alt="Educator" width="100%" height="auto"  ID="6"/>
+                <img class="img-responsive" src="{{$contents['Top Picture']}}" alt="Educator" width="100%" height="auto"  ID="6"/>
                 </div>
                 <div class="col-md-6"  ID="7">
                 
-                <p style="font-size: 16px"  ID="8"> Junior Achievement brings quality volunteers from the community into your classroom to deliver proven, hands-on programming on financial literacy, work readiness, and entrepreneurship that inspires students to understand the opportunities provided by education.</p>
+                <p style="font-size: 16px"  ID="8"> {{$contents['Top Description']}}</p>
                 <br>
                 <div>
                 <div class="col-md-1"><span class="glyphicon glyphicon-education"  ID="9"></span> </div>
                 <div class="col-md-11"  ID="10"><h4>IMPORTANCE OF STAYING IN SCHOOL</h4>
-                <p style="font-size:16px"  > Junior Achievement reinforces the value of an education. Evaluations conducted by an independent research firm showed that an average of eight out of 10 high school students reported that Junior Achievement programs helped reinforce the importance of staying in school. In longitudinal studies, Junior Achievement students were significantly more likely than their peers to believe that they would graduate from high school, pursue post-secondary education and graduate from college.</p>
+                <p style="font-size:16px"  > {{$contents['Importance']}}</p>
                 <br></div>
                 </div>
 
                 <div>
                 <div class="col-md-1"  ID="12"><span class="glyphicon glyphicon-globe"   ID="13"></span> </div>
                 <div class="col-md-11"  ID="14"> <h4>PREPARATION FOR THE REAL WORLD</h4>
-                <p style="font-size: 16px"> Ninety-five percent of teachers report that students who participate in Junior Achievement have a better understanding of how the real world operates, and nine out of 10 teachers and volunteers agree that Junior Achievement programs connect what is learned in the classroom to the outside world.</p>
+                <p style="font-size: 16px"> {{$contents['Preparation']}}</p>
                 <br></div>
                 </div>
                 
                 <div>
                 <div class="col-md-1"  ID="15"><span class="glyphicon glyphicon-star-empty" ></span> </div>
                 <div class="col-md-11"  ID="16"> <h4>EDUCATOR-RESPECTED AND RECOMMENDED</h4>
-                <p style="font-size: 16px"  ID="17"> Ninety-six percent of teachers agreed or strongly agreed that they would recommend Junior Achievement to a colleague or friend.</p>
+                <p style="font-size: 16px"  ID="17"> {{$contents['Recommended']}}</p>
                 </div>
                 </div>
                 </div>
@@ -80,7 +80,7 @@
     <br>
 		<div class="col-md-4"  ID="19"></div>
 		<div class="col-md-4"  ID="20">
-			<h4 class="text-center" ID="21"><strong> Interesting, right? Would you like to have Junior Achievement in your classroom? Just reach out to Junior Achievement of Midlands to sign up.</strong></h4>
+			<h4 class="text-center" ID="21"><strong> {{$contents['Sign Up']}}</strong></h4>
  
 		</div>
 		<div class="col-md-4" ID="24"></div>
@@ -100,7 +100,7 @@
 			<div align:"center"  class="col-md-8 style="align: center" ID="29" >
 				<div class="embed-responsive embed-responsive-16by9 text-center" ID="30" >
 					<div class="video-embed" style="text-align:center" ID="31"> 
-						<iframe allowfullscreen="" frameborder="0" height="100" src="https://www.youtube.com/embed/XZLeBFNIUVo" width="300" ID="32">
+						<iframe allowfullscreen="" frameborder="0" height="100" src="{{$contents['Bottom Video']}}" width="300" ID="32">
 						</iframe>
 					</div>
 				</div>

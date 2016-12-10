@@ -24,15 +24,18 @@ class InterestformsController extends Controller
 
         $grade_program1= DB::table('programs')
                     ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
-                     ->where('grade_id','=','1')
+                    ->whereNull('programs.deleted_at')
+                    ->where('grade_id','=','1')
                     ->get();
 
         $grade_program2= DB::table('programs')
-            ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+                ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+                ->whereNull('programs.deleted_at')
                 ->where('grade_id','=','2')
                 ->get();
         $grade_program3= DB::table('programs')
-            ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+                ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+                ->whereNull('programs.deleted_at')
                 ->where('grade_id','=','3')
                 ->get();
         $mode_of_contact = array('none' => 'None', 'email' => 'Email', 'phone' => 'Phone');
@@ -65,6 +68,7 @@ class InterestformsController extends Controller
 
         $grade_programs1= DB::table('programs')
             ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+            ->whereNull('programs.deleted_at')
             ->where('grade_id','=','1')
             ->get();
 
@@ -83,6 +87,7 @@ class InterestformsController extends Controller
 
         $grade_programs2= DB::table('programs')
             ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+            ->whereNull('programs.deleted_at')
             ->where('grade_id','=','2')
             ->get();
 
@@ -100,6 +105,7 @@ class InterestformsController extends Controller
 
         $grade_programs3= DB::table('programs')
             ->select(DB::raw('programs.id as program_id, programs.name as program_name'))
+            ->whereNull('programs.deleted_at')
             ->where('grade_id','=','3')
             ->get();
 
@@ -159,8 +165,20 @@ class InterestformsController extends Controller
     }
 
     public function index() {
+        $staticcontents= DB::table('static_contents')
+          ->select(DB::raw('item, content'))
+          ->where('page','=','Volunteers')
+          ->get();
+        $contents = array();
+
+        foreach($staticcontents as $static) {
+            $contents[$static->item] = $static->content;
+        }
+
+
         Log::info('InterestformsController');
         $this->viewData['heading'] = "Volunteer Introduction Page";
+        $this->viewData['contents'] = $contents;
         return view('volunteers.introduction', $this->viewData);
     }
 }

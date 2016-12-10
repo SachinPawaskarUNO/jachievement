@@ -114,6 +114,7 @@ Route::resource('schools', 'SchoolController');
 Route::resource('programs', 'ProgramController');
 Route::resource('events', 'EventController');
 Route::resource('organizations', 'OrganizationController');
+Route::resource('faqs', 'FAQController');
 
 
 
@@ -134,10 +135,11 @@ Route::get('/admin/comments/{id}/rjt', 'CommentsController@reject');
 
 Route::get('/hints/view', 'HintsController@view');
 Route::post('/hints/view', 'HintsController@store');
-Route::get('/faq/view', 'Maven\MavenController@view');
+//Route::get('/faq/view', 'Maven\MavenController@view');
+Route::get('/faq/view', 'FAQController@view');
 
 
-\Sukohi\Maven\Maven::route('en');
+/*\Sukohi\Maven\Maven::route('en');*/
 //});
 
 

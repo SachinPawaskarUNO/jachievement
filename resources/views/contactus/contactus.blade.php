@@ -6,7 +6,7 @@
 	<br>
 	<br>
 	<h2 class="text-center"> Have Questions? </h2>
-	<h4 class="text-center"> Please check out our Junior Achievement's <a href="">FAQ</a>s Document</h4>
+	<h4 class="text-center"> Please check out our Junior Achievement's <a href="{{ url('/faq/view') }}">FAQ</a>s Document</h4>
 	
         <br>
         <br>
@@ -22,7 +22,7 @@
 					<div class="panel-body" >
 						<div style="height:500px;width:500px;max-width:100%;list-style:none; transition: none;overflow:hidden;">
 							<div id="google-maps-canvas" style="height:100%; width:100%;">
-								<iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Junior+Achievement-Midlands,+West+Maple+Road,+Omaha,+NE,+United+States&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU">
+								<iframe style="height:100%;width:100%;border:0;" frameborder="0" src="{{$contents['Map Location']}}">
 								</iframe>
 							</div>
 							<!-- <a class="embedded-map-html" rel="nofollow" href="http://www.szablonypremium.pl" id="auth-map-data"></a> -->
@@ -67,19 +67,19 @@
 				<div class ="table-responsive">
 					<table class="table">
 						<tr>
-							<th> John Healey </th> 
-							<th> President </th>
-							<th> 402-333-6410 x 203 </th>
+							<th> {{$contents['Person 1 Name']}} </th> 
+							<th> {{$contents['Person 1 Title']}} </th>
+							<th> {{$contents['Person 1 Phone']}} </th>
 						</tr>
 						<tr>	
-							<th> Roxanne Mulvey </th> 
-							<th> Elementary School Programs </th>
-							<th> 402-333-6410 x 202 </th>
+							<th> {{$contents['Person 2 Name']}} </th> 
+							<th> {{$contents['Person 2 Title']}} </th>
+							<th> {{$contents['Person 2 Phone']}} </th>
 						</tr>
 						<tr>
-							<th> Jamie Hermanson </th> 
-							<th> Middle/High School Programs </th>
-							<th> 402-333-6410 x 201 </th>
+							<th> {{$contents['Person 3 Name']}} </th> 
+							<th> {{$contents['Person 3 Title']}} </th>
+							<th> {{$contents['Person 3 Phone']}} </th>
 						</tr>
 						<tr>
 							<th> </th> 

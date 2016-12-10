@@ -53,20 +53,11 @@ class AdminController extends Controller
 
     public function showVolunteerDetails($id)
     {
+
         Log::info('AdminController.showVolunteerDetails: ');
-        $volunteerInterestForm =  DB::table('volunteer_interest_forms')
-            ->select('schools.school_name','volunteer_interest_forms.first_name',
-                'volunteer_interest_forms.last_name','volunteer_interest_forms.company_name',
-                'volunteer_interest_forms.company_address','volunteer_interest_forms.company_city',
-                'states1.name as company_state','volunteer_interest_forms.company_zip','volunteer_interest_forms.company_phone',
-                'volunteer_interest_forms.home_phone','volunteer_interest_forms.home_address','volunteer_interest_forms.home_city',
-                'states2.name as home_state','volunteer_interest_forms.home_zip','volunteer_interest_forms.email',
-                'volunteer_interest_forms.created_at','volunteer_interest_forms.mode_of_contact')
-            ->join('states as states1', 'states1.id','=','volunteer_interest_forms.company_state_id')
-            ->join('states as states2', 'states2.id', '=', 'volunteer_interest_forms.home_state_id')
-            ->join('schools','schools.id', '=', 'volunteer_interest_forms.school_preference_id')
-            ->where('volunteer_interest_forms.id', '=' ,$id)
-            ->first();
+        $volunteerInterestForm =  DB::select("select sch.school_name as school_preference, vif.first_name, vif.last_name, vif.company_name, vif.company_address, vif.company_city, s1.name as company_state, vif.company_zip, vif.company_phone, vif.home_phone, vif.home_address, vif.home_city, s2.name as home_state, vif.home_zip, vif.email, vif.created_at, vif.mode_of_contact from volunteer_interest_forms vif left join states s1 on s1.id = vif.company_state_id left join states s2 on s2.id = vif.home_state_id left join schools sch on sch.id = vif.school_preference_id where vif.id = ".$id);
+
+        $volunteerInterestForm = $volunteerInterestForm[0];
 
         $volunteer_programs = DB::table('volunteer_programs')
             ->select(DB::raw('array_to_string(array_agg(programs.name), \', \') as name'))
@@ -95,7 +86,7 @@ class AdminController extends Controller
 
         $data = array();
        $volunteerInterestForms = DB::table('volunteer_programs')
-            ->select(DB::raw('volunteer_interest_forms.school_preference,volunteer_interest_forms.first_name,
+            ->select(DB::raw('schools.school_name,volunteer_interest_forms.first_name,
                 volunteer_interest_forms.last_name,volunteer_interest_forms.company_name,
                 volunteer_interest_forms.company_address,volunteer_interest_forms.company_city,
                 states1.name as company_state,volunteer_interest_forms.company_zip,volunteer_interest_forms.company_phone,
@@ -106,7 +97,8 @@ class AdminController extends Controller
             ->join('programs', 'volunteer_programs.program_id', '=', 'programs.id')
             ->join('states as states1', 'states1.id','=','volunteer_interest_forms.company_state_id')
             ->join('states as states2', 'states2.id', '=', 'volunteer_interest_forms.home_state_id')
-            ->groupBy('volunteer_interest_forms.school_preference','volunteer_interest_forms.first_name',
+           ->join('schools','schools.id', '=', 'volunteer_interest_forms.school_preference_id')
+            ->groupBy('schools.school_name','volunteer_interest_forms.first_name',
                 'volunteer_interest_forms.last_name','volunteer_interest_forms.company_name',
                 'volunteer_interest_forms.company_address','volunteer_interest_forms.company_city',
                 'states1.name','volunteer_interest_forms.company_zip','volunteer_interest_forms.company_phone',
