@@ -2,14 +2,14 @@
     <div class="col-md-12">
         <p>
             <i>
-                By donating to Junior Achievement of Midlands, you are helping in development and revisions of student curriculum,
+                By donating to Junior Achievement of Midlands, you are helping in development and revisions of student
+                curriculum,
                 recruitment of volunteers, special events, and many other student-related initiatives. Questions?
                 Please contact us through our Contact Us form
             </i>
         </p>
     </div>
 </div>
-
 
 
 <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
@@ -22,35 +22,35 @@
                 {!! Form::radio('amount', 5000.00, ['id'=> 'amount1','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$5,000',['class' => 'btn']) !!}
             </div>
-            
+
             <div class="form-group">
                 {!! Form::radio('amount', 500.00, ['id'=> 'amount3','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$500',['class' => 'btn']) !!}
-            </div>		
+            </div>
         </div>
         <div class="col-md-6">
-			<div class="form-group">
+            <div class="form-group">
                 {!! Form::radio('amount', 1000.00, ['id'=> 'amount2','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$1,000',['class' => 'btn']) !!}
             </div>
-			
-			<div class="form-group">
+
+            <div class="form-group">
                 {!! Form::radio('amount', 100.00, ['id'=> 'amount4','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','$100',['class' => 'btn']) !!}
             </div>
-		            
+
         </div>
-		<div class= "form-group" >
-			<div class= "col-md-5">
+        <div class="form-group">
+            <div class="col-md-5">
                 {!! Form::radio('amount', null, ['id'=> 'amount5','class' => 'col-md-6 form-control']) !!}
                 {!! Form::label('lb_1','Other:',['class' => 'btn']) !!}
 
-			</div>
-			<div class="col-md-6">
-				{!! Form::text('amount_actual', null, ['id'=> 'amount_actual','class' => 'col-md-6 form-control', 'maxLength' => 7 , 'data-prefix' => '$', 'data-precision' => '0']) !!}
             </div>
-		 </div>	
-		
+            <div class="col-md-6">
+                {!! Form::text('amount_actual', null, ['id'=> 'amount_actual','class' => 'col-md-6 form-control', 'maxLength' => 7 , 'data-prefix' => '$', 'data-precision' => '0']) !!}
+            </div>
+        </div>
+
         @if ($errors->has('amount'))
             <span class="help-block">
                     <strong>{{ $errors->first('amount') }}</strong>
@@ -168,9 +168,10 @@
     </div>
 </div>
 <div class="form-group">
-    <div class=""col-md-6 col-md-offset-4">
+    <div class="" col-md-6 col-md-offset-4
+    ">
     @if (isset($_GET['team']))
         {!! Form::hidden('team',$_GET['team'], ['id'=> 'team','class' => 'col-md-6 form-control']) !!}
     @endif
-    </div>
+</div>
 </div>

@@ -1,6 +1,6 @@
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     {!! Form::label('name', 'Event Name:', ['class' => 'col-md-4 control-label']) !!}
-	<span style="color:red;">*</span>
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('name', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('name'))
@@ -13,7 +13,7 @@
 
 <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
     {!! Form::label('description', 'Description:', ['class' => 'col-md-4 control-label']) !!}
-	<span style="color:red;">*</span>
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::textarea('description', null, ['class' => 'col-md-6 form-control', 'rows' => '5']) !!}
         @if ($errors->has('description'))
@@ -26,7 +26,7 @@
 
 <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
     {!! Form::label('image', 'Image:', ['class' => 'col-md-4 control-label']) !!}
-	<span style="color:red;">*</span>
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('image', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('image'))
@@ -39,7 +39,7 @@
 
 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
     {!! Form::label('email', 'Email:', ['class' => 'col-md-4 control-label']) !!}
-	<span style="color:red;">*</span>
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('email', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('email'))
@@ -52,7 +52,7 @@
 
 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
     {!! Form::label('phone', 'Phone:', ['class' => 'col-md-4 control-label']) !!}
-	<span style="color:red;">*</span>
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('phone', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('phone'))
@@ -65,7 +65,7 @@
 
 <div class="form-group{{ $errors->has('event_date') ? ' has-error' : '' }}">
     {!! Form::label('event_date', 'Event Date:', ['class' => 'col-md-4 control-label']) !!}
-	<span style="color:red;">*</span>
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::date('event_date', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('event_date'))
@@ -78,7 +78,7 @@
 
 <div class="form-group{{ $errors->has('venue') ? ' has-error' : '' }}">
     {!! Form::label('venue', 'Venue:', ['class' => 'col-md-4 control-label']) !!}
-	<span style="color:red;">*</span>
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::textarea('venue', null, ['class' => 'col-md-6 form-control', 'rows' => '2']) !!}
         @if ($errors->has('venue'))
@@ -91,7 +91,7 @@
 
 <div class="form-group{{ $errors->has('team_default_content') ? ' has-error' : '' }}">
     {!! Form::label('team_default_content', 'Create Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
-	
+
     <div class="col-md-6">
         {!! Form::textarea('team_default_content', null, ['class' => 'col-md-6 form-control', 'rows' => '5']) !!}
         @if ($errors->has('team_default_content'))
@@ -104,7 +104,7 @@
 
 <div class="form-group{{ $errors->has('team_member_default_content') ? ' has-error' : '' }}">
     {!! Form::label('team_member_default_content', 'Join Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
-	
+
     <div class="col-md-6">
         {!! Form::textarea('team_member_default_content', null, ['class' => 'col-md-6 form-control', 'rows' => '5']) !!}
         @if ($errors->has('team_member_default_content'))
@@ -131,7 +131,8 @@
     <div class="col-md-6">
         <div class="checkbox">
             <label>
-                {{ Form::hidden('create_team', false) }}{{ Form::checkbox('create_team', true, old('create_team')) }} Create Team Button
+                {{ Form::hidden('create_team', false) }}{{ Form::checkbox('create_team', true, old('create_team')) }}
+                Create Team Button
             </label>
         </div>
     </div>

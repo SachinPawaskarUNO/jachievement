@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <style>
     html, body {

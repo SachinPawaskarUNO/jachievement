@@ -143,7 +143,6 @@
                             <div class="closing-buttons" align="center" id="button-donate">
                                 <a class="btn btn-success btn-lg" href="{{ url('/donation/donate') }}">Donate Now</a>
                             </div>
-                        
                     </div>
                 </div>
               
@@ -158,7 +157,6 @@
                                         src="{{$contents['Bottom Video']}}" width="350" ID="32"></iframe>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

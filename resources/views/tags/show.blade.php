@@ -9,8 +9,11 @@
             </div>
             @if ($tag->id != 1 && $tag->id != 2) <!-- Administrator and Advisor Tags-->
             <div class="pull-right">
-                <form action="{{ url('tags/'.$tag->id) }}" method="POST"  onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
-                    <button style="height: 24px;" type="submit" id="delete-tag-{{ $tag->id }}" class="btn btn-danger">Delete</button>
+                <form action="{{ url('tags/'.$tag->id) }}" method="POST"
+                      onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
+                    <button style="height: 24px;" type="submit" id="delete-tag-{{ $tag->id }}" class="btn btn-danger">
+                        Delete
+                    </button>
                 </form>
             </div>
             <div class="pull-right">
