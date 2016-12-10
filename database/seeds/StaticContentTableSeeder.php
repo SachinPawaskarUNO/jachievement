@@ -124,10 +124,27 @@ class StaticContentsTableSeeder extends Seeder
 
         StaticContent::create(['page' => 'Donors',  'item' => 'Bottom Video', 'type' => 'video', 'content' => 'https://www.youtube.com/embed/nTmryDIQq6s', 'default_content' => 'https://www.youtube.com/embed/nTmryDIQq6s', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
 
+        StaticContent::create(['page' => 'Contact Us',  'item' => 'Map Location', 'type' => 'text', 'content' => 'https://www.google.com/maps/embed/v1/place?q=Junior+Achievement-Midlands,+West+Maple+Road,+Omaha,+NE,+United+States&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU', 'default_content' => 'https://www.google.com/maps/embed/v1/place?q=Junior+Achievement-Midlands,+West+Maple+Road,+Omaha,+NE,+United+States&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+
+        StaticContent::create(['page' => 'Contact Us',  'item' => 'Person 1 Name', 'type' => 'text', 'content' => 'John Healey', 'default_content' => 'John Healey', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+
+        StaticContent::create(['page' => 'Contact Us',  'item' => 'Person 1 Title', 'type' => 'text', 'content' => 'President', 'default_content' => 'President', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+
+        StaticContent::create(['page' => 'Contact Us',  'item' => 'Person 1 Phone', 'type' => 'text', 'content' => '402-333-6410 x 203', 'default_content' => '402-333-6410 x 203', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+
+        StaticContent::create(['page' => 'Contact Us',  'item' => 'Person 2 Name', 'type' => 'text', 'content' => 'Roxanne Mulvey', 'default_content' => 'Roxanne Mulvey', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+
+        StaticContent::create(['page' => 'Contact Us',  'item' => 'Person 2 Title', 'type' => 'text', 'content' => 'Elementary School Program', 'default_content' => 'Elementary School Program', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+
+        StaticContent::create(['page' => 'Contact Us',  'item' => 'Person 2 Phone', 'type' => 'text', 'content' => '402-333-6410 x 202', 'default_content' => '402-333-6410 x 202', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+
+        StaticContent::create(['page' => 'Contact Us',  'item' => 'Person 3 Name', 'type' => 'text', 'content' => 'Jamie Hermanson', 'default_content' => 'Jamie Hermanson', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+
+        StaticContent::create(['page' => 'Contact Us',  'item' => 'Person 3 Title', 'type' => 'text', 'content' => 'Middle/High School Programs', 'default_content' => 'Middle/High School Programs', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
+
+        StaticContent::create(['page' => 'Contact Us',  'item' => 'Person 3 Phone', 'type' => 'text', 'content' => '402-333-6410 x 201', 'default_content' => '402-333-6410 x 201', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
 
 
-
-        StaticContent::create(['page' => 'Donors',  'item' => 'ITEM', 'type' => 'text', 'content' => 'STUFF', 'default_content' => 'STUFF', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
     }
 }
 
