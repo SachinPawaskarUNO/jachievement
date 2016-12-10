@@ -24,8 +24,8 @@ class EducatorRequest extends Request
     public function rules()
     {
         $rules = [
-            'first_name' => 'required|max:100||regex:/^[\pL\s\-]+$/u',
-            'last_name' => 'required|max:100||regex:/^[\pL\s\-]+$/u',
+            'first_name' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
+            'last_name' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
             'school_name' => 'required|max:100',
             'school_phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/|max:10',
             'school_address' => 'required|max:100',
