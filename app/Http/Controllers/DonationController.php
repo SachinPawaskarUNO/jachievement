@@ -174,12 +174,11 @@ class DonationController extends Controller
         $donation = new Donation();
         $lastInsertedForm = Donor::all()->last();
         $donation->donor_id = $lastInsertedForm->id;
-        if (Input::get('amount_actual') != null) {
+        $amount = Input::get('amount');
+        if ($amount == null || $amount <= 0) {
             $amount = Input::get('amount_actual');
         }
-        else {
-            $amount = Input::get('amount');
-        }
+        
         $amount = preg_replace("/[^0-9\.]/", "", $amount);
 
         $donation->amount = $amount;
