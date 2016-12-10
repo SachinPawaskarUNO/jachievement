@@ -25,13 +25,13 @@ class SchoolRequest extends Request
     {
         $rules = [
             'school_name' => 'required|max:255',
-            'school_address' => 'max:255',
-            'school_city' => 'max:255',
-            'school_state_id' => 'numeric',
-            'school_zip' => 'regex:/^\d{5}(?:[-\s]\d{4})?$/',
-            'school_phone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
-            'school_latitude' => 'max:255',
-            'school_longitude' => 'max:255'
+            'school_address' => 'required|max:255',
+            'school_city' => 'required|max:255',
+            'school_state_id' => 'required',
+            'school_zip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
+            'school_phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
+            'school_latitude' => 'required',
+            'school_longitude' => 'required'
             ];
 
         return $rules;
