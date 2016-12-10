@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ProgramRequest extends Request
+class FAQRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,10 @@ class ProgramRequest extends Request
     public function rules()
     {
         $rules = [
-            'name' => 'required|max:255',
-            'image' => 'required',
-            'description' => 'required',
-            'program_url' => 'required',
-            'implementation' => 'required',
-            'grade_id' => 'required',
-            'financial_readiness' => 'required',
-            'work_readiness' => 'required',
-            'entrepreneurship' => 'required',
+            'question' => 'required',
+            'answer' => 'required',
+            'category' => 'required|alpha'
         ];
-
         return $rules;
     }
 }

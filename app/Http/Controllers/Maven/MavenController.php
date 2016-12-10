@@ -43,8 +43,11 @@ class MavenController extends \App\Http\Controllers\Controller
 
         $maven_items= DB::table('maven_faqs')
             ->join('maven_tags','maven_faqs.id','=','maven_tags.faq_id')
-            ->select(DB::raw('maven_faqs.question as question,maven_faqs.answer as answer, maven_tags.tag as tag'))
-            ->whereNull('maven_faqs.deleted_at')
+            ->join('maven_unique_keys','maven_faqs.unique_key_id','=','maven_unique_keys.id')
+            ->select(DB::raw('maven_faqs.question as question,maven_faqs.answer as answer, 
+                    maven_tags.tag as tag','maven_unique_keys.sort as sort'))
+            ->whereNull('maven_tags.deleted_at')
+            ->orderBY('sort','asc')
             ->get();
 
         $maven_tags = DB::table('maven_tags')

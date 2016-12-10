@@ -19,9 +19,9 @@
                                             <div class="huge">{{ number_format($viewers) }}</div>
                                             <div>
                                             @if ($viewers == 1)
-                                            Unique Visitor this Week!
+                                            Unique Visitor this Week
                                             @else
-                                            Unique Visitors this Week!
+                                            Unique Visitors this Week
                                             @endif
                                             </div>
                                         </div>
@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="col-xs-9 text-right">
                                             <div class="huge">{{ number_format($donations, 2) }}</div>
-                                            <div>Donations this Week!</div>
+                                            <div>Donations this Week</div>
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="col-xs-9 text-right">
                                             <div class="huge">{{ number_format($hintsCount) }}</div>
-                                            <div>Hints/Tips this Week!</div>
+                                            <div>Hints/Tips this Week</div>
                                         </div>
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@
                                         </div>
                                         <div class="col-xs-9 text-right">
                                             <div class="huge">{{ number_format($volunteerFormCount + $educatorFormCount) }}</div>
-                                            <div>Interest Forms this Week!</div>
+                                            <div>Interest Forms this Week</div>
                                         </div>
                                     </div>
                                 </div>
@@ -140,10 +140,7 @@
 
 <script>
 $(function() {
-
-    Morris.Line({
-        element: 'page-visits-area-chart',
-        data: [{
+    var chartData = [{
             date: "{{ $pageViewsData[0]['dt'] }}",
             visits: {{ $pageViewsData[0]['count'] }}
         }, {
@@ -164,7 +161,11 @@ $(function() {
         }, {
             date: "{{ $pageViewsData[6]['dt'] }}",
             visits: {{ $pageViewsData[6]['count'] }}
-        }],
+        }];
+
+    Morris.Line({
+        element: 'page-visits-area-chart',
+        data: chartData,
         xkey: 'date',
         ykeys: ['visits'],
         labels: ['Page Views'],

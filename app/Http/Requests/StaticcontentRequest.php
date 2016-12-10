@@ -24,7 +24,7 @@ class StaticcontentRequest extends Request
     public function rules()
     {
         $rules = [
-            'content' => 'max:100'
+            'item' => 'max:100'
             ];
 
         return $rules;
