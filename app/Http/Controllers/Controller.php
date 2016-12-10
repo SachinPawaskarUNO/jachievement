@@ -13,12 +13,12 @@ use Log;
 class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
+
 //    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function populateCreateFields(&$input)
     {
-        if (Auth::check() && $input != null)
-        {
+        if (Auth::check() && $input != null) {
             $input['created_by'] = Auth::user()->id;
             $input['updated_by'] = Auth::user()->id;
         }
@@ -26,8 +26,7 @@ class Controller extends BaseController
 
     public function populateUpdateFields(&$input)
     {
-        if (Auth::check() && $input != null)
-        {
+        if (Auth::check() && $input != null) {
             $input['updated_by'] = Auth::user()->id;
         }
     }
@@ -35,8 +34,7 @@ class Controller extends BaseController
     public function populateCreateFieldsWithUserID(&$input)
     {
         $this->populateCreateFields($input);
-        if (Auth::check() && $input != null)
-        {
+        if (Auth::check() && $input != null) {
             $input['user_id'] = Auth::user()->id;
         }
     }
@@ -44,8 +42,7 @@ class Controller extends BaseController
     public function getArrayCreateFields()
     {
         $input = [];
-        if (Auth::check() && $input != null)
-        {
+        if (Auth::check() && $input != null) {
             $input['created_by'] = Auth::user()->id;
             $input['updated_by'] = Auth::user()->id;
         }

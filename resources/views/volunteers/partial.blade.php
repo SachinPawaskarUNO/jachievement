@@ -9,7 +9,6 @@
 </div>
 
 
-
 <div class="form-group">
     <div class="col-md-10">
         {!! Form::checkbox('elementarySchoolProgram', 1, false, ['id'=> 'elementarySchoolProgram', 'class' => 'check1']) !!}
@@ -66,21 +65,23 @@
 
 <div class="form-group">
     <div class="col-md-12">
-        <p><i>Each classroom is visited once-a-week with the teacher and the volunteer deciding a mutually convenient day and time.
-                The Junior Achievement staff will work with you in matching you to a school and grade level of your choice.</i></p>
+        <p><i>Each classroom is visited once-a-week with the teacher and the volunteer deciding a mutually convenient
+                day and time.
+                The Junior Achievement staff will work with you in matching you to a school and grade level of your
+                choice.</i></p>
     </div>
 </div>
 
 {{--<div class="form-group{{ $errors->has('school_preference') ? ' has-error' : '' }}">--}}
-    {{--{!! Form::label('school_preference', 'If possible, I would like to teach at the following school:', ['class' => 'col-md-4 control-label']) !!}--}}
-    {{--<div class="col-md-6">--}}
-        {{--{!! Form::text('school_preference', null, ['class' => 'col-md-6 form-control']) !!}--}}
-        {{--@if ($errors->has('school_preference'))--}}
-            {{--<span class="help-block">--}}
-                    {{--<strong>{{ $errors->first('school_preference') }}</strong>--}}
-                {{--</span>--}}
-        {{--@endif--}}
-    {{--</div>--}}
+{{--{!! Form::label('school_preference', 'If possible, I would like to teach at the following school:', ['class' => 'col-md-4 control-label']) !!}--}}
+{{--<div class="col-md-6">--}}
+{{--{!! Form::text('school_preference', null, ['class' => 'col-md-6 form-control']) !!}--}}
+{{--@if ($errors->has('school_preference'))--}}
+{{--<span class="help-block">--}}
+{{--<strong>{{ $errors->first('school_preference') }}</strong>--}}
+{{--</span>--}}
+{{--@endif--}}
+{{--</div>--}}
 {{--</div>--}}
 
 <div class="form-group{{ $errors->has('school_preference_id') ? ' has-error' : '' }}">
@@ -163,7 +164,6 @@
         @endif
     </div>
 </div>
-
 
 
 <div class="form-group{{ $errors->has('company_zip') ? ' has-error' : '' }}">

@@ -13,15 +13,16 @@ use Khill\Lavacharts\Lavacharts;
 class ContributorController extends Controller
 {
 
-    public function index() {
+    public function index()
+    {
 
-        $staticcontents= DB::table('static_contents')
-          ->select(DB::raw('item, content'))
-          ->where('page','=','Donors')
-          ->get();
+        $staticcontents = DB::table('static_contents')
+            ->select(DB::raw('item, content'))
+            ->where('page', '=', 'Donors')
+            ->get();
         $contents = array();
 
-        foreach($staticcontents as $static) {
+        foreach ($staticcontents as $static) {
             $contents[$static->item] = $static->content;
         }
 

@@ -1,31 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    table{
-        width:100%;
-    }
-    td, th {
-        text-align:left;
-        padding:8px;
-    }
-    th{
-        background-color: #5cb85c;
-    }
-    tr:nth-child(even) {
-        background-color:#f2f2f2;
-    }
+    <style>
+        table {
+            width: 100%;
+        }
 
-</style>
+        td, th {
+            text-align: left;
+            padding: 8px;
+        }
 
+        th {
+            background-color: #5cb85c;
+        }
 
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
+    </style>
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-sm-6-pull">
-                                <h3 class="text-center">Make A Donation{{ $teamString }}</h3>
+                <h3 class="text-center">Make A Donation{{ $teamString }}</h3>
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#5cb85c !important;"><span style="font-size:1.2em;"><b> &nbsp;</b></span></div>
+                    <div class="panel-heading" style="background-color:#5cb85c !important;"><span
+                                style="font-size:1.2em;"><b> &nbsp;</b></span></div>
                     <div class="panel-body">
                         {!! Form::open(['url' => '/donation/donate', 'class' => 'form-horizontal', 'method' => 'POST']) !!}{!! csrf_field() !!}
                         @include('common.errors')
@@ -38,41 +39,40 @@
             <div class="col-md-5 col-sm-6-push">
                 <div class="row">
                     <h3 class="text-center">Recent Donors</h3>
-      
-        <div style="margin-left:20px;">
-            <div>
-            <div class="col-md-12">
-                <table>
-                    <th>Donor</th>
-                    <th>Amount</th>
 
-               @foreach($donors as $donor)
-                    <tr>
-                    <?php if($donor->anonymous == 'yes'): ?>
-                        <td>
-                            Anonymous
-                        </td>
-                    <?php else: ?>
-                        <td>
-                          {{$donor->firstname}} {{$donor->lastname}}.
-                        </td>
-                    <?php endif;?>
-                      <td>
-                          ${{number_format($donor->amount,2)}}
-                      </td>
-                    </tr>
+                    <div style="margin-left:20px;">
+                        <div>
+                            <div class="col-md-12">
+                                <table>
+                                    <th>Donor</th>
+                                    <th>Amount</th>
 
-                  @endforeach
-                </table>
-            </div>
-            </div>
-        </div>
+                                    @foreach($donors as $donor)
+                                        <tr>
+                                            <?php if($donor->anonymous == 'yes'): ?>
+                                            <td>
+                                                Anonymous
+                                            </td>
+                                            <?php else: ?>
+                                            <td>
+                                                {{$donor->firstname}} {{$donor->lastname}}.
+                                            </td>
+                                            <?php endif;?>
+                                            <td>
+                                                ${{number_format($donor->amount,2)}}
+                                            </td>
+                                        </tr>
 
-
-                <div class="row">
-                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/DonationNotification.png') }}">
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img class="img-responsive" id="IMG" alt="Image"
+                             src="{{ url('images/DonationNotification.png') }}">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 @endsection
