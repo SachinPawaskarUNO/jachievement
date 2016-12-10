@@ -24,12 +24,12 @@ class EducatorRequest extends Request
     public function rules()
     {
         $rules = [
-            'first_name' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-            'last_name' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
+            'first_name' => 'required|max:100',
+            'last_name' => 'required|max:100',
             'school_name' => 'required|max:100',
             'school_phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/|max:10',
             'school_address' => 'required|max:100',
-            'school_city' => 'required|max:50|alpha_spaces',
+            'school_city' => 'required|max:50',
             'school_state_id' => 'required',
             'school_zip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
             'email' => 'required|max:50|email',
