@@ -19,13 +19,20 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
                                     <thead> <!-- Table Headings -->
-                                    <th>Organization Name</th><th>URL</th>
+                                    <th>Organization Name</th>
+                                    <th>URL</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
                                     @foreach ($organizations as $organization)
                                         <tr>
-                                            <td class="table-text"><div><a href="{{ url('/organizations/'.$organization->id.'/edit') }}">{{ $organization->name }}</a></div></td>
-                                            <td class="table-text"><div>{{ $organization->url }}</div></td>
+                                            <td class="table-text">
+                                                <div>
+                                                    <a href="{{ url('/organizations/'.$organization->id.'/edit') }}">{{ $organization->name }}</a>
+                                                </div>
+                                            </td>
+                                            <td class="table-text">
+                                                <div>{{ $organization->url }}</div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -43,17 +50,23 @@
 
 @section('footer')
     <style>
-        .table td { border: 0px !important; }
-        .tooltip-inner { white-space:pre-wrap; max-width: 400px; }
+        .table td {
+            border: 0px !important;
+        }
+
+        .tooltip-inner {
+            white-space: pre-wrap;
+            max-width: 400px;
+        }
     </style>
 
     <script>
-        $(document).ready(function() {
-            $('table.cds-datatable').on( 'draw.dt', function () {
-                $('tr').tooltip({html: true, placement: 'auto' });
-            } );
+        $(document).ready(function () {
+            $('table.cds-datatable').on('draw.dt', function () {
+                $('tr').tooltip({html: true, placement: 'auto'});
+            });
 
-            $('tr').tooltip({html: true, placement: 'auto' });
-        } );
+            $('tr').tooltip({html: true, placement: 'auto'});
+        });
     </script>
 @endsection

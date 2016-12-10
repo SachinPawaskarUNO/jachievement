@@ -6,7 +6,7 @@
 	<br>
 	<br>
 	<h2 class="text-center"> Have Questions? </h2>
-	<h4 class="text-center"> Please check out our Junior Achievement's <a href="">FAQ</a>s Document</h4>
+	<h4 class="text-center"> Please check out our Junior Achievement's <a href="{{ url('/faq/view') }}">FAQ</a>s Document</h4>
 	
         <br>
         <br>
@@ -25,11 +25,8 @@
 								<iframe style="height:100%;width:100%;border:0;" frameborder="0" src="{{$contents['Map Location']}}">
 								</iframe>
 							</div>
-							<!-- <a class="embedded-map-html" rel="nofollow" href="http://www.szablonypremium.pl" id="auth-map-data"></a> -->
-							<!-- <style>#google-maps-canvas .text-marker{max-width:none!important;background:none!important;}img{max-width:none}</style> -->
+
 						</div>
-						<!-- <script src="https://www.szablonypremium.pl/google-maps-authorization.js?id=5865c16f-539f-b234-9bc8-b67e9cc486a8&c=embedded-map-html&u=1475113584" defer="defer" async="async"></script> -->
-					
 					</div>
 				</div> 
 			</div>
@@ -40,8 +37,8 @@
                	<div class="panel panel-default" > 
 					<div class="panel-heading" style="background-color:#5cb85c !important;"><span style="font-size:1.8em;color:white;"><b> Contact Us </b></span></div>
 					<div class="panel-body" style="background-color:rgb(245,245,245)">
-						<div style= "height:455px;width:500px;max-width:100%;"> 
-							
+						<div style= "height:455px;width:500px;max-width:100%;">
+
 							{!! Form::open(['url' => '/contactus', 'class' => 'form-horizontal']) !!}
 							
 							@include('common.errors')

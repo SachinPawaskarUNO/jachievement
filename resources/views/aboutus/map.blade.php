@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <style>
     html, body {
@@ -36,7 +36,7 @@
         var {{$school->map_name}}= {
             info: '<strong>{{$school->school_name}}</strong><br>\
                     {{$school->school_address}}<br>{{$school->school_city}} {{$school->school_zip}}<br>\
-                    <a id="direction-0">Directions</a>',
+                    <a id="direction-{{$school->sequence_num}}">Directions</a>',
             lat: {{$school->school_latitude}},
             long:{{$school->school_longitude}}
         };

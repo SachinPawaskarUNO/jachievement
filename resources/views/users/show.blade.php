@@ -9,12 +9,16 @@
             </div>
             @if ($user->id != 1) <!-- Administrator -->
             <div class="pull-right">
-                <form action="{{ url('users/'.$user->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
-                    <button style="height: 24px;" type="submit" id="delete-user-{{ $user->id }}" class="btn btn-danger">Delete</button>
+                <form action="{{ url('users/'.$user->id) }}" method="POST"
+                      onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
+                    <button style="height: 24px;" type="submit" id="delete-user-{{ $user->id }}" class="btn btn-danger">
+                        Delete
+                    </button>
                 </form>
             </div>
             <div class="pull-right">
-                <a href="{{ URL::route('users.edit', ['id' => $user->id, 'method' => 'GET']) }}" class="btn btn-primary" style="color: white;">Edit</a>
+                <a href="{{ URL::route('users.edit', ['id' => $user->id, 'method' => 'GET']) }}" class="btn btn-primary"
+                   style="color: white;">Edit</a>
             </div>
             @endif
             <div><h3>View User: {{ $user->name }}</h3></div>

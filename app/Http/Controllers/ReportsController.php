@@ -29,12 +29,7 @@ class ReportsController extends Controller
             ->get();
 
          $chart_data= DB::table('donations')
-             //->select(DB::raw('SUM(donations.amount) as sum,month(donations.created_at) as mon'))
-             //    ->select(DB::raw('SUM(donations.amount) as sum, to_char(donations.created_at,\'Mon\') as mon'))
             ->select(DB::raw('SUM(donations.amount) as sum, EXTRACT(MONTH from donations.created_at) as mon'))
-             // ->where('year(donations.created_at)','=','2016')
-               // ->where('year(donations.created_at)','=','2016')
-           
              ->groupBy(DB::raw('mon'))
              ->orderBy(DB::raw('mon', 'ASC'))
              ->get();
@@ -84,11 +79,3 @@ class ReportsController extends Controller
         })->export('xls');
     }
 }
-
-
-
-// $users = DB::table('orders')
-//                 ->select('department', DB::raw('SUM(price) as total_sales'))
-//                 ->groupBy('department')
-//                 ->havingRaw('SUM(price) > 2500')
-//                 ->get();

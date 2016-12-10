@@ -261,26 +261,6 @@
                     </div>
                 </div>
             </div>
-            {{--            <div class="col-md-3" >
-                            <br>
-                            <br>
-                            <br>
-                            <div class="donation-meter">
-                                <strong>Team Goal</strong>
-                                <strong class="goal">${{$team->goal}}</strong>
-                                 <span class="glass">
-                                <strong class="total" style="bottom: 30%">$100
-                                </strong>
-                                <span class="amount" style="height: 30%"></span>
-                                </span>
-                                <div class="bulb">
-                                    <span class="red-circle"></span>
-                                    <span class="filler">
-                                    <span></span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>--}}
         </div>
     </div>
 

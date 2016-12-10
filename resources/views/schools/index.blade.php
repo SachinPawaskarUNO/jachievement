@@ -16,22 +16,36 @@
                     <div class="panel-body">
                         @include('common.flash')
                         @if (count($schools) > 0)
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped cds-datatable">
-                                <thead> <!-- Table Headings -->
-                                <th>School Name</th><th>School Address</th><th>Status</th>
-                                </thead>
-                                <tbody> <!-- Table Body -->
-                                @foreach ($schools as $school)
-                                    <tr>
-                                        <td class="table-text"><div><a href="{{ url('/schools/'.$school->id.'/edit') }}">{{ $school->school_name }}</a></div></td>
-                                        <td class="table-text"><div>{{ $school->school_address }}, {{ $school->school_city }}</div></td>
-                                        @if ($school->active)<td class="table-text"><div>Active</div></td>@else<td class="table-text"><div>Inactive</div></td>@endif
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped cds-datatable">
+                                    <thead> <!-- Table Headings -->
+                                    <th>School Name</th>
+                                    <th>School Address</th>
+                                    <th>Status</th>
+                                    </thead>
+                                    <tbody> <!-- Table Body -->
+                                    @foreach ($schools as $school)
+                                        <tr>
+                                            <td class="table-text">
+                                                <div>
+                                                    <a href="{{ url('/schools/'.$school->id.'/edit') }}">{{ $school->school_name }}</a>
+                                                </div>
+                                            </td>
+                                            <td class="table-text">
+                                                <div>{{ $school->school_address }}, {{ $school->school_city }}</div>
+                                            </td>
+                                            @if ($school->active)
+                                                <td class="table-text">
+                                                    <div>Active</div>
+                                                </td>@else
+                                                <td class="table-text">
+                                                    <div>Inactive</div>
+                                                </td>@endif
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         @else
                             <div class="panel-body"><h4>No School records found</h4></div>
                         @endif
@@ -44,17 +58,23 @@
 
 @section('footer')
     <style>
-        .table td { border: 0px !important; }
-        .tooltip-inner { white-space:pre-wrap; max-width: 400px; }
+        .table td {
+            border: 0px !important;
+        }
+
+        .tooltip-inner {
+            white-space: pre-wrap;
+            max-width: 400px;
+        }
     </style>
 
     <script>
-        $(document).ready(function() {
-            $('table.cds-datatable').on( 'draw.dt', function () {
-                $('tr').tooltip({html: true, placement: 'auto' });
-            } );
+        $(document).ready(function () {
+            $('table.cds-datatable').on('draw.dt', function () {
+                $('tr').tooltip({html: true, placement: 'auto'});
+            });
 
-            $('tr').tooltip({html: true, placement: 'auto' });
-        } );
+            $('tr').tooltip({html: true, placement: 'auto'});
+        });
     </script>
 @endsection

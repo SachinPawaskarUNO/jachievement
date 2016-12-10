@@ -51,7 +51,6 @@ class CommentsController extends Controller
         $comment = Comment::findOrfail($id);
         $comment->status = 3;
         $comment->update();
-        //return view('comments.index');
         return redirect()->back();
     }
     public function show($id)

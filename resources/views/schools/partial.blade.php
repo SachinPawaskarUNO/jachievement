@@ -1,6 +1,9 @@
+<div style="margin: 5px;">
+    <span style="color:red;">*</span> fields are mandatory
+</div>
 <div class="form-group{{ $errors->has('school_name') ? ' has-error' : '' }}">
     {!! Form::label('school_name', 'School Name:', ['class' => 'col-md-4 control-label']) !!}
-	<span style="color:red;">*</span>
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('school_name', null, ['class' => 'col-md-6 form-control', 'required' => 'required']) !!}
         @if ($errors->has('school_name'))
@@ -13,6 +16,7 @@
 
 <div class="form-group{{ $errors->has('school_address') ? ' has-error' : '' }}">
     {!! Form::label('school_address', 'School Address:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('school_address', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('school_address'))
@@ -25,6 +29,7 @@
 
 <div class="form-group{{ $errors->has('school_city') ? ' has-error' : '' }}">
     {!! Form::label('school_city', 'School City:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('school_city', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('school_city'))
@@ -37,6 +42,7 @@
 
 <div class="form-group{{ $errors->has('school_state_id') ? ' has-error' : '' }}">
     {!! Form::label('school_state_id', 'School State:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::select('school_state_id', $states, null,  ['id'=> 'school_state_id','class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('school_state_id'))
@@ -49,6 +55,7 @@
 
 <div class="form-group{{ $errors->has('school_zip') ? ' has-error' : '' }}">
     {!! Form::label('school_zip', 'School Zip:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('school_zip', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('school_zip'))
@@ -61,6 +68,7 @@
 
 <div class="form-group{{ $errors->has('school_phone') ? ' has-error' : '' }}">
     {!! Form::label('school_phone', 'School Phone:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('school_phone', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('school_phone'))
@@ -73,6 +81,7 @@
 
 <div class="form-group{{ $errors->has('school_latitude') ? ' has-error' : '' }}">
     {!! Form::label('school_latitude', 'Map Latitude:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('school_latitude', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('school_latitude'))
@@ -85,6 +94,7 @@
 
 <div class="form-group{{ $errors->has('school_longitude') ? ' has-error' : '' }}">
     {!! Form::label('school_longitude', 'Map Longitude:', ['class' => 'col-md-4 control-label']) !!}
+    <span style="color:red;">*</span>
     <div class="col-md-6">
         {!! Form::text('school_longitude', null, ['class' => 'col-md-6 form-control']) !!}
         @if ($errors->has('school_longitude'))

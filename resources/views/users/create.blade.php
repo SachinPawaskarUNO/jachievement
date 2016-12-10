@@ -24,7 +24,7 @@
 
 @section('footer')
     <script>
-        $(document).ready(function($) {
+        $(document).ready(function ($) {
             $('select').select2();
         });
 

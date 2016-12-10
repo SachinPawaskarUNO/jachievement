@@ -10,16 +10,18 @@
             text-align: left;
             margin-left: 10%;
             margin-right: 7%;
-            line-height:1.0;
-            padding:0px;
+            line-height: 1.0;
+            padding: 0px;
         }
     </style>
 </head>
 <body style="background-color: #ccc;">
 <hr>
-<br />
-<div class="text-maincontent" style="background-color: #FFF; margin: auto; padding: 20px; width: 450px; border-top: 2px solid #27ae60;">
-<p align="center"><img src="http://photo-host.org/images/2016/12/03/dLNtZweb.png" align="middle" style="width:200px;height:60px;"></p>
+<br/>
+<div class="text-maincontent"
+     style="background-color: #FFF; margin: auto; padding: 20px; width: 450px; border-top: 2px solid #27ae60;">
+    <p align="center"><img src="http://photo-host.org/images/2016/12/03/dLNtZweb.png" align="middle"
+                           style="width:200px;height:60px;"></p>
     <div class="text-center">
         <br>
         <p class="description">Hello,</p>

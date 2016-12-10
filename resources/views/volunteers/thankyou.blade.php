@@ -1,22 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    table{
-        width:100%;
-    }
-    td, th {
-        text-align:left;
-        padding:8px;
-    }
-    th{
-        background-color: #5cb85c;
-    }
-    tr:nth-child(even) {
-        background-color:#f2f2f2;
-    }
+    <style>
+        table {
+            width: 100%;
+        }
 
-</style>
+        td, th {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #5cb85c;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+    </style>
 
     <div class="container">
         <div class="row">

@@ -1,9 +1,9 @@
-
 <div class="panel-group" id="accordion">
     <div class="panel panel-default">
         <div class="panel-heading" style="height: 50px;">
             <div class="pull-left">
-                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseTag" class="">Tags ({{ $skeletalelement->tags->count() }})</a></h4>
+                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseTag" class="">Tags
+                        ({{ $skeletalelement->tags->count() }})</a></h4>
             </div>
         </div>
         <div id="collapseTag" class="panel-collapse collapse in">

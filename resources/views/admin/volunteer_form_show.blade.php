@@ -102,7 +102,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="pull-left">
                         <br>
                         <a href="{{ action('AdminController@listVolunteerForm') }}" class="btn btn-default">Back</a>
