@@ -195,6 +195,17 @@ class DonationController extends Controller
 
         $floatAmount = floatval(str_replace(',', '', $amount));
 
+        $team= DB::table('teams')
+            ->select(DB::raw('teams.id as teamid, teams.name as teamname'))
+            ->where('teams.token', '=',Input::get('team'))
+            ->first();
+
+        $donation->team_id = null;
+        if($team != null) {
+            $teamId = $team->teamid;
+            $donation->team_id = $teamId;
+        }
+
         $params = array( 
             'cancelUrl' => url('donation/cancel'), 
             'returnUrl' => url('donation/thankyou'), 
@@ -207,19 +218,10 @@ class DonationController extends Controller
 
         );
 
-        Mail::send('donation.emails',$data, function($message)use($input)
-        {
 
-            $message->from('juniorachievement.midlands@gmail.com');
-            $message->to(Input::get('email'))->subject('Thank you for Donation');
-
-        });
 
         session()->put('params', $params); // here you save the params to the session so you can use them later.
         session()->save();
-
-
-        
         $gateway = Omnipay::create('PayPal_Express'); 
         $gateway->setUsername('healey-facilitator_api1.jaomaha.net'); // here you should place the email of the business sandbox account 
         $gateway->setPassword('7GTU6F8W8LZ56V7N'); // here will be the password for the account
@@ -234,7 +236,7 @@ class DonationController extends Controller
         if ($response->isRedirect()) { 
             // redirect to offsite payment gateway
             $response->redirect();
-
+            dd(1);
          } 
          else { 
             // payment failed: display message to customer
@@ -245,11 +247,15 @@ class DonationController extends Controller
         } 
 
 
-
-
         Session::flash('flash_message', 'Thank you for your donation');
         Log::info('DonationController.store - End: ' . $object->id);
-        return redirect()->back();
+
+        Mail::send('donation.emails',$data, function($message)use($input)
+        {
+            $message->from('juniorachievement.midlands@gmail.com');
+            $message->to(Input::get('email'))->subject('Thank you for Donation');
+
+        });
 
     }
 
