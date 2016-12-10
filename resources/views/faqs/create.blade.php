@@ -9,11 +9,11 @@
                         <div style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></div>
                     </div>
                     <div class="panel-body">
-                        {!! Form::open(['url' => 'organizations', 'class' => 'form-horizontal']) !!}{!! csrf_field() !!}
+                        {!! Form::open(['url' => 'faqs', 'class' => 'form-horizontal']) !!}{{ csrf_field() }}
                         @include('common.errors')
                         @include('common.flash')
 
-                        @include ('organizations.partial', ['CRUD_Action' => 'Create'])
+                        @include ('faqs.partial', ['CRUD_Action' => 'Create'])
                         {!! Form::close() !!}
                     </div>
                 </div>

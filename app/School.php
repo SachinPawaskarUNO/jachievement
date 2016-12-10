@@ -22,6 +22,6 @@ class School extends Model
      * @var array
      */
     protected $fillable = [
-         'school_name', 'school_address', 'school_city', 'school_state_id', 'school_zip', 'school_phone', 'school_latitude', 'school_longitude', 'active', 'created_by', 'updated_by'
+         'school_name', 'school_address', 'school_city', 'school_state_id', 'school_zip', 'school_phone', 'school_latitude', 'school_longitude', 'active', 'created_by', 'updated_by', 'map_name', 'sequence_num'
     ];
 }

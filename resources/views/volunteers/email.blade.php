@@ -27,7 +27,7 @@
         <p class="description"> Below is the information we have received from you. Please reach out to us if this information is incorrect.</p>
         <p class="description">First Name:                    {{ $first_name }}</p>
         <p class="description">Last Name:                     {{ $last_name }}</p>
-        <p class="description">Preferred School Name:                   {{ $school_preference }}</p>
+        <p class="description">Preferred School Name:         {{ $school_preference_id }}</p>
         <p class="description">Company Name:                  {{ $company_name }}</p>
         <p class="description">Company Address:                {{ $company_address }}</p>
         <p class="description">Company City:                   {{ $company_city }}</p>

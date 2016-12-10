@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="panel-body">
-                        {!! Form::model($event, ['class' => 'form-horizontal', 'method' => 'PATCH', 'action' => ['EventController@update', $event->id]]) !!}
+                        {!! Form::model($event, ['class' => 'form-horizontal', 'method' => 'PATCH', 'action' => ['EventController@update', $event->id]]) !!}{!! csrf_field() !!}
                         @include('common.errors')
                         @include('common.flash')
 

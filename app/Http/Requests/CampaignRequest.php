@@ -27,8 +27,8 @@ class CampaignRequest extends Request
             'name' => 'required|max:100',
             'description' => 'required',
             'image' => 'required',
-            'email' => 'max:50|email',
-            'phone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/|max:10',
+            'email' => 'required|max:50|email',
+            'phone' => 'required|regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/|max:10',
             'event_date' => 'required|date',
             'venue' => 'required'
         ];

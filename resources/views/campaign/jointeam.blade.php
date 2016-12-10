@@ -4,6 +4,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
+			@if (!Auth::check())		
+ 			<div class="alert alert-warning">		
+ 				<strong>Account Required:</strong> Before creating or joining a team, please <a id="loginLink" href="/login">login</a> or <a id="registerLink" href="/register">register</a>.
+ 			</div>		
+ 			@else
+
 			<div class="panel panel-default">
 				<div class="panel-heading" style="background-color:#5cb85c !important;"> <span style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></span></div>
 
@@ -20,6 +26,7 @@
 
 				</div>
 			</div>
+			@endif
 		</div>
 	</div>
 </div>

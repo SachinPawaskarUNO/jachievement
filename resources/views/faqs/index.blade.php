@@ -7,33 +7,33 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div class="pull-right">
-                            <form action="{{ url('/admin/download/volunteerreport') }}" method="GET">{{ csrf_field() }}
-                                <button type="submit" id="download_report" class="btn btn-default">Export To Excel</button>
+                            <form action="{{ url('faqs/create') }}" method="GET">{{ csrf_field() }}
+                                <button type="submit" id="create-faq" class="btn btn-default">Create</button>
                             </form>
                         </div>
-                        <div style="font-size:1.2em;color:white;"><b>Volunteer Information</b></div>
+                        <div style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></div>
                     </div>
                     <div class="panel-body">
-                        @if (count($volunteerInterestForms) > 0)
+                        @include('common.flash')
+                        @if (count($faqs) > 0)
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped cds-datatable">
-                                    <thead>
-                                   <th>Volunteer Name</th><th>Email</th><th>Company Name</th><th>Created Date</th>
+                                    <thead> <!-- Table Headings -->
+                                    <th>Questions</th><th>Answers</th><th>Category</th>
                                     </thead>
                                     <tbody> <!-- Table Body -->
-                                    @foreach ($volunteerInterestForms as $volunteerInterestForm)
+                                    @foreach ($faqs as $faq)
                                         <tr>
-                                            <td class="table-text"><div><a href="{{ url('/admin/volunteerform/'. $volunteerInterestForm->id)}}">{{ $volunteerInterestForm->first_name }} {{$volunteerInterestForm->last_name }}</a></div></td>
-                                            <td class="table-text"><div>{{ $volunteerInterestForm->email }}</div></td>
-                                            <td class="table-text"><div>{{ $volunteerInterestForm->company_name }}</div></td>
-                                            <td class="table-text"><div>{{ $volunteerInterestForm->created_at->format('m/d/Y') }}</div></td>
+                                            <td class="table-text"><div><a href="{{ url('/faqs/'.$faq->id.'/edit') }}">{{ $faq->question }}</a></div></td>
+                                            <td class="table-text"><div>{{ $faq->answer }}</div></td>
+                                            <td class="table-text"><div>{{ $faq->category }}</div></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         @else
-                            <div class="panel-body"><h4>Volunteer Records Not Found</h4></div>
+                            <div class="panel-body"><h4>No FAQ records found</h4></div>
                         @endif
                     </div>
                 </div>

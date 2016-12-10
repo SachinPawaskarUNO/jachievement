@@ -9,7 +9,7 @@
                         <div style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></div>
                     </div>
                     <div class="panel-body">
-                        {!! Form::open(['url' => 'programs', 'class' => 'form-horizontal']) !!}
+                        {!! Form::open(['url' => 'programs', 'class' => 'form-horizontal']) !!}{{ csrf_field() }}
                         @include('common.errors')
                         @include('common.flash')
 
