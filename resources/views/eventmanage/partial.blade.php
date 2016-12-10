@@ -91,7 +91,7 @@
 
 <div class="form-group{{ $errors->has('team_default_content') ? ' has-error' : '' }}">
     {!! Form::label('team_default_content', 'Create Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
-	<span style="color:red;">*</span>
+	
     <div class="col-md-6">
         {!! Form::textarea('team_default_content', null, ['class' => 'col-md-6 form-control', 'rows' => '5']) !!}
         @if ($errors->has('team_default_content'))
@@ -104,7 +104,7 @@
 
 <div class="form-group{{ $errors->has('team_member_default_content') ? ' has-error' : '' }}">
     {!! Form::label('team_member_default_content', 'Join Team Default Content:', ['class' => 'col-md-4 control-label']) !!}
-	<span style="color:red;">*</span>
+	
     <div class="col-md-6">
         {!! Form::textarea('team_member_default_content', null, ['class' => 'col-md-6 form-control', 'rows' => '5']) !!}
         @if ($errors->has('team_member_default_content'))
