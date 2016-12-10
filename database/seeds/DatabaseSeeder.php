@@ -41,6 +41,8 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Donations table seeded!');
         $this->call(StaticContentsTableSeeder::class);
         $this->command->info('Static Content table seeded!');
+        $this->call(FAQsTableSeeder::class);
+        $this->command->info('FAQs table seeded!');
     }
 }
 class TagsTableSeeder extends Seeder {

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class StaticcontentRequest extends Request
+class FAQRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,10 @@ class StaticcontentRequest extends Request
     public function rules()
     {
         $rules = [
-            'item' => 'max:100'
-            ];
-
+            'question' => 'required',
+            'answer' => 'required',
+            'category' => 'required|alpha'
+        ];
         return $rules;
     }
 }

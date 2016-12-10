@@ -13,14 +13,26 @@ use App\State;
 use Session;
 use Auth;
 use Mail;
+use DB;
 
 class EducatorsController extends Controller
 {
     public function index()
     {
+        $staticcontents= DB::table('static_contents')
+          ->select(DB::raw('item, content'))
+          ->where('page','=','Educators')
+          ->get();
+        $contents = array();
+
+        foreach($staticcontents as $static) {
+            $contents[$static->item] = $static->content;
+        }
+
 
         Log::info('EducatorsController: ');
         $this->viewData['heading'] = "Bring Junior Acheivement to Your Classroom!";
+        $this->viewData['contents'] = $contents;
         return view('educators.introduction', $this->viewData);
     }
 
@@ -86,9 +98,19 @@ class EducatorsController extends Controller
 
     public function getInvolved()
     {
+        $staticcontents= DB::table('static_contents')
+          ->select(DB::raw('item, content'))
+          ->where('page','=','Get Involved')
+          ->get();
+        $contents = array();
+
+        foreach($staticcontents as $static) {
+            $contents[$static->item] = $static->content;
+        }
 
         Log::info('EducatorsController: ');
         $this->viewData['heading'] = "Bring Junior Acheivement to Your Classroom!";
+        $this->viewData['contents'] = $contents;
         return view('get_Involved.getinvolved', $this->viewData);
 
     }

@@ -27,21 +27,21 @@
             <h2 class="text-center">JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES</h2>
             <br>
             <div class="col-md-6">
-                <img class="img-responsive" alt="JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES" src="http://lyderis.eu/wp-content/uploads/2011/05/junior-achievement.jpg" width="100%" height="auto">
+                <img class="img-responsive" alt="JUNIOR ACHIEVEMENT'S PURPOSE AND VALUES" src="{{$contents['Top Picture']}}" width="100%" height="auto">
             </div>
             <div class="col-md-6">
 
-                <p><b>Junior Achievement's Purpose is to inspire and prepare young people to succeed in a global economy.</b></p>
+                <p><b>{{$contents['Purpose']}}</b></p>
                 <p><b>Who we are?</b></p>
                 <p>Junior Achievement is the world's largest organization dedicated to giving children the knowledge and skills they need to own their economic success, plan for their future, and make smart academic and economic choices. Junior Achievement programs are delivered by business and community volunteers and provide relevant, hands-on experiences that give students from kindergarten through high school the knowledge and skills in financial literacy, work readiness and entrepreneurship. Founded in 1919, Junior Achievement has operated programs in Omaha since 1962.
                 </p>
                 <p><b>Core Values</b></p>
-                <p><span class="glyphicon glyphicon-star"></span> Belief in the boundless potential of young people</p>
-                <p><span class="glyphicon glyphicon-star"></span> Commitment to the principles of market-based economics and entrepreneurship</p>
-                <p><span class="glyphicon glyphicon-star"></span> Passion for what we do and honesty, integrity, and excellence in how we do it</p>
-                <p><span class="glyphicon glyphicon-star"></span> Respect for the talents, creativity, perspectives, and backgrounds of all individuals</p>
-                <p><span class="glyphicon glyphicon-star"></span> Belief in the power of partnership and collaboration</p>
-                <p><span class="glyphicon glyphicon-star"></span> Conviction in the educational and motivational impact of relevant, hands-on learning</p>
+                <p><span class="glyphicon glyphicon-star"></span> {{$contents['Core Value 1']}}</p>
+                <p><span class="glyphicon glyphicon-star"></span> {{$contents['Core Value 2']}}</p>
+                <p><span class="glyphicon glyphicon-star"></span> {{$contents['Core Value 3']}}</p>
+                <p><span class="glyphicon glyphicon-star"></span> {{$contents['Core Value 4']}}</p>
+                <p><span class="glyphicon glyphicon-star"></span> {{$contents['Core Value 5']}}</p>
+                <p><span class="glyphicon glyphicon-star"></span> {{$contents['Core Value 6']}}</p>
             </div>
         </div>
     </div>
@@ -71,13 +71,13 @@
                 <div class="col-sm-6">
                     <br>
                     <h4 class="text-center"><b>What Is Junior Achievement USA®?</b></h4>
-                    <p class="text-left">We are the nation's largest organization dedicated to giving young people the knowledge and skills they need to own their economic success, plan for their futures, and make smart academic and economic choices. Junior Achievement's programs—in the core content areas of work readiness, entrepreneurship and financial literacy—ignite the spark in young people to experience and realize the opportunities and realities of work and life in the 21st century.</p>
+                    <p class="text-left">{{$contents['What Is Junior Achievement USA']}}</p>
                 </div>
 
                 <div class="col-sm-6">
                     <br>
                     <h4 class="text-center"><b>Proven Success</b></h4>
-                    <p class="text-left">Junior Achievement is one of a few nonprofits to use independent, third-party evaluators to gauge the impact of its programs. Since 1993, independent evaluators have conducted studies on Junior Achievement's effectiveness. Findings prove that Junior Achievement has a positive impact in a number of critical areas. We invite you to read the Programs Evaluation Results.</p>
+                    <p class="text-left">{{$contents['Proven Success']}}</p>
                 </div>
         </div>
 
@@ -85,13 +85,13 @@
             <div class="col-sm-6">
                 <br>
                 <h4 class="text-center"><b>Purpose</b></h4>
-                <p class="text-left">Junior Achievement's purpose is to inspire and prepare young people to succeed in a global economy.</p>
+                <p class="text-left">{{$contents['Purpose']}}</p>
             </div>
 
             <div class="col-sm-6">
                 <br>
                 <h4 class="text-center"><b>Program Reach</b></h4>
-                <p class="text-left">Junior Achievement USA reaches more than 4.6 million students per year in 201,444 classrooms and after-school locations. Junior Achievement programs are taught by volunteers in inner cities, suburbs, and rural areas throughout the United States, by 112 Area Offices in all 50 states.</p>
+                <p class="text-left">{{$contents['Program Reach']}}</p>
             </div>
         </div>
 
@@ -99,13 +99,13 @@
             <div class="col-sm-6">
                 <br>
                 <h4 class="text-center"><b>A Brief History</b></h4>
-                <p class="text-left">Junior Achievement was founded in 1919 by Theodore Vail, president of American Telephone & Telegraph; Horace Moses, president of Strathmore Paper Co.; and Senator Murray Crane of Massachusetts. Its first program, Junior Achievement Company Program®, was offered to high school students on an after-school basis. In 1975, the organization entered the classroom with the introduction of Project Business for the middle grades. Over the last 39 years, Junior Achievement has expanded its activities and broadened its scope to include in-school and after-school students.</p>
+                <p class="text-left">{{$contents['A Brief History']}}</p>
             </div>
 
             <div class="col-sm-6">
                 <br>
                 <h4 class="text-center"><b>Leadership</b></h4>
-                <p class="text-left">Ms. Julie Monaco, Global Head of Citi's Public Sector Group in the Corporate and Investment Banking division of Citi's Institutional Clients Group, is chairwoman of the Junior Achievement USA board of directors. Jack E. Kosakowski is the president and chief executive officer of Junior Achievement. Junior Achievement USA board members represent a wide range of businesses and academic institutions around the world. In addition, approximately 4,400 board members lead Junior Achievement Area Offices around the United States.</p>
+                <p class="text-left">{{$contents['Leadership']}}</p>
             </div>
         </div>
 
@@ -113,13 +113,13 @@
             <div class="col-sm-6">
                 <br>
                 <h4 class="text-center"><b>Organization Overview</b></h4>
-                <p class="text-left">Junior Achievement USA is headquartered in Colorado Springs, Colorado, and provides strategic direction, leadership, and support to approximately 1,500 employees throughout the United States. Local volunteer boards of directors comprised of business, education, and civic leaders set the policy and direction for each local office.</p>
+                <p class="text-left">{{$contents['Organization Overview']}}</p>
             </div>
 
             <div class="col-sm-6">
                <br>
                <h4 class="text-center"><b>Volunteers</b></h4>
-               <p class="text-left">Junior Achievement's 218,896 classroom volunteers come from all walks of life, including: business people, college students, parents and retirees. These dedicated individuals are the backbone of our organization.</p>
+               <p class="text-left">{{$contents['Volunteers']}}</p>
             </div>
         </div>
     </div>
