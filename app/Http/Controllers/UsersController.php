@@ -39,7 +39,7 @@ class UsersController extends Controller
         if ($this->user->is('superadmin')){
             $this->users = User::all();
         } else {
-            $this->users = DB::select("SELECT * FROM users left join role_user on users.id = role_user.user_id WHERE role_id is null or role_id not in (select id from roles where name = 'superadmin')");
+            $this->users = DB::select("SELECT * FROM users left join role_user on users.id = role_user.user_id WHERE (role_id is null or role_id not in (select id from roles where name = 'superadmin')) and users.deleted_at is null");
         }
 
         if ($this->user->is('superadmin')){

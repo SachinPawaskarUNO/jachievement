@@ -7,10 +7,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div class="pull-right">
-                            <form action="{{ url('users/'.$user->id) }}" method="POST"
-                                  onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
-                                <button type="submit" id="delete" class="btn btn-default">Delete</button>
-                            </form>
+                        <form action="{{ url('users/'.$user->id) }}" method="POST" onsubmit="return ConfirmUserDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
+                               <button type="submit" id="delete" class="btn btn-default">Delete</button>
+                           </form>
                         </div>
                         <div style="font-size:1.2em;color:white;"><b>{{ $heading }}</b></div>
                     </div>
@@ -31,7 +30,7 @@
 
 @section('footer')
     <script>
-        $(document).ready(function ($) {
+        $(document).ready(function($) {
             $('select').select2();
         });
 
@@ -45,6 +44,16 @@
                 rc = false;
             }
             return rc;
+        }
+
+        function ConfirmUserDelete() {
+            var x = confirm("Are you sure you want to delete this user? The account and email address will not be able to be re-enabled. Instead, consider deactivating the user.");
+
+            if (x) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
     </script>

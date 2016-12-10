@@ -10,7 +10,7 @@ class UsersTableSeeder extends Seeder {
     public function run()
     {
         DB::table('users')->delete();
-        User::create([  'first_name' => 'John', 'last_name' => 'Healey', 'password' => bcrypt('secret'), 'email' => 'jheadley@jaomaha.net', 'active' => true,
+        User::create([  'first_name' => 'John', 'last_name' => 'Healey', 'password' => bcrypt('secret'), 'email' => 'jhealey@jaomaha.net', 'active' => true,
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
         User::create([  'first_name' => 'Roxanne', 'last_name' => 'Mulvey', 'password' => bcrypt('secret'), 'email' => 'mulvey@jaomaha.net', 'active' => true,
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);

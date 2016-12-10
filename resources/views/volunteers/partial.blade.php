@@ -9,6 +9,7 @@
 </div>
 
 
+
 <div class="form-group">
     <div class="col-md-10">
         {!! Form::checkbox('elementarySchoolProgram', 1, false, ['id'=> 'elementarySchoolProgram', 'class' => 'check1']) !!}
@@ -65,10 +66,8 @@
 
 <div class="form-group">
     <div class="col-md-12">
-        <p><i>Each classroom is visited once-a-week with the teacher and the volunteer deciding a mutually convenient
-                day and time.
-                The Junior Achievement staff will work with you in matching you to a school and grade level of your
-                choice.</i></p>
+        <p><i>Each classroom is visited once-a-week with the teacher and the volunteer deciding a mutually convenient day and time.
+                The Junior Achievement staff will work with you in matching you to a school and grade level of your choice.</i></p>
     </div>
 </div>
 
@@ -164,6 +163,7 @@
         @endif
     </div>
 </div>
+
 
 
 <div class="form-group{{ $errors->has('company_zip') ? ' has-error' : '' }}">

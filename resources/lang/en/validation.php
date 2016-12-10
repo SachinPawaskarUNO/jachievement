@@ -108,6 +108,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => ['school_state_id' => 'school state', 
+            'home_state_id' => 'home state',
+            'company_state_id' => 'company state',
+            'list_role' => 'roles'],
 
 ];
