@@ -85,24 +85,17 @@
             <div class="row" ID="4">
                 <div class="col-md-6" ID="5">
                     <img class="img-responsive" alt="Educator with Junior Achievement"
-                         src="https://www.juniorachievement.org/documents/20009/1817412/about-pg.png" width="100%"
+                         src="{{$contents['Top Picture']}}" width="100%"
                          height="auto" ID="6"/>
                 </div>
                 <div class="col-md-6" ID="7">
 
-                    <p style="font-size: 16px" ID="8"> Is your company looking to partner with an organization that
-                        makes a difference in the lives of youth in your community? Junior Achievement provides programs
-                        that are delivered to students in the classroom. Junior Achievement programs are developed with a focus on several
-                        critically needed areas; STEM, Building Leadership Skills, Uplifting At-Risk Communities, Work
-                        Readiness and Soft Skills, Business Ethics, College Readiness, Career and Technical Education
-                        (CTE), Industry Focus (Manufacturing/Health), and Financial Literacy.</p>
+                    <p style="font-size: 16px" ID="8"> {{$contents['Top Description']}}</p>
 
                     <div>
                         <div class="col-md-1"><span class="glyphicon glyphicon-gift" ID="9"></span></div>
                         <div class="col-md-11" ID="10"><h4>YOUR DONATION HELPS JUNIOR ACHIEVEMENT REACH STUDENTS</h4>
-                            <p style="font-size:16px"> Junior Achievement inspires and prepares young people to succeed
-                                in the global economy. By partnering with Junior Achievement, you will empower young
-                                people to own their economic success.</p>
+                            <p style="font-size:16px"> {{$contents['Your Donation']}}</p>
                         </div>
                     </div>
 
@@ -110,9 +103,7 @@
                         <div class="col-md-1" ID="12"><span class="glyphicon glyphicon-grain" ID="13"></span></div>
                         <div class="col-md-11" ID="14"><h4>JUNIOR ACHIEVEMENT WILL HELP PREPARE YOUR FUTURE
                                 WORKFORCE</h4>
-                            <p style="font-size: 16px"> Junior Achievement will help you develop leaders with the
-                                critical skills and the character necessary to succeed in our 21st century
-                                workplace.</p>
+                            <p style="font-size: 16px"> {{$contents['Workforce']}}</p>
                         </div>
                     </div>
 
@@ -120,9 +111,7 @@
                         <div class="col-md-1" ID="15"><span class="glyphicon glyphicon-heart-empty"></span></div>
                         <div class="col-md-11" ID="16"><h4>JUNIOR ACHIEVEMENT PROVIDES AN ENRICHING VOLUNTEER EXPERIENCE
                                 FOR YOUR EMPLOYEES</h4>
-                            <p style="font-size: 16px" ID="17"> Junior Achievement will empower your employees with
-                                quality, skills-based volunteering experiences in our community using proven programs
-                                that change young peoples' lives.</p>
+                            <p style="font-size: 16px" ID="17"> {{$contents['Employees']}} lives.</p>
                         </div>
                     </div>
                 </div>
@@ -148,7 +137,7 @@
                             <div class="hidden-sm clear"> &nbsp;
                             </div>
                             <br>
-                            <p class="program-description"> Every single dollar makes a difference. Donating to Junior Achievement will help to expand Junior Achievement's enriching curriculum to benefit more students.</p>
+                            <p class="program-description"> {{$contents['Donate Now']}}</p>
                             <br>
                             <br>
                             <div class="closing-buttons" align="center" id="button-donate">
@@ -166,7 +155,7 @@
                         <div class="embed-responsive embed-responsive-16by9 text-center" ID="30">
                             <div class="video-embed" style="text-align:center" ID="31">
                                 <iframe allowfullscreen="" frameborder="0" height="200"
-                                        src="https://www.youtube.com/embed/nTmryDIQq6s" width="350" ID="32"></iframe>
+                                        src="{{$contents['Bottom Video']}}" width="350" ID="32"></iframe>
                             </div>
                         </div>
 

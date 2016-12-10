@@ -159,8 +159,20 @@ class InterestformsController extends Controller
     }
 
     public function index() {
+        $staticcontents= DB::table('static_contents')
+          ->select(DB::raw('item, content'))
+          ->where('page','=','Volunteers')
+          ->get();
+        $contents = array();
+
+        foreach($staticcontents as $static) {
+            $contents[$static->item] = $static->content;
+        }
+
+
         Log::info('InterestformsController');
         $this->viewData['heading'] = "Volunteer Introduction Page";
+        $this->viewData['contents'] = $contents;
         return view('volunteers.introduction', $this->viewData);
     }
 }
