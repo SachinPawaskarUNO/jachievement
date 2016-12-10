@@ -16,9 +16,19 @@ class AboutUsController extends Controller
 {
     public function aboutus()
     {
+        $staticcontents= DB::table('static_contents')
+          ->select(DB::raw('item, content'))
+          ->where('page','=','About Us')
+          ->get();
+        $contents = array();
+
+        foreach($staticcontents as $static) {
+            $contents[$static->item] = $static->content;
+        }
 
         Log::info('ProgramController.form: ');
         $this->viewData['heading'] = "About Us";
+        $this->viewData['contents'] = $contents;
         return view('aboutus.index', $this->viewData);
     }
 
