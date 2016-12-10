@@ -84,11 +84,6 @@ class CampaignController extends Controller
     {
         Log::info('CampaignController.joinTeam: ');
 
-        if (Auth::guest()) {
-            Session::flash('warn_flash_message', 'Account Required: Before joining a team, please login or register.');
-            return redirect()->guest('login');
-        }
-
         $data['team_token'] = $teamToken;
 
         $data['action'] = 'join';
@@ -110,11 +105,6 @@ class CampaignController extends Controller
     public function createTeam($campaignId)
     {
         Log::info('CampaignController.createTeam: ');
-
-        if (Auth::guest()) {
-            Session::flash('warn_flash_message', 'Account Required: Before creating a team, please login or register.');
-            return redirect()->guest('login');
-        }
 
         $data['campaignId'] = $campaignId;
         
