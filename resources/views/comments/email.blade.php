@@ -23,13 +23,13 @@
     <div class="text-center">
         <br>
         <p class="description" >Hi Admin,</p>
-        <p class="description"> A new comment has been added by user {{$first_name}}, Please take necessary action. </p>
-        <p class="description"> Below are the post details: </p>
+        <p class="description"> User {{$first_name}} {{$last_name}} added a new comment in the hints and tips board. Please take necessary action. </p>
+        <p class="description"> Here's some of the details about the post: </p>
         <p class="description"> User:  {{$first_name}} {{''}} {{$last_name}} </p>
         <p class="description"> Comment:  {{$text}} </p>
         <p class="description"> Created At:  {{$created_at}} </p>
         <br>
-        <p class="description">Thank You</p>
+        <p class="description">Thank you,</p>
         <p class="description"><b>Junior Achievement of Midlands, Inc.</b></p>
     </div>
 </div>

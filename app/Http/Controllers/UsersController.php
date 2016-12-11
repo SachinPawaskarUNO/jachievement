@@ -88,7 +88,7 @@ class UsersController extends Controller
 
         $object = User::create($input);
         $this->syncRoles($object, $request->input('rolelist'));
-        Session::flash('flash_message', 'User successfully added!');
+        Session::flash('flash_message', 'User was added successfully!');
         Log::info('UsersController.store - End: '.$object->id.'|'.$object->name);
         return redirect('/users');
     }
@@ -113,7 +113,7 @@ class UsersController extends Controller
 
         $object->update($request->all());
         $this->syncRoles($object, $request->input('rolelist'));
-        Session::flash('flash_message', 'User successfully updated!');
+        Session::flash('flash_message', 'User was updated successfully!');
         Log::info('UsersController.update - End: '.$object->id.'|'.$object->name);
         return redirect('/users');
     }

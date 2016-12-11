@@ -61,7 +61,7 @@ class FAQController extends Controller
         $this->populateUpdateFields($request);
         /*$request['active'] = $request['active'] == '' ? false : true;*/
         $object->update($request->all());
-        Session::flash('flash_message', 'FAQ successfully updated!');
+        Session::flash('flash_message', 'FAQ was updated successfully!');
         Log::info('FAQController.update - End: ' . $object->id . '|' . $object->question);
         return redirect('/faqs');
     }
@@ -73,7 +73,7 @@ class FAQController extends Controller
         $input = $request->all();
         $this->populateCreateFields($input);
         $object = FAQ::create($input);
-        Session::flash('flash_message', 'FAQ successfully added!');
+        Session::flash('flash_message', 'FAQ was added successfully!');
         Log::info('FAQController.store - End: ' . $object->id . '|' . $object->question);
         return redirect('/faqs');
     }
@@ -84,7 +84,7 @@ class FAQController extends Controller
         $object = $faqs;
         Log::info('FAQController.destroy: Start: ' . $object->id . '|' . $object->question);
         $object->delete();
-        Session::flash('flash_message', 'FAQ successfully deleted!');
+        Session::flash('flash_message', 'FAQ was deleted successfully!');
         Log::info('FAQController.destroy: End: ');
         return redirect('/faqs');
     }

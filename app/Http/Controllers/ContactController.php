@@ -54,11 +54,11 @@ class ContactController extends Controller
         Mail::send('contactus.emails', $data, function ($message) use ($request) {
             $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands, Inc.');
             $message->bcc('juniorachievement.midlands@gmail.com', 'Admin');
-            $message->to($request->email, $request->name)->subject('Information from Contact Us Page');
+            $message->to($request->email, $request->name)->subject('Thank you for contacting us');
 
         });
 
-        Session::flash('flash_message', 'Thank you for contacting us. We will contact you soon');
+        Session::flash('flash_message', 'Thank you for contacting us. We will contact you soon.');
         return view('contactus.contactus', $this->viewData);
     }
 }

@@ -1,4 +1,4 @@
-Thank you for contacting Junior Achievement of the Midlands.  A representative will be in contact with you soon. 
+Thank you for contacting Junior Achievement of the Midlands.  A representative will contact you soon.
 
 <p>
 Name: {{ $name }}

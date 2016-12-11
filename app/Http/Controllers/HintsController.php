@@ -83,7 +83,7 @@ class HintsController extends Controller
             'created_at' => date('Y-m-d H:i:s'),
         );
 
-        Session::flash('flash_message', 'Comment successfully saved and we are reviewing it before being displayed');
+        Session::flash('flash_message', 'Your comment was saved successfully. It will be published after review.');
         Mail::send('comments.email', $data, function ($message) use ($request) {
             $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands');
             $message->to('juniorachievement.midlands@gmail.com')->subject('New comment added');

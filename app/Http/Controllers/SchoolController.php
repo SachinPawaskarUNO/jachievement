@@ -69,7 +69,7 @@ class SchoolController extends Controller
         }
 
         $object->update($request->all());
-        Session::flash('flash_message', 'School successfully updated!');
+        Session::flash('flash_message', 'School was updated successfully!');
         Log::info('SchoolController.update - End: '.$object->id.'|'.$object->school_name);
         return redirect('/schools');
     }
@@ -87,7 +87,7 @@ class SchoolController extends Controller
         }
 
         $object = School::create($input);
-        Session::flash('flash_message', 'School successfully added!');
+        Session::flash('flash_message', 'School was added successfully!');
         Log::info('SchoolController.store - End: '.$object->id.'|'.$object->school_name);
         return redirect('/schools');
     }
@@ -100,7 +100,7 @@ class SchoolController extends Controller
         {
             Log::info('Authorization successful');
             $object->delete();
-            Session::flash('flash_message', 'School successfully deleted!');
+            Session::flash('flash_message', 'School was deleted successfully!');
 
         }
         Log::info('SchoolController.destroy: End: ');
