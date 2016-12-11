@@ -141,7 +141,7 @@
             <div class="row">
 
                 <div class="col-sm-7">
-                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/ice_person.jpg') }}"
+                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/beautiful_person.jpg') }}"
                          height="500px">
                 </div>
 
