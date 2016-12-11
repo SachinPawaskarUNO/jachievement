@@ -26,7 +26,7 @@ class DonorRequest extends Request
             'firstName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
             'lastName' => 'required|max:100|regex:/^[a-z ,.\'-]+$/i',
             'address' => 'max:100',
-            'city' => 'max:100|alpha',
+            'city' => 'max:100|regex: /^[a-z ,.\'-]+$/i',
             'state' => 'required',
             'zip' => 'required|regex:/^\d{5}(?:[-\s]\d{4})?$/',
             'phone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/',
