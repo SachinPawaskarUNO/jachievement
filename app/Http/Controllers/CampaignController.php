@@ -332,10 +332,10 @@ class CampaignController extends Controller
 
             Mail::send('event.solicitationform', $data, function ($message) use ($receipt, $request) {
                 $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands, Inc');
-                $message->bcc($receipt)->subject('Family and Friends of Junior Achievement');;
+                $message->bcc($receipt)->subject('Invitation for Family and Friends of Junior Achievement');;
             });
         }
-        \Session::flash('flash_message', 'Your solicitation request was sent successfully');
+        \Session::flash('flash_message', 'Your solicitation request was sent successfully!');
         return redirect()->action('CampaignController@team', ['id' => $request->token]);
     }
 
@@ -364,7 +364,7 @@ class CampaignController extends Controller
         foreach ($to as $receipt) {
             Mail::send('event.solicitationformmember', $data, function ($message) use ($receipt, $request) {
                 $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands, Inc');
-                $message->bcc($receipt)->subject('Family and Friends of Junior Achievement');;
+                $message->bcc($receipt)->subject('Invitation for Family and Friends of Junior Achievement');;
             });
         }
         \Session::flash('flash_message', 'Your solicitation request was sent successfully!');

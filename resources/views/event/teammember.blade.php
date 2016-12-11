@@ -167,8 +167,7 @@
 
                             <div class="closing-buttons" align="center" id="button-donate">
                                 <br>
-                                <a class="btn btn-sm btn-success" href="{{ url('/donation/donate')}}"
-                                   id="member_donate">Donate to my goal</a>
+                                <a class="btn btn-sm btn-success" href="{{ url('/donation/donate?team=' . $team->token . '&teammember=' . $teamMember->token)}}" id="member_donate">Donate to my goal</a>
                                 <br><br><br>
                             </div>
                             <div class="donor-link" align="center"><a class="donor-link" href="{{url('/donors')}}">Learn

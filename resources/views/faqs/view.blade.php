@@ -62,7 +62,7 @@ body.cd-overlay::after {
 }
 
 a {
-  color: #008751;
+  /*color: #008751;*/
   text-decoration: none;
 }
 

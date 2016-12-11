@@ -23,10 +23,10 @@
     <div class="text-center">
         <br>
         <p class="description" >Hi {{$first_name }},</p>
-        <p class="description"> Your registration request has been processed successfully. </p>
-        <p class="description"> Please visit our website to learn more about Junior Achievement. </p>
+        <p class="description"> Your registration request was processed successfully. </p>
+        <p class="description"> Please visit our <a href="{{ url('http://jachievement.herokuapp.com/') }}">website</a> to learn more about Junior Achievement. </p>
         <br>
-        <p class="description">Thank You</p>
+        <p class="description">Thank you,</p>
         <p class="description"><b>Junior Achievement of Midlands, Inc.</b></p>
     </div>
 </div>

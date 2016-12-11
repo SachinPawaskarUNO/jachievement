@@ -64,7 +64,7 @@ class ProgramController extends Controller
             Log::info('ProgramController.update - Start: '.$object->id.'|'.$object->name);
             $this->populateUpdateFields($request);
             $object->update($request->all());
-            Session::flash('flash_message', 'Program successfully updated!');
+            Session::flash('flash_message', 'Program was updated successfully!');
             Log::info('ProgramController.update - End: '.$object->id.'|'.$object->name);
 
             return redirect('/programs');
@@ -77,7 +77,7 @@ class ProgramController extends Controller
             $input = $request->all();
             $this->populateCreateFields($input);
             $object = Program::create($input);
-            Session::flash('flash_message', 'Program successfully added!');
+            Session::flash('flash_message', 'Program was added successfully!');
             Log::info('ProgramController.store - End: '.$object->id.'|'.$object->name);
 
             return redirect('/programs');
@@ -92,7 +92,7 @@ class ProgramController extends Controller
             {
                 Log::info('Authorization successful');
                 $object->delete();
-                Session::flash('flash_message', 'Program successfully deleted!');
+                Session::flash('flash_message', 'Program was deleted successfully!');
 
             }
             Log::info('ProgramController.destroy: End: ');
