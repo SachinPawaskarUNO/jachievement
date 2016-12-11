@@ -35,8 +35,6 @@ class EducatorRequest extends Request
             'email' => 'required|max:50|email',
             'grade' => 'max:50',
             'program_theme' => 'max:50',
-            'no_of_classes' => '[a-zA-Z0-9_ ]',
-            'no_of_students_per_class' => '[a-zA-Z0-9_ ]',
             'comments_requests' => 'max:255',
             'cell_phone' => 'regex:/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/|max:10'
         ];
