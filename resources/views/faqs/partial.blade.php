@@ -1,3 +1,6 @@
+<div style="margin: 5px;">
+    <span style="color:red;">*</span> fields are mandatory
+</div>
 <div class="form-group{{ $errors->has('question') ? ' has-error' : '' }}">
     {!! Form::label('question', 'Question:', ['class' => 'col-md-4 control-label']) !!}
 	<span style="color:red;">*</span>
