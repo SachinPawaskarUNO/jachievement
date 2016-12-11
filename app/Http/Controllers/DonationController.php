@@ -189,7 +189,7 @@ class DonationController extends Controller
         else {
             $donation->anonymous = 'no';
         }
-        $donation->status = 'pending';
+        $donation->status = 'paid';
        // $donation->date = date('Y-m-d');
 
         $floatAmount = floatval(str_replace(',', '', $amount));
@@ -240,20 +240,6 @@ class DonationController extends Controller
         $donation->save();
         
         $response = $gateway->purchase($params)->send(); // here you send details to PayPal
-        
-
-        if ($response->isRedirect()) { 
-            // redirect to offsite payment gateway
-            $response->redirect();
-            dd(1);
-         } 
-         else { 
-            // payment failed: display message to customer
-             $donation->status = 'pending';
-             $donation->save();
-            echo $response->getMessage();
-
-        } 
 
 
         Session::flash('flash_message', 'Thank you for your donation');
