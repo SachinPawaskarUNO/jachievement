@@ -7,20 +7,25 @@
             color: #9ACD40;
         }
 
-        .fa-4x     {
+        .fa-4x {
             font-size: 3.5em;
         }
+
         .progress {
             background: rgba(245, 245, 245, 1);
             background: -webkit-linear-gradient(top, rgba(245, 245, 245, 1) 0%, rgba(245, 245, 245, 1) 100%);
             background: linear-gradient(to bottom, rgba(245, 245, 245, 1) 0%, rgba(245, 245, 245, 1) 100%);
-            border: 0px solid rgba(245, 245, 245, 1); border-radius: 25px; height: 17px;
+            border: 0px solid rgba(245, 245, 245, 1);
+            border-radius: 25px;
+            height: 17px;
         }
+
         .progress-bar-custom {
             background: rgba(11, 179, 92, 1);
             background: -webkit-linear-gradient(top, rgba(230, 216, 18, 1) 0%, rgba(11, 179, 92, 1) 100%);
             background: linear-gradient(to bottom, rgba(230, 216, 18, 1) 0%, rgba(11, 179, 92, 1) 100%);
         }
+
         .program-description {
             font-family: "Calibri Light";
             font-size: 18px;
@@ -28,7 +33,7 @@
             text-align: center;
             margin-left: 1%;
             margin-right: 1%;
-            line-height:1.5;
+            line-height: 1.5;
         }
 
         .content-description {
@@ -38,8 +43,9 @@
             text-align: left;
             margin-left: 1.5%;
             margin-right: 1.5%;
-            line-height:1.5;
+            line-height: 1.5;
         }
+
         .raisedgoal {
             font-family: "Calibri";
             font-size: 42px;
@@ -54,9 +60,10 @@
 
         .program-title {
             font-family: "Calibri Light";
-            font-size:24px;
+            font-size: 24px;
             font-weight: 800;
         }
+
         .btn {
             padding: 18px 18px;
             border: 0 none;
@@ -73,44 +80,52 @@
             color: #ffffff;
             border-radius: 0%;
         }
-        .btn-primary:hover,.btn-primary:focus, .btn-primary:active:focus {
+
+        .btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus {
             background: #4CBB17 !important;
         }
 
         /*style for table*/
-        table{
+        table {
             border: 1px solid darkgrey;
             width: 100%;
             margin-left: 0%;
             margin-right: 0%;
         }
-        th{
+
+        th {
             background-color: #5cb85c;
             color: #fff;
             height: 50px;
-            font-family:"Calibri Light";
-            font-size:15pt;
-            font-weight:600;
+            font-family: "Calibri Light";
+            font-size: 15pt;
+            font-weight: 600;
             text-align: center;
             padding: 15px;
             border-bottom: 1px solid #ddd;
         }
-        td{
+
+        td {
             height: 50px;
             vertical-align: bottom;
             padding: 15px;
             border-bottom: 1px solid #ddd;
             text-align: center;
         }
-        tr:nth-child(even){background-color: #f2f2f2}
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
 
         @media screen and (min-width: 900px) {
-            #myModal1 .modal-dialog  {width:900px;}
+            #myModal1 .modal-dialog {
+                width: 900px;
+            }
         }
-        .note
-        {
+
+        .note {
             font-size: 12px;
-            font-weight:200;
+            font-weight: 200;
             color: red;
         }
 
@@ -121,14 +136,14 @@
             @include('common.errors')
             @include('common.flash')
             <h2 class="section-heading text-center">{{$team->name}}</h2>
-            <p style="color: #9d9d9d"  align="center">________________</p>
+            <p style="color: #9d9d9d" align="center">________________</p>
             <br>
             <div class="row">
 
 
-
                 <div class="col-sm-7">
-                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/beautiful_team.jpg') }}" height="500px">
+                    <img class="img-responsive" id="IMG" alt="Image" src="{{ url('images/beautiful_team.jpg') }}"
+                         height="500px">
                 </div>
 
                 <div class="col-sm-5">
@@ -146,28 +161,33 @@
                             </span>
                             <span class="goal">of ${{$team->goalNoDecimal}} goal</span>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-success progress-bar-custom" role="progressbar" aria-valuenow={{$team->current}} aria-valuemin="0" aria-valuemax="100" style=" min-width:2em; width: {{$team->current}}%"></div>
+                                <div class="progress-bar progress-bar-success progress-bar-custom" role="progressbar"
+                                     aria-valuenow={{$team->current}} aria-valuemin="0" aria-valuemax="100"
+                                     style=" min-width:2em; width: {{$team->current}}%"></div>
                             </div>
 
                             <div class="closing-buttons" align="center" id="button-donate">
                                 <br>
-                                <a class="btn btn-sm btn-success" href="{{ url('/donation/donate?team=' . $team->token)}}" id="member_donate">Donate to our goal</a>
-                            <br><br><br>
+                                <a class="btn btn-sm btn-success"
+                                   href="{{ url('/donation/donate?team=' . $team->token)}}" id="member_donate">Donate to
+                                    our goal</a>
+                                <br><br><br>
                             </div>
-                            <div class="donor-link" align="center"><a class="donor-link" href="{{url('/donors')}}">Learn More About Donating</a></div>
+                            <div class="donor-link" align="center"><a class="donor-link" href="{{url('/donors')}}">Learn
+                                    More About Donating</a></div>
                             <div class="hidden-sm clear"> &nbsp;</div>
                             <div class="hidden-sm clear"> &nbsp;</div>
                             <div class="hidden-sm clear"> &nbsp;</div>
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
             <div class="hidden-sm clear"> &nbsp;</div>
             <div class="hidden-sm clear"> &nbsp;</div>
             <div class="row">
                 <div class="col-sm-12">
                     <p class="content-description">{!! nl2br($team->content) !!}</p>
-                <br>
+                    <br>
                 </div>
             </div>
             <div class="row">
@@ -175,37 +195,44 @@
                     <div class="closing-buttons" align="center" id="button-donate">
                         <br>
                         @if($data['button_show'] == 'true')
-                            <a class="btn btn-sm btn-success" href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join Our Team</a>
+                            <a class="btn btn-sm btn-success"
+                               href="{{ action('CampaignController@joinTeam', [$team->token]) }}" id="member_join">Join
+                                Our Team</a>
                         @endif
                         @if($data['link_show']=='show')
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal" href="#myModal1">Invite Friends to Join or Donate </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a id="solicitationLink" class="btn btn-lg btn-success" data-toggle="modal"
+                               href="#myModal1">Invite Friends to Join or Donate </a>
                         @endif
                         @if($data['editable'])
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a class="btn btn-sm btn-success" href="{{ action('CampaignController@editTeam', [$team->token]) }}" id="editLink">Edit Page Contents</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a class="btn btn-sm btn-success"
+                               href="{{ action('CampaignController@editTeam', [$team->token]) }}" id="editLink">Edit
+                                Page Contents</a>
                         @endif
-                            <br><br><br><br>
+                        <br><br><br><br>
                     </div>
                 </div>
             </div>
 
-            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal"
+                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header" style="background-color:#5cb85c !important;">
                             <a class="close" data-dismiss="modal">×</a>
-                            <p align="center"><span style="font-size:1.5em;color:white;"><b>Family & Friends of Junior Achievement</b></span></p>
+                            <p align="center"><span style="font-size:1.5em;color:white;"><b>Family & Friends of Junior
+                                        Achievement</b></span></p>
                         </div>
                         <div class="modal-body">
                             {!! Form::open(['url' => '/event/team', 'class' => 'form-horizontal']) !!}
                             @include('common.errors')
                             <div class="hidden-sm clear"> &nbsp;</div>
                             <div class="form-group{{ $errors->has('teamname') ? ' has-error' : '' }}">
-                                {!! Form::label('teamname', 'Team Title:', ['class' => 'col-md-4 control-label']) !!}
+                                {!! Form::label('teamname', 'Team Name:', ['class' => 'col-md-4 control-label']) !!}
                                 <span style="color:red;">*</span>
                                 <div class="col-md-6">
-                                    {!! Form::text('teamname', $team->title, ['id'=> 'teamname','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
+                                    {!! Form::text('teamname', $team->name, ['id'=> 'teamname','class' => 'col-md-6 form-control','readonly'=>'true', 'required' => 'required']) !!}
                                     @if ($errors->has('teamname'))
                                         <span class="help-block">
                                                 <strong>{{ $errors->first('teamname') }}</strong>
@@ -286,17 +313,25 @@
                     </div>
                 </div>
             </div>
-            <div class="program-description" align="left"><p align="left">Current Members of Team: {{$team->name}} </p></div>
+            <div class="program-description" align="left"><p align="left">Current Members of Team: {{$team->name}} </p>
+            </div>
             <div align="center">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <thead>
-                        <th>Name</th><th>Goal</th><th> Amount Raised</th><th>% Raised</th>
+                        <th>Name</th>
+                        <th>Goal</th>
+                        <th> Amount Raised</th>
+                        <th>% Raised</th>
                         </thead>
                         <tbody> <!-- Table Body -->
                         @foreach ($teamMembers as $teamMember)
                             <tr>
-                                <td class="table-text"><div><a href="{{action('CampaignController@teammember', [$teamMember->token])}}">{{ $teamMember->first_name }} {{ str_limit($teamMember->last_name, $limit = 1, $end = '.')}}</a></div></td>
+                                <td class="table-text">
+                                    <div>
+                                        <a href="{{action('CampaignController@teammember', [$teamMember->token])}}">{{ $teamMember->first_name }} {{ str_limit($teamMember->last_name, $limit = 1, $end = '.')}}</a>
+                                    </div>
+                                </td>
                                 <td class="table-text">
                                     <div>
                                         @if($teamMember->goal != null)
@@ -313,7 +348,8 @@
                                         @else
                                             $0
                                         @endif
-                                    </div></td>
+                                    </div>
+                                </td>
                                 <td class="table-text">
                                     <div>
                                         @if($teamMember->per_raised != null)
@@ -330,10 +366,10 @@
             </div>
         </div>
 
-            </div>
-            <br>
-            <br>
-        </div>
+    </div>
+    <br>
+    <br>
+    </div>
     </div>
 
 @endsection

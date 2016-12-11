@@ -7,7 +7,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#5cb85c !important;">
                         <div class="pull-right">
-                            <form action="{{ url('schools/'.$school->id) }}" method="POST" onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
+                            <form action="{{ url('schools/'.$school->id) }}" method="POST"
+                                  onsubmit="return ConfirmDelete();">{{ csrf_field() }}{{ method_field('DELETE') }}
                                 <button type="submit" id="delete" class="btn btn-default">Delete</button>
                             </form>
                         </div>

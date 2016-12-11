@@ -16,7 +16,6 @@
     }
 </style>
 
-
 <div align="center"><a href= "{{ url('/aboutus/map') }}" class="btn btn-success btn-lg">Local Schools with Junior Achievement</a></div>
 </div>
 <br>
@@ -58,29 +57,25 @@
         </div>
 </div>
 
-
 <div class="container-fluid" style="background-color: rgb(245,245,245)">
     <div class="row">
 		<div class="col-md-6 col-md-offset-3" style="background-color: green">
         <h2 class="text-center" style="color: white">Junior Achievement Facts</h2>
 		</div>
     </div>
-
     <div class="container">
         <div class="row">
-                <div class="col-sm-6">
-                    <br>
-                    <h4 class="text-center"><b>What Is Junior Achievement USA®?</b></h4>
-                    <p class="text-left">{{$contents['What Is Junior Achievement USA']}}</p>
-                </div>
-
-                <div class="col-sm-6">
-                    <br>
-                    <h4 class="text-center"><b>Proven Success</b></h4>
-                    <p class="text-left">{{$contents['Proven Success']}}</p>
-                </div>
+            <div class="col-sm-6">
+                <br>
+                <h4 class="text-center"><b>What Is Junior Achievement USA®?</b></h4>
+                <p class="text-left">{{$contents['What Is Junior Achievement USA']}}</p>
+            </div>
+            <div class="col-sm-6">
+                <br>
+                <h4 class="text-center"><b>Proven Success</b></h4>
+                <p class="text-left">{{$contents['Proven Success']}}</p>
+            </div>
         </div>
-
         <div class="row">
             <div class="col-sm-6">
                 <br>
@@ -94,7 +89,6 @@
                 <p class="text-left">{{$contents['Program Reach']}}</p>
             </div>
         </div>
-
         <div class="row">
             <div class="col-sm-6">
                 <br>
@@ -108,14 +102,12 @@
                 <p class="text-left">{{$contents['Leadership']}}</p>
             </div>
         </div>
-
         <div class="row">
             <div class="col-sm-6">
                 <br>
                 <h4 class="text-center"><b>Organization Overview</b></h4>
                 <p class="text-left">{{$contents['Organization Overview']}}</p>
             </div>
-
             <div class="col-sm-6">
                <br>
                <h4 class="text-center"><b>Volunteers</b></h4>
@@ -124,8 +116,6 @@
         </div>
     </div>
 </div>
-
-
 </html>
 @endsection
 

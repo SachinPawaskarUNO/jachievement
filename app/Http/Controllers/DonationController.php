@@ -262,7 +262,7 @@ class DonationController extends Controller
         Mail::send('donation.emails',$data, function($message)use($input)
         {
             $message->from('juniorachievement.midlands@gmail.com');
-            $message->to(Input::get('email'))->subject('Thank you for Donation');
+            $message->to(Input::get('email'))->subject('Thank you for the donation');
 
         });
 

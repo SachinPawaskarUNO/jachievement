@@ -14,7 +14,8 @@
     <div class="col-md-6 col-md-offset-4">
         <div class="checkbox">
             <label>
-                {{ Form::hidden('resetdefault', false) }}{{ Form::checkbox('resetdefault', true, old('resetdefault')) }} Reset to Default
+                {{ Form::hidden('resetdefault', false) }}{{ Form::checkbox('resetdefault', true, old('resetdefault')) }}
+                Reset to Default
             </label>
         </div>
     </div>

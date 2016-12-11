@@ -62,7 +62,7 @@ class OrganizationController extends Controller
         Log::info('OrganizationController.update - Start: '.$object->id.'|'.$object->name);
         $this->populateUpdateFields($request);
         $object->update($request->all());
-        Session::flash('flash_message', 'Organization successfully updated!');
+        Session::flash('flash_message', 'Organization was updated successfully!');
         Log::info('OrganizationController.update - End: '.$object->id.'|'.$object->name);
 
         return redirect('/organizations');
@@ -75,7 +75,7 @@ class OrganizationController extends Controller
         $input = $request->all();
         $this->populateCreateFields($input);
         $object = Organization::create($input);
-        Session::flash('flash_message', 'Organization successfully added!');
+        Session::flash('flash_message', 'Organization was added successfully!');
         Log::info('OrganizationController.store - End: '.$object->id.'|'.$object->name);
 
         return redirect('/organizations');
@@ -90,7 +90,7 @@ class OrganizationController extends Controller
         {
             Log::info('Authorization successful');
             $object->delete();
-            Session::flash('flash_message', 'Organization successfully deleted!');
+            Session::flash('flash_message', 'Organization was deleted successfully!');
 
         }
         Log::info('OrganizationController.destroy: End: ');

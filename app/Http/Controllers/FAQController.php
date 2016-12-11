@@ -13,21 +13,21 @@ use App\Http\Requests\FAQRequest;
 use Illuminate\Http\Request;
 
 
-
 class FAQController extends Controller
 {
-	public function __construct()
+    public function __construct()
     {
         $this->user = Auth::user();
         $this->faqs = FAQ::all();
         $this->heading = "Frequently Asked Questions";
-        $this->viewData = [ 'user' => $this->user, 'faqs' => $this->faqs, 'heading' => $this->heading ];
+        $this->viewData = ['user' => $this->user, 'faqs' => $this->faqs, 'heading' => $this->heading];
     }
 
-    public function index() {
+    public function index()
+    {
         $this->middleware('role:admin|superadmin');
-    	Log::info('FAQController.index: Start -');
-    	$faqs = FAQ::all();
+        Log::info('FAQController.index: Start -');
+        $faqs = FAQ::all();
         $this->viewData['faqs'] = $faqs;
 
         return view('faqs.index', $this->viewData);
@@ -46,9 +46,9 @@ class FAQController extends Controller
     {
         $this->middleware('role:admin|superadmin');
         $object = $faqs;
-        Log::info('FAQController.edit: '.$object->id.'|'.$object->question);
+        Log::info('FAQController.edit: ' . $object->id . '|' . $object->question);
         $this->viewData['faq'] = $object;
-        $this->viewData['heading'] = "Edit FAQ: ".$object->question;
+        $this->viewData['heading'] = "Edit FAQ: " . $object->question;
 
         return view('faqs.edit', $this->viewData);
     }
@@ -57,12 +57,12 @@ class FAQController extends Controller
     {
         $this->middleware('role:admin|superadmin');
         $object = $faqs;
-        Log::info('FAQController.update - Start: '.$object->id.'|'.$object->question);
+        Log::info('FAQController.update - Start: ' . $object->id . '|' . $object->question);
         $this->populateUpdateFields($request);
         /*$request['active'] = $request['active'] == '' ? false : true;*/
         $object->update($request->all());
-        Session::flash('flash_message', 'FAQ successfully updated!');
-        Log::info('FAQController.update - End: '.$object->id.'|'.$object->question);
+        Session::flash('flash_message', 'FAQ was updated successfully!');
+        Log::info('FAQController.update - End: ' . $object->id . '|' . $object->question);
         return redirect('/faqs');
     }
 
@@ -72,10 +72,9 @@ class FAQController extends Controller
         Log::info('FAQController.store - Start: ');
         $input = $request->all();
         $this->populateCreateFields($input);
-        /*$input['active'] = $request['active'] == '' ? false : true;*/
         $object = FAQ::create($input);
-        Session::flash('flash_message', 'FAQ successfully added!');
-        Log::info('FAQController.store - End: '.$object->id.'|'.$object->question);
+        Session::flash('flash_message', 'FAQ was added successfully!');
+        Log::info('FAQController.store - End: ' . $object->id . '|' . $object->question);
         return redirect('/faqs');
     }
 
@@ -83,17 +82,19 @@ class FAQController extends Controller
     {
         $this->middleware('role:admin|superadmin');
         $object = $faqs;
-        Log::info('FAQController.destroy: Start: '.$object->id.'|'.$object->question);
+        Log::info('FAQController.destroy: Start: ' . $object->id . '|' . $object->question);
         $object->delete();
-        Session::flash('flash_message', 'FAQ successfully deleted!');
+        Session::flash('flash_message', 'FAQ was deleted successfully!');
         Log::info('FAQController.destroy: End: ');
         return redirect('/faqs');
     }
-    public function view() {
-        $faqs= DB::table('faqs')
+
+    public function view()
+    {
+        $faqs = DB::table('faqs')
             ->select(DB::raw('faqs.question as question,faqs.answer as answer, 
                     faqs.category as category'))
-            ->orderBY('question','asc')
+            ->orderBY('question', 'asc')
             ->whereNull('deleted_at')
             ->get();
 
@@ -103,7 +104,7 @@ class FAQController extends Controller
             ->whereNull('deleted_at')
             ->get();
 
-        return view('faqs.view',compact('faqs','categories'));
+        return view('faqs.view', compact('faqs', 'categories'));
 
     }
 }

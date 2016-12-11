@@ -120,18 +120,6 @@ class InterestformsController extends Controller
             }
         }
 
-      /*  $data = array(
-            'name' => $request->first_name,
-            'email' => $request->email
-        );
-
-        Mail::send('educators.emails',$data, function($message)use($request)
-        {
-            $message->from('juniorachievement.midlands@gmail.com');
-            $message->bcc($request->email, $request->name);
-            $message->to('juniorachievement.midlands@gmail.com', 'Admin')->subject('Information from Educator Interest form');
-        });*/
-
         $receipt= $request->email;
         $data = array(
             'first_name' => $request->first_name,
@@ -155,11 +143,9 @@ class InterestformsController extends Controller
         {
             $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands');
             $message->cc('juniorachievement.midlands@gmail.com');
-            $message->to($receipt)->subject('Volunteer request form submitted successfully');
+            $message->to($receipt)->subject('Volunteer request form was submitted successfully');
         });
 
-        //Session::flash('flash_message', 'Thank you for registering as a Volunteer! We will contact you soon');
-       // Log::info('InterestformsController.store - End: '.$object->id);
         return view('volunteers.thankyou');
 
     }
@@ -174,7 +160,6 @@ class InterestformsController extends Controller
         foreach($staticcontents as $static) {
             $contents[$static->item] = $static->content;
         }
-
 
         Log::info('InterestformsController');
         $this->viewData['heading'] = "Volunteer Introduction Page";

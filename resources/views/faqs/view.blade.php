@@ -62,7 +62,7 @@ body.cd-overlay::after {
 }
 
 a {
-  color: #008751;
+  /*color: #008751;*/
   text-decoration: none;
 }
 
@@ -529,12 +529,12 @@ table {
    </header>
                    
 <section class="cd-faq">
-    <ul class="cd-faq-categories">
+{{--    <ul class="cd-faq-categories">
         @foreach($categories as $category)
         <li><a href="#basics">{{strtoupper($category->cat)}}</a></li>
         @endforeach
-    </ul> <!-- cd-faq-categories -->
-    <div class="cd-faq-items">
+    </ul> <!-- cd-faq-categories -->--}}
+    {{--<div class="cd-faq-items">--}}
         @foreach($categories as $category)
         <ul id="basics" class="cd-faq-group">
             <li class="cd-faq-title"><h2>{{$category->cat}}</h2></li>
@@ -550,7 +550,7 @@ table {
             @endforeach
         </ul>
         @endforeach<!-- cd-faq-group -->
-    </div> <!-- cd-faq-items -->
+{{--    </div> <!-- cd-faq-items -->--}}
 
     <a href="#0" class="cd-close-panel">Close</a>
 
