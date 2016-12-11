@@ -76,6 +76,11 @@ class ProgramController extends Controller
             Log::info('ProgramController.store - Start: ');
             $input = $request->all();
             $this->populateCreateFields($input);
+        
+            $test= DB::sequence('programs_id_seq')
+            ->select(DB::raw('last_value'))
+            ->get();
+
             $object = Program::create($input);
             Session::flash('flash_message', 'Program was added successfully!');
             Log::info('ProgramController.store - End: '.$object->id.'|'.$object->name);
