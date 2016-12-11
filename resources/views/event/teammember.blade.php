@@ -167,8 +167,7 @@
 
                             <div class="closing-buttons" align="center" id="button-donate">
                                 <br>
-                                <a class="btn btn-sm btn-success" href="{{ url('/donation/donate')}}"
-                                   id="member_donate">Donate to my goal</a>
+                                <a class="btn btn-sm btn-success" href="{{ url('/donation/donate?team=' . $team->token . '&teammember=' . $teamMember->token)}}" id="member_donate">Donate to my goal</a>
                                 <br><br><br>
                             </div>
                             <div class="donor-link" align="center"><a class="donor-link" href="{{url('/donors')}}">Learn
@@ -254,7 +253,7 @@
                                 {!! Form::label('message', 'Message:', ['class' => 'col-md-4 control-label']) !!}
                                 <span style="color:red;">*</span>
                                 <div class="col-md-6">
-                                    {!! Form::textarea('user_message',$team->content, ['id'=> 'user_message', 'class' => 'col-md-6 form-control', 'required' => 'required', 'maxLength' => '2000']) !!}
+                                    {!! Form::textarea('user_message',$teamMember->content, ['id'=> 'user_message', 'class' => 'col-md-6 form-control', 'required' => 'required', 'maxLength' => '2000']) !!}
                                     @if ($errors->has('user_message'))
                                         <span class="help-block">
                                                 <strong>{{ $errors->first('user_message') }}</strong>
@@ -270,7 +269,7 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     {!! Form::button('<i class="fa fa-submit"></i>Submit', ['type' => 'submit', 'id'=>'submit', 'class' => 'btn btn-success']) !!}
-                                    {!! Form::button('<i class="fa fa-default"></i>Cancel', ['type' => 'cancel', 'id'=>'close', 'class' => 'btn btn-default', 'data-dismiss' => 'modal']) !!}
+                                    {!! Form::button('<i class="fa fa-default"></i>Cancel', ['type' => 'cancel', 'id'=>'close', 'class' => 'btn btn-warning', 'data-dismiss' => 'modal']) !!}
                                 </div>
                             </div>
                             <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">

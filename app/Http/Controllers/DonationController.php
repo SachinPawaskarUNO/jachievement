@@ -205,6 +205,16 @@ class DonationController extends Controller
             $donation->team_id = $teamId;
         }
 
+        $teammember = DB::table('team_members')
+            ->select(DB::raw('team_members.id as teammemberid'))
+            ->where('team_members.token', '=',Input::get('teammember'))
+            ->first();
+
+        $donation->team_member_id = null;
+        if($teammember != null) {
+            $donation->team_member_id = $teammember->teammemberid;
+        }
+
         $params = array( 
             'cancelUrl' => url('donation/cancel'), 
             'returnUrl' => url('donation/thankyou'), 
@@ -230,20 +240,6 @@ class DonationController extends Controller
         $donation->save();
         
         $response = $gateway->purchase($params)->send(); // here you send details to PayPal
-        
-
-        if ($response->isRedirect()) { 
-            // redirect to offsite payment gateway
-            $response->redirect();
-            dd(1);
-         } 
-         else { 
-            // payment failed: display message to customer
-             $donation->status = 'pending';
-             $donation->save();
-            echo $response->getMessage();
-
-        } 
 
 
         Session::flash('flash_message', 'Thank you for your donation');

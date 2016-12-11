@@ -72,6 +72,14 @@ class OrganizationController extends Controller
     {
         $this->middleware('role:admin|superadmin');
         Log::info('OrganizationController.store - Start: ');
+
+         $test= DB::table('organizations')
+                ->select(DB::raw('organizations.id as id'))
+
+
+                ->get();
+
+
         $input = $request->all();
         $this->populateCreateFields($input);
         $object = Organization::create($input);
