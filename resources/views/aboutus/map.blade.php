@@ -11,7 +11,7 @@
     #map {
         border: 8px solid #4CAF50;
         height: 75%;
-        width: 80%;
+        width: 75%;
         margin: auto;
         padding: auto;
         position:relative;
@@ -19,15 +19,17 @@
 </style>
 <title>Schools Map</title>
 <meta charset="utf-8">
-<body style="background-color: rgba(140,198,62,0.85)">
+<body>
 <div class="container">
-    <h1 style="color:white">Get Involved with Junior Achievement!</h1>
-    <p style="color:white">If you would like to volunteer, request a program, or volunteer with Junior Achievement,
+    <h2 class="text-center">Get Involved with Junior Achievement!</h2><br>
+    <p>If you would like to volunteer, request a program, or volunteer with Junior Achievement,
         please reach out to a school near you!</p>
 </div>
 
-<div id="map"></div>
-<br><br>
+
+<div id="map" class="row"><br><br></div>
+
+
 <script>
     var map;
     function initMap() {
