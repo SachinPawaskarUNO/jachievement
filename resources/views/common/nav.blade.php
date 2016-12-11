@@ -65,11 +65,11 @@
                             <li><a id="ja_nav_roles" href="{{ url('/roles') }}">Manage Roles</a></li>
                         @endrole
                         <li><a id="ja_nav_users" href="{{ url('/users') }}">Manage Users</a></li>
+                        <li><a id="ja_nav_schools" href="{{ url('/admin/comments/index') }}">Manage Comments</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/events') }}">Manage Events</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/faqs') }}">Manage FAQs</a></li>
                         <li><a id="ja_nav_programs" href="{{ url('/programs') }}">Manage Programs</a></li>
                         <li><a id="ja_nav_schools" href="{{ url('/schools') }}">Manage Schools</a></li>
-                        <li><a id="ja_nav_schools" href="{{ url('/admin/comments/index') }}">Manage Comments</a></li>
                         <li><a id="ja_nav_programs" href="{{ url('/organizations') }}">Manage Organizations</a></li>
                         <li><a id="ja_nav_static" href="{{ url('/staticcontents') }}">Manage Static Content</a></li>
 
