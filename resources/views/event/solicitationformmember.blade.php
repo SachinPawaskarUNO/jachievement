@@ -26,13 +26,13 @@
         <br>
         <p class="description">Hello,</p>
         <p class="description">{{ $user_message }}</p>
-        <p class="description">For more information, please click on the below link.</p>
+        <p class="description">For more information, please click on the link below.</p>
+        <p class="description">Note: If you are not a registered user, please register first before clicking the link.</p>
         <p class="description">{{ $url }}</p>
-        <p class="description">Once again, I would like to welcome you to my personal page and support me.</p>
-        <br>
-        <p class="description">Thank You</p>
+        <p class="description">Once again, I would like to welcome you to my team <b>{{$teamname}}</b>. Please support us.</p>
+        <p class="description">Thank you,</p>
         <p class="description"><b>{{$firstname}} {{$lastname}}</b></p>
-        <p class="description"><b>Junior Achievement of Midlands, Inc.</b></p>
+
     </div>
 </div>
 <br>

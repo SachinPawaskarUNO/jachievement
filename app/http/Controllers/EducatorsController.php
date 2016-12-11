@@ -88,7 +88,7 @@ class EducatorsController extends Controller
         Mail::send('educators.email',$data, function($message)use($receipt,$request)
         {
             $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands');
-            $message->to($receipt)->subject('Educator request form submitted successfully');
+            $message->to($receipt)->subject('Educator request form was submitted successfully');
             $message->cc('juniorachievement.midlands@gmail.com');
         });
 

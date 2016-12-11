@@ -66,7 +66,7 @@ class EventController extends Controller
         $request['active'] = $request['active'] == '' ? false : true;
         $request['create_team'] = $request['create_team'] == '' ? false : true;
         $object->update($request->all());
-        Session::flash('flash_message', 'Event successfully updated!');
+        Session::flash('flash_message', 'Event was updated successfully!');
         Log::info('EventController.update - End: ' . $object->id . '|' . $object->name);
 
         return redirect('/events');
@@ -81,7 +81,7 @@ class EventController extends Controller
         $input['active'] = $request['active'] == '' ? false : true;
         $input['create_team'] = $request['create_team'] == '' ? false : true;
         $object = Campaign::create($input);
-        Session::flash('flash_message', 'Event successfully added!');
+        Session::flash('flash_message', 'Event was added successfully!');
         Log::info('EventController.store - End: ' . $object->id . '|' . $object->name);
 
         return redirect('/events');
@@ -95,7 +95,7 @@ class EventController extends Controller
         if ($this->authorize('destroy', $object)) {
             Log::info('Authorization successful');
             $object->delete();
-            Session::flash('flash_message', 'Event successfully deleted!');
+            Session::flash('flash_message', 'Event was deleted successfully!');
 
         }
         Log::info('EventController.destroy: End: ');

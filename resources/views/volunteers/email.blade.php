@@ -44,9 +44,9 @@
         <p class="description">Zip: {{ $home_zip }}</p>
         <p class="description">Email: {{ $email }}</p>
         <p class="description">Mode of contact: {{ $mode_of_contact }}</p>
-        <p class="description"> Please visit our website to learn more about Junior Achievement. </p>
+        <p class="description"> Please visit our <a href="{{ url('http://jachievement.herokuapp.com/') }}">website</a> to learn more about Junior Achievement. </p>
         <br>
-        <p class="description">Thank You</p>
+        <p class="description">Thank you,</p>
         <p class="description"><b>Junior Achievement of Midlands, Inc.</b></p>
     </div>
 </div>

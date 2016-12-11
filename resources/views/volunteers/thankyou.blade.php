@@ -23,7 +23,7 @@
 
     <div class="container">
         <div class="row">
-            <h3 class="text-center">Thank you for registering as a Volunteer! We will contact you soon</h3>
+            <h3 class="text-center">Thank you for registering as a Volunteer! We will contact you soon.</h3>
         </div>
     </div>
 @endsection

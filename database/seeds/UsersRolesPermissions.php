@@ -10,11 +10,11 @@ class UsersTableSeeder extends Seeder {
     public function run()
     {
         DB::table('users')->delete();
-        User::create([  'first_name' => 'John', 'last_name' => 'Healey', 'password' => bcrypt('secret'), 'email' => 'jhealey@jaomaha.net', 'active' => true,
+        User::create([  'first_name' => 'John', 'last_name' => 'Healey', 'password' => bcrypt('secret'), 'email' => 'healey@jaomaha.net', 'active' => true,
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
         User::create([  'first_name' => 'Roxanne', 'last_name' => 'Mulvey', 'password' => bcrypt('secret'), 'email' => 'mulvey@jaomaha.net', 'active' => true,
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
-        User::create([  'first_name' => 'Robert', 'last_name' => 'Guillard', 'password' => bcrypt('secret'), 'email' => 'rguillard@unomaha.edu', 'active' => true,
+        User::create([  'first_name' => 'Robert', 'last_name' => 'Guillard', 'password' => bcrypt('secret'), 'email' => 'rpguillard@gmail.com ', 'active' => true,
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);
         User::create([  'first_name' => 'Prerana', 'last_name' => 'Rai', 'password' => bcrypt('secret'), 'email' => 'preranarai@unomaha.edu', 'active' => true,
             'created_by' => 'System', 'updated_by' => 'System', 'created_at' => date_create(), 'updated_at' => date_create()]);

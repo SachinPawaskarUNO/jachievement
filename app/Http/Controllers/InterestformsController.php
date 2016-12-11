@@ -143,7 +143,7 @@ class InterestformsController extends Controller
         {
             $message->from('juniorachievement.midlands@gmail.com', 'Junior Achievement of Midlands');
             $message->cc('juniorachievement.midlands@gmail.com');
-            $message->to($receipt)->subject('Volunteer request form submitted successfully');
+            $message->to($receipt)->subject('Volunteer request form was submitted successfully');
         });
 
         return view('volunteers.thankyou');

@@ -26,7 +26,7 @@
         <br>
         <p class="description">Hi {{$first_name }},</p>
         <p class="description"> Thank you for registering as an Educator! We will contact you soon. </p>
-        <p class="description"> Below is the information we have received from you. Please reach out to us if this
+        <p class="description"> We received the following information from you. Please reach out to us if this
             information is incorrect.</p>
         <p class="description">First Name: {{ $first_name }}</p>
         <p class="description">Last Name: {{ $last_name }}</p>
@@ -44,10 +44,10 @@
         <p class="description">Comments Requests: {{ $comments_requests }}</p>
         <p class="description">Number of Classes: {{ $no_of_classes }}</p>
         <p class="description">Number of Students per class: {{ $no_of_students_per_class }}
-        <p class="description"> Please visit our website to learn more about Junior Achievement. </p>
+        <p class="description"> Please visit our <a href="{{ url('http://jachievement.herokuapp.com/') }}">website</a> to learn more about Junior Achievement. </p>
 
         <br>
-        <p class="description">Thank You</p>
+        <p class="description">Thank you,</p>
         <p class="description"><b>Junior Achievement of Midlands, Inc.</b></p>
     </div>
 </div>
