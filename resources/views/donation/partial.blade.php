@@ -172,5 +172,8 @@
     @if (isset($_GET['team']))
         {!! Form::hidden('team',$_GET['team'], ['id'=> 'team','class' => 'col-md-6 form-control']) !!}
     @endif
+    @if (isset($_GET['teammember']))
+        {!! Form::hidden('teammember',$_GET['teammember'], ['id'=> 'teammember','class' => 'col-md-6 form-control']) !!}
+    @endif
     </div>
 </div>

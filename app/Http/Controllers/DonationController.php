@@ -189,7 +189,7 @@ class DonationController extends Controller
         else {
             $donation->anonymous = 'no';
         }
-        $donation->status = 'paid';
+        $donation->status = 'pending';
        // $donation->date = date('Y-m-d');
 
         $floatAmount = floatval(str_replace(',', '', $amount));
@@ -203,6 +203,16 @@ class DonationController extends Controller
         if($team != null) {
             $teamId = $team->teamid;
             $donation->team_id = $teamId;
+        }
+
+        $teammember = DB::table('team_members')
+            ->select(DB::raw('team_members.id as teammemberid'))
+            ->where('team_members.token', '=',Input::get('teammember'))
+            ->first();
+
+        $donation->team_member_id = null;
+        if($teammember != null) {
+            $donation->team_member_id = $teammember->teammemberid;
         }
 
         $params = array( 
