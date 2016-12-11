@@ -39,7 +39,7 @@ class UserRequest extends Request
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'list_role' => 'required',
+            'rolelist' => 'required|array|min:1',
         ];
 
         if ($this['_method'] == 'PATCH') {
